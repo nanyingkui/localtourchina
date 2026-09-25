@@ -255,7 +255,7 @@
       <section class="card"><div class="section-head"><span class="step">2</span><div><h2>가고 싶은 곳을 골라 주세요</h2><p>각 장소를 ‘꼭 가고 싶어요’ 또는 ‘시간이 되면’으로 표시해 주세요. 방문 순서는 시스템이 정합니다.</p></div></div><div class="priority-list" id="privatePriorities">
         <div class="priority-row"><div><b>국가삼림공원 동문 A/B 코스</b><small>백룡엘리베이터·원가계·천자산 · 보통 종일</small></div><select class="input priority-select" data-private-attraction="forestEast"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>국가삼림공원 남문 코스</b><small>황석채·금편계 도보 · 반일 또는 종일</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="forestSouth"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="forestSouthDuration"><option value="half">반일 코스</option><option value="full">종일 코스</option></select></div></div>
-        <div class="priority-row"><div><b>천문산</b><small>케이블카·천문동·잔도</small></div><select class="input priority-select" data-private-attraction="tianmen"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
+        <div class="priority-row"><div><b>천문산</b><small>표준 4~6시간 또는 핵심 압축 2시간</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="tianmen"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="tianmenDuration"><option value="standard">표준 4~6시간</option><option value="compact">핵심 압축 2시간</option></select></div></div>
         <div class="priority-row"><div><b>황룡동</b><small>동굴·유람선 구간</small></div><select class="input priority-select" data-private-attraction="cave"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>대협곡·유리다리</b><small>계곡·유리다리·엘리베이터</small></div><select class="input priority-select" data-private-attraction="canyon"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>부용진</b><small>폭포마을·야경, 장거리 당일 이동</small></div><select class="input priority-select" data-private-attraction="furong"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
@@ -521,20 +521,24 @@
   const privateModules={
     arrival:{ko:'장가계 도착 · 전용차량 픽업',zh:'抵达张家界・专车接站',intensity:'가벼움',slots:[['도착','공항/역 미팅 · 전용차량 픽업'],['이후','호텔 체크인 · 도착 시각에 따라 식사와 가벼운 산책']]},
     arrivalTianmen:{ko:'장가계 도착 · 천문산',zh:'抵达张家界・天门山',intensity:'보통',slots:[['도착','공항/역 미팅 · 전용차량 픽업'],['오후','천문산 케이블카 · 정상부 · 천문동'],['저녁','식사 · 호텔 체크인']]},
+    arrivalTianmenCompact:{ko:'장가계 도착 · 천문산 핵심 압축',zh:'抵达张家界・天门山2小时精华',intensity:'보통 · 압축',slots:[['도착','공항/역 미팅 · 전용차량 픽업'],['약 2시간','당일 운영 노선에 맞춘 천문산 핵심 구간'],['저녁','식사 · 호텔 체크인']]},
     forestEast:{ko:'국가삼림공원 동문 A/B 종일 코스',zh:'国家森林公园东门A/B全天路线',intensity:'보통~높음',slots:[['08:30','호텔 출발 · 동문 입장'],['오전','백룡엘리베이터 · 원가계'],['점심','가이드가 기준에 맞는 식당 현장 안내'],['오후','천자산 · 케이블카'],['저녁','호텔 귀환 · 저녁식사']]},
     forestEastSlow:{ko:'국가삼림공원 동문 A/B 저강도 종일 코스',zh:'国家森林公园东门A/B低强度全天路线',intensity:'낮음~보통',slots:[['09:00','호텔 출발 · 동문 입장'],['오전','백룡엘리베이터 · 원가계 핵심 전망대'],['점심','충분한 휴식과 식사'],['오후','천자산 핵심 구간 · 케이블카'],['저녁','호텔 귀환']]},
     forestSouthHalf:{ko:'국가삼림공원 남문 반일 코스',zh:'国家森林公园南门半日路线',intensity:'낮음~보통',slots:[['반일','남문 입장'],['이후','황석채 케이블카 왕복 또는 금편계 핵심 구간 산책'],['종료','컨디션에 맞춰 호텔 귀환 또는 자유시간']]},
     forestSouthFull:{ko:'국가삼림공원 남문 종일 코스',zh:'国家森林公园南门全天路线',intensity:'보통',slots:[['08:30','호텔 출발 · 남문 입장'],['오전','황석채 케이블카 · 전망 구간'],['점심','충분한 휴식과 현지 식사'],['오후','금편계 도보 · 컨디션에 맞춰 거리 조절'],['저녁','호텔 귀환']]},
     tianmen:{ko:'천문산 클래식',zh:'天门山经典路线',intensity:'보통',slots:[['09:00','호텔 출발'],['오전','천문산 케이블카 · 정상부'],['점심','현지 식사 · 휴식'],['오후','잔도 · 천문동'],['저녁','시내 호텔 또는 다음 동선 숙박']]},
+    tianmenCompact:{ko:'천문산 핵심 압축 2시간',zh:'天门山2小时精华路线',intensity:'보통 · 압축',slots:[['출발','시내 호텔 출발'],['약 2시간','운영 상황과 대기시간에 맞춘 핵심 구간'],['종료','시내 호텔 귀환 · 상세 노선은 상담 확정']]},
     caveCanyon:{ko:'황룡동 · 대협곡 · 유리다리',zh:'黄龙洞・大峡谷・玻璃桥',intensity:'보통~높음',slots:[['08:30','황룡동 이동 · 동굴 관람'],['점심','현지 식사 · 휴식'],['오후','대협곡 · 유리다리 · 엘리베이터'],['저녁','호텔 귀환']]},
     cave:{ko:'황룡동 · 보봉호 여유 코스',zh:'黄龙洞・宝峰湖轻松路线',intensity:'낮음~보통',slots:[['09:00','황룡동 동굴 관람'],['점심','현지 식사'],['오후','보봉호 유람선 또는 자유시간'],['저녁','호텔 귀환']]},
+    caveOnly:{ko:'황룡동 반일 코스',zh:'黄龙洞半日路线',intensity:'낮음~보통',slots:[['반일','황룡동 이동 · 동굴과 유람선 구간'],['약 2~3시간','관람 후 장가계 시내 호텔 귀환 또는 자유시간']]},
     canyon:{ko:'대협곡 · 유리다리',zh:'大峡谷・玻璃桥',intensity:'보통~높음',slots:[['09:00','대협곡 이동'],['오전','유리다리'],['점심','현지 식사'],['오후','계곡 · 엘리베이터'],['저녁','호텔 귀환']]},
+    canyonBaofeng:{ko:'대협곡 · 유리다리 · 보봉호',zh:'大峡谷・玻璃桥・宝峰湖',intensity:'보통',slots:[['오전','대협곡 · 유리다리'],['점심','현지 식사 · 휴식'],['오후','보봉호 유람선'],['저녁','장가계 시내 호텔 귀환']]},
     baofeng:{ko:'보봉호 · 무릉원 여유 일정',zh:'宝峰湖・武陵源轻松游',intensity:'가벼움',slots:[['오전','보봉호 유람선'],['점심','현지 식사'],['오후','무릉원 자유시간 · 휴식']]},
-    furong:{ko:'부용진 · 폭포마을 · 야경',zh:'芙蓉镇・瀑布古镇・夜景',intensity:'보통 · 장거리',slots:[['오전','여유 있는 출발'],['점심','이동 중 또는 부용진 식사'],['오후','고진 골목 · 폭포'],['저녁','야경 · 저녁식사'],['밤','장가계 귀환']]},
-    fenghuangOut:{ko:'봉황고성 이동 · 고성 1박',zh:'前往凤凰古城・古城住宿一晚',intensity:'보통 · 도시 이동',slots:[['오전','고속철 또는 전용차량 이동'],['점심','봉황 도착 · 호텔 체크인'],['오후','고성 산책 · 홍교 · 타강'],['저녁','봉황고성 야경 · 현지 숙박']]},
-    fenghuangBack:{ko:'봉황고성 여유 관광 · 장가계 귀환',zh:'凤凰古城慢游・返回张家界',intensity:'가벼움 · 도시 이동',slots:[['오전','고성 산책 · 선택 뱃놀이'],['점심','현지 식사 · 자유시간'],['오후','장가계 귀환'],['저녁','장가계 호텔 체크인']]},
+    furong:{ko:'부용진 · 폭포마을 · 야경',zh:'芙蓉镇・瀑布古镇・夜景',intensity:'보통 · 장거리',slots:[['15:00','장가계 시내 출발'],['오후','고진 골목 · 폭포'],['저녁','야경 · 저녁식사'],['22:00','장가계 시내 호텔 귀환']]},
+    fenghuangOut:{ko:'봉황고성 이동 · 고성 1박',zh:'前往凤凰古城・古城住宿一晚',intensity:'보통 · 도시 이동',slots:[['오전','장가계 시내 호텔 체크아웃 · 여유 시간'],['오후','봉황 이동 · 호텔 체크인'],['저녁','고성 산책 · 홍교 · 타강 야경'],['숙박','봉황고성 1박']]},
+    fenghuangBack:{ko:'봉황고성 오전 관광 · 장가계 귀환·샌딩',zh:'凤凰古城上午游・返回张家界送站',intensity:'가벼움 · 도시 이동',slots:[['오전','봉황고성 산책 · 선택 뱃놀이'],['점심','체크아웃 · 장가계 이동'],['출발 전','항공편/열차에 맞춰 장가계 공항·역 샌딩']]},
     free:{ko:'현지 자유시간 · 쇼핑',zh:'当地自由活动・购物',intensity:'가벼움',slots:[['오전','휴식 또는 카페'],['오후','대형마트 · 자유 쇼핑'],['저녁','보행거리·야시장 · 현지 식사']]},
-    departureBaofeng:{ko:'보봉호 · 체크아웃 · 샌딩',zh:'宝峰湖・退房・送站',intensity:'가벼움',slots:[['오전','호텔 조식 · 체크아웃'],['오전~점심','보봉호 유람선 또는 자유 쇼핑'],['출발 전','출발 시각에 맞춰 공항·역 이동']]},
+    departureFree:{ko:'시내 자유시간 · 체크아웃 · 샌딩',zh:'市区自由活动・退房・送站',intensity:'가벼움',slots:[['오전','호텔 조식 · 체크아웃'],['오전~점심','보행거리·대형마트·자유 쇼핑'],['출발 전','출발 시각에 맞춰 공항·역 이동']]},
     departure:{ko:'체크아웃 · 전용차량 샌딩',zh:'退房・专车送站',intensity:'가벼움',slots:[['오전','호텔 조식 · 체크아웃'],['출발 전','항공편/열차 시각에 맞춰 공항·역 이동']]}
   };
   let privatePlan=[],privateUnscheduled=[];
@@ -543,38 +547,47 @@
   const priorityItems=()=>$$('[data-private-attraction]').map(x=>({key:x.dataset.privateAttraction,level:x.value})).filter(x=>x.level!=='none');
   const attractionNames={forestEast:['국가삼림공원 동문 A/B','森林公园东门A/B'],forestSouth:['국가삼림공원 남문','森林公园南门'],tianmen:['천문산','天门山'],cave:['황룡동','黄龙洞'],canyon:['대협곡·유리다리','大峡谷・玻璃桥'],furong:['부용진','芙蓉镇'],fenghuang:['봉황고성','凤凰古城'],baofeng:['보봉호','宝峰湖'],fox:['천문호선 공연','天门狐仙表演'],charm:['매력상서 공연','魅力湘西表演'],towerPhoto:['72기루 외부 촬영','七十二奇楼外部拍照'],towerInside:['72기루 내부 관람','七十二奇楼入场'],shopping:['현지 자유 쇼핑','当地自由购物']};
   function buildPrivatePlan(){
-    const n=daysBetween(val('#privateStart'),val('#privateEnd')),pace=privateRadio('privatePace')||'balanced',mobility=val('#privateMobility'),items=priorityItems(),must=items.filter(x=>x.level==='must').map(x=>x.key),wish=items.filter(x=>x.level==='wish').map(x=>x.key),chosen=[...must,...wish],early=val('#privateArrival')<'11:30',late=val('#privateDeparture')>='18:00';
+    const n=daysBetween(val('#privateStart'),val('#privateEnd')),pace=privateRadio('privatePace')||'balanced',mobility=val('#privateMobility'),items=priorityItems(),must=items.filter(x=>x.level==='must').map(x=>x.key),wish=items.filter(x=>x.level==='wish').map(x=>x.key),chosen=[...must,...wish],arrivalHalf=!!val('#privateArrival')&&val('#privateArrival')<='13:00',departureHalf=!!val('#privateDeparture')&&val('#privateDeparture')>='14:30',phoenixPossible=!!val('#privateDeparture')&&val('#privateDeparture')>='18:00',travelConflict=chosen.includes('furong')&&chosen.includes('fenghuang');
     if(n<2){privatePlan=[];privateUnscheduled=[];return []}
     const modules=[];
     if(chosen.includes('forestEast'))modules.push(pace==='slow'||['low','assist'].includes(mobility)?'forestEastSlow':'forestEast');
     if(chosen.includes('forestSouth'))modules.push(val('#forestSouthDuration')==='full'?'forestSouthFull':'forestSouthHalf');
-    if(chosen.includes('tianmen'))modules.push('tianmen');
-    if(chosen.includes('cave')&&chosen.includes('canyon'))modules.push('caveCanyon'); else {if(chosen.includes('cave'))modules.push('cave');if(chosen.includes('canyon'))modules.push('canyon')}
-    if(chosen.includes('baofeng')&&!chosen.includes('cave'))modules.push('baofeng');
-    if(chosen.includes('furong'))modules.push('furong');
-    if(chosen.includes('fenghuang'))modules.push('fenghuangOut','fenghuangBack');
+    if(chosen.includes('tianmen'))modules.push(val('#tianmenDuration')==='compact'?'tianmenCompact':'tianmen');
+    if(chosen.includes('cave')&&chosen.includes('canyon'))modules.push('caveCanyon');
+    else if(chosen.includes('cave')&&chosen.includes('baofeng'))modules.push('cave');
+    else if(chosen.includes('canyon')&&chosen.includes('baofeng'))modules.push('canyonBaofeng');
+    else {if(chosen.includes('cave'))modules.push('caveOnly');if(chosen.includes('canyon'))modules.push('canyon');if(chosen.includes('baofeng'))modules.push('baofeng')}
+    if(chosen.includes('furong')&&!travelConflict)modules.push('furong');
     if(chosen.includes('shopping'))modules.push('free');
-    const first=early&&modules.includes('tianmen')?'arrivalTianmen':'arrival';if(first==='arrivalTianmen')modules.splice(modules.indexOf('tianmen'),1);
-    const last=late&&(chosen.includes('baofeng')||chosen.includes('shopping'))?'departureBaofeng':'departure';if(last==='departureBaofeng'){const ix=modules.findIndex(x=>x==='baofeng'||x==='free');if(ix>=0)modules.splice(ix,1)}
-    const capacity=Math.max(0,n-2),picked=modules.slice(0,capacity);
+    const moduleAttractions={forestEast:['forestEast'],forestEastSlow:['forestEast'],forestSouthHalf:['forestSouth'],forestSouthFull:['forestSouth'],tianmen:['tianmen'],tianmenCompact:['tianmen'],caveCanyon:['cave','canyon'],cave:['cave','baofeng'],caveOnly:['cave'],canyon:['canyon'],canyonBaofeng:['canyon','baofeng'],baofeng:['baofeng'],furong:['furong'],free:['shopping']};
+    modules.sort((a,b)=>Number(!(moduleAttractions[a]||[]).some(x=>must.includes(x)))-Number(!(moduleAttractions[b]||[]).some(x=>must.includes(x))));
+    const tianmenKey=val('#tianmenDuration')==='compact'?'tianmenCompact':'tianmen',arrivalKey=val('#tianmenDuration')==='compact'?'arrivalTianmenCompact':'arrivalTianmen';
+    const first=arrivalHalf&&modules.includes(tianmenKey)?arrivalKey:'arrival';if(first!== 'arrival')modules.splice(modules.indexOf(tianmenKey),1);
+    const usePhoenix=chosen.includes('fenghuang')&&!travelConflict&&phoenixPossible&&n>=3;
+    const last=departureHalf&&chosen.includes('shopping')?'departureFree':'departure';if(last==='departureFree'){const ix=modules.indexOf('free');if(ix>=0)modules.splice(ix,1)}
+    const capacity=Math.max(0,n-(usePhoenix?3:2)),picked=modules.slice(0,capacity);
     while(picked.length<capacity)picked.push('free');
-    privatePlan=[first,...picked,last];
-    const all=[first,...picked,last],covered=k=>k==='forestEast'?all.some(x=>x==='forestEast'||x==='forestEastSlow'):k==='forestSouth'?all.some(x=>x==='forestSouthHalf'||x==='forestSouthFull'):k==='tianmen'?all.some(x=>x==='tianmen'||x==='arrivalTianmen'):k==='cave'?all.some(x=>x==='cave'||x==='caveCanyon'):k==='canyon'?all.some(x=>x==='canyon'||x==='caveCanyon'):k==='baofeng'?all.some(x=>x==='baofeng'||x==='cave'||x==='departureBaofeng'):k==='fenghuang'?all.includes('fenghuangOut')&&all.includes('fenghuangBack'):['fox','charm','towerPhoto','towerInside'].includes(k)?true:k==='shopping'?all.some(x=>x==='free'||x==='departureBaofeng'):all.includes(k);
+    privatePlan=usePhoenix?[first,...picked,'fenghuangOut','fenghuangBack']:[first,...picked,last];
+    const all=privatePlan,hasAny=keys=>all.some(x=>keys.includes(x));
+    const covered=k=>k==='forestEast'?hasAny(['forestEast','forestEastSlow']):k==='forestSouth'?hasAny(['forestSouthHalf','forestSouthFull']):k==='tianmen'?hasAny(['tianmen','tianmenCompact','arrivalTianmen','arrivalTianmenCompact']):k==='cave'?hasAny(['cave','caveOnly','caveCanyon']):k==='canyon'?hasAny(['canyon','canyonBaofeng','caveCanyon']):k==='baofeng'?hasAny(['baofeng','cave','canyonBaofeng']):k==='fenghuang'?all.includes('fenghuangOut')&&all.includes('fenghuangBack'):k==='furong'?all.includes('furong'):k==='fox'?hasAny(['tianmen','tianmenCompact','arrivalTianmen','arrivalTianmenCompact']):k==='charm'?hasAny(['forestEast','forestEastSlow']):k==='towerPhoto'?hasAny(['arrival','tianmen','tianmenCompact','arrivalTianmen','arrivalTianmenCompact','forestEast','forestEastSlow','free','departureFree']):k==='towerInside'?hasAny(['arrival','tianmen','tianmenCompact','free','departureFree']):k==='shopping'?hasAny(['free','departureFree']):all.includes(k);
     privateUnscheduled=must.filter(k=>!covered(k));
     return privatePlan;
   }
   function privateDateAt(i){const d=localDate(val('#privateStart'));if(!d)return'';d.setDate(d.getDate()+i);return `${d.getMonth()+1}월 ${d.getDate()}일`;}
-  function planAddons(key){const chosen=priorityItems().map(x=>x.key),out=[];if(key==='tianmen'&&chosen.includes('fox'))out.push('저녁 · 천문호선 공연');if((['forestEast','forestEastSlow','forestSouthHalf','forestSouthFull','caveCanyon','cave'].includes(key))&&chosen.includes('charm'))out.push('저녁 · 매력상서 공연');if((key==='arrival'||key==='tianmen'||key==='free')&&chosen.includes('towerInside'))out.push('저녁 · 72기루 내부 관람');else if((key==='arrival'||key==='tianmen'||key==='free')&&chosen.includes('towerPhoto'))out.push('저녁 · 72기루 맞은편 사진 촬영');return out;}
+  function planAddons(key){const chosen=priorityItems().map(x=>x.key),out=[];if(['tianmen','tianmenCompact','arrivalTianmen','arrivalTianmenCompact'].includes(key)&&chosen.includes('fox'))out.push('저녁 · 천문호선 공연');if((['forestEast','forestEastSlow'].includes(key))&&chosen.includes('charm'))out.push('저녁 · 매력상서 공연');const showNight=out.length>0;if(!showNight&&['arrival','tianmen','tianmenCompact','free','departureFree'].includes(key)&&chosen.includes('towerInside'))out.push('저녁 · 72기루 내부 관람 1.5시간');if(['arrival','tianmen','tianmenCompact','arrivalTianmen','arrivalTianmenCompact','forestEast','forestEastSlow','free','departureFree'].includes(key)&&chosen.includes('towerPhoto'))out.push('저녁 · 72기루 맞은편 사진 촬영 약 10분');return out;}
   function renderPrivatePlan(){
     buildPrivatePlan();const n=privatePlan.length,nights=n-1,pace=privateRadio('privatePace')||'balanced',items=priorityItems(),must=items.filter(x=>x.level==='must'),wish=items.filter(x=>x.level==='wish'),alerts=[];
     if(!n){$('#privateDays').innerHTML='<div class="empty">도착일과 출발일을 올바르게 입력해 주세요.</div>';$('#privateOverview').textContent='날짜를 입력해 주세요.';$('#privateInquiry').value='여행 날짜를 입력하면 맞춤 상담 내용이 자동으로 만들어집니다.';$('#privateCopy').disabled=true;return}
     if(n===3)alerts.push('2박 3일 일정은 도착·출발 시각을 반영해 실제로 수행 가능한 핵심 압축 일정으로 제안합니다.');
+    if(items.some(x=>x.key==='furong')&&items.some(x=>x.key==='fenghuang'))alerts.push('부용진과 봉황고성은 같은 여행에서 함께 자동 배정하지 않습니다. 두 곳 중 하나를 선택해 주세요.');
+    if(items.some(x=>x.key==='fenghuang')&&val('#privateDeparture')<'18:00')alerts.push('봉황고성은 마지막 날 오전 관광 후 장가계로 돌아와야 하므로 현재 출발 시각과 충돌합니다. 더 늦은 항공편·열차 또는 일정 변경이 필요합니다.');
+    if(items.some(x=>x.key==='forestEast'))alerts.push('동문 A/B 코스는 체력과 운영 상황에 따라 추천하며, 최종 노선은 상담 시 확정합니다.');
     if(privateUnscheduled.length)alerts.push(`현재 일정에 넣기 어려운 필수 희망지: ${privateUnscheduled.map(k=>attractionNames[k][0]).join(' · ')} — 담당자가 대안을 제안합니다.`);
     if(must.some(x=>x.key==='fenghuang')&&n<6)alerts.push('봉황고성 1박은 이동시간 때문에 5박 6일 이상이 가장 안정적입니다.');
     if(val('#privateArrivalPoint').includes('창사')||val('#privateDeparturePoint').includes('창사'))alerts.push('창사·충칭 등 장가계 밖의 픽업·샌딩은 포함되지 않으며 별도 상담이 필요합니다.');
     if(!alerts.length)alerts.push('선택한 우선순위와 이동 동선을 반영한 참고 일정입니다.');
     $('#privateAlerts').innerHTML=alerts.map((x,i)=>`<div class="private-alert ${alerts.length===1?'private-good':''}">${x}</div>`).join('');
-    $('#privateDays').innerHTML=privatePlan.map((key,i)=>{const m=privateModules[key],addons=planAddons(key);return `<article class="private-day" data-day="DAY ${i+1}"><h3>${m.ko}</h3><p class="day-meta">${privateDateAt(i)} · 호텔 위치는 다음 날 동선에 맞춰 배정</p><div class="timebar">${m.slots.map(s=>`<div class="time-slot"><time>${s[0]}</time><i class="time-dot"></i><span>${s[1]}</span></div>`).join('')}${addons.map(x=>`<div class="time-slot"><time>선택</time><i class="time-dot"></i><span>${x}</span></div>`).join('')}</div><span class="intensity">일정 강도 · ${m.intensity}</span></article>`}).join('');
+    $('#privateDays').innerHTML=privatePlan.map((key,i)=>{const m=privateModules[key],addons=planAddons(key),hotel=key==='fenghuangOut'?'봉황고성 숙박':key==='fenghuangBack'?'봉황 출발 · 장가계 귀환':'장가계 시내 동일 호텔 연박';return `<article class="private-day" data-day="DAY ${i+1}"><h3>${m.ko}</h3><p class="day-meta">${privateDateAt(i)} · ${hotel}</p><div class="timebar">${m.slots.map(s=>`<div class="time-slot"><time>${s[0]}</time><i class="time-dot"></i><span>${s[1]}</span></div>`).join('')}${addons.map(x=>`<div class="time-slot"><time>선택</time><i class="time-dot"></i><span>${x}</span></div>`).join('')}</div><span class="intensity">일정 강도 · ${m.intensity}</span></article>`}).join('');
     const paceKo={active:'핵심 집중',balanced:'여유 균형',slow:'효도·저강도'}[pace],paceZh={active:'紧凑精华',balanced:'轻松均衡',slow:'敬老低强度'}[pace];
     $('#privateOverview').innerHTML=`<b>${nights}박 ${n}일 · ${$('#privatePeople').value||2}명</b><p class="muted-note">${paceKo}<br>${val('#privateStart')} → ${val('#privateEnd')}<br>필수 ${must.length}곳 · 희망 ${wish.length}곳</p>`;
     const formatPriority=(arr,lang)=>arr.length?arr.map(x=>attractionNames[x.key][lang]).join(' · '):(lang?'无':'없음');
@@ -587,8 +600,8 @@
     const mealKo=`매운맛 ${val('#privateSpice')} · ${val('#privateKoreanMeals')} · 제한 ${diet} · 알레르기 ${val('#privateAllergy')||'없음'} · 고급 식당 ${val('#privatePremiumMeal')||'요청 없음'}`;
     const ko=['[로투차 프라이빗 투어 맞춤 일정 요청]',`상품 기록: PRIVATE-CUSTOM / v${CATALOG.version} / ${CATALOG.effective} 시행`,`고객: ${contactName}`,`연락처: ${contact}`,`답변 언어: ${val('#privateLanguage')}`,'',`여행 기간: ${val('#privateStart')} ~ ${val('#privateEnd')} (${nights}박 ${n}일)`,`교통: ${transportKo}`,`인원 / 연령: ${val('#privatePeople')}명 / ${val('#privateAges')||'미입력'}`,`여행 속도 / 보행: ${paceKo} / ${$('#privateMobility option:checked').textContent}`,`건강 메모: ${val('#privateHealth')||'없음'}`,'',`꼭 가고 싶은 곳: ${formatPriority(must,0)}`,`시간이 되면 가고 싶은 곳: ${formatPriority(wish,0)}`,'','[자동 구성 참고 일정]',planKo,'',`객실: ${roomKo}`,`식사: ${mealKo}`,`기타 요청: ${val('#privateNotes')||'없음'}`,'','포함: 고급형 호텔, 전용차량, 한국어 가이드, 일정상 입장권, 호텔 조식 및 매일 중·석식, 장가계 공항/서역 픽업·샌딩','불포함: 장가계까지의 교통, 여행자보험, 술·커피·야식, 개인경비, 미계획 추가비용, 업그레이드 차액','팁: 가이드·기사 팁은 선택사항이며 강제하지 않습니다.','※ 가격은 담당자가 가능 여부와 세부 동선을 확인한 뒤 개별 안내해 주세요.'];
     const zh=['【罗途察私人定制游需求】',`产品记录：PRIVATE-CUSTOM / v${CATALOG.version} / ${CATALOG.effective}生效`,`客人：${contactName}`,`联系方式：${contact}`,`回复语言：${val('#privateLanguage')}`,'',`旅行日期：${val('#privateStart')} ～ ${val('#privateEnd')}（${nights}晚${n}天）`,`人数/年龄：${val('#privatePeople')}人 / ${val('#privateAges')||'未填写'}`,`旅行节奏：${paceZh}`,'',`一定要去：${formatPriority(must,1)}`,`有时间希望安排：${formatPriority(wish,1)}`,'','【系统参考行程】',planZh,'',`房间要求：${roomKo}`,`餐饮要求：${mealKo}`,`其他要求：${val('#privateNotes')||'无'}`,'','包含：高档酒店、专车、韩语导游、行程所需门票、酒店早餐及每日午晚餐、张家界机场/西站接送','不含：往返张家界大交通、旅游保险、酒水咖啡夜宵、个人消费、临时增加项目、升级差价','小费：导游和司机小费自愿，不强制。','※ 请确认可行性和具体路线后人工报价。'];
-    ko[1]='상품 기록: PRIVATE-CUSTOM / v2026.09.25.1 / 2026-09-25 시행';
-    zh[1]='产品记录：PRIVATE-CUSTOM / v2026.09.25.1 / 2026-09-25生效';
+    ko[1]='상품 기록: PRIVATE-CUSTOM / v2026.09.25.2 / 2026-09-25 시행';
+    zh[1]='产品记录：PRIVATE-CUSTOM / v2026.09.25.2 / 2026-09-25生效';
     $('#privateInquiry').value=[...ko,'','──────── 中文版 ────────','',...zh].join('\n');
     $('#privateCopy').disabled=!(val('#privateContactName').trim()&&val('#privateContact').trim());
   }
