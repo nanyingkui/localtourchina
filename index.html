@@ -12,6 +12,8 @@
     @media(min-width:680px){.choices{grid-template-columns:repeat(3,1fr)}.fields.two{grid-template-columns:repeat(2,1fr)}.date-row{grid-template-columns:1fr 1fr}.wrap{padding:28px 24px 80px}.card{padding:24px}.hero{padding:38px 36px}}
     @media(min-width:960px){.grid{grid-template-columns:minmax(0,1.55fr) minmax(320px,.82fr);align-items:start}}
     @media(max-width:400px){.actions{grid-template-columns:1fr}.seg.cols3{grid-template-columns:1fr}.route{min-height:auto}.hero h1{font-size:28px}}
+    [hidden]{display:none!important}.wizard-progress{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:18px}.wizard-progress span{height:5px;border-radius:999px;background:rgba(255,255,255,.25);transition:.25s}.wizard-progress span.active{background:#fff}.wizard-progress-text{display:block;margin-top:8px;font-size:11px;font-weight:800;opacity:.85}.trip-capacity{margin-top:15px;padding:14px 15px;border:1px solid #cfe2db;border-radius:15px;background:var(--soft);color:var(--brand2);font-size:12px;line-height:1.55}.trip-capacity b{display:block;font-size:15px;margin-bottom:3px}.wizard-actions{display:flex;justify-content:space-between;gap:9px;margin-top:18px}.wizard-actions .btn{flex:1}
+    #service-private[data-stage="1"] .summary,#service-private[data-stage="2"] .summary,#service-private[data-stage="3"] .summary{display:none}
   </style>
   <style>
     .topbar{position:sticky;top:0;z-index:20;margin:-18px -16px 18px;padding:11px max(16px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.78);border-bottom:1px solid rgba(223,230,227,.78);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px)}
@@ -238,9 +240,9 @@
   </section>
 
   <section class="service-panel" id="service-private" hidden>
-    <header class="module-head"><span class="brand">PRIVATE TOUR DESIGNER</span><h1>나만의 장가계 여행 만들기</h1><p>가고 싶은 곳과 여행 속도만 고르면 이동시간과 숙박 동선을 고려해 참고 일정을 자동으로 구성합니다.</p></header>
+    <header class="module-head"><span class="brand">PRIVATE TOUR DESIGNER</span><h1>나만의 장가계 여행 만들기</h1><p>가고 싶은 곳과 여행 속도만 고르면 이동시간과 숙박 동선을 고려해 참고 일정을 자동으로 구성합니다.</p><div class="wizard-progress" id="privateProgress"><span class="active"></span><span></span><span></span><span></span><span></span></div><small class="wizard-progress-text" id="privateProgressText">1 / 5 · 여행 기본 정보</small></header>
     <div class="grid"><div class="main">
-      <section class="card"><div class="section-head"><span class="step">1</span><div><h2>도착·출발 정보를 알려 주세요</h2><p>날짜와 시각을 기준으로 숙박 일수와 관광 가능한 시간을 자동 계산합니다.</p></div></div><div class="private-setup">
+      <section class="card" data-private-stage="1"><div class="section-head"><span class="step">1</span><div><h2>도착·출발 정보를 알려 주세요</h2><p>날짜와 시각을 기준으로 숙박 일수와 관광 가능한 시간을 자동 계산합니다.</p></div></div><div class="private-setup">
         <div class="fields two"><div class="field"><label for="privateStart">도착 날짜 <span class="required">*</span></label><input class="input" id="privateStart" type="date"></div><div class="field"><label for="privateArrival">도착 예정 시각</label><input class="input" id="privateArrival" type="time" value="12:00"></div></div>
         <div class="fields two"><div class="field"><label for="privateArrivalType">도착 교통</label><select class="input" id="privateArrivalType"><option>항공편</option><option>열차</option><option>기타</option></select></div><div class="field"><label for="privateArrivalNo">편명·열차번호</label><input class="input" id="privateArrivalNo" placeholder="예: KE163 / G6425"></div></div>
         <div class="field"><label for="privateArrivalPoint">도착 장소</label><select class="input" id="privateArrivalPoint"><option>장가계 허화공항</option><option>장가계 서역</option><option>장가계 시내 기타 교통지점</option><option>창사·충칭 등 별도 문의</option></select></div>
@@ -251,8 +253,9 @@
         <div class="field"><span>여행 속도</span><div class="seg cols3" id="privatePace"><label class="pill"><input type="radio" name="privatePace" value="active">핵심 집중</label><label class="pill selected"><input type="radio" name="privatePace" value="balanced" checked>여유 균형</label><label class="pill"><input type="radio" name="privatePace" value="slow">효도·저강도</label></div></div>
         <div class="field"><label for="privateMobility">보행·이동 상태</label><select class="input" id="privateMobility"><option value="normal">일반 보행·산악 관광 가능</option><option value="less">걷기를 줄이고 케이블카·엘리베이터 선호</option><option value="low">무릎·허리 불편 / 저강도 필요</option><option value="assist">휠체어·특별 보조 필요</option></select></div>
         <div class="field"><label for="privateHealth">건강·이동 관련 메모</label><input class="input" id="privateHealth" placeholder="예: 계단이 어렵습니다 / 80세 어르신 동행"></div>
+        <div class="trip-capacity" id="privateCapacity"><b>여행 날짜를 선택해 주세요</b>선택한 시간에 맞춰 관광 가능한 일정을 계산합니다.</div><div class="wizard-actions"><button class="btn btn-primary" id="privateNextAttractions" type="button" disabled>다음 · 가고 싶은 곳 선택</button></div>
       </div></section>
-      <section class="card"><div class="section-head"><span class="step">2</span><div><h2>가고 싶은 곳을 골라 주세요</h2><p>각 장소를 ‘꼭 가고 싶어요’ 또는 ‘시간이 되면’으로 표시해 주세요. 방문 순서는 시스템이 정합니다.</p></div></div><div class="priority-list" id="privatePriorities">
+      <section class="card" data-private-stage="2" hidden><div class="section-head"><span class="step">2</span><div><h2>가고 싶은 곳을 골라 주세요</h2><p>각 장소를 ‘꼭 가고 싶어요’ 또는 ‘시간이 되면’으로 표시해 주세요. 방문 순서는 시스템이 정합니다.</p></div></div><div class="priority-list" id="privatePriorities">
         <div class="priority-row"><div><b>국가삼림공원 동문 A/B 코스</b><small>백룡엘리베이터·원가계·천자산 · 보통 종일</small></div><select class="input priority-select" data-private-attraction="forestEast"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>국가삼림공원 남문 코스</b><small>황석채·금편계 도보 · 반일 또는 종일</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="forestSouth"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="forestSouthDuration"><option value="half">반일 코스</option><option value="full">종일 코스</option></select></div></div>
         <div class="priority-row"><div><b>천문산</b><small>표준 4~6시간 또는 핵심 압축 2시간</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="tianmen"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="tianmenDuration"><option value="standard">표준 4~6시간</option><option value="compact">핵심 압축 2시간</option></select></div></div>
@@ -266,22 +269,24 @@
         <div class="priority-row"><div><b>72기루 외부 촬영</b><small>맞은편에서 야경 사진 촬영</small></div><select class="input priority-select" data-private-attraction="towerPhoto"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>72기루 내부 관람</b><small>입장 후 공연·상가 관람</small></div><select class="input priority-select" data-private-attraction="towerInside"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>현지 자유 쇼핑</b><small>보행거리·야시장·대형마트·자유시간, 여행사 쇼핑점 아님</small></div><select class="input priority-select" data-private-attraction="shopping"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
+        <div class="wizard-actions"><button class="btn btn-outline" data-private-go="1" type="button">이전</button><button class="btn btn-primary" data-private-go="3" type="button">다음 · 객실과 식사</button></div>
       </div></section>
-      <section class="card"><div class="section-head"><span class="step">3</span><div><h2>객실과 식사 요청을 알려 주세요</h2><p>기본은 고급형 호텔과 일정에 맞는 식사이며, 업그레이드는 별도 견적입니다.</p></div></div><div class="form-stack">
+      <section class="card" data-private-stage="3" hidden><div class="section-head"><span class="step">3</span><div><h2>객실과 식사 요청을 알려 주세요</h2><p>기본은 고급형 호텔과 일정에 맞는 식사이며, 업그레이드는 별도 견적입니다.</p></div></div><div class="form-stack">
         <div class="fields two"><div class="field"><label for="privateRooms">객실 수</label><input class="input" id="privateRooms" type="number" min="1" max="15" value="1"></div><div class="field"><label for="privateRoomType">기본 객실</label><select class="input" id="privateRoomType"><option>트윈룸</option><option>더블룸</option><option>트윈·더블 혼합</option></select></div></div>
         <div class="fields two"><div class="field"><label for="privateSingles">1인실 수</label><input class="input" id="privateSingles" type="number" min="0" max="15" value="0"></div><div class="field"><label for="privateChildrenRoom">아동 동반 객실</label><input class="input" id="privateChildrenRoom" placeholder="예: 아동 1명 부모와 동실"></div></div>
         <label class="check-card"><input type="checkbox" id="privateLuxury"> 럭셔리 호텔 업그레이드 상담</label>
         <div class="fields two"><div class="field"><label for="privateSpice">매운맛 선호</label><select class="input" id="privateSpice"><option>보통</option><option>맵지 않게</option><option>매운 음식 선호</option></select></div><div class="field"><label for="privateKoreanMeals">한식 선호</label><select class="input" id="privateKoreanMeals"><option>현지식 중심 괜찮음</option><option>일부 한식 희망</option><option>한식 비중 높게 희망</option></select></div></div>
         <div class="field"><span>식사 제한 (복수 선택)</span><div class="check-grid" id="privateDiet"><label class="check-card"><input type="checkbox" value="채식"> 채식</label><label class="check-card"><input type="checkbox" value="돼지고기 제외"> 돼지고기 제외</label><label class="check-card"><input type="checkbox" value="소고기 제외"> 소고기 제외</label><label class="check-card"><input type="checkbox" value="양고기 제외"> 양고기 제외</label><label class="check-card"><input type="checkbox" value="해산물 제외"> 해산물 제외</label><label class="check-card"><input type="checkbox" value="부드러운 음식 필요"> 아동·어르신 부드러운 음식</label></div></div>
         <div class="field"><label for="privateAllergy">알레르기</label><input class="input" id="privateAllergy" placeholder="없음 또는 음식명을 적어 주세요"></div><div class="field"><label for="privatePremiumMeal">고급 레스토랑 희망</label><input class="input" id="privatePremiumMeal" placeholder="예: 여행 중 저녁 1회 고급 레스토랑"></div>
+        <div class="wizard-actions"><button class="btn btn-outline" data-private-go="2" type="button">이전</button><button class="btn btn-primary" id="privateGenerate" type="button">내 참고 일정 만들기</button></div>
       </div></section>
-      <section class="card"><div class="section-head"><span class="step">4</span><div><h2>연락처와 기타 요청을 남겨 주세요</h2><p>가격은 표시하지 않으며, 이 내용을 복사해 보내면 담당자가 확인 후 개별 견적합니다.</p></div></div><div class="form-stack">
+      <section class="card" data-private-stage="5" hidden><div class="section-head"><span class="step">5</span><div><h2>연락처와 기타 요청을 남겨 주세요</h2><p>완성된 일정을 상담원에게 보내기 위한 마지막 단계입니다.</p></div></div><div class="form-stack">
         <div class="fields two"><div class="field"><label for="privateContactName">성함·호칭 <span class="required">*</span></label><input class="input" id="privateContactName" placeholder="예: 김민수 님"></div><div class="field"><label for="privateContact">카카오톡 ID 또는 한국 전화번호 <span class="required">*</span></label><input class="input" id="privateContact" placeholder="예: kakao123 / 010-0000-0000"></div></div>
         <div class="field"><label for="privateLanguage">답변 언어</label><select class="input" id="privateLanguage"><option>한국어</option><option>中文</option><option>한국어·中文 모두 가능</option></select></div>
         <div class="field"><label for="privateNotes">기타 요청</label><textarea class="input textarea-input" id="privateNotes" placeholder="호텔, 차량, 고급 식사, 기념일 등 추가 요청을 적어 주세요."></textarea></div>
-        <button class="btn btn-primary" id="privateGenerate" type="button">내 참고 일정 만들기</button>
+        <div class="wizard-actions"><button class="btn btn-outline" data-private-go="4" type="button">일정 다시 보기</button><button class="btn btn-primary" id="privateGoInquiry" type="button">상담 내용 확인</button></div>
       </div></section>
-      <section class="card"><div class="section-head"><span class="step">5</span><div><h2>자동 구성된 참고 일정</h2><p>선택한 우선순위와 이동 동선을 반영했습니다. 세부 순서는 예약·날씨·현장 상황에 따라 최종 조정됩니다.</p></div></div><div class="private-days" id="privateDays"><div class="empty">날짜와 희망 장소를 입력해 주세요.</div></div></section>
+      <section class="card" data-private-stage="4" hidden><div class="section-head"><span class="step">4</span><div><h2>자동 구성된 참고 일정</h2><p>선택한 우선순위와 이동 동선을 반영했습니다. 세부 순서는 예약·날씨·현장 상황에 따라 최종 조정됩니다.</p></div></div><div class="private-days" id="privateDays"><div class="empty">날짜와 희망 장소를 입력해 주세요.</div></div><div class="wizard-actions"><button class="btn btn-outline" data-private-go="3" type="button">조건 수정</button><button class="btn btn-primary" data-private-go="5" type="button">만족해요 · 상담 요청</button></div></section>
     </div><aside class="card summary"><div class="private-summary-head"><div><b>나의 프라이빗 투어</b><p class="summary-intro">참고 일정 + 상담 요청서</p></div><span>NO PRICE</span></div><div id="privateAlerts" class="private-alerts"></div><div class="quote-box" id="privateOverview">날짜를 입력해 주세요.</div><div class="included-box"><b>기본 포함</b><br>고급형 호텔 · 전용차량 · 한국어 가이드 · 일정상 입장권 · 호텔 조식 및 매일 중·석식 · 장가계 공항/서역 픽업·샌딩<br><br><b>별도 또는 불포함</b><br>장가계까지의 항공·열차 · 여행자보험 · 술·커피·야식 · 개인경비 · 미계획 추가비용 · 럭셔리 호텔/고급 식당 차액<br>가이드·기사 팁은 선택사항이며 강제하지 않습니다.</div><div class="divider"></div><div class="field"><label for="privateInquiry">고객 맞춤 일정 요청</label><textarea class="inquiry" id="privateInquiry" readonly></textarea></div><div class="module-actions"><button class="btn btn-outline" id="privateCopy" type="button">내 맞춤 일정 요청 복사</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">카카오톡 채널 상담</a></div><p class="fine">※ 여권정보와 생년월일은 이 페이지에서 받지 않습니다. 견적 상담 후 예약 단계에서 필요한 정보만 별도로 안내합니다.</p></aside></div>
   </section>
 </main>
@@ -600,20 +605,39 @@
     const mealKo=`매운맛 ${val('#privateSpice')} · ${val('#privateKoreanMeals')} · 제한 ${diet} · 알레르기 ${val('#privateAllergy')||'없음'} · 고급 식당 ${val('#privatePremiumMeal')||'요청 없음'}`;
     const ko=['[로투차 프라이빗 투어 맞춤 일정 요청]',`상품 기록: PRIVATE-CUSTOM / v${CATALOG.version} / ${CATALOG.effective} 시행`,`고객: ${contactName}`,`연락처: ${contact}`,`답변 언어: ${val('#privateLanguage')}`,'',`여행 기간: ${val('#privateStart')} ~ ${val('#privateEnd')} (${nights}박 ${n}일)`,`교통: ${transportKo}`,`인원 / 연령: ${val('#privatePeople')}명 / ${val('#privateAges')||'미입력'}`,`여행 속도 / 보행: ${paceKo} / ${$('#privateMobility option:checked').textContent}`,`건강 메모: ${val('#privateHealth')||'없음'}`,'',`꼭 가고 싶은 곳: ${formatPriority(must,0)}`,`시간이 되면 가고 싶은 곳: ${formatPriority(wish,0)}`,'','[자동 구성 참고 일정]',planKo,'',`객실: ${roomKo}`,`식사: ${mealKo}`,`기타 요청: ${val('#privateNotes')||'없음'}`,'','포함: 고급형 호텔, 전용차량, 한국어 가이드, 일정상 입장권, 호텔 조식 및 매일 중·석식, 장가계 공항/서역 픽업·샌딩','불포함: 장가계까지의 교통, 여행자보험, 술·커피·야식, 개인경비, 미계획 추가비용, 업그레이드 차액','팁: 가이드·기사 팁은 선택사항이며 강제하지 않습니다.','※ 가격은 담당자가 가능 여부와 세부 동선을 확인한 뒤 개별 안내해 주세요.'];
     const zh=['【罗途察私人定制游需求】',`产品记录：PRIVATE-CUSTOM / v${CATALOG.version} / ${CATALOG.effective}生效`,`客人：${contactName}`,`联系方式：${contact}`,`回复语言：${val('#privateLanguage')}`,'',`旅行日期：${val('#privateStart')} ～ ${val('#privateEnd')}（${nights}晚${n}天）`,`人数/年龄：${val('#privatePeople')}人 / ${val('#privateAges')||'未填写'}`,`旅行节奏：${paceZh}`,'',`一定要去：${formatPriority(must,1)}`,`有时间希望安排：${formatPriority(wish,1)}`,'','【系统参考行程】',planZh,'',`房间要求：${roomKo}`,`餐饮要求：${mealKo}`,`其他要求：${val('#privateNotes')||'无'}`,'','包含：高档酒店、专车、韩语导游、行程所需门票、酒店早餐及每日午晚餐、张家界机场/西站接送','不含：往返张家界大交通、旅游保险、酒水咖啡夜宵、个人消费、临时增加项目、升级差价','小费：导游和司机小费自愿，不强制。','※ 请确认可行性和具体路线后人工报价。'];
-    ko[1]='상품 기록: PRIVATE-CUSTOM / v2026.09.25.2 / 2026-09-25 시행';
-    zh[1]='产品记录：PRIVATE-CUSTOM / v2026.09.25.2 / 2026-09-25生效';
+    ko[1]='상품 기록: PRIVATE-CUSTOM / v2026.09.25.3 / 2026-09-25 시행';
+    zh[1]='产品记录：PRIVATE-CUSTOM / v2026.09.25.3 / 2026-09-25生效';
     $('#privateInquiry').value=[...ko,'','──────── 中文版 ────────','',...zh].join('\n');
     $('#privateCopy').disabled=!(val('#privateContactName').trim()&&val('#privateContact').trim());
   }
+  const privateStageLabels=['','여행 기본 정보','가고 싶은 곳','객실과 식사','추천 일정 확인','상담 정보'];
+  function showPrivateStage(stage){
+    $('#service-private').dataset.stage=stage;
+    $$('[data-private-stage]').forEach(el=>el.hidden=Number(el.dataset.privateStage)!==stage);
+    $$('#privateProgress span').forEach((el,i)=>el.classList.toggle('active',i<stage));
+    $('#privateProgressText').textContent=`${stage} / 5 · ${privateStageLabels[stage]}`;
+    const target=$(`[data-private-stage="${stage}"]`);if(target&&!$('#service-private').hidden)target.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function renderPrivateCapacity(){
+    const n=daysBetween(val('#privateStart'),val('#privateEnd')),box=$('#privateCapacity'),next=$('#privateNextAttractions');
+    if(!n){box.innerHTML='<b>여행 날짜를 선택해 주세요</b>출발 날짜는 도착 날짜보다 늦거나 같아야 합니다.';next.disabled=true;return}
+    const arrival=val('#privateArrival')<='13:00',departure=val('#privateDeparture')>='14:30',full=Math.max(0,n-2),parts=[];
+    if(full)parts.push(`온전한 관광일 ${full}일`);if(arrival)parts.push('도착일 반일');if(departure)parts.push('출발일 반일');
+    box.innerHTML=`<b>${n-1}박 ${n}일 · ${parts.join(' + ')||'도착·출발 중심 일정'}</b>${arrival?'도착일에는 천문산 반일 코스를 배치할 수 있습니다.':'도착일은 픽업·체크인 중심입니다.'} ${departure?'출발일에는 시내 자유시간을 배치할 수 있습니다.':'출발일은 체크아웃·샌딩 중심입니다.'}`;
+    next.disabled=false;
+  }
   $$('#privatePace .pill').forEach(x=>x.addEventListener('click',()=>{$$('#privatePace .pill').forEach(y=>y.classList.remove('selected'));x.classList.add('selected');renderPrivatePlan()}));
-  $('#privateGenerate').addEventListener('click',()=>{renderPrivatePlan();$('#privateDays').scrollIntoView({behavior:'smooth',block:'start'})});
-  $('#service-private').addEventListener('change',renderPrivatePlan);
-  $('#service-private').addEventListener('input',renderPrivatePlan);
+  $('#privateNextAttractions').addEventListener('click',()=>showPrivateStage(2));
+  $$('[data-private-go]').forEach(x=>x.addEventListener('click',()=>showPrivateStage(Number(x.dataset.privateGo))));
+  $('#privateGenerate').addEventListener('click',()=>{renderPrivatePlan();showPrivateStage(4)});
+  $('#privateGoInquiry').addEventListener('click',()=>{$('#privateInquiry').scrollIntoView({behavior:'smooth',block:'center'})});
+  $('#service-private').addEventListener('change',()=>{renderPrivatePlan();renderPrivateCapacity()});
+  $('#service-private').addEventListener('input',()=>{renderPrivatePlan();renderPrivateCapacity()});
   $('#privateCopy').addEventListener('click',()=>copyText($('#privateInquiry').value));
   $('#dayCopy').addEventListener('click',()=>copyText($('#dayInquiry').value));$('#guideCopy').addEventListener('click',()=>copyText($('#guideInquiry').value));$('#vehicleCopy').addEventListener('click',()=>copyText($('#vehicleInquiry').value));$('#comboCopy').addEventListener('click',()=>copyText($('#comboInquiry').value));
   $('#showTripPlan').addEventListener('click',()=>{$$('.quick-switch button').forEach(x=>x.classList.remove('active'));$('#showTripPlan').classList.add('active');$('#tripCombo').scrollIntoView({behavior:'smooth',block:'start'})});
   document.addEventListener('input',()=>queueMicrotask(renderCombo));document.addEventListener('change',()=>queueMicrotask(renderCombo));
-  renderTourPicker();renderTourForm();renderGuideQuote();renderVehicle();renderCombo();renderPrivatePlan();
+  renderTourPicker();renderTourForm();renderGuideQuote();renderVehicle();renderCombo();renderPrivatePlan();renderPrivateCapacity();showPrivateStage(1);
 })();
 </script></body>
 </html>
