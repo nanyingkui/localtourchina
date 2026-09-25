@@ -70,6 +70,38 @@
     @keyframes privateOrbit{to{transform:translate(-22px,18px) rotate(9deg)}}@keyframes privateDrift{to{transform:translate(52px,-12px) rotate(-3deg)}}
     @media(max-width:600px){#service-private .module-head{min-height:230px;padding:30px 20px}#service-private .priority-row:hover{transform:none}#service-private .private-day{padding-left:66px}}
     @media(prefers-reduced-motion:reduce){#service-private .module-head:before,#service-private .module-head:after,#service-private [data-private-stage].stage-enter,#service-private .private-day,#service-private .private-day:after{animation:none!important}#service-private .priority-row,.private-entry,.private-entry .private-arrow{transition:none!important}}
+
+    /* Interaction language: actions, selections, disabled states and information must look different. */
+    :where(button,a,input,select,textarea,summary):focus-visible{outline:3px solid rgba(23,107,87,.24);outline-offset:3px}
+    :where(.service-tab,.service-card,.private-entry,.choice,.pill,.product-option,.check-card,.combo-service,.jump-links button,.quick-switch button,.btn,.use-guide summary){transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease,color .18s ease}
+    :where(.service-tab,.service-card,.private-entry,.choice,.pill,.product-option,.check-card,.combo-service,.jump-links button,.quick-switch button,.btn,.use-guide summary):hover{transform:translateY(-2px)}
+    :where(.service-tab,.service-card,.private-entry,.choice,.pill,.product-option,.check-card,.combo-service,.jump-links button,.quick-switch button,.btn,.use-guide summary):active{transform:translateY(1px) scale(.99)}
+    .service-card,.product-option,.choice,.check-card,.combo-service{position:relative}
+    .service-card:hover,.product-option:hover,.choice:hover,.check-card:hover,.combo-service:hover{border-color:#8ebcaf;box-shadow:0 10px 25px rgba(22,72,59,.09)}
+    .service-tab.active,.quick-switch button.active,.pill.selected,.product-option.selected,.choice.selected,.check-card:has(input:checked),.combo-service:has(input:checked){box-shadow:0 0 0 3px rgba(23,107,87,.12)}
+    .btn{border:1.5px solid transparent;box-shadow:0 7px 16px rgba(23,107,87,.1)}
+    .btn:hover{box-shadow:0 12px 24px rgba(23,107,87,.18)}
+    .btn:disabled{opacity:1;color:#89938f;background:#eef1f0;border:1.5px dashed #bdc7c3;box-shadow:none;transform:none}
+    .btn:disabled:after{content:' · 먼저 필수 정보를 입력해 주세요';font-size:10px;font-weight:650}
+    .input:hover{border-color:#9eb8b0}.input:focus{background:#fff;box-shadow:0 0 0 4px rgba(23,107,87,.12)}
+    .input:disabled,.input[readonly]{cursor:not-allowed;background:#f1f3f2;color:#7e8985;border-style:dashed}
+    .use-guide summary:hover{background:#eaf6f1}
+    .card,.subcard,.trip-capacity,.notice,.warning-note,.included-box,.private-alert,.quote-box,.sum-item,.private-day,.timeline div{cursor:default}
+    .time-slot:hover .time-dot{transform:none;box-shadow:0 0 0 4px var(--soft)}
+
+    /* White space separates explanation, choice and next action. */
+    .service-home{margin:28px 0 42px}.service-home>p{margin-bottom:24px}.service-cards{gap:16px}
+    .card{padding:24px;margin-bottom:24px}.section-head{margin-bottom:22px}.form-stack{gap:20px}.fields{gap:18px}
+    .wizard-actions{margin-top:28px;padding-top:20px;border-top:1px solid #edf1ef}
+    #service-private .priority-list{gap:12px}#service-private .private-days{gap:18px}
+    #service-private .trip-capacity{margin-top:22px;padding:17px 18px;border:0;border-left:4px solid #82bcae;border-radius:5px 15px 15px 5px}
+    #service-private .private-day{padding-top:20px;padding-bottom:20px;box-shadow:none;background:#fcfdfc}
+    .interaction-legend{display:flex;flex-wrap:wrap;gap:8px;margin:-4px 0 18px;padding:12px 13px;border-radius:14px;background:#f7f9f8;color:var(--muted);font-size:11px}
+    .interaction-legend span{display:inline-flex;align-items:center;gap:6px}.interaction-legend span:before{content:'';width:9px;height:9px;border-radius:3px;border:1px solid #cbd5d1;background:#fff}
+    .interaction-legend .legend-must:before{background:#fff3c9;border-color:#d99b1a}.interaction-legend .legend-wish:before{background:#dff3ec;border-color:#5aa68f}
+    .quick-switch{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.quick-switch button{position:relative;border:1px solid transparent}
+    .quick-switch button:not(.active):hover{border-color:#b8d4cb;background:#f8fbfa}
+    @media(max-width:600px){.wrap{padding-left:14px;padding-right:14px}.topbar{margin-left:-14px;margin-right:-14px;overflow:hidden}.service-nav{justify-content:flex-start;overscroll-behavior-inline:contain}.card{padding:22px 18px;border-radius:21px;margin-bottom:22px}.module-head{margin:22px 0 26px;padding:30px 22px}.service-card{padding:21px 19px}.quick-switch{bottom:8px;width:calc(100% - 16px);padding:6px}.quick-switch button{padding:9px 2px;font-size:10px}.wizard-actions{gap:8px}.wizard-actions .btn{padding-left:9px;padding-right:9px}.btn:disabled:after{display:none}}
   </style>
 </head>
 <body>
@@ -287,7 +319,7 @@
         <div class="field"><label for="privateHealth">건강·이동 관련 메모</label><input class="input" id="privateHealth" placeholder="예: 계단이 어렵습니다 / 80세 어르신 동행"></div>
         <div class="trip-capacity" id="privateCapacity"><b>여행 날짜를 선택해 주세요</b>선택한 시간에 맞춰 관광 가능한 일정을 계산합니다.</div><div class="wizard-actions"><button class="btn btn-primary" id="privateNextAttractions" type="button" disabled>다음 · 가고 싶은 곳 선택</button></div>
       </div></section>
-      <section class="card" data-private-stage="2" hidden><div class="section-head"><span class="step">2</span><div><h2>가고 싶은 곳을 골라 주세요</h2><p>각 장소를 ‘꼭 가고 싶어요’ 또는 ‘시간이 되면’으로 표시해 주세요. 방문 순서는 시스템이 정합니다.</p></div></div><div class="priority-list" id="privatePriorities">
+      <section class="card" data-private-stage="2" hidden><div class="section-head"><span class="step">2</span><div><h2>가고 싶은 곳을 골라 주세요</h2><p>각 장소를 ‘꼭 가고 싶어요’ 또는 ‘시간이 되면’으로 표시해 주세요. 방문 순서는 시스템이 정합니다.</p></div></div><div class="interaction-legend" aria-label="선택 상태 안내"><span>흰색 선택칸 · 눌러서 변경</span><span class="legend-must">금색 · 꼭 가고 싶어요</span><span class="legend-wish">초록색 · 시간이 되면</span></div><div class="priority-list" id="privatePriorities">
         <div class="priority-row"><div><b>국가삼림공원 동문 A/B 코스</b><small>백룡엘리베이터·원가계·천자산 · 보통 종일</small></div><select class="input priority-select" data-private-attraction="forestEast"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select></div>
         <div class="priority-row"><div><b>국가삼림공원 남문 코스</b><small>황석채·금편계 도보 · 반일 또는 종일</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="forestSouth"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="forestSouthDuration"><option value="half">반일 코스</option><option value="full">종일 코스</option></select></div></div>
         <div class="priority-row"><div><b>천문산</b><small>표준 4~6시간 또는 핵심 압축 2시간</small></div><div class="priority-controls"><select class="input priority-select" data-private-attraction="tianmen"><option value="none">선택 안 함</option><option value="must">꼭 가고 싶어요</option><option value="wish">시간이 되면</option></select><select class="input priority-select" id="tianmenDuration"><option value="standard">표준 4~6시간</option><option value="compact">핵심 압축 2시간</option></select></div></div>
