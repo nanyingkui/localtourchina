@@ -134,11 +134,13 @@
     .media-library{margin-top:14px}.media-group{margin-top:10px;border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden}.media-group summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer;list-style:none;font-weight:850}.media-group summary::-webkit-details-marker{display:none}.media-group summary span{color:var(--muted);font-size:11px;font-weight:650}.media-group summary:after{content:'＋';color:var(--brand);font-size:20px}.media-group[open] summary:after{content:'−'}.media-group-body{padding:0 12px 12px}.photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.photo-tile{position:relative;min-height:190px;overflow:hidden;border-radius:15px;background:#dfe9e6}.photo-tile img,.photo-tile video{display:block;width:100%;height:100%;min-height:190px;object-fit:cover}.photo-tile span{position:absolute;left:8px;right:8px;bottom:8px;padding:7px 9px;border-radius:9px;background:rgba(5,35,28,.78);color:#fff;font-size:10px;font-weight:800;backdrop-filter:blur(7px)}.photo-tile.video-tile{grid-column:span 2;min-height:300px;background:#0d2f27}.photo-tile.video-tile video{min-height:300px}.hotel-block,.vehicle-block{padding:12px;border-radius:16px;background:#f5f8f7}.hotel-block h3,.vehicle-block h3{margin:0 0 9px;font-size:15px}.hotel-block .photo-grid{grid-template-columns:repeat(4,1fr)}.hotel-block .photo-tile{min-height:135px}.hotel-block .photo-tile img{min-height:135px}.hotel-list,.vehicle-list{display:grid;gap:9px}.vehicle-list{grid-template-columns:repeat(3,1fr)}.vehicle-block .photo-grid{grid-template-columns:1fr 1fr}.vehicle-block .photo-tile{min-height:150px}.vehicle-block .photo-tile img{min-height:150px}.media-placeholder{min-height:150px;display:grid;place-items:center;text-align:center;padding:18px;border:1px dashed #b9cbc5;border-radius:15px;color:var(--muted);font-size:11px;background:#fafcfb}.media-placeholder b{display:block;color:var(--ink);font-size:14px}.media-caption{margin:9px 2px 1px;color:var(--muted);font-size:10px}.media-group[open] .media-group-body{animation:mediaOpen .25s ease}@keyframes mediaOpen{from{opacity:0;transform:translateY(-4px)}}
     .photo-tile{margin:0}
     @media(max-width:760px){.photo-grid{grid-template-columns:1fr 1fr}.photo-tile{min-height:165px}.photo-tile img,.photo-tile video{min-height:165px}.hotel-block .photo-grid{grid-template-columns:1fr 1fr}.vehicle-list{grid-template-columns:1fr}.photo-tile.video-tile{grid-column:auto;min-height:260px}.photo-tile.video-tile video{min-height:260px}.media-group summary{padding:15px}.media-group-body{padding:0 9px 9px}}
+    .module-head.media-head{min-height:250px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;background-position:center;background-size:cover}.module-head.media-head:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(4,29,23,.88),rgba(4,38,30,.38)),linear-gradient(0deg,rgba(4,29,23,.48),transparent 55%)}.ticket-head{background-image:url('assets/media/attractions/tianmen-cave.jpg')}.daytour-head{background-image:url('assets/media/attractions/canyon-bridge.jpg')}.guide-head{background-image:url('assets/services/guide-reception-desktop.jpg')}.vehicle-head{background-image:url('assets/services/airport-transfer-desktop.jpg')}.private-head{background-image:url('assets/media/attractions/forest-east.jpg')!important}.service-media-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:-7px 0 18px}.service-media-strip figure{position:relative;height:150px;margin:0;overflow:hidden;border-radius:17px;background:#dfe9e6}.service-media-strip img{width:100%;height:100%;object-fit:cover}.service-media-strip figcaption{position:absolute;left:8px;bottom:8px;padding:5px 8px;border-radius:8px;background:rgba(4,31,25,.76);color:#fff;font-size:10px;font-weight:800}.service-start{margin-bottom:14px;padding:12px 14px;border-radius:14px;background:var(--soft);color:var(--brand2);font-size:12px}.service-start b{display:block;font-size:14px}.service-card.combo-entry{border-color:#c8ddd6;background:linear-gradient(145deg,#f2faf7,#fff)}
+    @media(max-width:600px){.module-head.media-head{min-height:220px}.service-media-strip{grid-template-columns:repeat(3,78%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:5px}.service-media-strip figure{height:180px;scroll-snap-align:start}.quick-switch{grid-template-columns:repeat(5,1fr)}}
   </style>
 </head>
 <body>
 <main class="wrap">
-  <nav class="topbar"><span class="topbar-logo">로투차</span><div class="service-nav" aria-label="서비스 선택"><button class="service-tab active" data-service="home" type="button">홈</button><button class="service-tab private-tab" data-service="private" type="button">올인원 프라이빗</button><button class="service-tab" data-service="ticket" type="button">입장권</button><button class="service-tab" data-service="daytour" type="button">데이투어</button><button class="service-tab" data-service="guide" type="button">가이드</button><button class="service-tab" data-service="vehicle" type="button">차량·픽업</button></div></nav>
+  <nav class="topbar"><span class="topbar-logo">로투차</span><div class="service-nav" aria-label="서비스 선택"><button class="service-tab active" data-service="home" type="button">홈</button><button class="service-tab private-tab" data-service="private" type="button">올인원</button><button class="service-tab" data-service="ticket" type="button">입장권</button><button class="service-tab" data-service="daytour" type="button">데이투어</button><button class="service-tab" data-service="guide" type="button">가이드</button><button class="service-tab" data-service="vehicle" type="button">차량</button><button class="service-tab" data-service="combo" type="button">묶음예약</button></div></nav>
   <header class="hero hero-with-media">
     <div class="hero-media" aria-hidden="true">
       <video autoplay muted loop playsinline preload="metadata" poster="assets/media/hero/home-mobile.jpg">
@@ -163,6 +165,7 @@
       <button class="service-card" data-open-service="daytour" type="button"><span class="eyebrow">DAY TOUR</span><strong>데이투어</strong><small>입장권·차량·점심·한국어 가이드 포함 상품</small></button>
       <button class="service-card" data-open-service="guide" type="button"><span class="eyebrow">LOCAL GUIDE</span><strong>현지가이드</strong><small>내 일정에 맞춘 한국어 가이드 동행</small></button>
       <button class="service-card" data-open-service="vehicle" type="button"><span class="eyebrow">TRANSFER & CAR</span><strong>차량·공항픽업</strong><small>공항 샌딩과 8시간 전용차량을 바로 선택하세요</small></button>
+      <button class="service-card combo-entry" data-open-service="combo" type="button"><span class="eyebrow">MULTI SERVICE</span><strong>여러 서비스 묶음예약</strong><small>입장권·투어·가이드·차량을 한 번에 문의</small></button>
     </div>
     <section class="media-showcase" aria-labelledby="mediaShowcaseTitle">
       <div class="media-showcase-head"><div><h2 id="mediaShowcaseTitle">예약 전에, 실제 여행을 먼저 만나보세요</h2><p>장가계의 대표 풍경부터 숙소와 전용차량까지 직접 확인하고 원하는 여행 방식으로 이어갈 수 있습니다.</p></div><span class="media-showcase-note">REAL PLACES · REAL STAYS · REAL RIDES</span></div>
@@ -193,7 +196,7 @@
     </section>
   </section>
 
-  <section class="card combo-card" id="tripCombo">
+  <section class="card combo-card service-panel" id="service-combo" hidden>
     <div class="section-head"><span class="step">＋</span><div><h2>여행 서비스를 함께 예약하세요</h2><p>입장권 + 데이투어 + 현지가이드를 한 번에 조합할 수 있습니다.</p></div></div>
     <div class="combo-services">
       <label class="combo-service"><input id="comboTicket" type="checkbox"><span><b>입장권 예약 포함</b><small>다른 날짜 또는 추가 입장 일정도 함께 문의</small></span></label>
@@ -210,6 +213,8 @@
   </section>
 
   <div class="service-panel" id="service-ticket" hidden>
+  <header class="module-head media-head ticket-head"><span class="brand">ATTRACTION TICKETS</span><h1>장가계 입장권 예약</h1><p>관광지를 고르면 필요한 옵션과 예상 금액만 순서대로 보여 드립니다.</p></header>
+  <div class="service-media-strip"><figure><img src="assets/media/attractions/forest-east.jpg" alt="국가삼림공원 동문" loading="lazy"><figcaption>국가삼림공원</figcaption></figure><figure><img src="assets/media/attractions/tianmen-cave.jpg" alt="천문동" loading="lazy"><figcaption>천문산</figcaption></figure><figure><img src="assets/media/attractions/canyon-bridge.jpg" alt="대협곡 유리다리" loading="lazy"><figcaption>대협곡</figcaption></figure></div>
 
   <div class="grid" id="reservation">
     <div class="main">
@@ -332,7 +337,8 @@
   </div>
 
   <section class="service-panel" id="service-daytour" hidden>
-    <header class="module-head"><span class="brand">DAY TOUR</span><h1>장가계 데이투어</h1><p>세 가지 대표 코스의 일정과 포함 사항을 확인하고 인원별 예상 금액을 계산해 보세요.</p></header>
+    <header class="module-head media-head daytour-head"><span class="brand">DAY TOUR</span><h1>하루에 알차게 보는 장가계</h1><p>가고 싶은 풍경을 고르면 일정, 포함 사항과 예상 금액을 바로 확인할 수 있습니다.</p></header>
+    <div class="service-media-strip"><figure><img src="assets/media/attractions/forest-east.jpg" alt="무릉원 풍경" loading="lazy"><figcaption>무릉원 핵심</figcaption></figure><figure><img src="assets/media/attractions/tianmen-cliff.jpg" alt="천문산 절벽길" loading="lazy"><figcaption>천문산</figcaption></figure><figure><img src="assets/media/attractions/huanglong-cave.jpg" alt="황룡동" loading="lazy"><figcaption>황룡동·대협곡</figcaption></figure></div>
     <div class="grid"><div class="main">
       <section class="card"><div class="section-head"><span class="step">1</span><div><h2>투어를 선택해 주세요</h2><p>가격은 1인 기준이며 연령에 따라 달라집니다.</p></div></div><div class="product-picker" id="dayProducts"></div></section>
       <section class="card" id="dayDetail"></section>
@@ -341,7 +347,8 @@
   </section>
 
   <section class="service-panel" id="service-guide" hidden>
-    <header class="module-head"><span class="brand">LOCAL GUIDE</span><h1>나에게 맞는 현지가이드</h1><p>원하는 일정과 이동 방법을 알려 주시면 참고 요금과 한·중 문의 내용을 바로 만들어 드립니다.</p></header>
+    <header class="module-head media-head guide-head"><span class="brand">LOCAL GUIDE</span><h1>한국어 현지가이드</h1><p>날짜와 원하는 일정만 알려 주세요. 이동과 현장 소통을 함께 준비합니다.</p></header>
+    <div class="service-media-strip"><figure><img src="assets/services/guide-reception-desktop.jpg" alt="가이드 공항 미팅" loading="lazy"><figcaption>공항·역 미팅</figcaption></figure><figure><img src="assets/media/attractions/city.jpg" alt="장가계 시내 동행" loading="lazy"><figcaption>시내 동행</figcaption></figure><figure><img src="assets/media/attractions/forest-south.jpg" alt="장가계 관광 안내" loading="lazy"><figcaption>관광지 안내</figcaption></figure></div>
     <div class="grid"><div class="main"><section class="card"><div class="section-head"><span class="step">1</span><div><h2>가이드 요청 내용을 선택해 주세요</h2><p>1~6시간은 6시간 기준으로 계산됩니다.</p></div></div>
       <div class="form-stack">
         <div class="fields two"><div class="field"><label for="guideDate">이용 날짜 <span class="required">*</span></label><input class="input" id="guideDate" type="date"></div><div class="field"><label for="guideStartTime">시작 시간 <span class="required">*</span></label><input class="input" id="guideStartTime" type="time"></div></div>
@@ -352,14 +359,15 @@
         <div class="fields two"><div class="field"><label for="guideArea">숙박 지역</label><select class="input" id="guideArea"><option>장가계 시내</option><option>무릉원</option><option>기타 지역</option></select></div><div class="field"><label for="guideHotel">호텔명</label><input class="input" id="guideHotel" placeholder="호텔명을 입력해 주세요"></div></div>
         <div class="field"><label for="guideTransport">교통 계획</label><select class="input" id="guideTransport"><option>직접 준비</option><option>택시/디디 이용</option><option>가이드에게 차량 호출 요청</option><option>전용차량 상담 필요</option></select></div>
         <div class="fields two"><div class="field"><label for="guideTickets">입장권</label><select class="input" id="guideTickets"><option>이미 준비했습니다</option><option>입장권 예약이 필요합니다</option></select></div><div class="field"><label for="guideName">희망 가이드</label><select class="input" id="guideName"><option value="none">지정 없음</option><option value="nam">남영규</option><option value="hyeon">현복생</option><option value="kim">김송호</option></select></div></div>
-        <div class="field"><label for="guideItinerary">희망 일정 <span class="required">*</span></label><textarea class="input textarea-input" id="guideItinerary" placeholder="가고 싶은 장소와 희망 순서를 자유롭게 적어 주세요."></textarea></div>
+        <div class="field"><label for="guideItinerary">희망 일정 <small>· 관광지를 골랐다면 선택사항</small></label><textarea class="input textarea-input" id="guideItinerary" placeholder="원하는 순서나 특별한 일정이 있을 때만 적어 주세요."></textarea></div>
         <div class="field"><label for="guideNotes">기타 요청</label><textarea class="input textarea-input" id="guideNotes" placeholder="이동이 불편한 분, 식사, 차량 등 추가 요청을 적어 주세요."></textarea></div><p class="form-hint" id="guideFormHint" aria-live="polite"></p>
       </div>
     </section></div><aside class="card summary"><h2>예상 가이드 비용</h2><p class="summary-intro">가이드 동행 비용만 계산됩니다.</p><div id="guideSummary" class="quote-box"></div><div id="joinNotice" class="warning-note" hidden></div><div class="notice"><b>포함되지 않아요</b><br>입장권 · 차량 · 식사 · 기타 개인경비. 이동 시 가이드가 택시·디디 호출을 도울 수 있으며 실제 차량 비용은 고객 부담입니다.</div><div class="field"><label for="guideInquiry">가이드 문의 내용</label><textarea class="inquiry" id="guideInquiry" readonly></textarea></div><div class="module-actions"><button class="btn btn-outline" id="guideCopy" type="button">한·중 문의 내용 복사</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a></div><p class="fine">※ 희망 가이드는 일정 확인 후 최종 확정됩니다. 12인 이상은 별도 문의가 필요합니다.</p></aside></div>
   </section>
 
   <section class="service-panel" id="service-vehicle" hidden>
-    <header class="module-head"><span class="brand">TRANSFER & RENTAL CAR</span><h1>차량·공항픽업 예약</h1><p>필요한 이동 방식과 차량을 선택하면 예상 금액과 상담 내용이 자동으로 만들어집니다.</p></header>
+    <header class="module-head media-head vehicle-head"><span class="brand">TRANSFER & PRIVATE CAR</span><h1>공항픽업·전용차량</h1><p>이동 목적과 인원, 짐 개수를 입력하면 알맞은 차량과 예상 금액을 안내합니다.</p></header>
+    <div class="service-media-strip"><figure><img src="assets/media/vehicles/7-seat/exterior.jpg" alt="7인승 차량" loading="lazy"><figcaption>7인승</figcaption></figure><figure><img src="assets/media/vehicles/9-seat/interior.jpg" alt="9인승 차량 실내" loading="lazy"><figcaption>9인승</figcaption></figure><figure><img src="assets/media/vehicles/14-seat/exterior.jpg" alt="14인승 차량" loading="lazy"><figcaption>14인승</figcaption></figure></div>
     <div class="grid"><div class="main">
       <section class="card"><div class="section-head"><span class="step">1</span><div><h2>서비스를 선택해 주세요</h2><p>공항 픽업·샌딩 또는 8시간 전용차량을 선택할 수 있습니다.</p></div></div>
         <div class="seg cols2" id="vehicleService"><label class="pill selected"><input type="radio" name="vehicleService" value="airport" checked>공항 픽업·샌딩</label><label class="pill"><input type="radio" name="vehicleService" value="rental">일일 전용차량</label></div>
@@ -381,7 +389,8 @@
   </section>
 
   <section class="service-panel" id="service-private" hidden>
-    <header class="module-head"><span class="brand">ALL-INCLUSIVE PRIVATE TOUR</span><h1>내게 맞는 장가계 여행 고르기</h1><p>많이 선택한 검증된 일정에서 시작하거나, 가고 싶은 곳을 직접 골라 나만의 일정을 만들 수 있습니다.</p><div class="wizard-progress" id="privateProgress"><span class="active"></span><span></span><span></span><span></span><span></span></div><small class="wizard-progress-text" id="privateProgressText">1 / 5 · 여행 기본 정보</small></header>
+    <header class="module-head media-head private-head"><span class="brand">ALL-INCLUSIVE PRIVATE TOUR</span><h1>내게 맞는 장가계 여행</h1><p>처음이라면 인기 일정에서 시작하세요. 필요한 경우에만 세부 조건을 바꿀 수 있습니다.</p><div class="wizard-progress" id="privateProgress"><span class="active"></span><span></span><span></span><span></span><span></span></div><small class="wizard-progress-text" id="privateProgressText">1 / 5 · 여행 기본 정보</small></header>
+    <div class="service-media-strip"><figure><img src="assets/media/hotels/mercure/exterior.webp" alt="장가계 메르큐르 호텔" loading="lazy"><figcaption>협력 호텔</figcaption></figure><figure><img src="assets/media/vehicles/9-seat/exterior.jpg" alt="프라이빗 투어 전용차량" loading="lazy"><figcaption>전용차량</figcaption></figure><figure><img src="assets/media/attractions/fenghuang.jpg" alt="봉황고성 야경" loading="lazy"><figcaption>맞춤 일정</figcaption></figure></div>
     <div class="grid"><div class="main">
       <section class="card" id="privateModeChooser"><div class="section-head"><span class="step">✓</span><div><h2>어떤 방식으로 시작할까요?</h2><p>추천 일정을 고른 뒤에도 항공편 시간에 맞춰 자동으로 순서를 조정합니다.</p></div></div><div class="private-mode"><button class="active" type="button" data-private-mode="popular"><strong>인기 일정 바로 선택</strong><small>실제 상담에서 가장 많이 선택한 4개 코스</small></button><button type="button" data-private-mode="custom"><strong>내 일정 직접 만들기</strong><small>관광지와 여행 속도를 하나씩 직접 선택</small></button></div></section>
       <section id="privatePopular">
@@ -445,7 +454,6 @@
     </div><aside class="card summary"><div class="private-summary-head"><div><b>나의 프라이빗 투어</b><p class="summary-intro">참고 일정 + 상담 요청서</p></div><span>NO PRICE</span></div><div id="privateAlerts" class="private-alerts"></div><div class="quote-box" id="privateOverview">날짜를 입력해 주세요.</div><div class="included-box"><b>기본 포함</b><br>고급형 호텔 · 전용차량 · 한국어 가이드 · 일정상 입장권 · 호텔 조식 및 매일 중·석식 · 장가계 공항/서역 픽업·샌딩<br><br><b>별도 또는 불포함</b><br>장가계까지의 항공·열차 · 여행자보험 · 술·커피·야식 · 개인경비 · 미계획 추가비용 · 럭셔리 호텔/고급 식당 차액<br>가이드·기사 팁은 선택사항이며 강제하지 않습니다.</div><div class="divider"></div><div class="field"><label for="privateInquiry">고객 맞춤 일정 요청</label><textarea class="inquiry" id="privateInquiry" readonly></textarea></div><div class="handoff-guide" aria-label="상담 요청 방법"><span><b>1</b>아래 버튼으로 요청 내용을 복사</span><span><b>2</b>카카오톡을 열고 상담원에게 붙여넣기</span></div><p class="handoff-guide-note">복사만 하면 전송되지 않습니다. 카카오톡 상담창에 붙여넣은 뒤 보내 주세요.</p><div class="module-actions"><button class="btn btn-outline" id="privateCopy" type="button">① 맞춤 일정 복사</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">② 카카오톡 열기</a></div><p class="fine">※ 여권정보와 생년월일은 이 페이지에서 받지 않습니다. 견적 상담 후 예약 단계에서 필요한 정보만 별도로 안내합니다.</p></aside></div>
   </section>
 </main>
-<nav class="quick-switch" aria-label="예약 서비스 바로가기"><button class="private-quick" data-open-service="private" type="button">✨<br>올인원</button><button data-open-service="ticket" type="button">🎫<br>입장권</button><button data-open-service="daytour" type="button">🚌<br>데이투어</button><button data-open-service="guide" type="button">🧭<br>가이드</button><button data-open-service="vehicle" type="button">🚐<br>차량·픽업</button><button id="showTripPlan" type="button">🗓️<br>단일조합</button></nav>
 <div class="toast" id="toast" role="status" aria-live="polite">문의 내용이 복사되었습니다.</div>
 <script>
 (() => {
@@ -571,7 +579,6 @@
   ['dayDate','guideDate','vehicleDate'].forEach(id=>$('#'+id).min=today.toISOString().slice(0,10));
   function openService(name){
     $$('.service-panel').forEach(el=>el.hidden=el.id!==`service-${name}`);
-    $('#tripCombo').hidden=name==='private';
     $$('.service-tab').forEach(el=>el.classList.toggle('active',el.dataset.service===name));
     $$('.quick-switch [data-open-service]').forEach(el=>el.classList.toggle('active',el.dataset.openService===name));
     if(name==='home')scrollTo({top:0,behavior:'smooth'});else requestAnimationFrame(()=>document.getElementById(`service-${name}`).scrollIntoView({behavior:'smooth',block:'start'}));
@@ -617,8 +624,8 @@
   function renderGuideQuote(){
     const people=Math.max(1,parseInt($('#guidePeople').value,10)||1),hours=Math.max(1,parseInt($('#guideHours').value,10)||1),type=$('#guideType').value,role=val('#guideRole'),g=guides[$('#guideName').value],meal=+val('#guideMeal'),translation=role!=='travel',extraPeople=translation?0:Math.max(0,people-6)*20000,extraHours=translation?0:Math.max(0,hours-6)*20000,manual=!translation&&people>12,base=translation?(role==='business'?200000:190000):(type==='join'?130000:g.price),total=base+extraPeople+extraHours+meal,roleKo={travel:'여행가이드',life:'일반생활통역',business:'비즈니스 통역'}[role],roleZh={travel:'旅行导游',life:'日常生活翻译',business:'商务翻译'}[role];
     const sights=$$('#guideSights input:checked').map(x=>x.value),date=$('#guideDate').value||'미선택',startTime=$('#guideStartTime').value||'미입력',meetingPlace=$('#guideMeetingPlace').value.trim()||'미입력',itinerary=$('#guideItinerary').value.trim()||'미입력',hotel=$('#guideHotel').value.trim()||'호텔명 미입력';
-    const ready=!!$('#guideDate').value&&!!$('#guideStartTime').value&&!!$('#guideMeetingPlace').value.trim()&&!!$('#guideItinerary').value.trim();
-    $('#guideCopy').disabled=!ready;$('#guideFormHint').textContent=ready?'필수 정보가 모두 입력되었습니다.':'날짜, 시작 시간, 미팅 장소와 희망 일정을 모두 입력해 주세요.';$('#service-guide').dataset.ready=ready?'true':'false';
+    const ready=!!$('#guideDate').value&&!!$('#guideStartTime').value&&!!$('#guideMeetingPlace').value.trim()&&(sights.length>0||!!$('#guideItinerary').value.trim());
+    $('#guideCopy').disabled=!ready;$('#guideFormHint').textContent=ready?'상담에 필요한 정보가 준비되었습니다.':'날짜, 시작 시간, 미팅 장소를 입력하고 관광지 또는 희망 일정을 알려 주세요.';$('#service-guide').dataset.ready=ready?'true':'false';
     $('#guideSummary').innerHTML=manual?`<b>12인 이상 단체</b><p class="muted-note">인원과 일정 확인 후 별도 견적을 안내드립니다.</p><div class="price">별도 문의</div>`:`<b>${roleKo} · ${translation?'1일':type==='join'?'조인 신청':g.ko}</b><p class="muted-note">${people}명 · ${hours}시간${!translation&&hours<6?' (6시간 기준 적용)':''}${extraPeople?`<br>추가 인원 ${won(extraPeople)}`:''}${extraHours?` · 초과 시간 ${won(extraHours)}`:''}${meal?` · 식사 ${won(meal)}`:''}</p><div class="price">${won(total)}</div>`;
     $('#joinNotice').hidden=type!=='join'||translation;$('#joinNotice').innerHTML='<b>조인 신청 안내</b><br>기준 신청가는 130,000원/팀입니다. 조인이 성사되지 않으면 최종 배정 가이드의 프라이빗 요금과의 차액을 결제합니다. 출발 1~2일 전 성사 여부를 안내드립니다.';
     const priceText=manual?'별도 문의':won(total),priceZh=manual?'另行咨询':wonZh(total),serviceKo=type==='join'?'조인 신청':'프라이빗',serviceZh=type==='join'?'拼团申请':'私人导游';
@@ -831,7 +838,6 @@
   $('#presetGrid').addEventListener('click',e=>{const b=e.target.closest('[data-preset-open]');if(b)renderPresetDetail(b.dataset.presetOpen)});
   $('#presetDetail').addEventListener('click',e=>{const back=e.target.closest('[data-preset-back]'),pick=e.target.closest('[data-preset-select]');if(back){$('#presetDetail').hidden=true;$('#presetGrid').hidden=false;$('#presetGrid').scrollIntoView({behavior:'smooth',block:'start'})}if(pick)applyPreset(pick.dataset.presetSelect)});
   $('#dayCopy').addEventListener('click',()=>copyText($('#dayInquiry').value));$('#guideCopy').addEventListener('click',()=>copyText($('#guideInquiry').value));$('#vehicleCopy').addEventListener('click',()=>copyText($('#vehicleInquiry').value));$('#comboCopy').addEventListener('click',()=>copyText($('#comboInquiry').value));
-  $('#showTripPlan').addEventListener('click',()=>{$$('.quick-switch button').forEach(x=>x.classList.remove('active'));$('#showTripPlan').classList.add('active');$('#tripCombo').scrollIntoView({behavior:'smooth',block:'start'})});
   document.addEventListener('input',()=>queueMicrotask(renderCombo));document.addEventListener('change',()=>queueMicrotask(renderCombo));
   renderTourPicker();renderTourForm();renderGuideQuote();renderVehicle();renderCombo();renderPrivatePlan();renderPrivateCapacity();showPrivateCatalog();
 })();
