@@ -140,6 +140,9 @@
     @media(max-width:600px){.module-head.media-head{min-height:220px}.service-media-strip{grid-template-columns:1fr;gap:10px;overflow:visible;padding-bottom:0}.service-media-card{width:100%;height:auto;aspect-ratio:16/9}.service-media-card img{object-fit:cover}.service-media-card span{left:10px;right:10px;bottom:10px;padding:9px 11px;font-size:11px}.service-media-card:nth-child(1) img{object-position:center 42%}.service-media-card:nth-child(2) img{object-position:center 48%}.service-media-card:nth-child(3) img{object-position:center 52%}.quick-switch{grid-template-columns:repeat(5,1fr)}}
     #copyBtn,#dayCopy,#guideCopy{display:grid}.summary .module-actions:has(#dayCopy) .btn-primary,.summary .module-actions:has(#guideCopy) .btn-primary{display:grid}.order-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 10px}.order-step{display:flex;align-items:center;gap:8px;padding:10px;border-radius:13px;background:#eef8f4;color:#315f54;font-size:11px;font-weight:750}.order-step b{flex:0 0 23px;height:23px;display:grid;place-items:center;border-radius:50%;background:var(--brand);color:#fff}.order-note{margin:0 0 10px;color:var(--muted);font-size:11px}.order-note strong{color:var(--brand2)}
     @media(max-width:600px){.actions,.module-actions{grid-template-columns:1fr}.order-steps{grid-template-columns:1fr;gap:5px}.order-step{padding:9px 10px}}
+    .business-footer{margin:30px auto 100px;padding:24px;border:1px solid #cfe2db;border-radius:24px;background:#edf6f3;color:#28453d}.business-footer-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.business-footer .eyebrow{display:block;color:var(--brand);font-size:11px;font-weight:900;letter-spacing:.08em}.business-footer h2{margin:5px 0 7px;font-size:21px;color:var(--ink)}.business-footer-head p{margin:0;color:var(--muted);font-size:13px}.business-badge{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:#fff;color:var(--brand2);font-size:11px;font-weight:850}.business-grid{display:grid;gap:16px;margin-top:18px}.business-info{display:grid;grid-template-columns:145px minmax(0,1fr);gap:0;border:1px solid #d7e5e0;border-radius:17px;overflow:hidden;background:#fff}.business-info dt,.business-info dd{margin:0;padding:11px 13px;border-bottom:1px solid #e7eeeb;font-size:12px}.business-info dt{background:#f7faf9;color:var(--muted);font-weight:750}.business-info dd{color:var(--ink);font-weight:650;overflow-wrap:anywhere}.business-info dt:last-of-type,.business-info dd:last-of-type{border-bottom:0}.business-contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.business-contact{min-height:46px;display:flex;align-items:center;justify-content:center;padding:10px 12px;border:1px solid #bfd8d0;border-radius:13px;background:#fff;color:var(--brand2);text-decoration:none;font-size:12px;font-weight:800}.business-contact.primary{background:var(--brand);border-color:var(--brand);color:#fff}.business-license{margin:0;border-radius:17px;overflow:hidden;border:1px solid #d7e5e0;background:#fff}.business-license a{display:block}.business-license img{display:block;width:100%;height:auto;max-height:500px;object-fit:contain;background:#fbfbf8}.business-license figcaption{padding:11px 13px;color:var(--muted);font-size:11px}.business-license-note{margin:12px 1px 0;color:var(--muted);font-size:11px}.business-license-note strong{color:var(--brand2)}
+    @media(min-width:780px){.business-grid{grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);align-items:start}}
+    @media(max-width:600px){.business-footer{padding:18px 15px;border-radius:20px}.business-footer-head{display:block}.business-badge{display:inline-block;margin-top:12px}.business-info{grid-template-columns:1fr}.business-info dt{padding-bottom:3px;border-bottom:0}.business-info dd{padding-top:2px}.business-info dt:last-of-type{border-bottom:0}.business-contacts{grid-template-columns:1fr}.business-license img{max-height:none}}
   </style>
 </head>
 <body>
@@ -457,6 +460,37 @@
     </div><aside class="card summary"><div class="private-summary-head"><div><b>나의 프라이빗 투어</b><p class="summary-intro">참고 일정 + 상담 요청서</p></div><span>NO PRICE</span></div><div id="privateAlerts" class="private-alerts"></div><div class="quote-box" id="privateOverview">날짜를 입력해 주세요.</div><div class="included-box"><b>기본 포함</b><br>고급형 호텔 · 전용차량 · 한국어 가이드 · 일정상 입장권 · 호텔 조식 및 매일 중·석식 · 장가계 공항/서역 픽업·샌딩<br><br><b>별도 또는 불포함</b><br>장가계까지의 항공·열차 · 여행자보험 · 술·커피·야식 · 개인경비 · 미계획 추가비용 · 럭셔리 호텔/고급 식당 차액<br>가이드·기사 팁은 선택사항이며 강제하지 않습니다.</div><div class="divider"></div><div class="field"><label for="privateInquiry">고객 맞춤 일정 요청</label><textarea class="inquiry" id="privateInquiry" readonly></textarea></div><div class="handoff-guide" aria-label="상담 요청 방법"><span><b>1</b>아래 버튼으로 요청 내용을 복사</span><span><b>2</b>카카오톡을 열고 상담원에게 붙여넣기</span></div><p class="handoff-guide-note">복사만 하면 전송되지 않습니다. 카카오톡 상담창에 붙여넣은 뒤 보내 주세요.</p><div class="module-actions"><button class="btn btn-outline" id="privateCopy" type="button">① 맞춤 일정 복사</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">② 카카오톡 열기</a></div><p class="fine">※ 여권정보와 생년월일은 이 페이지에서 받지 않습니다. 견적 상담 후 예약 단계에서 필요한 정보만 별도로 안내합니다.</p></aside></div>
   </section>
 </main>
+<footer class="wrap business-footer" id="business-info" aria-labelledby="businessInfoTitle">
+  <div class="business-footer-head">
+    <div><span class="eyebrow">BUSINESS &amp; SERVICE PROVIDER</span><h2 id="businessInfoTitle">사업자·서비스 제공자 정보</h2><p>장가계 현지 여행 서비스의 실제 제공 주체와 상담 연락처를 투명하게 안내합니다.</p></div>
+    <span class="business-badge">중국 현지 법인</span>
+  </div>
+  <div class="business-grid">
+    <div>
+      <dl class="business-info">
+        <dt>여행 서비스 제공업체</dt><dd>张家界湘西国际旅行社有限公司<br><span lang="ko">장가계 샹시 국제여행사 유한회사</span></dd>
+        <dt>통일사회신용코드</dt><dd>91430800186961917U</dd>
+        <dt>법정대표인</dt><dd>杨建武</dd>
+        <dt>등록 주소</dt><dd>湖南省张家界市永定区官黎坪街道张家界国际旅游商业城D4栋三楼</dd>
+        <dt>허가된 사업 범위</dt><dd>중국 국내여행 · 중국 인바운드여행 · 티켓 대행</dd>
+        <dt>운영 담당자</dt><dd>남영규</dd>
+        <dt>KakaoTalk ID</dt><dd>Buta200</dd>
+        <dt>KakaoTalk 채널</dt><dd>로컬투어차이나</dd>
+      </dl>
+      <div class="business-contacts" aria-label="사업자 연락처">
+        <a class="business-contact" href="tel:+8618589610702">중국 전화 +86 185 8961 0702</a>
+        <a class="business-contact" href="tel:+821055722601">한국 전화 +82 10 5572 2601</a>
+        <button class="business-contact" type="button" data-copy-contact="Buta200">KakaoTalk ID 복사</button>
+        <a class="business-contact primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">로컬투어차이나 상담 열기</a>
+      </div>
+      <p class="business-license-note"><strong>안내:</strong> 아래 문서는 중국 법인 영업집조(营业执照)입니다. 여행사 업무경영허가증 정보는 해당 증빙 확인 후 별도로 표시합니다.</p>
+    </div>
+    <figure class="business-license">
+      <a href="assets/legal/zhangjiajie-xiangxi-business-license.jpg" target="_blank" rel="noopener noreferrer" aria-label="张家界湘西国际旅行社有限公司 영업집조 원본 크게 보기"><img src="assets/legal/zhangjiajie-xiangxi-business-license.jpg" alt="张家界湘西国际旅行社有限公司 중국 영업집조" loading="lazy"></a>
+      <figcaption>중국 영업집조 · 이미지를 누르면 크게 볼 수 있습니다.</figcaption>
+    </figure>
+  </div>
+</footer>
 <div class="toast" id="toast" role="status" aria-live="polite">문의 내용이 복사되었습니다.</div>
 <script>
 (() => {
@@ -846,6 +880,7 @@
   $$('[data-pick-vehicle]').forEach(button=>button.addEventListener('click',()=>{const service=button.dataset.vehicleService;const radio=$(`#vehicleService input[value="${service}"]`);radio.checked=true;$$('#vehicleService .pill').forEach(x=>x.classList.toggle('selected',x.contains(radio)));renderVehicle();$('#vehicleType').value=button.dataset.pickVehicle;renderVehicle();$('#vehicleType').scrollIntoView({behavior:'smooth',block:'center'})}));
   $$('[data-private-shortcut]').forEach(button=>button.addEventListener('click',()=>{button.dataset.privateShortcut==='custom'?startCustomPrivate():showPrivateCatalog();$('#privateModeChooser').scrollIntoView({behavior:'smooth',block:'start'})}));
   $('#dayCopy').addEventListener('click',()=>copyText($('#dayInquiry').value));$('#guideCopy').addEventListener('click',()=>copyText($('#guideInquiry').value));$('#vehicleCopy').addEventListener('click',()=>copyText($('#vehicleInquiry').value));$('#comboCopy').addEventListener('click',()=>copyText($('#comboInquiry').value));
+  $$('[data-copy-contact]').forEach(button=>button.addEventListener('click',()=>copyText(button.dataset.copyContact)));
   document.addEventListener('input',()=>queueMicrotask(renderCombo));document.addEventListener('change',()=>queueMicrotask(renderCombo));
   renderTourPicker();renderTourForm();renderGuideQuote();renderVehicle();renderCombo();renderPrivatePlan();renderPrivateCapacity();showPrivateCatalog();
 })();
