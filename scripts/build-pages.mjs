@@ -12,8 +12,8 @@ const reviews = JSON.parse(await readFile(path.join(root, 'src/reviews.json'), '
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const reviewCards = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(review => {
   if (!/^https:\/\/cafe\.naver\.com\/lotocha\/\d+$/.test(review.sourceUrl)) throw new Error('Invalid review source URL');
-  return `<article class="review-card"><div class="review-card-top"><span class="review-source">NAVER CAFE</span><time datetime="${escapeHtml(review.publishedAt)}">${escapeHtml(review.publishedAt.replaceAll('-','.'))}</time></div><h3><a href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(review.title)}</a></h3><div class="review-author"><span class="review-avatar" aria-hidden="true">${escapeHtml(Array.from(review.author)[0])}</span><span>${escapeHtml(review.author)}</span></div><a class="review-original" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(review.title)} — 네이버 카페 원문 보기 (새 창)"><span>네이버 카페 원문 보기</span><span aria-hidden="true">↗</span></a></article>`;
-}).join('\n');
+  return `<article class="review-card"><div class="review-card-top"><span class="review-source">NAVER CAFE</span><time datetime="${escapeHtml(review.publishedAt)}">${escapeHtml(review.publishedAt.replaceAll('-','.'))}</time></div><h3><a href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(review.title)}</a></h3>${review.summary ? `<div class="review-summary"><span>후기 요약</span><p>${escapeHtml(review.summary)}</p></div>` : ''}<div class="review-author"><span class="review-avatar" aria-hidden="true">${escapeHtml(Array.from(review.author)[0])}</span><span>${escapeHtml(review.author)}</span></div><a class="review-original" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(review.title)} — 네이버 카페에서 전체 후기 읽기 (새 창)"><span>네이버 카페에서 전체 후기 읽기</span><span aria-hidden="true">↗</span></a></article>`;
+});
 
 const pages = [
   {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 여행자가 직접 남긴 로투차 장가계 여행 후기를 확인하세요.'},
@@ -68,7 +68,7 @@ const pages = [
 ];
 
 for (const page of pages) {
-  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards)
+  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards.join('\n')).replaceAll('{{FEATURED_REVIEW_CARDS}}', reviewCards.slice(0, 2).join('\n'))
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${page.description}">`)
     .replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">`)

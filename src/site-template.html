@@ -35,6 +35,7 @@
     .review-source{color:var(--brand2);font-weight:800;letter-spacing:.04em}
     .review-card h3{font-size:clamp(22px,3vw,29px);line-height:1.45;letter-spacing:-.04em;margin:28px 0 22px;word-break:keep-all;overflow-wrap:anywhere}
     .review-card h3 a{color:var(--ink);text-decoration:none}.review-card h3 a:hover{color:var(--brand)}
+    .review-summary{margin:0 0 24px}.review-summary>span{display:block;font-size:12px;font-weight:800;color:var(--brand);margin-bottom:8px}.review-summary p{margin:0;font-size:16px;line-height:1.8;color:#42574f;word-break:keep-all;overflow-wrap:anywhere}
     .review-author{display:flex;align-items:center;gap:10px;font-size:14px;margin-top:auto;padding:18px 0;border-top:1px solid #e8eeeb;color:#42574f}
     .review-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--brand);font-weight:800}
     .review-original{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;font-weight:800;min-height:46px;color:var(--brand2);text-decoration:none}
@@ -218,7 +219,7 @@
     </div>
     <section class="review-preview" aria-labelledby="reviewPreviewTitle">
       <div class="review-heading"><div><span class="review-eyebrow">TRAVELLER STORIES</span><h2 id="reviewPreviewTitle">다녀온 여행자의 이야기</h2><p>네이버 카페에 직접 남겨주신 여행 후기를 만나보세요.</p></div><a class="review-more" href="reviews.html">여행 후기 모두 보기 →</a></div>
-      <div class="review-grid">{{REVIEW_CARDS}}</div>
+      <div class="review-grid">{{FEATURED_REVIEW_CARDS}}</div>
     </section>
     <section class="media-showcase" aria-labelledby="mediaShowcaseTitle">
       <div class="media-showcase-head"><div><h2 id="mediaShowcaseTitle">예약 전에, 실제 여행을 먼저 만나보세요</h2><p>장가계의 대표 풍경부터 숙소와 전용차량까지 직접 확인하고 원하는 여행 방식으로 이어갈 수 있습니다.</p></div><span class="media-showcase-note">REAL PLACES · REAL STAYS · REAL RIDES</span></div>
