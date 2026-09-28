@@ -158,6 +158,7 @@
     .language-switch .active{background:var(--brand);color:#fff}
     @media(max-width:760px){.topbar{position:relative}.language-switch{position:absolute;right:14px;top:11px}}
   </style>
+  <link rel="stylesheet" href="assets/inquiry-records.css">
   <link rel="alternate" hreflang="ko" href="https://localtourchina.com/vehicles.html">
   <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/vehicles.html">
 </head>
@@ -911,5 +912,5 @@
 </script>
 <script>
 document.addEventListener('click',event=>{const target=event.target.closest('a,button');if(!target||typeof gtag!=='function')return;const service=document.body.dataset.initialService||'unknown',href=target.getAttribute('href')||'',id=target.id||'';if(target.matches('[data-en-link]'))gtag('event','language_switch',{from_language:'ko',to_language:'en',service});if(['copyBtn','privateCopy','dayCopy','guideCopy','vehicleCopy','comboCopy'].includes(id)&&target.dataset.ready!=='false'&&!target.disabled)gtag('event','inquiry_copy',{language:'ko',service});if(href.includes('pf.kakao.com'))gtag('event','kakao_click',{language:'ko',service});if(href.includes('youtube.com'))gtag('event','youtube_click',{language:'ko',service});if(href.includes('cafe.naver.com'))gtag('event','naver_cafe_click',{language:'ko',service});if(href.startsWith('tel:'))gtag('event','phone_click',{language:'ko',service})});
-</script></body>
+</script><script src="assets/supabase-config.js"></script><script src="assets/inquiry-records.js"></script></body>
 </html>
