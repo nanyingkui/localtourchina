@@ -150,10 +150,18 @@
     body:not([data-initial-service="home"]) .hero{display:none}body[data-initial-service="company"] main.wrap{padding-bottom:0}
     .channel-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 0}.channel-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 17px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 7px 20px rgba(22,48,41,.04);transition:transform .16s ease,border-color .16s ease}.channel-link:hover{transform:translateY(-2px);border-color:#a9beb7}.channel-link span{min-width:0}.channel-link b{display:block;font-size:14px}.channel-link small{display:block;margin-top:2px;color:var(--muted);font-size:11px}.channel-link em{flex:0 0 auto;color:var(--brand);font-size:12px;font-style:normal;font-weight:850}.channel-link.youtube b{color:#b42318}.channel-link.naver b{color:#087d46}@media(max-width:600px){.channel-links{grid-template-columns:1fr}.channel-link{padding:15px}}
   </style>
+  <style>
+    .language-switch{flex:0 0 auto;display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .language-switch a{padding:6px 8px;border-radius:999px;font-size:10px!important;font-weight:900!important;text-decoration:none}
+    .language-switch .active{background:var(--brand);color:#fff}
+    @media(max-width:760px){.topbar{position:relative}.language-switch{position:absolute;right:14px;top:11px}}
+  </style>
+  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/tickets.html">
+  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/tickets.html">
 </head>
 <body data-initial-service="ticket">
 <main class="wrap">
-  <nav class="topbar"><a class="topbar-brand" href="index.html" aria-label="로투차 홈"><img src="assets/brand/localtourchina-header.webp" alt="로투차 Localtour China"></a><div class="service-nav" aria-label="서비스 선택"><a class="service-tab" data-service="home" href="index.html">홈</a><a class="service-tab private-tab" data-service="private" href="private-tour.html">올인원</a><a class="service-tab active" data-service="ticket" href="tickets.html">입장권</a><a class="service-tab" data-service="daytour" href="day-tours.html">데이투어</a><a class="service-tab" data-service="guide" href="local-guide.html">가이드</a><a class="service-tab" data-service="vehicle" href="vehicles.html">차량</a><a class="service-tab" data-service="combo" href="multi-booking.html">묶음예약</a><a class="service-tab" data-service="company" href="company.html">회사정보</a></div></nav>
+  <nav class="topbar"><a class="topbar-brand" href="index.html" aria-label="로투차 홈"><img src="assets/brand/localtourchina-header.webp" alt="로투차 Localtour China"></a><div class="service-nav" aria-label="서비스 선택"><a class="service-tab" data-service="home" href="index.html">홈</a><a class="service-tab private-tab" data-service="private" href="private-tour.html">올인원</a><a class="service-tab active" data-service="ticket" href="tickets.html">입장권</a><a class="service-tab" data-service="daytour" href="day-tours.html">데이투어</a><a class="service-tab" data-service="guide" href="local-guide.html">가이드</a><a class="service-tab" data-service="vehicle" href="vehicles.html">차량</a><a class="service-tab" data-service="combo" href="multi-booking.html">묶음예약</a><a class="service-tab" data-service="company" href="company.html">회사정보</a></div><span class="language-switch" aria-label="언어 선택"><a class="active" lang="ko" aria-current="page">KO</a><a lang="en" href="en/tickets.html" data-en-link>EN</a></span></nav>
   <header class="hero hero-with-media">
     <div class="hero-media" aria-hidden="true">
       <video autoplay muted loop playsinline preload="metadata" poster="assets/media/hero/home-mobile.jpg">
