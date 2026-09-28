@@ -10,13 +10,23 @@ const englishAnalyticsEvents = `<script>document.addEventListener('click',event=
 
 const reviews = JSON.parse(await readFile(path.join(root, 'src/reviews.json'), 'utf8'));
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const reviewCards = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(review => {
-  if (!/^https:\/\/cafe\.naver\.com\/lotocha\/\d+$/.test(review.sourceUrl)) throw new Error('Invalid review source URL');
-  return `<article class="review-card"><div class="review-card-top"><span class="review-source">NAVER CAFE</span><time datetime="${escapeHtml(review.publishedAt)}">${escapeHtml(review.publishedAt.replaceAll('-','.'))}</time></div><h3><a href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(review.title)}</a></h3>${review.summary ? `<div class="review-summary"><span>후기 요약</span><p>${escapeHtml(review.summary)}</p></div>` : ''}<div class="review-author"><span class="review-avatar" aria-hidden="true">${escapeHtml(Array.from(review.author)[0])}</span><span>${escapeHtml(review.author)}</span></div><a class="review-original" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(review.title)} — 네이버 카페에서 전체 후기 읽기 (새 창)"><span>네이버 카페에서 전체 후기 읽기</span><span aria-hidden="true">↗</span></a></article>`;
-});
+const sortedReviews = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
+const reviewIds = new Set();
+for (const review of sortedReviews) {
+  if (reviewIds.has(review.id) || !review.title || !review.author || !review.summary || !review.category || !['review','collection','guide'].includes(review.kind)) throw new Error('Incomplete or duplicate review');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(review.publishedAt) || review.sourceUrl !== `https://cafe.naver.com/lotocha/${review.id}` || !/^\d+$/.test(review.id)) throw new Error('Invalid review date or source URL');
+  reviewIds.add(review.id);
+}
+const renderReview = review => {
+  const isReview = review.kind === 'review';
+  const cta = isReview ? '네이버 카페에서 전체 후기 읽기' : '네이버 카페에서 원문 보기';
+  return `<article class="review-card" data-review-id="${escapeHtml(review.id)}"><div class="review-card-top"><span class="review-source">NAVER CAFE</span><time datetime="${escapeHtml(review.publishedAt)}">${escapeHtml(review.publishedAt.replaceAll('-','.'))}</time></div><span class="review-category">${escapeHtml(review.category)}</span><h3><a href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(review.title)}</a></h3><div class="review-summary"><span>${isReview ? '후기 요약' : '게시글 요약'}</span><p>${escapeHtml(review.summary)}</p></div><div class="review-author"><span class="review-avatar" aria-hidden="true">${escapeHtml(Array.from(review.author)[0])}</span><span>${escapeHtml(review.author)}</span></div><a class="review-original" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(review.title)} — ${cta} (새 창)"><span>${cta}</span><span aria-hidden="true">↗</span></a></article>`;
+};
+const reviewCards = sortedReviews.filter(review=>review.kind==='review').map(renderReview);
+const relatedReviewCards = sortedReviews.filter(review=>review.kind!=='review').map(renderReview);
 
 const pages = [
-  {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 여행자가 직접 남긴 로투차 장가계 여행 후기를 확인하세요.'},
+  {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 남겨진 장가계 여행 후기의 핵심을 읽고, 원문에서 전체 이야기와 사진을 확인하세요.'},
   {
     file: 'index.html',
     service: 'home',
@@ -68,7 +78,7 @@ const pages = [
 ];
 
 for (const page of pages) {
-  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards.join('\n')).replaceAll('{{FEATURED_REVIEW_CARDS}}', reviewCards.slice(0, 2).join('\n'))
+  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards.join('\n')).replaceAll('{{RELATED_REVIEW_CARDS}}', relatedReviewCards.join('\n')).replaceAll('{{REVIEW_COUNT}}', String(reviewCards.length)).replaceAll('{{FEATURED_REVIEW_CARDS}}', reviewCards.slice(0, 2).join('\n'))
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${page.description}">`)
     .replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">`)
