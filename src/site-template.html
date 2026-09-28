@@ -4,6 +4,8 @@
   <meta name="naver-site-verification" content="737bb77a4301e7903a5f5f7625cb978a49c90da2" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-232N1VVFP5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-232N1VVFP5');</script>
   <meta name="theme-color" content="#176b57">
   <meta name="description" content="장가계 입장권, 데이투어, 한국어 현지가이드, 공항픽업과 프라이빗 투어를 한곳에서 확인하고 문의하세요.">
   <link rel="canonical" href="https://localtourchina.com/">
@@ -903,5 +905,8 @@
   document.addEventListener('input',()=>queueMicrotask(renderCombo));document.addEventListener('change',()=>queueMicrotask(renderCombo));
   renderTourPicker();renderTourForm();renderGuideQuote();renderVehicle();renderCombo();renderPrivatePlan();renderPrivateCapacity();showPrivateCatalog();openService(initialService,false);
 })();
+</script>
+<script>
+document.addEventListener('click',event=>{const target=event.target.closest('a,button');if(!target||typeof gtag!=='function')return;const service=document.body.dataset.initialService||'unknown',href=target.getAttribute('href')||'',id=target.id||'';if(target.matches('[data-en-link]'))gtag('event','language_switch',{from_language:'ko',to_language:'en',service});if(['copyBtn','privateCopy','dayCopy','guideCopy','vehicleCopy','comboCopy'].includes(id))gtag('event','inquiry_copy',{language:'ko',service});if(href.includes('pf.kakao.com'))gtag('event','kakao_click',{language:'ko',service});if(href.includes('youtube.com'))gtag('event','youtube_click',{language:'ko',service});if(href.includes('cafe.naver.com'))gtag('event','naver_cafe_click',{language:'ko',service});if(href.startsWith('tel:'))gtag('event','phone_click',{language:'ko',service})});
 </script></body>
 </html>
