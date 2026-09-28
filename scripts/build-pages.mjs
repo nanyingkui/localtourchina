@@ -8,7 +8,15 @@ const englishTemplate = await readFile(path.join(root, 'src/english-template.htm
 const englishAnalyticsHead = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-232N1VVFP5"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-232N1VVFP5');</script>`;
 const englishAnalyticsEvents = `<script>document.addEventListener('click',event=>{const target=event.target.closest('a,button');if(!target||typeof gtag!=='function')return;const href=target.getAttribute('href')||'';if(target.closest('.language-switch')&&target.lang==='ko')gtag('event','language_switch',{from_language:'en',to_language:'ko',service});if(target.id==='copy')gtag('event','inquiry_copy',{language:'en',service});if(href.includes('pf.kakao.com'))gtag('event','kakao_click',{language:'en',service});if(href.includes('youtube.com'))gtag('event','youtube_click',{language:'en',service});if(href.includes('cafe.naver.com'))gtag('event','naver_cafe_click',{language:'en',service});if(href.startsWith('tel:'))gtag('event','phone_click',{language:'en',service})});</script>`;
 
+const reviews = JSON.parse(await readFile(path.join(root, 'src/reviews.json'), 'utf8'));
+const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const reviewCards = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(review => {
+  if (!/^https:\/\/cafe\.naver\.com\/lotocha\/\d+$/.test(review.sourceUrl)) throw new Error('Invalid review source URL');
+  return `<article class="review-card"><div class="review-card-top"><span class="review-source">NAVER CAFE</span><time datetime="${escapeHtml(review.publishedAt)}">${escapeHtml(review.publishedAt.replaceAll('-','.'))}</time></div><h3><a href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(review.title)}</a></h3><div class="review-author"><span class="review-avatar" aria-hidden="true">${escapeHtml(Array.from(review.author)[0])}</span><span>${escapeHtml(review.author)}</span></div><a class="review-original" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(review.title)} — 네이버 카페 원문 보기 (새 창)"><span>네이버 카페 원문 보기</span><span aria-hidden="true">↗</span></a></article>`;
+}).join('\n');
+
 const pages = [
+  {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 여행자가 직접 남긴 로투차 장가계 여행 후기를 확인하세요.'},
   {
     file: 'index.html',
     service: 'home',
@@ -60,7 +68,7 @@ const pages = [
 ];
 
 for (const page of pages) {
-  let html = template
+  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${page.description}">`)
     .replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">`)
@@ -69,8 +77,9 @@ for (const page of pages) {
 
   const activePattern = new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html = html.replace(activePattern, '$1 active$2');
-  html = html.replace('href="en/index.html" data-en-link', `href="en/${page.file}" data-en-link`);
-  html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${page.file === 'index.html' ? '' : page.file}">\n</head>`);
+  html = html.replace('href="en/index.html" data-en-link', `href="en/${page.service === 'reviews' ? 'index.html' : page.file}" data-en-link`);
+  html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${page.service === 'reviews' || page.file === 'index.html' ? '' : page.file}">\n</head>`);
+  if (page.service === 'reviews') html = html.replace(/  <link rel="alternate" hreflang="en"[^>]*>\n/, '');
   html = `<!-- Generated from src/site-template.html. Run: npm run build -->\n${html}`;
   await writeFile(path.join(root, page.file), html);
 }
