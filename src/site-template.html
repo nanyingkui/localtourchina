@@ -780,6 +780,10 @@
   async function copyText(text){try{await navigator.clipboard.writeText(text)}catch(e){const area=document.createElement('textarea');area.value=text;document.body.append(area);area.select();document.execCommand('copy');area.remove()}const toast=$('#toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
   const amountFrom=selector=>parseInt(($(selector)?.textContent||'0').replace(/[^0-9]/g,''),10)||0;
   function renderCombo(){
+    $$('#service-combo .jump-links [data-open-service]').forEach(button=>{
+      const service=comboServices[button.dataset.openService];
+      button.hidden=!service||!$('#'+service.checkbox).checked;
+    });
     const useTicket=$('#comboTicket').checked,useDay=$('#comboDay').checked,useGuide=$('#comboGuide').checked,useVehicle=$('#comboVehicle').checked;
     const ticketTotal=amountFrom('#total'),dayTotal=amountFrom('#daySummary .price'),guideManual=$('#guideSummary .price')?.textContent.includes('별도 문의'),guideTotal=guideManual?0:amountFrom('#guideSummary .price'),vehicleTotal=amountFrom('#vehicleSummary .price');
     const forestTicketChosen=$('#attractions input[value="forest"]')?.checked,forestMulti=$('#forestPackage')?.value==='all',forestDay=$('input[name="dayProduct"]:checked')?.value==='forest';
@@ -809,7 +813,7 @@
     $('#comboInquiry').value=ko.filter(x=>x!==null).join('\n');
     const selectedAny=useTicket||useDay||useGuide||useVehicle,ticketReady=!useTicket||!$('#copyBtn').disabled,dayReady=!useDay||$('#service-daytour').dataset.ready==='true',guideReady=!useGuide||$('#service-guide').dataset.ready==='true',vehicleReady=!useVehicle||$('#service-vehicle').dataset.ready==='true';
     const pending=[];if(!ticketReady)pending.push('입장권');if(!dayReady)pending.push('데이투어');if(!guideReady)pending.push('현지가이드');if(!vehicleReady)pending.push('차량·픽업');
-    $('#comboStatus').textContent=!selectedAny?'서비스 설정을 열어 내용을 입력해 주세요.':pending.length?'입력 내용이 반영되었습니다. '+pending.join(', ')+' 설정에서 필수 정보를 마저 입력해 주세요.':'선택한 서비스의 필수 정보가 모두 반영되었습니다. 통합 문의 내용을 확인해 주세요.';
+    $('#comboStatus').textContent=!selectedAny?'먼저 필요한 서비스를 선택해 주세요. 선택한 서비스의 설정 버튼이 아래에 표시됩니다.':pending.length?pending.join(', ')+' 설정을 열어 필수 정보를 입력해 주세요.':'선택한 서비스의 필수 정보가 모두 반영되었습니다. 통합 문의 내용을 확인해 주세요.';
     $('#comboCopy').disabled=!selectedAny||!ticketReady||!dayReady||!guideReady||!vehicleReady;$('#comboCopy').textContent=$('#comboCopy').disabled?'① 선택 서비스 작성 후 복사':'① 통합 문의 내용 복사';
   }
   const privateModules={
