@@ -825,7 +825,7 @@
     const selectedAny=useTicket||useDay||useGuide||useVehicle,ticketReady=!useTicket||!$('#copyBtn').disabled,dayReady=!useDay||$('#service-daytour').dataset.ready==='true',guideReady=!useGuide||$('#service-guide').dataset.ready==='true',vehicleReady=!useVehicle||$('#service-vehicle').dataset.ready==='true';
     const pending=[];if(!ticketReady)pending.push('입장권');if(!dayReady)pending.push('데이투어');if(!guideReady)pending.push('현지가이드');if(!vehicleReady)pending.push('차량·픽업');
     $('#comboStatus').textContent=!selectedAny?'먼저 필요한 서비스를 선택해 주세요. 선택한 서비스의 설정 버튼이 아래에 표시됩니다.':pending.length?pending.join(', ')+' 설정을 열어 필수 정보를 입력해 주세요.':'선택한 서비스의 필수 정보가 모두 반영되었습니다. 통합 문의 내용을 확인해 주세요.';
-    $('#comboCopy').disabled=!selectedAny||!ticketReady||!dayReady||!guideReady||!vehicleReady;$('#comboCopy').textContent=$('#comboCopy').disabled?'① 선택 서비스 작성 후 복사':'① 통합 문의 내용 복사';
+    $('#comboCopy').disabled=false;$('#comboCopy').textContent='① 통합 문의 내용 복사';
   }
   const privateModules={
     arrival:{ko:'장가계 도착 · 전용차량 픽업',zh:'抵达张家界・专车接站',intensity:'가벼움',slots:[['도착','공항/역 미팅 · 전용차량 픽업'],['이후','호텔 체크인 · 도착 시각에 따라 식사와 가벼운 산책']]},
