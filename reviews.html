@@ -23,6 +23,7 @@
     #service-private[data-stage="1"] .summary,#service-private[data-stage="2"] .summary,#service-private[data-stage="3"] .summary{display:none}
     .private-entry{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;text-align:left;padding:24px;border:0;border-radius:24px;background:linear-gradient(125deg,#083f35,#217c67);color:#fff;box-shadow:0 16px 36px rgba(14,73,61,.2);margin:16px 0 28px}.private-entry .eyebrow{font-size:11px;font-weight:900;letter-spacing:.08em;color:#aee8d7}.private-entry strong{display:block;font-size:clamp(23px,5vw,34px);margin:7px 0}.private-entry small{display:block;max-width:650px;color:rgba(255,255,255,.82);line-height:1.55}.private-entry .private-arrow{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.15);font-size:24px}.private-entry .private-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:11px 16px;border-radius:999px;background:#fff;color:#0d5a49;font-size:14px;font-weight:900;box-shadow:0 8px 22px rgba(0,0,0,.16)}.private-entry .private-cta:after{content:'→';font-size:18px;line-height:1}.single-service-title{padding-top:2px;border-top:1px solid var(--line)}.single-service-title h3{margin:22px 0 4px;font-size:20px}.single-service-title p{margin:0 0 14px;color:var(--muted);font-size:13px}.service-tab.private-tab{border:1px solid #b9dcd2;background:#edf8f4;color:var(--brand)}.service-tab.private-tab.active{background:var(--brand);color:#fff}.quick-switch .private-quick{background:#dff3ec;color:var(--brand2)}@media(max-width:480px){.private-entry{grid-template-columns:1fr;padding:22px 20px}.private-entry .private-arrow{display:none}.private-entry .private-cta{display:flex;width:100%;margin-top:20px}}
 
+    .combo-editor-note{padding:16px;margin:0 0 20px;background:var(--soft);border:1px solid var(--line);border-radius:16px;color:var(--brand2);font-size:14px;line-height:1.7}.combo-editor-note .btn{display:block;margin-top:12px}.combo-apply{margin:18px 0;min-height:48px}
     /* Travel stories: editorial typography, original Cafe attribution. */
     .review-preview{margin:36px 0;padding:28px 0;border-top:1px solid var(--line)}
     .review-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}
@@ -266,6 +267,7 @@
       <label class="combo-service"><input id="comboVehicle" type="checkbox"><span><b>차량·픽업 포함</b><small>공항 이동 또는 일일 전용차량</small></span></label>
     </div>
     <div class="jump-links"><button data-open-service="ticket" type="button">입장권 설정</button><button data-open-service="daytour" type="button">데이투어 설정</button><button data-open-service="guide" type="button">가이드 설정</button><button data-open-service="vehicle" type="button">차량·픽업 설정</button></div>
+    <p class="form-hint" id="comboStatus" role="status"></p>
     <div class="combo-lines" id="comboLines"><div class="muted-note">포함할 서비스를 선택해 주세요.</div></div>
     <div class="combo-total"><span>조합 예상 총 금액</span><strong id="comboTotal">0원</strong></div>
     <div class="warning-note" id="forestComboNotice" hidden><b>국가삼림공원 조합 할인 적용</b><br>무릉원 데이투어와 삼삭일제 무제한 입장권을 함께 예약하면 추가 입장권에서 1인당 30,000원이 할인됩니다. 데이투어와 다른 날짜의 재입장 날짜·시간도 함께 요청할 수 있습니다.</div>
@@ -704,8 +706,23 @@
   ['dayDate','guideDate','vehicleDate'].forEach(id=>$('#'+id).min=today.toISOString().slice(0,10));
   const servicePages={home:'index.html',private:'private-tour.html',ticket:'tickets.html',daytour:'day-tours.html',guide:'local-guide.html',vehicle:'vehicles.html',combo:'multi-booking.html',reviews:'reviews.html',company:'company.html'};
   const initialService=document.body.dataset.initialService||'home';
+  const comboServices={ticket:{checkbox:'comboTicket',label:'입장권'},daytour:{checkbox:'comboDay',label:'데이투어'},guide:{checkbox:'comboGuide',label:'현지가이드'},vehicle:{checkbox:'comboVehicle',label:'차량·픽업'}};
+  const comboContext=initialService==='combo';
+  if(comboContext){
+    Object.entries(comboServices).forEach(([name,service])=>{
+      const panel=$('#service-'+name);
+      const intro=document.createElement('div');intro.className='combo-editor-note';
+      intro.textContent=service.label+' 설정 중 · 입력한 내용은 이 페이지에서 유지됩니다. 설정 후 묶음예약에 반영해 주세요.';
+      const apply=document.createElement('button');apply.type='button';apply.className='btn btn-primary combo-apply';apply.textContent='묶음예약에 반영';
+      apply.addEventListener('click',()=>openService('combo',false));
+      const back=apply.cloneNode(true);back.textContent='← 묶음예약으로 돌아가기';back.addEventListener('click',()=>openService('combo',false));
+      intro.append(back);panel.prepend(intro);panel.append(apply);
+    });
+  }
   function openService(name,navigate=true){
-    if(navigate&&name!==initialService){location.href=servicePages[name]||'index.html';return}
+    const withinCombo=comboContext&&(name==='combo'||Object.hasOwn(comboServices,name));
+    if(navigate&&!withinCombo&&name!==initialService){location.href=servicePages[name]||'index.html';return}
+    if(withinCombo){if(comboServices[name])$('#'+comboServices[name].checkbox).checked=true;renderCombo();}
     $$('.service-panel').forEach(el=>el.hidden=el.id!==`service-${name}`);
     $$('.service-tab').forEach(el=>el.classList.toggle('active',el.dataset.service===name));
     $$('.quick-switch [data-open-service]').forEach(el=>el.classList.toggle('active',el.dataset.openService===name));
@@ -813,6 +830,8 @@
     const ko=['[로투차 장가계 통합 예약 문의]',`가격표 기록: v${CATALOG.version} / ${CATALOG.effective} 시행`,`선택 서비스: ${selected.join(' + ')||'미선택'}`,'',...blocks.flatMap(x=>[x.ko,'']),discount?`국가삼림공원 조합 할인: -${won(discount)} (삼삭일제 무제한 ${forestTicketCount}명)`:null,discount?'데이투어 외 추가 입장 날짜와 시간대를 확인해 주세요.':null,'',`예상 총 금액: ${won(total)}${useGuide&&guideManual?' + 가이드 별도 문의':''}`,'※ 각 서비스의 예약 가능 여부와 최종 금액을 확인해 주세요.','','──────── 中文版 ────────','【罗途察张家界综合预订咨询】',`价格表记录：v${CATALOG.version} / ${CATALOG.effective}生效`,`已选服务：${[useTicket?'门票':null,useDay?'一日游':null,useGuide?'当地导游':null,useVehicle?'车辆・接送':null].filter(Boolean).join('＋')||'未选择'}`,'',...blocks.flatMap(x=>[x.zh,'']),discount?`森林公园组合优惠：-${wonZh(discount)}（三索一梯多程票 ${forestTicketCount}人）`:null,discount?'请同时确认一日游之外的再次入园日期和时间段。':null,'',`预计总金额：${wonZh(total)}${useGuide&&guideManual?'＋导游另行咨询':''}`,'※ 请确认各项服务的可预订情况及最终金额。'];
     $('#comboInquiry').value=ko.filter(x=>x!==null).join('\n');
     const selectedAny=useTicket||useDay||useGuide||useVehicle,ticketReady=!useTicket||!$('#copyBtn').disabled,dayReady=!useDay||$('#service-daytour').dataset.ready==='true',guideReady=!useGuide||$('#service-guide').dataset.ready==='true',vehicleReady=!useVehicle||$('#service-vehicle').dataset.ready==='true';
+    const pending=[];if(!ticketReady)pending.push('입장권');if(!dayReady)pending.push('데이투어');if(!guideReady)pending.push('현지가이드');if(!vehicleReady)pending.push('차량·픽업');
+    $('#comboStatus').textContent=!selectedAny?'서비스 설정을 열어 내용을 입력해 주세요.':pending.length?'입력 내용이 반영되었습니다. '+pending.join(', ')+' 설정에서 필수 정보를 마저 입력해 주세요.':'선택한 서비스의 필수 정보가 모두 반영되었습니다. 통합 문의 내용을 확인해 주세요.';
     $('#comboCopy').disabled=!selectedAny||!ticketReady||!dayReady||!guideReady||!vehicleReady;$('#comboCopy').textContent=$('#comboCopy').disabled?'① 선택 서비스 작성 후 복사':'① 통합 문의 내용 복사';
   }
   const privateModules={
