@@ -45,3 +45,11 @@
 - 不用生成图片替代缺失的车辆实拍。
 - 所有卡片应有明确的可点击视觉状态；纯说明内容不得伪装成按钮。
 - 优先输出 WebP/JPEG 优化版本，并保留原始素材，不覆盖原图。
+
+## 海南三亚一日游
+
+用户已确认以下产品页图片已获得网站使用授权。本站只采用页面图库中未显示水印的原始图片，并制作 JPEG 网页优化版本；未擦除图片上的版权或来源标记。
+
+- 原生猴岛＋宋城＋夜市：`https://www.chinastorytour.com/tour/view.asp?TCODE=1459&TGAREA=34&TGCODE=0`
+- 槟榔谷＋宋城＋夜市：`https://www.chinastorytour.com/tour/view.asp?TCODE=1460&TGAREA=34&TGCODE=0`
+- 天涯海角＋大小洞天＋星光游船：`https://www.chinastorytour.com/tour/view.asp?TCODE=1916&TGAREA=34&TGCODE=0`
