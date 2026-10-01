@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const names = ['index.html', 'private-tour.html', 'tickets.html', 'day-tours.html', 'local-guide.html', 'vehicles.html', 'multi-booking.html', 'company.html'];
+const names = ['index.html', 'travel-info.html', 'private-tour.html', 'tickets.html', 'day-tours.html', 'local-guide.html', 'vehicles.html', 'multi-booking.html', 'company.html'];
 const pages = [...names, ...names.map(name => `en/${name}`), 'reviews.html'];
 
 for (const page of pages) {
