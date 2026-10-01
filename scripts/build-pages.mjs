@@ -27,7 +27,7 @@ const relatedReviewCards = sortedReviews.filter(review=>review.kind!=='review').
 
 const pages = [
   {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 남겨진 장가계 여행 후기의 핵심을 읽고, 원문에서 전체 이야기와 사진을 확인하세요.'},
-  {file:'travel-info.html', service:'info', title:'장가계·싼야 맛집과 여행정보 | 로투차', description:'장가계와 하이난 싼야의 현지 음식, 맛집 선택법, 교통, 결제, 통신과 여행 준비 정보를 확인하세요.'},
+  {file:'travel-info.html', service:'info', title:'중국 여행 준비 체크리스트·입국 안내·맛집 | 로투차', description:'한국 여권 여행자를 위한 중국 무비자·입국신고·결제·통신·교통 준비를 단계별로 확인하세요. 장가계·무릉원·봉황고성·부용진·싼야 맛집 안내 Beta.'},
   {
     file: 'index.html',
     service: 'home',
