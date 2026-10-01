@@ -48,8 +48,8 @@ const pages = [
   {
     file: 'day-tours.html',
     service: 'daytour',
-    title: '장가계 · 하이난 삼아 데이투어 예약 | 로투차',
-    description: '장가계와 하이난 삼아 일일 투어의 일정, 요금, 포함 사항과 집결 장소를 확인하세요.'
+    title: '장가계 · 하이난 싼야·삼아 데이투어 예약 | 로투차',
+    description: '장가계와 하이난 싼야·삼아(三亚) 일일 투어의 일정, 요금, 포함 사항과 집결 장소를 확인하세요.'
   },
   {
     file: 'local-guide.html',
