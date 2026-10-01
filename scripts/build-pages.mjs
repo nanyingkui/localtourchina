@@ -26,8 +26,10 @@ const reviewCards = sortedReviews.filter(review=>review.kind==='review').map(ren
 const relatedReviewCards = sortedReviews.filter(review=>review.kind!=='review').map(renderReview);
 
 const pages = [
+  {file:'booking.html',service:'booking',title:'여행 예약 | 로투차',description:'맞춤 여행, 데이투어, 입장권, 차량과 가이드를 필요한 만큼 선택하세요.'},
+  {file:'food-map.html',service:'food',title:'지역별 맛집·지도 | 로투차',description:'장가계 시내·무릉원·봉황고성·부용진·싼야 식당 안내와 고덕지도.'},
   {file:'reviews.html', service:'reviews', title:'장가계 여행 후기 | 로투차', description:'네이버 카페에 남겨진 장가계 여행 후기의 핵심을 읽고, 원문에서 전체 이야기와 사진을 확인하세요.'},
-  {file:'travel-info.html', service:'info', title:'중국 여행 준비 체크리스트·입국 안내·맛집 | 로투차', description:'한국 여권 여행자를 위한 중국 무비자·입국신고·결제·통신·교통 준비를 단계별로 확인하세요. 장가계·무릉원·봉황고성·부용진·싼야 맛집 안내 Beta.'},
+  {file:'travel-info.html', service:'info', title:'중국 여행 준비·입국 체크리스트 | 로투차', description:'한국 여권 여행자를 위한 중국 무비자·입국신고·결제·통신·교통 준비를 단계별로 확인하세요. 장가계·무릉원·봉황고성·부용진·싼야 맛집 안내 Beta.'},
   {
     file: 'index.html',
     service: 'home',
@@ -88,8 +90,8 @@ for (const page of pages) {
 
   const activePattern = new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html = html.replace(activePattern, '$1 active$2');
-  html = html.replace('href="en/index.html" data-en-link', `href="en/${page.service === 'reviews' ? 'index.html' : page.file}" data-en-link`);
-  html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${page.service === 'reviews' || page.file === 'index.html' ? '' : page.file}">\n</head>`);
+  html = html.replace('href="en/index.html" data-en-link', `href="en/${['reviews','booking','food'].includes(page.service) ? 'index.html' : page.file}" data-en-link`);
+  html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service) || page.file === 'index.html' ? '' : page.file}">\n</head>`);
   if (page.service === 'reviews') html = html.replace(/  <link rel="alternate" hreflang="en"[^>]*>\n/, '');
   html = `<!-- Generated from src/site-template.html. Run: npm run build -->\n${html}`;
   await writeFile(path.join(root, page.file), html);
