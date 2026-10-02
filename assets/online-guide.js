@@ -34,6 +34,7 @@
   });
   function showPending(restored=true){q('onlineReference').textContent=`신청번호 ${reference}`;q('onlineStatusLink').href=`inquiry-status.html?token=${encodeURIComponent(token)}`;q('onlineResult').hidden=false;q('onlineReceipt').hidden=false;form.hidden=true;if(!restored)q('onlineReceipt').scrollIntoView({behavior:'smooth',block:'center'})}
   q('onlineStatusCopy').addEventListener('click',async event=>{const url=new URL(q('onlineStatusLink').getAttribute('href'),location.href).href;try{await navigator.clipboard.writeText(url);event.currentTarget.textContent='전용 링크를 복사했습니다'}catch{window.prompt('아래 전용 링크를 복사해 주세요.',url)}});
+  q('onlineAccountCopy').addEventListener('click',async event=>{try{await navigator.clipboard.writeText('82820104226025');event.currentTarget.textContent='계좌번호를 복사했습니다'}catch{window.prompt('아래 계좌번호를 복사해 주세요.','82820104226025')}});
   q('onlineNewOrder').addEventListener('click',()=>{localStorage.removeItem(storageKey);location.reload()});
   try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved?.token&&saved?.reference){token=saved.token;reference=saved.reference;showPending();if(saved.uploaded){setStatus(q('onlineUploadStatus'),`증빙이 접수되었습니다 · ${reference}`);q('onlineKakao').hidden=false;q('onlineReceiptUpload').disabled=true;q('onlineReceiptUpload').textContent='업로드 완료'}}}catch{}
 })();
