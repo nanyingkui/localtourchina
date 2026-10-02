@@ -5,7 +5,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const names = ['index.html', 'travel-info.html', 'private-tour.html', 'tickets.html', 'day-tours.html', 'local-guide.html', 'vehicles.html', 'multi-booking.html', 'company.html'];
 const koreanNames=[...names,'reviews.html','booking.html','food-map.html','online-guide.html'];
-const pages = [...new Set([...koreanNames,'inquiry-status.html','en/inquiry-status.html', ...names.map(name => `en/${name}`), ...koreanNames.map(name => `zh/${name}`)])];
+const pages = [...new Set([...koreanNames,'inquiry-status.html','en/inquiry-status.html','admin.html', ...names.map(name => `en/${name}`), ...koreanNames.map(name => `zh/${name}`)])];
 
 for (const page of pages) {
   const html = await readFile(path.join(root, page), 'utf8');
