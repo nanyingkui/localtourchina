@@ -7,6 +7,8 @@
 3. Paste all of `setup.sql` and select **Run**.
 4. Open **Table Editor → inquiries** to see new customer inquiries.
 
+The script also creates the private `online-guide-receipts` Storage bucket. Screenshots can be uploaded but are never publicly readable. Review them while signed in through **Storage → online-guide-receipts** and match the folder UUID to the inquiry `access_token`.
+
 ## Updating a customer record
 
 In **Table Editor → inquiries**, edit only the relevant row:

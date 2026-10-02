@@ -12,7 +12,7 @@
     const map={ticket:'#inquiry',daytour:'#dayInquiry',guide:'#guideInquiry',vehicle:'#vehicleInquiry',private:'#privateInquiry',combo:'#comboInquiry'};
     return q(map[service]||'#comboInquiry')?.value.trim()||'';
   }
-  if(!en&&['home','company'].includes(service))return;
+  if(!en&&['home','company','onlineguide'].includes(service))return;
   const host=en?q('#inquiry'):q(`#service-${service} .summary`);if(!host)return;
   const box=document.createElement('div');box.className='record-box';box.innerHTML=`<h3>${text.title}</h3><p>${text.desc}</p><button class="record-save" type="button">${text.button}</button>`;host.append(box);
   const dialog=document.createElement('dialog');dialog.className='record-dialog';dialog.innerHTML=`<form class="record-dialog-inner"><button class="record-close" type="button" aria-label="${text.cancel}">×</button><h2>${text.modal}</h2><p>${text.help}</p><label>${text.name}<input name="customer_name" autocomplete="name" maxlength="100" required></label><label>${text.contact}<input name="contact" autocomplete="email" maxlength="200" required></label><label class="record-honeypot">Website<input name="website" tabindex="-1" autocomplete="off"></label><p class="record-error" hidden></p><div class="record-dialog-actions"><button class="record-cancel" type="button">${text.cancel}</button><button class="record-submit" type="submit">${text.submit}</button></div></form>`;document.body.append(dialog);

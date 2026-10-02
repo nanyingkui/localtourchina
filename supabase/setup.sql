@@ -80,3 +80,13 @@ grant execute on function public.create_public_inquiry(text,text,text,text,text)
 grant execute on function public.get_public_inquiry(uuid) to anon, authenticated;
 
 comment on table public.inquiries is 'Customer inquiry records. Do not store passport, birth date or payment credentials.';
+
+-- Private receipt storage for the online trip support product.
+insert into storage.buckets (id,name,public,file_size_limit,allowed_mime_types)
+values ('online-guide-receipts','online-guide-receipts',false,5242880,array['image/jpeg','image/png','image/webp'])
+on conflict (id) do update set public=false,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
+
+drop policy if exists "online guide receipt upload only" on storage.objects;
+create policy "online guide receipt upload only"
+on storage.objects for insert to anon, authenticated
+with check (bucket_id='online-guide-receipts');

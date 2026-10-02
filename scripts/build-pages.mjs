@@ -71,6 +71,12 @@ const pages = [
     description: '장가계 공항·역 미팅부터 관광지 동행까지 일정에 맞는 한국어 현지가이드를 요청하세요.'
   },
   {
+    file: 'online-guide.html',
+    service: 'onlineguide',
+    title: '중국 여행 온라인 안심지원 | 로투차',
+    description: '출발 전 일정 검토부터 중국 여행 중 한국어 실시간 도움까지, 한 팀 한 번의 여행을 50,000원에 지원합니다.'
+  },
+  {
     file: 'vehicles.html',
     service: 'vehicle',
     title: '장가계 차량·공항픽업 예약 | 로투차',
