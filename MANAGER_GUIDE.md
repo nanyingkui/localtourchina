@@ -5,10 +5,10 @@
 ## 第一次启用
 
 1. 在 Supabase SQL Editor 重新运行 `supabase/setup.sql`。
-2. 在 Supabase Authentication 中创建自己的登录账号。
+2. 在 Supabase Authentication 中邀请自己的管理员邮箱。
 3. 按照 `supabase/README.md` 中的示例，将该账号加入 `admin_users`。
 
-只有加入管理员名单的账号才能读取或修改订单；普通访客即使知道管理页面地址，也看不到订单和付款凭证。
+只有加入管理员名单的账号才能读取或修改订单；普通访客即使知道管理页面地址，也看不到订单和付款凭证。登录时输入管理员邮箱，点击邮件内的一次性链接即可，无需另记密码。
 
 ## 每天只做四件事
 
