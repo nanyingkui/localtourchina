@@ -9,7 +9,15 @@ const englishAnalyticsHead = `<script async src="https://www.googletagmanager.co
 const englishAnalyticsEvents = `<script>document.addEventListener('click',event=>{const target=event.target.closest('a,button');if(!target||typeof gtag!=='function')return;const href=target.getAttribute('href')||'';if(target.closest('.language-switch')&&target.lang==='ko')gtag('event','language_switch',{from_language:'en',to_language:'ko',service});if(target.id==='copy')gtag('event','inquiry_copy',{language:'en',service});if(href.includes('pf.kakao.com'))gtag('event','kakao_click',{language:'en',service});if(href.includes('youtube.com'))gtag('event','youtube_click',{language:'en',service});if(href.includes('cafe.naver.com'))gtag('event','naver_cafe_click',{language:'en',service});if(href.startsWith('tel:'))gtag('event','phone_click',{language:'en',service})});</script>`;
 
 const reviews = JSON.parse(await readFile(path.join(root, 'src/reviews.json'), 'utf8'));
+const restaurants = JSON.parse(await readFile(path.join(root, 'src/restaurants.json'), 'utf8'));
+const youtubeReviews = JSON.parse(await readFile(path.join(root, 'src/youtube-reviews.json'), 'utf8'));
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const restaurantCards = restaurants.map(item => {
+  const cafe=`https://cafe.naver.com/f-e/cafes/31682774/articles/${item.article}?menuid=3&referrerAllArticles=false`;
+  const map=item.map||`https://uri.amap.com/search?keyword=${encodeURIComponent(item.chinese)}&city=${encodeURIComponent('张家界')}&src=rotucha&callnative=0`;
+  return `<article class="food-card" data-food-search="${escapeHtml([item.name,item.chinese,item.area,item.category].join(' ').toLowerCase())}"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)} 관련 Cafe 실사진" loading="lazy" referrerpolicy="no-referrer"><div class="food-card-body"><div class="food-meta"><span>${escapeHtml(item.area)}</span><span>${escapeHtml(item.category)}</span></div><h3>${escapeHtml(item.name)}</h3><p class="food-chinese" lang="zh-CN">${escapeHtml(item.chinese)}</p><p>${escapeHtml(item.note)}</p><strong class="food-price">참고 인당 ${escapeHtml(item.price)}</strong><div class="food-actions"><button type="button" class="btn btn-outline" data-prep-copy="${escapeHtml(item.chinese)}">중국어 상호 복사</button><a class="btn btn-primary" href="${escapeHtml(map)}" target="_blank" rel="noopener noreferrer">고덕지도 검색 ↗</a><a href="${escapeHtml(cafe)}" target="_blank" rel="noopener noreferrer">사진·전체 글 보기 ↗</a></div></div></article>`;
+}).join('\n');
+const youtubeReviewCards = youtubeReviews.map(item=>{const preview=item.text.length>90?`${item.text.slice(0,90).trim()}…`:item.text;return `<article class="youtube-review"><span class="youtube-review-mark" aria-hidden="true">▶</span><p class="youtube-review-preview">${escapeHtml(preview)}</p><details><summary>전체 후기 펼쳐보기</summary><blockquote>${escapeHtml(item.text)}</blockquote></details><div><strong>${escapeHtml(item.author)}</strong><a href="https://youtu.be/7QMuXRdhyHg" target="_blank" rel="noopener noreferrer">YouTube 원문 ↗</a></div></article>`}).join('\n');
 const sortedReviews = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
 const reviewIds = new Set();
 for (const review of sortedReviews) {
@@ -81,7 +89,7 @@ const pages = [
 ];
 
 for (const page of pages) {
-  let html = template.replaceAll('{{REVIEW_CARDS}}', reviewCards.join('\n')).replaceAll('{{RELATED_REVIEW_CARDS}}', relatedReviewCards.join('\n')).replaceAll('{{REVIEW_COUNT}}', String(reviewCards.length)).replaceAll('{{FEATURED_REVIEW_CARDS}}', reviewCards.slice(0, 2).join('\n'))
+  let html = template.replaceAll('{{YOUTUBE_REVIEW_CARDS}}',youtubeReviewCards).replaceAll('{{YOUTUBE_REVIEW_COUNT}}',String(youtubeReviews.length)).replaceAll('{{RESTAURANT_CARDS}}', restaurantCards).replaceAll('{{RESTAURANT_COUNT}}', String(restaurants.length)).replaceAll('{{REVIEW_CARDS}}', reviewCards.join('\n')).replaceAll('{{RELATED_REVIEW_CARDS}}', relatedReviewCards.join('\n')).replaceAll('{{REVIEW_COUNT}}', String(reviewCards.length)).replaceAll('{{FEATURED_REVIEW_CARDS}}', reviewCards.slice(0, 2).join('\n'))
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${page.description}">`)
     .replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">`)
