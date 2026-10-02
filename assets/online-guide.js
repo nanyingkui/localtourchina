@@ -9,8 +9,9 @@
   form.addEventListener('submit',async event=>{
     event.preventDefault();
     if(end.value<start.value){setStatus(status,'여행 종료일은 시작일보다 빠를 수 없습니다.',true);end.focus();return}
+    const days=Math.round((new Date(end.value)-new Date(start.value))/86400000)+1;if(days>7){setStatus(status,'기본 상품은 최대 7일까지 이용할 수 있습니다. 8일 이상은 카카오톡으로 추가 견적을 요청해 주세요.',true);end.focus();return}
     const helps=[...document.querySelectorAll('[name="onlineHelp"]:checked')].map(x=>x.value);
-    const text=['[로투차 온라인 안심지원 신청]',`여행 기간: ${start.value} ~ ${end.value}`,`여행지: ${q('onlineDestination').value}`,`인원: ${q('onlinePeople').value}명`,`호텔·항공·일정: ${q('onlineHotel').value.trim()||'미정'}`,`필요한 도움: ${helps.join(' · ')||'전체 안내 필요'}`,'','상품: 한 팀 · 한 번의 여행 · 50,000원','여행 중 상담시간: 중국시간 08:00–20:00'].join('\n');
+    const text=['[로투차 온라인 안심지원 신청]',`여행 기간: ${start.value} ~ ${end.value} (${days}일)`,`여행지: ${q('onlineDestination').value}`,`인원: ${q('onlinePeople').value}명`,`호텔·항공·일정: ${q('onlineHotel').value.trim()||'미정'}`,`필요한 도움: ${helps.join(' · ')||'전체 안내 필요'}`,'','상품: 한 팀 · 한 번의 여행 · 최대 7일 · 50,000원','여행 중 상담시간: 중국시간 08:00–20:00','이용 규칙 동의: v2026.10.02'].join('\n');
     submit.disabled=true;submit.textContent='저장 중…';setStatus(status,'');
     try{
       const res=await fetch(`${cfg.url}/rest/v1/rpc/create_public_inquiry`,{method:'POST',headers:{apikey:cfg.key,'Content-Type':'application/json'},body:JSON.stringify({p_language:'ko',p_service:'online-guide',p_customer_name:q('onlineName').value.trim(),p_contact:q('onlineContact').value.trim(),p_inquiry_text:text})});
