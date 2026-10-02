@@ -5,6 +5,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const template = await readFile(path.join(root, 'src/site-template.html'), 'utf8');
 const englishTemplate = await readFile(path.join(root, 'src/english-template.html'), 'utf8');
+const zhTravelInfo = await readFile(path.join(root, 'src/zh-travel-info.html'), 'utf8');
 const zhPairs = [
   ['로투차 홈','罗途查首页'],['메뉴 ☰','菜单 ☰'],['주요 메뉴','主要菜单'],['언어 선택','语言选择'],
   ['온라인 안심지원','在线旅行支持'],['여행 예약','旅行预订'],['여행 준비','旅行准备'],['맛집·지도','美食·地图'],['여행 후기','旅行评价'],['카톡 상담','联系咨询'],
@@ -22,6 +23,8 @@ const zhPairs = [
   ['어떤 여행을 준비하시나요?','您正在准备怎样的旅行？'],['전체 일정을 맡기거나, 필요한 서비스만 골라 보세요.','可以把全程交给我们，也可以只选择需要的服务。'],
   ['전체 여행을 맡길래요','定制完整旅程'],['호텔·식사·차량·가이드가 포함된 맞춤 여행','包含酒店、用餐、车辆和导游的定制旅行'],['하루 투어를 찾고 있어요','查找一日游'],['장가계·싼야의 일정과 포함 사항 비교','比较张家界与三亚线路和包含项目'],['입장권만 필요해요','只需要门票'],['관광지와 방문 날짜에 맞는 티켓','按景区和日期选择门票'],['차량·공항 픽업이 필요해요','需要车辆或机场接送'],['인원과 이동 구간에 맞는 전용차량','根据人数和路线安排专车'],['한국어 가이드가 필요해요','需要导游'],['현지에서 함께할 가이드 요청','申请当地陪同导游'],['여러 서비스를 함께 예약할래요','一起预订多项服务'],['입장권·가이드·차량을 한 번에 문의','一次咨询门票、导游和车辆'],
   ['중국 여행,','中国旅行，'],['지금 어디까지 준비하셨나요?','您准备到哪一步了？'],['현재 여행 단계를 선택하세요. 필요한 안내만 보여 드릴게요.','请选择当前旅行阶段，我们只显示您需要的信息。'],['저장·인쇄','保存·打印'],
+  ['`준비 완료 ${n} / ${checks.length}`','`已完成 ${n} / ${checks.length}`'],['복사했어요','已复制'],['아래 중국어 상호를 복사하세요.','请复制下面的中文名称。'],['닫기 ×','关闭 ×'],['咨询内容이 복사되었습니다.','咨询内容已复制。'],
+  ["{before:'출발 전 준비',arrived:'중국 도착 후',during:'여행 중 도움'}","{before:'出发前准备',arrived:'抵达中国后',during:'旅行途中需要帮助'}"],['필요한 항목을 눌러 펼쳐 보세요.','点击需要查看的项目展开详情。'],
   ['먹고, 쉬고,','吃饭、休息，'],['현지처럼 장보기','像当地人一样购物'],['식당뿐 아니라 카페·야식·술집·슈퍼까지 여행 중 실제로 필요한 장소를 빠르게 찾으세요.','从餐厅、咖啡馆、夜宵和酒吧到超市，快速找到旅途中真正需要的地点。'],['장가계 로컬 생활 지도','张家界本地生活地图'],['전체 보기','查看全部'],['맛집','美食'],['카페','咖啡馆'],['야식·술','夜宵·酒吧'],['마트','超市'],['가게명·중국어·지역·종류 검색','按店名、中文名、地区或类型搜索'],['조건에 맞는 장소가 없습니다. 다른 종류나 검색어를 선택해 보세요.','没有符合条件的地点，请更换分类或关键词。'],
   ['사업자·서비스 제공자 정보','企业与服务商信息'],['회사소개·사업자 정보','公司介绍·资质信息'],['회사와 채널','公司与官方频道'],['상담','咨询'],
   ['필수 정보 입력 후 복사','填写必填信息后复制'],['필수 정보','必填信息'],['이름','姓名'],['여행 날짜','旅行日期'],['여행 인원','出行人数'],['연락처','联系方式'],['추가 요청','补充需求'],['문의 내용 복사','复制咨询内容'],['예상 금액','预计金额'],['총 금액','总金额'],['포함 사항','包含项目'],['불포함 사항','不包含项目'],['예약 가능 여부','是否可订'],['취소·변경·환불 규정','取消、变更与退款规则'],['확인해 주세요','请确认'],['제출하기','提交'],['다음 단계','下一步'],['이전 단계','上一步']
@@ -231,7 +234,8 @@ for(const page of zhPages){
   html=html.replace(/<span class="language-switch"[\s\S]*?<\/span>/,`<span class="language-switch" aria-label="语言选择"><a lang="ko" href="../${page.file}">KO</a><a lang="en" href="../en/${englishPages.some(item=>item.file===page.file)?page.file:'index.html'}">EN</a><a class="active" lang="zh-CN" aria-current="page">中文</a></span>`);
   html=html.replace(/<div class="service-nav" id="main-navigation"[\s\S]*?<\/div><span class="language-switch"/,`<div class="service-nav" id="main-navigation" aria-label="主要菜单"><a class="service-tab online-nav${page.service==='onlineguide'?' active':''}" data-service="onlineguide" href="online-guide.html">在线支持</a><a class="service-tab${page.service==='booking'?' active':''}" data-service="booking" href="booking.html">旅行预订</a><a class="service-tab${page.service==='info'?' active':''}" data-service="info" href="travel-info.html">旅行准备</a><a class="service-tab${page.service==='food'?' active':''}" data-service="food" href="food-map.html">美食·地图</a><a class="service-tab${page.service==='reviews'?' active':''}" data-service="reviews" href="reviews.html">旅行评价</a><a class="nav-contact" href="#business-info">微信咨询 ↗</a></div><span class="language-switch"`);
   html=html.replaceAll('assets/','../assets/');
-  html=zhTranslate(html);
+  html=html.replace(/<section class="service-panel" id="service-info"[\s\S]*?(?=<section class="service-panel" id="service-food")/,zhTravelInfo+'\n');
+  html=zhTranslate(html).replaceAll('咨询内容이 복사되었습니다.','咨询内容已复制。');
   if(page.service==='home')html=html.replace('</head>','<style>.review-preview{display:none}</style></head>');
   if(page.service==='reviews')html=html.replace('</head>','<style>.youtube-reviews{display:none}</style></head>');
   html=html.replace('</head>',`  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service)||page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file==='index.html'?'':page.file}">\n</head>`);

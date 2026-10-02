@@ -1,0 +1,67 @@
+<section class="service-panel" id="service-info" hidden aria-labelledby="travelInfoTitle">
+  <header class="prep-hero">
+    <span class="eyebrow">罗途查 · CHINA TRAVEL READY</span>
+    <h1 id="travelInfoTitle">中国旅行，<br>您准备到哪一步了？</h1>
+    <p>请选择当前旅行阶段，我们只显示您需要的信息。</p>
+    <p class="fine">政策核对日期：2026年10月1日 · 中文说明 · 免签政策是否适用，请以官方公告和入境审查结果为准。</p>
+    <div class="guide-contact"><button type="button" class="btn btn-outline" id="prep-print">保存·打印</button></div>
+  </header>
+
+  <div class="prep-stage-picker" role="group" aria-label="当前旅行阶段">
+    <button type="button" data-prep-stage="before" aria-pressed="true"><strong>① 还未出发</strong><span>入境·支付·通信·行李准备</span></button>
+    <button type="button" data-prep-stage="arrived" aria-pressed="false"><strong>② 已经抵达中国</strong><span>机场交通·酒店入住</span></button>
+    <button type="button" data-prep-stage="during" aria-pressed="false"><strong>③ 旅行途中需要帮助</strong><span>交通·当地沟通·在线咨询</span></button>
+  </div>
+  <div class="prep-progress">
+    <strong id="prep-count" role="status">已完成 0 / 10</strong>
+    <progress id="prep-meter" value="0" max="10" aria-label="旅行准备进度"></progress>
+    <button id="prep-reset" type="button">重新勾选</button>
+    <small>勾选状态只保存在这台设备上；使用公共设备时请及时清除。</small>
+  </div>
+  <h2 class="prep-stage-status" id="prep-stage-status">出发前准备 · 点击需要查看的项目展开详情。</h2>
+
+  <div class="prep-steps">
+    <details class="prep-step prep-disclosure" id="prep-entry" data-stage-panel="before">
+      <summary><span><small>第01步 · 预订机票前</small><strong>先确认自己是否符合免签入境条件</strong><span class="prep-brief">持普通护照、以旅游等许可目的入境且停留不超过30天时，请核对当前免签政策。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>确认护照国籍和护照类型；紧急或临时护照不一定适用普通护照的入境条件。</li><li>从入境次日起计算停留天数，并确认回程日期和护照有效期；经停地和航空公司的要求也要单独核对。</li><li>把返程或前往第三国的机票、住宿订单保存到手机，确保入境审查时可以清楚说明旅行目的和行程。</li></ol><div class="prep-done"><b>完成标准</b><p>已经核对普通护照、旅行目的、停留天数和政策适用日期。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>如计划在2027年入境、停留超过30天，或目的为工作、留学、采访等，请在预订前向中国使领馆确认签证要求。最终是否准予入境，以入境审查为准。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://en.nia.gov.cn/n147418/n147463/c183390/content.html">国家移民管理局说明 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="entry"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-book" data-stage-panel="before">
+      <summary><span><small>第02步 · 预订机票和住宿时</small><strong>姓名与抵达地点必须一致</strong><span class="prep-brief">按护照英文姓名预订，并提前保存酒店的中文名称和完整地址。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>核对机票上的英文姓名、出生日期是否与护照一致；如需中转，还要向航空公司确认过境要求、行李直挂和机场变更。</li><li>确认酒店能否接待外国护照旅客以及是否可以晚到入住，保存订单号、酒店中文名、完整地址和电话。</li><li>张家界市区和武陵源是不同住宿区域；三亚则需核对机场、酒店和一日游集合点之间的距离。</li></ol><div class="prep-done"><b>完成标准</b><p>离线状态下也能打开机票、酒店订单和中文地址。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>姓名不一致时，请先联系航空公司或预订平台更正。预订罗途查旅游产品并不代表机票和酒店会自动代订。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="book"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-payment" data-stage-panel="before">
+      <summary><span><small>第03步 · 出发前3—7天</small><strong>准备移动支付和备用付款方式</strong><span class="prep-brief">先设置支付宝，同时准备银行卡和少量人民币现金。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>从手机官方应用商店安装 Alipay（支付宝），使用能在境外接收验证码的本人手机号注册。</li><li>在应用内添加本人银行卡；如需身份验证，请只在官方应用内完成，并确认银行卡已开通境外交易。</li><li>付款时核对商户名称、金额和手续费，支付成功后与店员共同确认成功页面。</li></ol><div class="prep-done"><b>完成标准</b><p>银行卡已显示在应用中，手机可以正常接收验证码；实际能否支付仍需以现场结果为准。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>付款失败时可更换银行卡或使用人民币现金。不同跨境支付功能并非适用于所有二维码，请留好备用方式。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://english.www.gov.cn/news/202404/11/content_WS6617c858c6d0868f4e8e5f4d.html">中国政府支付指南 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="payment"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-internet" data-stage-panel="before">
+      <summary><span><small>第04步 · 出发前3—7天</small><strong>确保落地后能够立即联网</strong><span class="prep-brief">根据自己的手机选择国际漫游、旅行 eSIM 或当地 SIM 卡。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>向运营商或销售方确认是否支持中国大陆、手机是否兼容、开通时间和流量上限；购买 eSIM 前先确认设备支持。</li><li>保存安装说明和客服联系方式，并按运营商说明分别设置短信接收和数据漫游。</li><li>提前截图酒店地址、订单和接机地点；所购通信产品能否访问某些应用，请直接向销售方确认。</li></ol><div class="prep-done"><b>完成标准</b><p>已经保存开通方法和出现问题时的联系方式。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>机场 Wi-Fi 无法使用或收不到短信时，可把已保存的中文地址出示给服务台。不要等到落地后才首次注册所有必需应用。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="internet"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-arrival" data-stage-panel="before">
+      <summary><span><small>第05步 · 行程信息确定后</small><strong>准备填写外国人入境卡</strong><span class="prep-brief">可以通过官方渠道免费填写；入境卡并不是免签许可申请。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>打开下方官方页面，阅读填报须知并确认自己是否属于免填人员。</li><li>按官方页面提示填写护照、航班、住宿和旅行信息，上传资料时只使用官方页面。</li><li>提交前逐项核对识别出的护照资料、航班和住宿地址，并保存提交完成信息；实际页面流程可能更新。</li></ol><div class="prep-done"><b>完成标准</b><p>已经核对填报内容并保存提交完成信息。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>线上填写失败时，可以在入境现场使用自助设备或纸质入境卡。无需向任何人支付代填费用，也不要把护照资料发到普通咨询窗口。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://s.nia.gov.cn/ArrivalCardFillingPC/">免费填写入境卡 ↗</a><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://en.nia.gov.cn/n147418/n147463/c191530/content.html">官方服务说明 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="arrival"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-bag" data-stage-panel="before">
+      <summary><span><small>第06步 · 出发前1—2天</small><strong>检查护照、充电宝和常用药</strong><span class="prep-brief">分别检查随身行李和托运行李。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>准备护照原件、订单、银行卡、人民币、充电器和必需药品，并保存保险保障范围和联系电话。</li><li>充电宝不能托运。乘坐中国境内航班时，缺少清晰 CCC 标识或属于召回范围的产品可能被限制携带；容量和数量还需向航空公司确认。</li><li>常用药和处方药尽量保留可识别的原包装并携带处方资料；特殊药品、注射剂和限制物品应提前查询入境规定。</li></ol><div class="prep-done"><b>完成标准</b><p>必需品均在随身行李内，并已核对充电宝标识和航空公司规定。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>看不到充电宝标识时，不要默认可以带上中国境内航班；难以判断的物品请在去机场前咨询航空公司。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://www.caac.gov.cn/XWZX/MHYW/202506/t20250626_227805.html">中国民航局充电宝通知 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="bag"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-landing" data-stage-panel="arrived" hidden>
+      <summary><span><small>第07步 · 抵达中国机场后</small><strong>按入境、取行李、接机的顺序行动</strong><span class="prep-brief">不要急着离开机场，先确认通信是否正常以及目的地是否正确。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>入境审查时出示护照和被要求提供的旅行资料；如携带需申报物品，请按海关指引办理。</li><li>领取行李后确认网络连接，并通知已预约司机；核对航站楼、出口编号和车牌号。</li><li>乘坐出租车时前往官方乘车点，向司机出示酒店中文地址；使用网约车时要核对地图定位与实际上车点。</li></ol><div class="prep-done"><b>完成标准</b><p>确认车牌、目的地和费用条件后再上车。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>未能与司机会合时，请站在能看见出口编号的位置联系预订负责人；不要乘坐出发前未确认的陌生车辆。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="landing"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-hotel" data-stage-panel="arrived" hidden>
+      <summary><span><small>第08步 · 抵达住宿地点后</small><strong>确认入住和住宿登记</strong><span class="prep-brief">住酒店时通常由酒店办理登记；住在亲友家等非酒店住所时，需要另行确认登记方式。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>向酒店前台出示护照原件和预订信息，并确认已经完成住宿登记。</li><li>住在亲友家等非酒店住所时，一般应在入住后24小时内由本人或留宿人办理登记；首次办理时请让留宿人协助。</li><li>使用线上登记服务时，请按官方12367相关说明操作并确认受理或登记结果。</li></ol><div class="prep-done"><b>完成标准</b><p>已经确认酒店登记，或取得非酒店住宿登记结果。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>线上无法办理时，请与留宿人一起咨询所在地公安机关；仅有住宿订单不代表非酒店住宿登记已经完成。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://en.nia.gov.cn/n147418/n147463/c237273/content.html">国家移民管理局住宿登记说明 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="hotel"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-move" data-stage-panel="during" hidden>
+      <summary><span><small>第09步 · 在中国境内移动时</small><strong>核对目的地和证件信息</strong><span class="prep-brief">同时使用中文名称和完整地址，避免前往同名分店或错误车站。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>从美食·地图页面复制中文名称，并在高德地图中核对完整地址；没有地图应用时可使用网页地图。</li><li>购买火车票时通过官方12306核对出发站、到达站、日期和护照英文姓名，注意区分张家界站与张家界西站等相似站名。</li><li>出发前带好护照原件和订单页面，并按车站或航空公司的提示预留安检和进站时间。</li></ol><div class="prep-done"><b>完成标准</b><p>订单上的车站、时间和姓名与地图目的地完全一致。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>地图链接无法在应用中打开时，把复制的中文店名和地址粘贴到地图搜索框，或出示给酒店工作人员。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://www.12306.cn/en/index.html">12306官方网站 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="move"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-weather" data-stage-panel="during" hidden>
+      <summary><span><small>第10步 · 根据目的地补充准备</small><strong>按目的地天气和活动调整行李</strong><span class="prep-brief">出发前再次查看实时天气预报和景区运营公告。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>张家界市区、武陵源：准备防滑鞋、雨具和薄外套，并根据步行量和索道运行情况调整山区线路。</li><li>凤凰古城、芙蓉镇：考虑台阶和石板路，穿舒适的鞋，并提前安排夜游结束后的返程交通。</li><li>三亚：准备帽子、防晒用品和饮用水；海上活动服从现场和天气管控，点海鲜前确认重量、单价和加工费。</li></ol><div class="prep-done"><b>完成标准</b><p>已经按照天气、活动和返程路线准备好所需物品。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>遇到恶劣天气或景区暂停运营时，请按照出行当天景区和预订方的通知调整行程。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="weather"> 已确认</label></div>
+    </details>
+  </div>
+
+  <section class="card" id="travel-help" data-stage-panel="during" hidden><h2>沟通不便时，可以把这些句子出示给对方</h2><p>同时出示酒店订单或地图页面，更容易说明目的地。</p><div class="phrase-grid"><div><b>请带我去这个地址。</b><p lang="zh-CN">请带我去这个地址。</p><button class="btn btn-outline" data-prep-copy="请带我去这个地址。" type="button">复制中文</button></div><div><b>请不要放辣椒和香菜。</b><p lang="zh-CN">请不要放辣椒，也不要放香菜。</p><button class="btn btn-outline" data-prep-copy="请不要放辣椒，也不要放香菜。" type="button">复制中文</button></div><div><b>我需要中文帮助。</b><p lang="zh-CN">我需要中文帮助。</p><button class="btn btn-outline" data-prep-copy="我需要中文帮助。" type="button">复制中文</button></div></div><p id="prep-copy-status" role="status"></p><p>遇到紧急情况，请立即向酒店工作人员或现场负责人求助；需要领事协助时，请查看本国使领馆的官方说明。</p><div class="guide-contact"><a class="btn btn-primary" href="#business-info">联系罗途查旅行顾问 ↗</a></div><p class="fine">罗途查咨询不属于紧急救援服务。</p></section>
+</section>
