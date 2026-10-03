@@ -4,6 +4,8 @@ import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const template = await readFile(path.join(root, 'src/site-template.html'), 'utf8');
+const winterFlights = JSON.parse(await readFile(path.join(root, 'src/winter-flights.json'), 'utf8'));
+await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WINTER_FLIGHTS = '+JSON.stringify(winterFlights)+';\n');
 const englishTemplate = await readFile(path.join(root, 'src/english-template.html'), 'utf8');
 const zhTravelInfo = await readFile(path.join(root, 'src/zh-travel-info.html'), 'utf8');
 const zhPairs = [
