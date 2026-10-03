@@ -8,19 +8,28 @@
   </header>
 
   <div class="prep-stage-picker" role="group" aria-label="当前旅行阶段">
-    <button type="button" data-prep-stage="before" aria-pressed="true"><strong>① 还未出发</strong><span>入境·支付·通信·行李准备</span></button>
+    <button type="button" data-prep-stage="before" aria-pressed="true"><strong>① 还未出发</strong><span>护照·入境·保险·通信</span></button>
     <button type="button" data-prep-stage="arrived" aria-pressed="false"><strong>② 已经抵达中国</strong><span>机场交通·酒店入住</span></button>
     <button type="button" data-prep-stage="during" aria-pressed="false"><strong>③ 旅行途中需要帮助</strong><span>交通·当地沟通·在线咨询</span></button>
   </div>
+  <section class="card prep-route" data-stage-panel="before"><span class="eyebrow">出发前执行顺序</span><h2>按这个顺序完成即可</h2><div class="order-steps"><a href="#prep-passport"><b>1</b>核对护照</a><a href="#prep-entry"><b>2</b>入境条件</a><a href="#prep-book"><b>3</b>机票住宿</a><a href="#prep-insurance"><b>4</b>购买保险</a><a href="#prep-payment"><b>5</b>设置支付</a><a href="#prep-internet"><b>6</b>手机通信</a><a href="#prep-arrival"><b>7</b>入境申报</a><a href="#prep-bag"><b>8</b>行李复核</a></div><p class="fine">建议出发7天前完成第1—6项，行程信息确定后完成第7项，出发前一天完成第8项。</p></section>
   <div class="prep-progress">
-    <strong id="prep-count" role="status">已完成 0 / 10</strong>
-    <progress id="prep-meter" value="0" max="10" aria-label="旅行准备进度"></progress>
+    <strong id="prep-count" role="status">已完成 0 / 12</strong>
+    <progress id="prep-meter" value="0" max="12" aria-label="旅行准备进度"></progress>
     <button id="prep-reset" type="button">重新勾选</button>
     <small>勾选状态只保存在这台设备上；使用公共设备时请及时清除。</small>
   </div>
   <h2 class="prep-stage-status" id="prep-stage-status">出发前准备 · 点击需要查看的项目展开详情。</h2>
 
   <div class="prep-steps">
+    <details class="prep-step prep-disclosure" id="prep-passport" data-stage-panel="before">
+      <summary><span><small>必须确认 · 购买机票前</small><strong>先检查护照有效期和完好状态</strong><span class="prep-brief">护照至少应覆盖整个旅行期；实际操作中建议在回国日仍有6个月以上有效期。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>核对资料页上的英文姓名、护照号码和到期日，并按计划回国日期计算剩余有效期。</li><li>中国免签说明要求护照在停留及离境时保持有效；航空公司或经停国家可能要求更长有效期。少于6个月时，先向航空公司和有关使领馆核实，并优先考虑换发护照。</li><li>检查封面、资料页、签证页是否破损，是否有涂写、纪念章或缺页，并在持照人签名栏签名。护照照片应存放在加密空间。</li></ol><div class="prep-done"><b>完成标准</b><p>护照原件完好，并确认回国日剩余有效期以及航空公司、经停地的要求。</p></div><details><summary>少于6个月或护照破损怎么办？</summary><p>先确认换发时间，不要急于购买不可退改的机票。拿到新护照后，需要同步更新机票、住宿、保险和入境申报中的护照号码。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="passport"> 已确认</label></div>
+    </details>
+    <details class="prep-step prep-disclosure" id="prep-insurance" data-stage-panel="before">
+      <summary><span><small>必须确认 · 机票住宿确定后</small><strong>请在出境前购买旅行保险</strong><span class="prep-brief">对比是否覆盖中国全程和实际活动，并保存保单及24小时救援电话。</span></span></summary>
+      <div class="prep-detail-body"><ol><li>通过保险公司官方网站、应用或可信比较渠道，将保险期设为出发日00:00至回国日24:00，目的地填写中国。部分产品出境后不能新购，请在离开韩国前办妥。</li><li>重点比较境外意外与疾病医疗、紧急转运和送返、个人责任、行李财物、航班延误取消及旅行取消保障。高龄、怀孕、既往病史、徒步和水上项目可能除外或需要附加条件。</li><li>投保后保存英文保单、合同号码、24小时救援电话和理赔方法；如果依赖信用卡附带保险，应单独核对触发条件和保额。</li><li>发生事故先确保安全，条件允许时在治疗或维修前联系保险公司。保留诊断证明、费用明细、发票、处方、航班延误证明；失窃还应取得当地警方报案材料。</li></ol><div class="prep-done"><b>完成标准</b><p>已确认保险期限、中国保障范围、医疗和转运额度、除外活动，并离线保存保单和电话。</p></div><details><summary>该选择哪家保险公司？</summary><p>不要只看最低价格，应按年龄、健康状况、活动和预算比较免赔额、既往疾病、单件物品上限及转运条件。罗途查旅行产品本身不包含旅行保险。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://www.0404.go.kr/">韩国外交部海外安全旅行 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="insurance"> 已购买</label></div>
+    </details>
     <details class="prep-step prep-disclosure" id="prep-entry" data-stage-panel="before">
       <summary><span><small>第01步 · 预订机票前</small><strong>先确认自己是否符合免签入境条件</strong><span class="prep-brief">持普通护照、以旅游等许可目的入境且停留不超过30天时，请核对当前免签政策。</span></span></summary>
       <div class="prep-detail-body"><ol><li>确认护照国籍和护照类型；紧急或临时护照不一定适用普通护照的入境条件。</li><li>从入境次日起计算停留天数，并确认回程日期和护照有效期；经停地和航空公司的要求也要单独核对。</li><li>把返程或前往第三国的机票、住宿订单保存到手机，确保入境审查时可以清楚说明旅行目的和行程。</li></ol><div class="prep-done"><b>完成标准</b><p>已经核对普通护照、旅行目的、停留天数和政策适用日期。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>如计划在2027年入境、停留超过30天，或目的为工作、留学、采访等，请在预订前向中国使领馆确认签证要求。最终是否准予入境，以入境审查为准。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://en.nia.gov.cn/n147418/n147463/c183390/content.html">国家移民管理局说明 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="entry"> 已确认</label></div>
@@ -34,8 +43,8 @@
       <div class="prep-detail-body"><ol><li>从手机官方应用商店安装 Alipay（支付宝），使用能在境外接收验证码的本人手机号注册。</li><li>在应用内添加本人银行卡；如需身份验证，请只在官方应用内完成，并确认银行卡已开通境外交易。</li><li>付款时核对商户名称、金额和手续费，支付成功后与店员共同确认成功页面。</li></ol><div class="prep-done"><b>完成标准</b><p>银行卡已显示在应用中，手机可以正常接收验证码；实际能否支付仍需以现场结果为准。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>付款失败时可更换银行卡或使用人民币现金。不同跨境支付功能并非适用于所有二维码，请留好备用方式。</p></details><div class="guide-contact"><a class="btn btn-outline" target="_blank" rel="noopener noreferrer" href="https://english.www.gov.cn/news/202404/11/content_WS6617c858c6d0868f4e8e5f4d.html">中国政府支付指南 ↗</a></div><label class="prep-check"><input type="checkbox" data-prep-check="payment"> 已确认</label></div>
     </details>
     <details class="prep-step prep-disclosure" id="prep-internet" data-stage-panel="before">
-      <summary><span><small>第04步 · 出发前3—7天</small><strong>确保落地后能够立即联网</strong><span class="prep-brief">根据自己的手机选择国际漫游、旅行 eSIM 或当地 SIM 卡。</span></span></summary>
-      <div class="prep-detail-body"><ol><li>向运营商或销售方确认是否支持中国大陆、手机是否兼容、开通时间和流量上限；购买 eSIM 前先确认设备支持。</li><li>保存安装说明和客服联系方式，并按运营商说明分别设置短信接收和数据漫游。</li><li>提前截图酒店地址、订单和接机地点；所购通信产品能否访问某些应用，请直接向销售方确认。</li></ol><div class="prep-done"><b>完成标准</b><p>已经保存开通方法和出现问题时的联系方式。</p></div><details><summary>条件不同或无法确认怎么办？</summary><p>机场 Wi-Fi 无法使用或收不到短信时，可把已保存的中文地址出示给服务台。不要等到落地后才首次注册所有必需应用。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="internet"> 已确认</label></div>
+      <summary><span><small>第04步 · 出发前3—7天</small><strong>按自己的手机设置上网方案</strong><span class="prep-brief">韩国运营商漫游、国际 eSIM 和中国当地 SIM 在应用访问及短信接收方面并不相同。</span></span></summary>
+      <div class="prep-detail-body"><ol><li><b>共同检查：</b>在设置的“关于本机/手机信息”里找到准确型号，并确认设备是否锁网。向销售方书面确认中国大陆覆盖、流量与限速、热点共享、启用时间，以及 KakaoTalk、Google 等所需应用能否使用。</li><li><b>iPhone：</b>进入“设置 → 蜂窝网络”，如有“添加 eSIM”通常可以安装，但仍受销售地区和运营商锁限制；中国大陆销售的 iPhone 可能不支持 eSIM。韩国号码保留为通话和短信，旅行 eSIM 设为蜂窝数据，并关闭“允许蜂窝数据切换”。</li><li><b>Android：</b>进入“设置 → 连接/网络 → SIM 管理器”，寻找“添加 eSIM/添加移动套餐”。Galaxy、Pixel 也会因国家、具体型号和运营商不同而变化，必须用完整型号确认；没有该菜单时选择实体 SIM 或国际漫游。</li><li><b>避免高额漫游费：</b>只指定一张卡使用数据；关闭韩国 SIM 的数据漫游，但短信接收条件要向原运营商确认。关闭应用自动更新、照片备份和视频自动播放，并设置流量提醒。</li><li><b>关于 VPN：</b>中国当地 SIM 和 Wi-Fi 可能限制部分境外服务。不要依赖来历不明的免费 VPN，也不要把规避当地法规当作旅行方案。更稳妥的做法是选择韩国运营商漫游，或由销售方明确确认所需应用可用的国际漫游型 eSIM；任何产品都无法承诺始终可访问。</li><li><b>出发前保存：</b>把 eSIM 二维码同时保存到另一台设备，截图安装步骤、客服、酒店中文地址、接机地点和离线地图。可以提前安装，但不要早于销售方规定时间启用。</li></ol><div class="prep-done"><b>完成标准</b><p>已确认手机是否支持 eSIM、数据主卡、韩国号码短信接收和必要应用的访问条件，并保存离线资料。</p></div><details><summary>抵达中国后没有网络怎么办？</summary><p>依次尝试：打开飞行模式30秒后关闭 → 启用旅行线路 → 检查数据漫游 → 网络选择设为自动 → 重启手机。仍无网络时联系销售方或原运营商漫游客服，并用截图向机场或酒店出示地址。</p></details><details><summary>哪一种方式最简单？</summary><p>不熟悉设置或非常依赖短信验证码时，韩国运营商漫游通常最简单；熟悉双卡设置并希望控制成本时可选国际 eSIM；不支持 eSIM 的设备选择实体 SIM 或漫游。当地 SIM 适合需要中国号码的人，但要另外解决韩国号码验证和境外应用访问。</p></details><label class="prep-check"><input type="checkbox" data-prep-check="internet"> 已设置</label></div>
     </details>
     <details class="prep-step prep-disclosure" id="prep-arrival" data-stage-panel="before">
       <summary><span><small>第05步 · 行程信息确定后</small><strong>准备填写外国人入境卡</strong><span class="prep-brief">可以通过官方渠道免费填写；入境卡并不是免签许可申请。</span></span></summary>
