@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 await import('../assets/winter-flights.js');
 const {departureEpoch,isExpired,getPrefill,partition}=globalThis.LTCFlights;
-const f={id:'example',origin:'ICN',tripDays:6,outbound:{departTime:'2026-12-22 19:15:00',arriveTime:'2026-12-22 22:20:00',segments:[{flightNo:'KE163'}]},return:{departTime:'2026-12-26 23:40:00',arriveTime:'2026-12-27 03:40:00',segments:[{flightNo:'KE164'}]}};
+const f={id:'example',origin:'ICN',tripDays:6,localNights:4,outbound:{departTime:'2026-12-22 19:15:00',arriveTime:'2026-12-22 22:20:00',segments:[{flightNo:'KE163'}]},return:{departTime:'2026-12-26 23:40:00',arriveTime:'2026-12-27 03:40:00',segments:[{flightNo:'KE164'}]}};
 test('expiry uses Korean departure instant, regardless of visitor timezone',()=>{assert.equal(departureEpoch(f),Date.parse('2026-12-22T10:15:00Z'));assert.equal(isExpired(f,departureEpoch(f)-1),false);assert.equal(isExpired(f,departureEpoch(f)),true);assert.equal(isExpired(f,Date.parse('2026-12-23T00:00:00Z')),true);});
 test('expired and unknown links cannot populate a new itinerary',()=>{assert.equal(getPrefill([f],f.id,departureEpoch(f)),null);assert.equal(getPrefill([f],'constructor',0),null);assert.equal(getPrefill([f],'unknown',0),null);});
 test('overnight Korea arrival does not change Zhangjiajie departure date',()=>{assert.deepEqual(getPrefill([f],f.id,0),{start:'2026-12-22',arrival:'22:20',arrivalNo:'KE163',end:'2026-12-26',departure:'23:40',departureNo:'KE164'});});
@@ -24,7 +24,8 @@ test('published corpus has unique valid round trips and matching Trip.com search
    assert.equal(leg.duration,elapsed);assert.ok(elapsed>0&&elapsed<=360);assert.ok(leg.segments.length<=2);
   }
   const days=(Date.parse(item.return.arriveTime.slice(0,10))-Date.parse(item.outbound.departTime.slice(0,10)))/86400000+1;
-  assert.equal(item.tripDays,days);assert.ok(days>=2&&days<=6);
+  assert.equal(item.tripDays,days);assert.ok(days>=3&&days<=6);
+  const nights=(Date.parse(item.return.departTime.slice(0,10))-Date.parse(item.outbound.arriveTime.slice(0,10)))/86400000;assert.equal(item.localNights,nights);assert.ok(nights>=2);
   const url=new URL(item.bookingUrl);assert.equal(url.protocol,'https:');assert.ok(url.hostname.endsWith('.trip.com'));
   assert.ok([item.origin,...(['ICN','GMP'].includes(item.origin)?['SEL']:[])].includes(url.searchParams.get('dcity')));
   assert.deepEqual(url.searchParams.get('topflightno').split(','),[...item.outbound.segments,...item.return.segments].map(s=>s.flightNo));assert.equal(url.searchParams.get('acity'),'DYG');assert.equal(url.searchParams.get('triptype'),'RT');
@@ -32,3 +33,5 @@ test('published corpus has unique valid round trips and matching Trip.com search
  }
  assert.equal(Object.values(data.coverage.matchedItinerariesByAirport).reduce((a,b)=>a+b,0),data.itineraries.length);
 });
+
+test('minimum stay excludes one-night trips even with next-day Korea arrival',()=>{const short={...f,localNights:1,tripDays:3};assert.equal(partition([short],{},0).active.length,0);assert.equal(getPrefill([short],short.id,0),null);const minimum={...f,localNights:2,tripDays:3};assert.equal(partition([minimum],{},0).active.length,1);assert.ok(getPrefill([minimum],minimum.id,0));});

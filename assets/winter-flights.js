@@ -1,14 +1,15 @@
 /* Times are airport-local; every supported origin uses Asia/Seoul (UTC+09). */
 (function(root){
 'use strict';
+const meetsMinimumStay=item=>item.localNights>=2&&item.tripDays>=3;
 const departureEpoch=item=>Date.parse(item.outbound.departTime.replace(' ','T')+'+09:00');
 const isExpired=(item,now=Date.now())=>!Number.isFinite(departureEpoch(item))||departureEpoch(item)<=now;
 function getPrefill(items,id,now=Date.now()){
- const f=items.find(item=>item.id===id);if(!f||isExpired(f,now))return null;
+ const f=items.find(item=>item.id===id);if(!f||!meetsMinimumStay(f)||isExpired(f,now))return null;
  return {start:f.outbound.arriveTime.slice(0,10),arrival:f.outbound.arriveTime.slice(11,16),arrivalNo:f.outbound.segments.at(-1).flightNo,end:f.return.departTime.slice(0,10),departure:f.return.departTime.slice(11,16),departureNo:f.return.segments[0].flightNo};
 }
 function partition(items,{month='',airport='',days='',direct=false}={},now=Date.now()){
- const matching=items.filter(f=>(!month||f.outbound.departTime.slice(5,7)===month)&&(!airport||f.origin===airport)&&(!days||f.tripDays===Number(days))&&(!direct||[f.outbound,f.return].every(l=>l.segments.length===1)));
+ const matching=items.filter(f=>meetsMinimumStay(f)&&(!month||f.outbound.departTime.slice(5,7)===month)&&(!airport||f.origin===airport)&&(!days||f.tripDays===Number(days))&&(!direct||[f.outbound,f.return].every(l=>l.segments.length===1)));
  return {active:matching.filter(f=>!isExpired(f,now)).sort((a,b)=>departureEpoch(a)-departureEpoch(b)),expired:matching.filter(f=>isExpired(f,now)).sort((a,b)=>departureEpoch(b)-departureEpoch(a))};
 }
 root.LTCFlights={departureEpoch,isExpired,getPrefill,partition};
@@ -19,7 +20,7 @@ function init(){
  const airports={ICN:t('인천','仁川'),GMP:t('김포','金浦'),PUS:t('부산','釜山'),CJJ:t('청주','清州'),TAE:t('대구','大邱'),CJU:t('제주','济州'),MWX:t('무안','务安'),YNY:t('양양','襄阳')};
  const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
  mount.append(el('p',t('Trip.com 조회 자료 · 갱신일 ','Trip.com查询资料 · 更新日期 ')+data.updatedDate+'. '+t('전체 항공편이나 실시간 좌석 목록은 아닙니다. 예약 전 시간·가격·수하물 조건을 다시 확인하세요.','并非完整航班或实时余票列表。预订前请核对时间、价格及行李条件。')));
- mount.append(el('p',t('편도 6시간 이내 · 최대 1회 경유 · 한국 귀국일까지 최대 6일. 시간은 각 공항 현지 기준입니다. 한국은 중국보다 1시간 빠릅니다.','单程6小时内 · 最多中转1次 · 计至返回韩国当天最多6天。时间均为机场当地时间，韩国比中国快1小时。')));
+ mount.append(el('p',t('편도 6시간 이내 · 최대 1회 경유 · 현지 최소 2박 3일 · 한국 귀국일까지 최대 6일. 시간은 각 공항 현지 기준입니다. 한국은 중국보다 1시간 빠릅니다.','单程6小时内 · 最多中转1次 · 当地至少2晚3天 · 计至返回韩国当天最多6天。时间均为机场当地时间，韩国比中国快1小时。')));
  const purchase=el('aside',null,'flight-purchase-note');purchase.append(el('strong',t('로투차는 항공권을 대리 판매하거나 발권하지 않습니다.','我们不做机票代理，不销售机票或提供出票服务。')),el('p',t('항공권은 여행자가 Trip.com에서 직접 조회·구매해 주세요. 항공권 결제·변경·환불은 구매처를 통해 진행합니다. 아래 일정 상담은 장가계 현지 여행 서비스에 관한 것입니다.','机票请自行在Trip.com查询和购买；机票支付、改签和退款请联系购买平台。下方行程咨询仅针对张家界当地旅行服务。')),el('p',t('구매 경로: Trip.com → 항공권 → 왕복 → 한국 출발 공항 → 장가계(DYG) → 가는 날·오는 날 → 인원 선택 → 검색. 귀국편 검색 날짜는 장가계에서 출발하는 날짜입니다. 서울(SEL)로 표시되면 인천·김포 중 실제 출발 공항을 확인하세요.','购买路径：Trip.com → 机票 → 往返 → 韩国出发机场 → 张家界(DYG) → 去程日期、返程日期 → 乘客人数 → 搜索。返程搜索日期是离开张家界的日期。如显示首尔(SEL)，请核对实际出发机场是仁川还是金浦。')));const tripHome=el('a',t('Trip.com 항공권 검색 열기 ↗','打开Trip.com机票搜索 ↗'),'flight-buy');tripHome.href='https://kr.trip.com/flights/';tripHome.target='_blank';tripHome.rel='noopener noreferrer';tripHome.dataset.journey='flight_to_tripcom';purchase.append(tripHome);mount.append(purchase);
  const coverage=el('details',null,'flight-coverage');coverage.append(el('summary',t('조회 범위와 자료 기준','查询范围与数据口径')));
  coverage.append(el('p',t('대상 공항: ','查询机场：')+Object.entries(airports).map(([code,name])=>`${name} (${code})`).join(' · ')));
@@ -31,7 +32,7 @@ function init(){
  const all=['',t('전체','全部')];
  const month=select('flight-month',t('출발 월','出发月份'),[all,['11',t('11월','11月')],['12',t('12월','12月')]]);
  const airport=select('flight-airport',t('한국 출발 공항','韩国出发机场'),[all,...Object.entries(airports).map(([k,v])=>[k,`${v} ${k}`])]);
- const days=select('flight-days',t('여행일','旅行天数'),[all,...[2,3,4,5,6].map(d=>[String(d),`${d}${t('일','天')}`])]);
+ const days=select('flight-days',t('여행일','旅行天数'),[all,...[3,4,5,6].map(d=>[String(d),`${d}${t('일','天')}`])]);
  const directLabel=el('label',null,'flight-direct'),direct=el('input');direct.type='checkbox';direct.id='flight-direct';directLabel.append(direct,document.createTextNode(t('왕복 직항만','仅往返直飞')));filters.append(directLabel);
  const status=el('p',null,'flight-status');status.id='flight-count';status.setAttribute('role','status');status.setAttribute('aria-live','polite');mount.append(status);
  const grid=el('div',null,'flight-grid');grid.id='flight-active';mount.append(grid);

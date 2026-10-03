@@ -9,7 +9,9 @@
     "maxLegMinutes": 360,
     "maxConnections": 1,
     "maxTripCalendarDays": 6,
-    "sameOriginReturnAirport": true
+    "sameOriginReturnAirport": true,
+    "minLocalNights": 2,
+    "minTripCalendarDays": 3
   },
   "coverage": {
     "airports": [
@@ -37,18 +39,18 @@
       "YNY": 10
     },
     "matchedItinerariesByAirport": {
-      "ICN": 53,
+      "ICN": 42,
       "GMP": 0,
-      "PUS": 74,
-      "CJJ": 47,
-      "TAE": 6,
+      "PUS": 62,
+      "CJJ": 41,
+      "TAE": 5,
       "CJU": 0,
       "MWX": 0,
       "YNY": 0
     },
     "matchedItinerariesByMonth": {
-      "11": 109,
-      "12": 71
+      "11": 94,
+      "12": 56
     }
   },
   "notes": [
@@ -179,45 +181,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-01&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-11-02-2026-11-03-33f129e1",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-02 09:30:00",
-        "arriveTime": "2026-11-02 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-02 09:30:00",
-            "arriveTime": "2026-11-02 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-03 13:10:00",
-        "arriveTime": "2026-11-03 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-03 13:10:00",
-            "arriveTime": "2026-11-03 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:29:47.507Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-02&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-03&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-11-02-2026-11-04-fe1fc9ce",
       "origin": "PUS",
       "outbound": {
@@ -333,45 +296,6 @@
       "checkedAt": "2026-10-03T06:29:51.805Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-02&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-07&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "CJJ-2026-11-03-2026-11-04-7546dc88",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-03 11:00:00",
-        "arriveTime": "2026-11-03 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-03 11:00:00",
-            "arriveTime": "2026-11-03 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-04 14:40:00",
-        "arriveTime": "2026-11-04 18:30:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE752",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-04 14:40:00",
-            "arriveTime": "2026-11-04 18:30:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:29:57.700Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-04&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "CJJ-2026-11-03-2026-11-06",
@@ -803,45 +727,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-05&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-10&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "TAE-2026-11-05-2026-11-06-3f840b2b",
-      "origin": "TAE",
-      "outbound": {
-        "departTime": "2026-11-05 20:00:00",
-        "arriveTime": "2026-11-05 22:35:00",
-        "duration": 215,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6482",
-            "departAirport": "TAE",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-05 20:00:00",
-            "arriveTime": "2026-11-05 22:35:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-06 14:35:00",
-        "arriveTime": "2026-11-06 18:35:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE352",
-            "departAirport": "DYG",
-            "arriveAirport": "TAE",
-            "departTime": "2026-11-06 14:35:00",
-            "arriveTime": "2026-11-06 18:35:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:30:19.264Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=TAE&acity=DYG&ddate=2026-11-05&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6482,ZE352&rdate=2026-11-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "TAE-2026-11-06-2026-11-09-f0c98181",
       "origin": "TAE",
       "outbound": {
@@ -879,45 +764,6 @@
       "checkedAt": "2026-10-03T06:30:37.529Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=TAE&acity=DYG&ddate=2026-11-06&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=TW681,TW682&rdate=2026-11-09&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "CJJ-2026-11-06-2026-11-07-7b35168b",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-06 11:00:00",
-        "arriveTime": "2026-11-06 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-06 11:00:00",
-            "arriveTime": "2026-11-06 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-07 16:00:00",
-        "arriveTime": "2026-11-07 20:00:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6483",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-07 16:00:00",
-            "arriveTime": "2026-11-07 20:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:30:32.700Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-06&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,3U6483&rdate=2026-11-07&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "CJJ-2026-11-06-2026-11-08-cf7a4652",
@@ -1035,45 +881,6 @@
       "checkedAt": "2026-10-03T06:30:44.572Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-06&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-11&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-11-07-2026-11-08-d1a224b5",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-07 09:30:00",
-        "arriveTime": "2026-11-07 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-07 09:30:00",
-            "arriveTime": "2026-11-07 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-08 13:10:00",
-        "arriveTime": "2026-11-08 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-08 13:10:00",
-            "arriveTime": "2026-11-08 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:31:47.081Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-07&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-11-07-2026-11-09-654aef1b",
@@ -1388,45 +1195,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-08&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-13&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-11-09-2026-11-10-934bf155",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-09 09:30:00",
-        "arriveTime": "2026-11-09 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-09 09:30:00",
-            "arriveTime": "2026-11-09 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-10 13:10:00",
-        "arriveTime": "2026-11-10 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-10 13:10:00",
-            "arriveTime": "2026-11-10 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:31:58.055Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-09&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-10&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-11-09-2026-11-11-4bc3085e",
       "origin": "PUS",
       "outbound": {
@@ -1581,45 +1349,6 @@
       "checkedAt": "2026-10-03T06:35:18.105Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-10&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-14&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "CJJ-2026-11-10-2026-11-11-f390b311",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-10 11:00:00",
-        "arriveTime": "2026-11-10 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-10 11:00:00",
-            "arriveTime": "2026-11-10 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-11 14:40:00",
-        "arriveTime": "2026-11-11 18:30:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE752",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-11 14:40:00",
-            "arriveTime": "2026-11-11 18:30:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:32:07.372Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-10&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-11&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "CJJ-2026-11-10-2026-11-13-9d939c10",
@@ -2051,45 +1780,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-12&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-17&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "CJJ-2026-11-13-2026-11-14-227d39ee",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-13 11:00:00",
-        "arriveTime": "2026-11-13 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-13 11:00:00",
-            "arriveTime": "2026-11-13 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-14 16:00:00",
-        "arriveTime": "2026-11-14 20:00:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6483",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-14 16:00:00",
-            "arriveTime": "2026-11-14 20:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:32:37.682Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,3U6483&rdate=2026-11-14&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "CJJ-2026-11-13-2026-11-15",
       "origin": "CJJ",
       "outbound": {
@@ -2205,45 +1895,6 @@
       "checkedAt": "2026-10-03T06:32:43.144Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-11-14-2026-11-15-2a677951",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-14 09:30:00",
-        "arriveTime": "2026-11-14 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-14 09:30:00",
-            "arriveTime": "2026-11-14 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-15 13:10:00",
-        "arriveTime": "2026-11-15 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-15 13:10:00",
-            "arriveTime": "2026-11-15 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:32:43.774Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-14&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-15&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-11-14-2026-11-16-1a779894",
@@ -2480,45 +2131,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-15&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-11-16-2026-11-17-d0fe7365",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-16 09:30:00",
-        "arriveTime": "2026-11-16 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-16 09:30:00",
-            "arriveTime": "2026-11-16 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-17 13:10:00",
-        "arriveTime": "2026-11-17 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-17 13:10:00",
-            "arriveTime": "2026-11-17 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:33:02.545Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-16&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-17&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-11-16-2026-11-18-070d43e7",
       "origin": "PUS",
       "outbound": {
@@ -2673,45 +2285,6 @@
       "checkedAt": "2026-10-03T06:35:33.650Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-17&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-21&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "CJJ-2026-11-17-2026-11-18-25dd8506",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-17 11:00:00",
-        "arriveTime": "2026-11-17 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-17 11:00:00",
-            "arriveTime": "2026-11-17 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-18 14:40:00",
-        "arriveTime": "2026-11-18 18:30:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE752",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-18 14:40:00",
-            "arriveTime": "2026-11-18 18:30:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:33:14.187Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-17&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "CJJ-2026-11-17-2026-11-20",
@@ -3104,45 +2677,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-19&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-24&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "CJJ-2026-11-20-2026-11-21-06aca006",
-      "origin": "CJJ",
-      "outbound": {
-        "departTime": "2026-11-20 11:00:00",
-        "arriveTime": "2026-11-20 13:40:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "ZE751",
-            "departAirport": "CJJ",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-20 11:00:00",
-            "arriveTime": "2026-11-20 13:40:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-21 16:00:00",
-        "arriveTime": "2026-11-21 20:00:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6483",
-            "departAirport": "DYG",
-            "arriveAirport": "CJJ",
-            "departTime": "2026-11-21 16:00:00",
-            "arriveTime": "2026-11-21 20:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:33:53.403Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-20&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,3U6483&rdate=2026-11-21&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "CJJ-2026-11-20-2026-11-22-4c23afc9",
       "origin": "CJJ",
       "outbound": {
@@ -3455,45 +2989,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-22&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-27&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-11-23-2026-11-24-f86b5bb5",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-23 09:30:00",
-        "arriveTime": "2026-11-23 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-23 09:30:00",
-            "arriveTime": "2026-11-23 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-24 13:10:00",
-        "arriveTime": "2026-11-24 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-24 13:10:00",
-            "arriveTime": "2026-11-24 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:34:28.789Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-24&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-11-23-2026-11-25-c1b56b04",
       "origin": "PUS",
       "outbound": {
@@ -3726,45 +3221,6 @@
       "checkedAt": "2026-10-03T06:35:55.766Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-24&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,3U6483&rdate=2026-11-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-11-25-2026-11-26-aae4d568",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-25 09:30:00",
-        "arriveTime": "2026-11-25 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-25 09:30:00",
-            "arriveTime": "2026-11-25 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-26 13:10:00",
-        "arriveTime": "2026-11-26 16:55:00",
-        "duration": 165,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-26 13:10:00",
-            "arriveTime": "2026-11-26 16:55:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:34:58.404Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-25&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-26&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-11-25-2026-11-28-4a63030b",
@@ -4118,45 +3574,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-11-28&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,3U6487&rdate=2026-12-03&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-11-29-2026-11-30-b2b9284d",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-11-29 09:30:00",
-        "arriveTime": "2026-11-29 12:10:00",
-        "duration": 220,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX785",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-11-29 09:30:00",
-            "arriveTime": "2026-11-29 12:10:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-11-30 13:10:00",
-        "arriveTime": "2026-11-30 16:55:00",
-        "duration": 165,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-11-30 13:10:00",
-            "arriveTime": "2026-11-30 16:55:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:35:47.688Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-29&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-30&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-11-29-2026-12-01-2f2a4f98",
       "origin": "PUS",
       "outbound": {
@@ -4311,45 +3728,6 @@
       "checkedAt": "2026-10-03T06:35:58.700Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-11-30&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-04&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-12-01-2026-12-02-da14414a",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-12-01 11:00:00",
-        "arriveTime": "2026-12-01 13:50:00",
-        "duration": 230,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "7C8253",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-01 11:00:00",
-            "arriveTime": "2026-12-01 13:50:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-02 13:10:00",
-        "arriveTime": "2026-12-02 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-12-02 13:10:00",
-            "arriveTime": "2026-12-02 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:36:07.912Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-01&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-02&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-12-01-2026-12-05-a0ab7189",
@@ -4586,45 +3964,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-02&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-03-2026-12-04-01e57f07",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-03 21:05:00",
-        "arriveTime": "2026-12-03 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-03 21:05:00",
-            "arriveTime": "2026-12-03 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-04 16:05:00",
-        "arriveTime": "2026-12-04 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-04 16:05:00",
-            "arriveTime": "2026-12-04 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:36:27.110Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-04&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-03-2026-12-05-c2233ce9",
       "origin": "ICN",
       "outbound": {
@@ -4701,45 +4040,6 @@
       "checkedAt": "2026-10-03T06:36:33.930Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-07&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-12-05-2026-12-06-d16269dc",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-12-05 11:00:00",
-        "arriveTime": "2026-12-05 13:50:00",
-        "duration": 230,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "7C8253",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-05 11:00:00",
-            "arriveTime": "2026-12-05 13:50:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-06 13:10:00",
-        "arriveTime": "2026-12-06 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-12-06 13:10:00",
-            "arriveTime": "2026-12-06 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:38:31.682Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-05&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-12-05-2026-12-08-9f93c0e2",
@@ -4898,45 +4198,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-06&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-09&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-07-2026-12-08-7cd80b2d",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-07 21:05:00",
-        "arriveTime": "2026-12-07 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-07 21:05:00",
-            "arriveTime": "2026-12-07 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-08 23:40:00",
-        "arriveTime": "2026-12-09 03:40:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE164",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-08 23:40:00",
-            "arriveTime": "2026-12-09 03:40:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:38:49.340Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-07&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-07-2026-12-09-8f533e5f",
       "origin": "ICN",
       "outbound": {
@@ -5013,45 +4274,6 @@
       "checkedAt": "2026-10-03T06:38:57.580Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-07&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-11&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "PUS-2026-12-08-2026-12-09-35364dd4",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-12-08 11:00:00",
-        "arriveTime": "2026-12-08 13:50:00",
-        "duration": 230,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "7C8253",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-08 11:00:00",
-            "arriveTime": "2026-12-08 13:50:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-09 13:10:00",
-        "arriveTime": "2026-12-09 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-12-09 13:10:00",
-            "arriveTime": "2026-12-09 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:39:00.856Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-08&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-09&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-12-08-2026-12-12-79c907d3",
@@ -5247,45 +4469,6 @@
       "checkedAt": "2026-10-03T06:39:21.175Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-09&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-13&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "ICN-2026-12-11-2026-12-12-8a7f485b",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-11 21:05:00",
-        "arriveTime": "2026-12-11 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-11 21:05:00",
-            "arriveTime": "2026-12-11 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-12 23:40:00",
-        "arriveTime": "2026-12-13 03:40:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE164",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-12 23:40:00",
-            "arriveTime": "2026-12-13 03:40:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:39:41.186Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-11&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-12&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-11-2026-12-13-5b68fe7d",
@@ -5561,45 +4744,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-16&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-14-2026-12-15-b5ed2d37",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-14 21:05:00",
-        "arriveTime": "2026-12-14 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-14 21:05:00",
-            "arriveTime": "2026-12-14 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-15 23:40:00",
-        "arriveTime": "2026-12-16 03:40:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE164",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-15 23:40:00",
-            "arriveTime": "2026-12-16 03:40:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:40:23.572Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-14&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-15&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-14-2026-12-16-8a3d181b",
       "origin": "ICN",
       "outbound": {
@@ -5756,45 +4900,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-15&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-19&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-12-15-2026-12-16-ceb70b9a",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-12-15 11:00:00",
-        "arriveTime": "2026-12-15 13:50:00",
-        "duration": 230,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "7C8253",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-15 11:00:00",
-            "arriveTime": "2026-12-15 13:50:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-16 13:10:00",
-        "arriveTime": "2026-12-16 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-12-16 13:10:00",
-            "arriveTime": "2026-12-16 17:00:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:40:43.388Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-15&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-16&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-12-15-2026-12-19-23cb8474",
       "origin": "PUS",
       "outbound": {
@@ -5871,45 +4976,6 @@
       "checkedAt": "2026-10-03T06:36:28.990Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-15&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,KE164&rdate=2026-12-19&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "ICN-2026-12-16-2026-12-17-4eb5c697",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-16 21:05:00",
-        "arriveTime": "2026-12-16 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-16 21:05:00",
-            "arriveTime": "2026-12-16 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-17 16:05:00",
-        "arriveTime": "2026-12-17 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-17 16:05:00",
-            "arriveTime": "2026-12-17 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:40:50.912Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-16&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-17&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-16-2026-12-18-45f3f996",
@@ -6068,45 +5134,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-16&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-21&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-17-2026-12-18-0476019d",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-17 21:05:00",
-        "arriveTime": "2026-12-17 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-17 21:05:00",
-            "arriveTime": "2026-12-17 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-18 16:05:00",
-        "arriveTime": "2026-12-18 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-18 16:05:00",
-            "arriveTime": "2026-12-18 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:41:02.570Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-17&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-17-2026-12-19-522eec00",
       "origin": "ICN",
       "outbound": {
@@ -6261,45 +5288,6 @@
       "checkedAt": "2026-10-03T06:41:12.745Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-17&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-22&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "ICN-2026-12-18-2026-12-19-2f4e94d6",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-18 21:05:00",
-        "arriveTime": "2026-12-18 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-18 21:05:00",
-            "arriveTime": "2026-12-18 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-19 23:40:00",
-        "arriveTime": "2026-12-20 03:40:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE164",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-19 23:40:00",
-            "arriveTime": "2026-12-20 03:40:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:41:14.838Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-18&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-19&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-18-2026-12-20-a4318ae4",
@@ -6458,45 +5446,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-18&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-22&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-19-2026-12-20-59aff5cf",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-19 19:15:00",
-        "arriveTime": "2026-12-19 22:20:00",
-        "duration": 245,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE163",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-19 19:15:00",
-            "arriveTime": "2026-12-19 22:20:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-20 16:05:00",
-        "arriveTime": "2026-12-20 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-20 16:05:00",
-            "arriveTime": "2026-12-20 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:41:29.405Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-19&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,3U6487&rdate=2026-12-20&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-19-2026-12-21-3d3a2c30",
       "origin": "ICN",
       "outbound": {
@@ -6651,45 +5600,6 @@
       "checkedAt": "2026-10-03T06:41:40.297Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-19&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,3U6487&rdate=2026-12-24&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "ICN-2026-12-20-2026-12-21-5649e8b2",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-20 21:05:00",
-        "arriveTime": "2026-12-20 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-20 21:05:00",
-            "arriveTime": "2026-12-20 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-21 16:05:00",
-        "arriveTime": "2026-12-21 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-21 16:05:00",
-            "arriveTime": "2026-12-21 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:41:40.530Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-20&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-21&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-20-2026-12-22-88050089",
@@ -6887,45 +5797,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-22&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,KE164&rdate=2026-12-26&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-23-2026-12-24-28671ce2",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-23 21:05:00",
-        "arriveTime": "2026-12-23 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-23 21:05:00",
-            "arriveTime": "2026-12-23 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-24 16:05:00",
-        "arriveTime": "2026-12-24 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-24 16:05:00",
-            "arriveTime": "2026-12-24 20:05:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 2,
-      "checkedAt": "2026-10-03T06:42:28.131Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-24&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-23-2026-12-26-73bc8393",
       "origin": "ICN",
       "outbound": {
@@ -6963,45 +5834,6 @@
       "checkedAt": "2026-10-03T06:42:35.257Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-26&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
-      "id": "ICN-2026-12-25-2026-12-26-e0e12077",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-25 21:05:00",
-        "arriveTime": "2026-12-25 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-25 21:05:00",
-            "arriveTime": "2026-12-25 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-26 23:40:00",
-        "arriveTime": "2026-12-27 03:40:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "KE164",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-26 23:40:00",
-            "arriveTime": "2026-12-27 03:40:00"
-          }
-        ]
-      },
-      "localNights": 1,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:42:50.783Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-25&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-26&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-25-2026-12-29-30e6ed7e",
