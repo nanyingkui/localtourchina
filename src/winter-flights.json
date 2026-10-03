@@ -11,7 +11,13 @@
     "maxTripCalendarDays": 6,
     "sameOriginReturnAirport": true,
     "minLocalNights": 2,
-    "minTripCalendarDays": 3
+    "minTripCalendarDays": 3,
+    "flightDestinations": [
+      "DYG",
+      "CSX",
+      "CKG"
+    ],
+    "maxLegMinutesAppliesTo": "air transport only; ground transfers and rail are additional"
   },
   "coverage": {
     "airports": [
@@ -39,7 +45,7 @@
       "YNY": 10
     },
     "matchedItinerariesByAirport": {
-      "ICN": 42,
+      "ICN": 54,
       "GMP": 0,
       "PUS": 62,
       "CJJ": 41,
@@ -49,8 +55,13 @@
       "YNY": 0
     },
     "matchedItinerariesByMonth": {
-      "11": 94,
-      "12": 56
+      "11": 100,
+      "12": 62
+    },
+    "matchedItinerariesByDestination": {
+      "DYG": 150,
+      "CSX": 6,
+      "CKG": 6
     }
   },
   "notes": [
@@ -60,7 +71,8 @@
     "No matching results do not establish that an airport has no service.",
     "Expiry means Korean outbound departure time has passed, evaluated on the visitor device.",
     "Trip calendar days include both Korean departure and Korean return arrival dates.",
-    "Null checkedAt means the original query timestamp was not recorded."
+    "Null checkedAt means the original query timestamp was not recorded.",
+    "Gateway plans: fly in and out of the same gateway; overnight there after arrival, rail to Zhangjiajie the following day, return to gateway the day before the flight. At least two planned nights in Zhangjiajie. Rail schedules and seats for November/December are not yet confirmed; these are separate tickets, not a protected through-connection."
   ],
   "itineraries": [
     {
@@ -491,6 +503,100 @@
       "checkedAt": "2026-10-03T06:30:32.168Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=TAE&acity=DYG&ddate=2026-11-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE351,ZE352&rdate=2026-11-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
+    },
+    {
+      "id": "ICN-CKG-2026-11-03-2026-11-08-9a2b7ab7",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-11-03 14:00:00",
+        "arriveTime": "2026-11-03 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-11-03 14:00:00",
+            "arriveTime": "2026-11-03 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-08 08:30:00",
+        "arriveTime": "2026-11-08 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-08 08:30:00",
+            "arriveTime": "2026-11-08 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:27.617Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-11-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-11-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-04",
+        "zjjDepartureDate": "2026-11-07",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-11-03-2026-11-08-870c9c47",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-11-03 20:20:00",
+        "arriveTime": "2026-11-03 22:55:00",
+        "duration": 215,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "KE145",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-11-03 20:20:00",
+            "arriveTime": "2026-11-03 22:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-08 00:05:00",
+        "arriveTime": "2026-11-08 04:15:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "KE146",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-08 00:05:00",
+            "arriveTime": "2026-11-08 04:15:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:18.929Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-11-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE145,KE146&rdate=2026-11-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-04",
+        "zjjDepartureDate": "2026-11-07",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
     },
     {
       "id": "PUS-2026-11-04-2026-11-07-504a20ad",
@@ -1897,6 +2003,100 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=CJJ&acity=DYG&ddate=2026-11-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=ZE751,ZE752&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
+      "id": "ICN-CKG-2026-11-13-2026-11-18-aa3f81f3",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-11-13 14:00:00",
+        "arriveTime": "2026-11-13 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-11-13 14:00:00",
+            "arriveTime": "2026-11-13 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-18 08:30:00",
+        "arriveTime": "2026-11-18 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-18 08:30:00",
+            "arriveTime": "2026-11-18 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:33.693Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-11-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-14",
+        "zjjDepartureDate": "2026-11-17",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-11-13-2026-11-18-63659a2d",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-11-13 21:05:00",
+        "arriveTime": "2026-11-13 23:35:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ321",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-11-13 21:05:00",
+            "arriveTime": "2026-11-13 23:35:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-18 00:05:00",
+        "arriveTime": "2026-11-18 04:15:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "KE146",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-18 00:05:00",
+            "arriveTime": "2026-11-18 04:15:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:12.114Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-11-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=OZ321,KE146&rdate=2026-11-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-14",
+        "zjjDepartureDate": "2026-11-17",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
       "id": "PUS-2026-11-14-2026-11-16-1a779894",
       "origin": "PUS",
       "outbound": {
@@ -3106,6 +3306,100 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-11-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-11-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
+      "id": "ICN-CKG-2026-11-23-2026-11-28-54a31319",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-11-23 14:00:00",
+        "arriveTime": "2026-11-23 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-11-23 14:00:00",
+            "arriveTime": "2026-11-23 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-28 08:30:00",
+        "arriveTime": "2026-11-28 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-28 08:30:00",
+            "arriveTime": "2026-11-28 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:29.580Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-11-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-11-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-24",
+        "zjjDepartureDate": "2026-11-27",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-11-23-2026-11-28-e0733333",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-11-23 21:05:00",
+        "arriveTime": "2026-11-23 23:35:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ321",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-11-23 21:05:00",
+            "arriveTime": "2026-11-23 23:35:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-11-28 01:00:00",
+        "arriveTime": "2026-11-28 05:10:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ322",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-11-28 01:00:00",
+            "arriveTime": "2026-11-28 05:10:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:10.663Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-11-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=OZ321,OZ322&rdate=2026-11-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-11-24",
+        "zjjDepartureDate": "2026-11-27",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
       "id": "PUS-2026-11-24-2026-11-28-d23a6ddb",
       "origin": "PUS",
       "outbound": {
@@ -3964,6 +4258,100 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-02&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-06&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
+      "id": "ICN-CKG-2026-12-03-2026-12-08-bf96dd5a",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-12-03 14:00:00",
+        "arriveTime": "2026-12-03 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-12-03 14:00:00",
+            "arriveTime": "2026-12-03 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-08 08:30:00",
+        "arriveTime": "2026-12-08 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-08 08:30:00",
+            "arriveTime": "2026-12-08 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:32.956Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-12-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-12-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-04",
+        "zjjDepartureDate": "2026-12-07",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-12-03-2026-12-08-5f1dc325",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-12-03 21:05:00",
+        "arriveTime": "2026-12-03 23:35:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ321",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-12-03 21:05:00",
+            "arriveTime": "2026-12-03 23:35:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-08 01:00:00",
+        "arriveTime": "2026-12-08 05:10:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ322",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-08 01:00:00",
+            "arriveTime": "2026-12-08 05:10:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:11.844Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-12-03&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=OZ321,OZ322&rdate=2026-12-08&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-04",
+        "zjjDepartureDate": "2026-12-07",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
       "id": "ICN-2026-12-03-2026-12-05-c2233ce9",
       "origin": "ICN",
       "outbound": {
@@ -4588,45 +4976,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-11&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-16&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "PUS-2026-12-12-2026-12-15-86e4f28f",
-      "origin": "PUS",
-      "outbound": {
-        "departTime": "2026-12-12 11:00:00",
-        "arriveTime": "2026-12-12 13:50:00",
-        "duration": 230,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "7C8253",
-            "departAirport": "PUS",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-12 11:00:00",
-            "arriveTime": "2026-12-12 13:50:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-15 13:10:00",
-        "arriveTime": "2026-12-15 17:00:00",
-        "duration": 170,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "BX786",
-            "departAirport": "DYG",
-            "arriveAirport": "PUS",
-            "departTime": "2026-12-15 13:10:00",
-            "arriveTime": "2026-12-15 17:00:00"
-          }
-        ]
-      },
-      "localNights": 3,
-      "tripDays": 4,
-      "checkedAt": "2026-10-03T06:40:10.455Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-12&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-15&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "PUS-2026-12-12-2026-12-15-61123d07",
       "origin": "PUS",
       "outbound": {
@@ -4664,6 +5013,45 @@
       "checkedAt": "2026-10-03T06:40:10.455Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-12&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,7C8254&rdate=2026-12-15&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
+    },
+    {
+      "id": "PUS-2026-12-12-2026-12-15-86e4f28f",
+      "origin": "PUS",
+      "outbound": {
+        "departTime": "2026-12-12 11:00:00",
+        "arriveTime": "2026-12-12 13:50:00",
+        "duration": 230,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "7C8253",
+            "departAirport": "PUS",
+            "arriveAirport": "DYG",
+            "departTime": "2026-12-12 11:00:00",
+            "arriveTime": "2026-12-12 13:50:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-15 13:10:00",
+        "arriveTime": "2026-12-15 17:00:00",
+        "duration": 170,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "BX786",
+            "departAirport": "DYG",
+            "arriveAirport": "PUS",
+            "departTime": "2026-12-15 13:10:00",
+            "arriveTime": "2026-12-15 17:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 4,
+      "checkedAt": "2026-10-03T06:40:10.455Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-12&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=7C8253,BX786&rdate=2026-12-15&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "PUS-2026-12-12-2026-12-16-b3be9446",
@@ -4742,6 +5130,100 @@
       "checkedAt": "2026-10-03T06:40:22.438Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=PUS&acity=DYG&ddate=2026-12-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=BX785,BX786&rdate=2026-12-16&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
+    },
+    {
+      "id": "ICN-CKG-2026-12-13-2026-12-18-58c1dd23",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-12-13 14:00:00",
+        "arriveTime": "2026-12-13 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-12-13 14:00:00",
+            "arriveTime": "2026-12-13 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-18 08:30:00",
+        "arriveTime": "2026-12-18 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-18 08:30:00",
+            "arriveTime": "2026-12-18 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:32.926Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-12-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-12-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-14",
+        "zjjDepartureDate": "2026-12-17",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-12-13-2026-12-18-c8a70f7b",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-12-13 21:05:00",
+        "arriveTime": "2026-12-13 23:35:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ321",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-12-13 21:05:00",
+            "arriveTime": "2026-12-13 23:35:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-18 01:00:00",
+        "arriveTime": "2026-12-18 05:10:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ322",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-18 01:00:00",
+            "arriveTime": "2026-12-18 05:10:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:08.850Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-12-13&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=OZ321,OZ322&rdate=2026-12-18&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-14",
+        "zjjDepartureDate": "2026-12-17",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
     },
     {
       "id": "ICN-2026-12-14-2026-12-16-8a3d181b",
@@ -5602,45 +6084,6 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-19&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,3U6487&rdate=2026-12-24&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
-      "id": "ICN-2026-12-20-2026-12-22-88050089",
-      "origin": "ICN",
-      "outbound": {
-        "departTime": "2026-12-20 21:05:00",
-        "arriveTime": "2026-12-20 23:15:00",
-        "duration": 190,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6488",
-            "departAirport": "ICN",
-            "arriveAirport": "DYG",
-            "departTime": "2026-12-20 21:05:00",
-            "arriveTime": "2026-12-20 23:15:00"
-          }
-        ]
-      },
-      "return": {
-        "departTime": "2026-12-22 16:05:00",
-        "arriveTime": "2026-12-22 20:05:00",
-        "duration": 180,
-        "stops": 0,
-        "segments": [
-          {
-            "flightNo": "3U6487",
-            "departAirport": "DYG",
-            "arriveAirport": "ICN",
-            "departTime": "2026-12-22 16:05:00",
-            "arriveTime": "2026-12-22 20:05:00"
-          }
-        ]
-      },
-      "localNights": 2,
-      "tripDays": 3,
-      "checkedAt": "2026-10-03T06:41:40.725Z",
-      "source": "Trip.com",
-      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-20&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-22&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
-    },
-    {
       "id": "ICN-2026-12-20-2026-12-22-4f0ca831",
       "origin": "ICN",
       "outbound": {
@@ -5678,6 +6121,45 @@
       "checkedAt": "2026-10-03T06:41:40.725Z",
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-20&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,KE164&rdate=2026-12-22&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
+    },
+    {
+      "id": "ICN-2026-12-20-2026-12-22-88050089",
+      "origin": "ICN",
+      "outbound": {
+        "departTime": "2026-12-20 21:05:00",
+        "arriveTime": "2026-12-20 23:15:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "3U6488",
+            "departAirport": "ICN",
+            "arriveAirport": "DYG",
+            "departTime": "2026-12-20 21:05:00",
+            "arriveTime": "2026-12-20 23:15:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-22 16:05:00",
+        "arriveTime": "2026-12-22 20:05:00",
+        "duration": 180,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "3U6487",
+            "departAirport": "DYG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-22 16:05:00",
+            "arriveTime": "2026-12-22 20:05:00"
+          }
+        ]
+      },
+      "localNights": 2,
+      "tripDays": 3,
+      "checkedAt": "2026-10-03T06:41:40.725Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-20&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=3U6488,3U6487&rdate=2026-12-22&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
       "id": "ICN-2026-12-20-2026-12-24-93970397",
@@ -5797,6 +6279,100 @@
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-22&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,KE164&rdate=2026-12-26&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     },
     {
+      "id": "ICN-CKG-2026-12-23-2026-12-28-7b6a7b76",
+      "origin": "ICN",
+      "destination": "CKG",
+      "outbound": {
+        "departTime": "2026-12-23 14:00:00",
+        "arriveTime": "2026-12-23 16:55:00",
+        "duration": 235,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA440",
+            "departAirport": "ICN",
+            "arriveAirport": "CKG",
+            "departTime": "2026-12-23 14:00:00",
+            "arriveTime": "2026-12-23 16:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-28 08:30:00",
+        "arriveTime": "2026-12-28 13:00:00",
+        "duration": 210,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "CA439",
+            "departAirport": "CKG",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-28 08:30:00",
+            "arriveTime": "2026-12-28 13:00:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:56:42.705Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CKG&ddate=2026-12-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=CA440,CA439&rdate=2026-12-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-24",
+        "zjjDepartureDate": "2026-12-27",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
+      "id": "ICN-CSX-2026-12-23-2026-12-28-eff198ca",
+      "origin": "ICN",
+      "destination": "CSX",
+      "outbound": {
+        "departTime": "2026-12-23 20:20:00",
+        "arriveTime": "2026-12-23 22:55:00",
+        "duration": 215,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "KE145",
+            "departAirport": "ICN",
+            "arriveAirport": "CSX",
+            "departTime": "2026-12-23 20:20:00",
+            "arriveTime": "2026-12-23 22:55:00"
+          }
+        ]
+      },
+      "return": {
+        "departTime": "2026-12-28 01:00:00",
+        "arriveTime": "2026-12-28 05:10:00",
+        "duration": 190,
+        "stops": 0,
+        "segments": [
+          {
+            "flightNo": "OZ322",
+            "departAirport": "CSX",
+            "arriveAirport": "ICN",
+            "departTime": "2026-12-28 01:00:00",
+            "arriveTime": "2026-12-28 05:10:00"
+          }
+        ]
+      },
+      "localNights": 3,
+      "tripDays": 6,
+      "checkedAt": "2026-10-03T06:55:10.116Z",
+      "source": "Trip.com",
+      "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=CSX&ddate=2026-12-23&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE145,OZ322&rdate=2026-12-28&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151",
+      "gatewayPlan": {
+        "zjjArrivalDate": "2026-12-24",
+        "zjjDepartureDate": "2026-12-27",
+        "railStatus": "estimated-not-booked",
+        "overnightOnArrival": true,
+        "returnToGatewayDayBeforeFlight": true
+      }
+    },
+    {
       "id": "ICN-2026-12-23-2026-12-26-73bc8393",
       "origin": "ICN",
       "outbound": {
@@ -5913,5 +6489,28 @@
       "source": "Trip.com",
       "bookingUrl": "https://kr.trip.com/flights/showfarefirst?dcity=SEL&acity=DYG&ddate=2026-12-26&class=Y&triptype=RT&quantity=1&childqty=0&babyqty=0&topflightno=KE163,KE164&rdate=2026-12-29&sort=price&locale=ko-KR&curr=KRW&from=chatgpt&allianceid=8006699&sid=302809151"
     }
-  ]
+  ],
+  "gatewayCoverage": {
+    "attempted": 96,
+    "successful": 71,
+    "datePairs": [
+      "2026-11-03 / 2026-11-08",
+      "2026-11-13 / 2026-11-18",
+      "2026-11-23 / 2026-11-28",
+      "2026-12-03 / 2026-12-08",
+      "2026-12-13 / 2026-12-18",
+      "2026-12-23 / 2026-12-28"
+    ],
+    "airports": [
+      "ICN",
+      "GMP",
+      "PUS",
+      "CJJ",
+      "TAE",
+      "CJU",
+      "MWX",
+      "YNY"
+    ],
+    "exhaustive": false
+  }
 }
