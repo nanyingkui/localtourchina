@@ -2,6 +2,7 @@
 (function(root){
 'use strict';
 const meetsMinimumStay=item=>item.localNights>=2&&item.tripDays>=3;
+const isAllowedItinerary=item=>meetsMinimumStay(item)&&(!['CSX','CKG'].includes(item.destination)||[item.outbound,item.return].every(l=>l.segments.length===1&&!(l.stops>0)&&l.segments.every(s=>!s.isStop)));
 const departureEpoch=item=>Date.parse(item.outbound.departTime.replace(' ','T')+'+09:00');
 const isExpired=(item,now=Date.now())=>!Number.isFinite(departureEpoch(item))||departureEpoch(item)<=now;
 function getPrefill(items,id,now=Date.now()){
@@ -9,7 +10,7 @@ function getPrefill(items,id,now=Date.now()){
  return {start:f.outbound.arriveTime.slice(0,10),arrival:f.outbound.arriveTime.slice(11,16),arrivalNo:f.outbound.segments.at(-1).flightNo,end:f.return.departTime.slice(0,10),departure:f.return.departTime.slice(11,16),departureNo:f.return.segments[0].flightNo};
 }
 function partition(items,{month='',airport='',days='',destination='',direct=false}={},now=Date.now()){
- const matching=items.filter(f=>meetsMinimumStay(f)&&(!destination||(f.destination||'DYG')===destination)&&(!month||f.outbound.departTime.slice(5,7)===month)&&(!airport||f.origin===airport)&&(!days||f.tripDays===Number(days))&&(!direct||[f.outbound,f.return].every(l=>l.segments.length===1)));
+ const matching=items.filter(f=>isAllowedItinerary(f)&&(!destination||(f.destination||'DYG')===destination)&&(!month||f.outbound.departTime.slice(5,7)===month)&&(!airport||f.origin===airport)&&(!days||f.tripDays===Number(days))&&(!direct||[f.outbound,f.return].every(l=>l.segments.length===1)));
  return {active:matching.filter(f=>!isExpired(f,now)).sort((a,b)=>departureEpoch(a)-departureEpoch(b)),expired:matching.filter(f=>isExpired(f,now)).sort((a,b)=>departureEpoch(b)-departureEpoch(a))};
 }
 root.LTCFlights={departureEpoch,isExpired,getPrefill,partition};
@@ -21,11 +22,11 @@ function init(){
  const destinations={DYG:t('장가계 공항','张家界机场'),CSX:t('창사 + 열차','长沙 + 高铁'),CKG:t('충칭 + 열차','重庆 + 高铁')};
  const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
  mount.append(el('p',t('Trip.com 조회 자료 · 갱신일 ','Trip.com查询资料 · 更新日期 ')+data.updatedDate+'. '+t('전체 항공편이나 실시간 좌석 목록은 아닙니다. 예약 전 시간·가격·수하물 조건을 다시 확인하세요.','并非完整航班或实时余票列表。预订前请核对时间、价格及行李条件。')));
- mount.append(el('p',t('항공편 편도 6시간 이내 · 항공 최대 1회 경유 · 장가계 최소 2박 3일 · 한국 귀국일까지 최대 6일. 시간은 각 공항 현지 기준입니다. 한국은 중국보다 1시간 빠릅니다. 창사·충칭 경유 시 철도·지상 이동·숙박 시간은 별도입니다.','航空段单程6小时内 · 航空最多中转1次 · 张家界至少2晚3天 · 计至返回韩国当天最多6天。时间均为机场当地时间，韩国比中国快1小时。长沙、重庆方案的铁路、地面接驳和过夜时间另计。')));
+ mount.append(el('p',t('항공편 편도 6시간 이내 · 항공 최대 1회 경유 · 장가계 최소 2박 3일 · 한국 귀국일까지 최대 6일. 시간은 각 공항 현지 기준입니다. 한국은 중국보다 1시간 빠릅니다. 창사·충칭 도착 항공편은 왕복 모두 무경유 직항만 포함합니다. 철도·지상 이동·숙박 시간은 별도입니다.','航空段单程6小时内 · 航空最多中转1次 · 张家界至少2晚3天 · 计至返回韩国当天最多6天。时间均为机场当地时间，韩国比中国快1小时。长沙、重庆方案仅收录往返均不经停直飞的航空段，铁路、地面接驳和过夜时间另计。')));
  const purchase=el('aside',null,'flight-purchase-note');purchase.append(el('strong',t('로투차는 항공권을 대리 판매하거나 발권하지 않습니다.','我们不做机票代理，不销售机票或提供出票服务。')),el('p',t('항공권은 여행자가 Trip.com에서 직접 조회·구매해 주세요. 항공권 결제·변경·환불은 구매처를 통해 진행합니다. 아래 일정 상담은 장가계 현지 여행 서비스에 관한 것입니다.','机票请自行在Trip.com查询和购买；机票支付、改签和退款请联系购买平台。下方行程咨询仅针对张家界当地旅行服务。')),el('p',t('구매 경로: Trip.com → 항공권 → 왕복 → 한국 출발 공항 → 도착 공항(DYG/CSX/CKG) → 가는 날·오는 날 → 인원 선택 → 검색. 귀국편 검색 날짜는 항공편이 중국에서 출발하는 날짜입니다. 서울(SEL)로 표시되면 인천·김포 중 실제 출발 공항을 확인하세요.','购买路径：Trip.com → 机票 → 往返 → 韩国出发机场 → 抵达机场（DYG/CSX/CKG）→ 去程日期、返程日期 → 乘客人数 → 搜索。返程搜索日期是从中国机场起飞的日期，转高铁方案需先返回长沙或重庆。如显示首尔(SEL)，请核对实际出发机场是仁川还是金浦。')));const tripHome=el('a',t('Trip.com 항공권 검색 열기 ↗','打开Trip.com机票搜索 ↗'),'flight-buy');tripHome.href='https://kr.trip.com/flights/';tripHome.target='_blank';tripHome.rel='noopener noreferrer';tripHome.dataset.journey='flight_to_tripcom';purchase.append(tripHome);mount.append(purchase);
  const guide=el('details',null,'flight-transport-guide');guide.id='flight-transport-guide';guide.open=false;
  guide.append(el('summary',t('창사·충칭 → 장가계서역 열차 약 2–3시간 · 전체 교통 계획 보기','长沙、重庆→张家界西，高铁约2–3小时 · 展开整体交通计划')));
- guide.append(el('p',t('철도 구간은 왕복 모두 별도 예약합니다. 아래는 계획용 예상 시간이며 11·12월 특정 열차의 운행·좌석을 확정한 정보가 아닙니다.','铁路去返程均需另订。以下是规划用预计时间，不代表11、12月某班列车已确认运行或有票。')));
+ guide.append(el('p',t('창사·충칭 항공편은 왕복 모두 무경유 직항만 조회·수록합니다. 철도 구간은 왕복 모두 별도 예약합니다. 아래는 계획용 예상 시간이며 11·12월 특정 열차의 운행·좌석을 확정한 정보가 아닙니다.','长沙、重庆航空段往返均限定不经停直飞，铁路去返程均需另订。以下是规划用预计时间，不代表11、12月某班列车已确认运行或有票。')));
  const routes=[
   {code:'CSX',path:t('창사 황화공항(CSX) → 창사역(长沙站) → 장가계서역(张家界西) → 호텔','长沙黄花机场 CSX → 长沙站 → 张家界西站 → 酒店'),transfer:t('공항 → 창사역: 택시·차량 이동에 약 60–90분 배정','机场→长沙站：出租车/车辆接驳按约60–90分钟预留'),rail:t('창사역 ↔ 장가계서역: 직통 고속열차·동차 약 2–3시간','长沙站↔张家界西站：直达高铁/动车预计约2–3小时'),note:t('长沙站와 长沙南站는 다른 역입니다. 본 계획은 长沙站 출발이며, 표가 长沙南인 경우 공항 접속과 열차 시간을 다시 계산하세요.','长沙站和长沙南站是不同车站。本计划使用长沙站；如购买长沙南出发的车票，必须重新核对机场接驳与列车耗时。'),sources:[['长沙—张家界铁路参考','https://hunan.voc.com.cn/news/202506/29739552.html']]},
   {code:'CKG',path:t('충칭 장베이공항(CKG) → 충칭동역(重庆东) → 장가계서역(张家界西) → 호텔','重庆江北机场 CKG → 重庆东站 → 张家界西站 → 酒店'),transfer:t('공항 → 충칭동역: D620 공항버스 또는 차량, 대기·도보 포함 약 90–150분 배정','机场→重庆东站：D620机场快线或车辆，含候车、步行按约90–150分钟预留'),rail:t('충칭동역 ↔ 장가계서역: 직통 고속열차 약 2–3시간','重庆东站↔张家界西站：直达高铁预计约2–3小时'),note:t('重庆东·重庆北·重庆西는 서로 다른 역입니다. 다른 역의 출발 시간을 이 계획에 그대로 적용하지 마세요.','重庆东、重庆北、重庆西是不同车站，不能直接套用其他车站的发车时间。'),sources:[['重庆—张家界铁路参考','https://wap.cq.gov.cn/zwgk/zfxxgkml/zdlyxxgk/jt/jtzx/202506/t20250626_14750169.html'],['D620机场快线','https://cqrb.cn/contry/dy2/2025-06-30/2335393_pc.html']]}

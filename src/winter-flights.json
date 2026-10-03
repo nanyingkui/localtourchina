@@ -17,7 +17,8 @@
       "CSX",
       "CKG"
     ],
-    "maxLegMinutesAppliesTo": "air transport only; ground transfers and rail are additional"
+    "maxLegMinutesAppliesTo": "air transport only; ground transfers and rail are additional",
+    "gatewayNonstopRoundtripOnly": true
   },
   "coverage": {
     "airports": [
