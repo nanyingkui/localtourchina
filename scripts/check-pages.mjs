@@ -15,6 +15,6 @@ for (const page of pages) {
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   if (duplicateIds.length) throw new Error(`${page}: duplicate IDs: ${duplicateIds.join(', ')}`);
   const assets = [...html.matchAll(/(?:src|href)="((?:\.\.\/)?assets\/[^"]+)"/g)].map(match => match[1]);
-  for (const asset of assets) await access(path.resolve(path.dirname(path.join(root, page)), asset));
+  for (const asset of assets) await access(path.resolve(path.dirname(path.join(root, page)), asset.split(/[?#]/)[0]));
   console.log(`${page}: ok`);
 }
