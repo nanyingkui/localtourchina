@@ -416,15 +416,15 @@
     "cafeMenu": "https://cafe.naver.com/f-e/cafes/31682774/menus/3",
     "menuId": 3,
     "article": null,
-    "source": "https://www.dianping.com/shop/40513604/photos",
+    "source": "https://www.trip.com/restaurant/china/zhangjiajie/detail/restaurant-26368932/",
     "checkedAt": "2026-10-04",
     "image": "assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-1.jpg",
     "images": [
-      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-1.jpg","alt":"이핀샹 펀관 메뉴·매장 사진 1","source":"https://www.dianping.com/photos/8390843968","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-2.jpg","alt":"이핀샹 펀관 메뉴·매장 사진 2","source":"https://www.dianping.com/photos/8162499676","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-3.jpg","alt":"이핀샹 펀관 메뉴·매장 사진 3","source":"https://www.dianping.com/photos/8740465601","width":240}
+      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-1.jpg","alt":"이핀샹 펀관 쌀국수 실사진","source":"https://www.trip.com/restaurant/china/zhangjiajie/detail/restaurant-26368932/","width":1200},
+      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-2.jpg","alt":"이핀샹 펀관 땅콩 고명 쌀국수","source":"https://www.trip.com/restaurant/china/zhangjiajie/detail/restaurant-26368932/","width":690},
+      {"src":"assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-3.jpg","alt":"이핀샹 펀관 다진 고기 쌀국수","source":"https://www.trip.com/restaurant/china/zhangjiajie/detail/restaurant-26368932/","width":690}
     ],
-    "galleryNote": "다중뎬핑 해당 지점의 공개 사진입니다. 240×180 저해상도 원본이라 확대용이 아닌 메뉴 판단용으로만 사용하며, 실제 양과 구성은 달라질 수 있습니다."
+    "galleryNote": "Trip.com의 이핀샹 펀관(관리루점) 지점 갤러리에서 확인한 690~1200px 실사진입니다. 실제 양과 구성은 방문 시점에 달라질 수 있습니다."
   },
   {
     "id": "zhangjiajie-jixinliya-bubugao",
@@ -449,11 +449,11 @@
     "checkedAt": "2026-10-04",
     "image": "assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-1.jpg",
     "images": [
-      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-1.jpg","alt":"에그타르트 · 蛋挞","source":"https://www.dianping.com/photos/4298734488","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-2.jpg","alt":"크림 퍼프 · 爆浆脆皮泡芙","source":"https://www.dianping.com/photos/4298716554","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-3.jpg","alt":"로우송 샤오베이 · 肉松小贝","source":"https://www.dianping.com/photos/4298736738","width":240}
+      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-1.jpg","alt":"지신리야 부부가오점 정면","source":"https://www.dianping.com/photos/7258409042","width":700},
+      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-2.jpg","alt":"에그타르트 · 蛋挞","source":"https://www.dianping.com/photos/4298734488","width":525},
+      {"src":"assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-3.jpg","alt":"크림 퍼프 · 爆浆脆皮泡芙","source":"https://www.dianping.com/photos/4298716554","width":525}
     ],
-    "galleryNote": "다중뎬핑 해당 지점의 공개 사진입니다. 240×180 저해상도 원본이며 워터마크는 제거하지 않았습니다. 당일 판매 품목과 가격은 달라질 수 있습니다."
+    "galleryNote": "다중뎬핑의 지신리야 부부가오점 페이지에서 지점명을 대조한 525~700px 실사진입니다. 출처 표시는 유지했으며 당일 판매 품목과 가격은 달라질 수 있습니다."
   },
   {
     "id": "zhangjiajie-starbucks-bofu",
@@ -478,10 +478,10 @@
     "checkedAt": "2026-10-04",
     "image": "assets/food/2026-10-04/zhangjiajie-starbucks-bofu-1.jpg",
     "images": [
-      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-1.jpg","alt":"스타벅스 보푸문화광장점 매장·메뉴 사진","source":"https://www.dianping.com/photos/8133458877","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-2.jpg","alt":"플랫화이트 · 馥芮白饮品","source":"https://www.dianping.com/photos/7217463530","width":240},
-      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-3.jpg","alt":"스타벅스 보푸문화광장점 음료 사진","source":"https://www.dianping.com/photos/7980423160","width":240}
+      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-1.jpg","alt":"스타벅스 보푸문화광장점 좌석과 카운터","source":"https://www.dianping.com/photos/8518520294","width":525},
+      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-2.jpg","alt":"스타벅스 보푸문화광장점 내부","source":"https://www.dianping.com/photos/8518537513","width":525},
+      {"src":"assets/food/2026-10-04/zhangjiajie-starbucks-bofu-3.jpg","alt":"스타벅스 보푸문화광장점 디저트","source":"https://www.dianping.com/photos/8133458877","width":525}
     ],
-    "galleryNote": "다중뎬핑 해당 지점의 공개 사진입니다. 240×180 저해상도 원본이라 확대용이 아니며 시즌 메뉴와 진열은 바뀔 수 있습니다."
+    "galleryNote": "다중뎬핑의 스타벅스 보푸문화광장점 페이지에서 지점명을 대조한 525×700px 실사진입니다. 출처 표시는 유지했으며 시즌 메뉴와 진열은 바뀔 수 있습니다."
   }
 ]
