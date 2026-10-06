@@ -1,6 +1,6 @@
 [
   {
-    "status": "review-ready",
+    "status": "live",
     "date": "2026-10-06",
     "id": "zhangjiajie-kakasu-cafe",
     "name": "무릉원에서 천천히 쉬고 싶을 때 · kakasu 카페",
@@ -27,7 +27,7 @@
     "tip": "택시나 차량 기사에게 중국어 주소와 '山沟沟客栈'을 함께 보여 주세요. 도착 전에 당일 영업 여부를 확인하는 편이 안전합니다.",
     "phone": "",
     "menuId": 3,
-    "article": null,
+    "article": "231",
     "checkedAt": "2026-10-06",
     "mapVerified": false,
     "mapValidation": "Xiaohongshu author address and visitor comments verified; exact Amap POI detail still pending",
