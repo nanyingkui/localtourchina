@@ -1,0 +1,172 @@
+{
+  "version": 2,
+  "updatedAt": "2026-10-06",
+  "source": "src/restaurants.json entries with a non-empty article field",
+  "dedupeRule": "Check Chinese venue name, display name, exact branch and article ID before creating new content. Existing articles may be updated only when explicitly requested.",
+  "entries": [
+    {
+      "venue": "kakasu咖啡馆",
+      "displayName": "카카수 카페",
+      "region": "张家界武陵源",
+      "articleId": "231",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/231?menuid=3&referrerAllArticles=false",
+      "status": "historically_published_currently_unavailable",
+      "lastCheckedAt": "2026-10-07",
+      "recreateAllowed": false
+    },
+    {
+      "venue": "胡师傅三下锅(子午路总店)",
+      "displayName": "후스푸 싼샤궈 · 쯔우루 본점",
+      "region": "张家界",
+      "articleId": "215",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/215?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "蚝布斯龙虾港·烧烤（大庸桥社区店）",
+      "displayName": "호브스 롱샤강 · 바비큐",
+      "region": "张家界",
+      "articleId": "87",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/87?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "富正毅三下锅（闽南店）",
+      "displayName": "부정의 싼샤궈 · 민남점",
+      "region": "张家界",
+      "articleId": "85",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/85?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "喜棠家饭",
+      "displayName": "희당가반 · 란팅점",
+      "region": "张家界",
+      "articleId": "82",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/82?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "张家界九泰山烧烤",
+      "displayName": "주타이산 꼬치집",
+      "region": "张家界",
+      "articleId": "79",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/79?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "云野小馆",
+      "displayName": "운야소관 · 기봉광장점",
+      "region": "张家界",
+      "articleId": "78",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/78?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "崇溪山寨湘西民间土菜（七十二奇楼店）",
+      "displayName": "숭계산채 · 72기루점",
+      "region": "张家界",
+      "articleId": "66",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/66?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "索溪山寨·湘西民间土菜（天门山索道店）",
+      "displayName": "삭계산채 · 천문산점",
+      "region": "张家界",
+      "articleId": "66",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/66?menuid=3&referrerAllArticles=false",
+      "status": "published_same_article"
+    },
+    {
+      "venue": "明洞馆韩国料理（公园一号店）",
+      "displayName": "명동관 한국요리 · 공원1호점",
+      "region": "张家界",
+      "articleId": "41",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/41?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "和楽里料理",
+      "displayName": "호로리 일본요리",
+      "region": "张家界",
+      "articleId": "40",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/40?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "郝大姐乌龙山铁板烧（张家界二店）",
+      "displayName": "하오다제 우룽산 철판구이",
+      "region": "张家界",
+      "articleId": "34",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/34?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "泥茉厨房（南庄坪店）",
+      "displayName": "니모 주방 · 난좡핑점",
+      "region": "张家界",
+      "articleId": "33",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/33?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "One冒菜（72奇楼店）",
+      "displayName": "One 마오차이 · 72기루점",
+      "region": "张家界",
+      "articleId": "32",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/32?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "谷禧禧（南庄坪店）",
+      "displayName": "구시시 · 난좡핑점",
+      "region": "张家界",
+      "articleId": "31",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/31?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "酒座（奥莱广场店）",
+      "displayName": "주좌 · 아울렛광장점",
+      "region": "张家界",
+      "articleId": "30",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/30?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "秦大妈老字号（南庄坪店）",
+      "displayName": "친다마 라오쯔하오 · 난좡핑점",
+      "region": "张家界",
+      "articleId": "29",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/29?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    },
+    {
+      "venue": "椿也来物",
+      "displayName": "춘예라이우",
+      "region": "张家界",
+      "articleId": "207",
+      "menuId": 3,
+      "articleUrl": "https://cafe.naver.com/f-e/cafes/31682774/articles/207?menuid=3&referrerAllArticles=false",
+      "status": "published"
+    }
+  ]
+}
