@@ -3,6 +3,16 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const imageDimensions = JSON.parse(await readFile(path.join(root, 'src/image-dimensions.json'), 'utf8'));
+await writeFile(path.join(root, 'assets/image-dimensions.js'), 'window.LTCImageSizes = '+JSON.stringify(imageDimensions)+';\n');
+function withImageDimensions(html) {
+  return html.replace(/<img\b[^>]*>/g, tag => {
+    const src = tag.match(/\bsrc="([^"]+)"/)?.[1]?.replace(/^\.\.\//, '');
+    const dimensions = imageDimensions[src];
+    if (!dimensions) return tag;
+    return tag.replace(/\s(?:width|height)="[^"]*"/g, '').replace(/>$/, ` width="${dimensions[0]}" height="${dimensions[1]}">`);
+  });
+}
 const template = await readFile(path.join(root, 'src/site-template.html'), 'utf8');
 const winterFlights = JSON.parse(await readFile(path.join(root, 'src/winter-flights.json'), 'utf8'));
 await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WINTER_FLIGHTS = '+JSON.stringify(winterFlights)+';\n');
@@ -39,7 +49,7 @@ const zhPairs = [
   ["이 시간으로 일정 검토하기 →", "按此时间规划行程 →"],
   ["해당 조건으로 확인된 자료가 없습니다. 운항하지 않는다는 뜻은 아닙니다.", "暂无符合筛选条件的已核实资料，不代表没有航班。"],
   ["표시 시간은 각 공항의 현지 시간입니다. 한국은 중국보다 1시간 빠릅니다. 귀국일은 한국 도착일 기준이며, 항공권 예약이나 확정을 의미하지 않습니다.", "所示时间均为机场当地时间，韩国比中国快1小时。返国日期按抵达韩国日期计算；本页不代表机票预订或确认。"],
-  ['로투차 홈','罗途查首页'],['메뉴 ☰','菜单 ☰'],['주요 메뉴','主要菜单'],['언어 선택','语言选择'],
+  ['국가삼림공원 남문 코스 시간','国家森林公园南门游览时长'],['천문산 코스 시간','天门山游览时长'],[' 정보를 확인해 주세요.','信息，请检查。'],['로투차 홈','罗途查首页'],['메뉴 ☰','菜单 ☰'],['주요 메뉴','主要菜单'],['언어 선택','语言选择'],
   ['온라인 안심지원','在线旅行支持'],['여행 예약','旅行预订'],['여행 준비','旅行准备'],['맛집·지도','美食·地图'],['여행 후기','旅行评价'],['카톡 상담','联系咨询'],
   ['장가계 여행을 한곳에서 더 간편하게','更方便地规划张家界旅行'],['여행 전체를 맡기는 올인원 프라이빗 투어 또는 필요한 단일 서비스만 선택하세요.','可选择全程定制包团，也可只预订您需要的单项服务。'],
   ['실시간 원화 견적','实时清晰报价'],['한국어 상담','中文沟通'],['카카오톡 예약 문의','微信预订咨询'],['여행 전·현지 온라인 안심지원','行前与旅途中在线支持'],['한 팀 50,000원 · 최대 7일','每组50,000韩元 · 最长7天'],
@@ -231,7 +241,7 @@ for (const page of pages) {
   html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service) || page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file === 'index.html' ? '' : page.file}">\n</head>`);
   if (page.service === 'reviews') html = html.replace(/  <link rel="alternate" hreflang="en"[^>]*>\n/, '');
   html = `<!-- Generated from src/site-template.html. Run: npm run build -->\n${html}`;
-  await writeFile(path.join(root, page.file), html);
+  await writeFile(path.join(root, page.file), withImageDimensions(html));
 }
 
 const englishPages = [
@@ -273,7 +283,7 @@ for(const page of zhPages){
   if(page.service==='reviews')html=html.replace('</head>','<style>.youtube-reviews{display:none}</style></head>');
   html=html.replace('</head>',`  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service)||page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file==='index.html'?'':page.file}">\n</head>`);
   html=`<!-- Generated from src/site-template.html with Chinese translations. Run: npm run build -->\n${html}`;
-  await writeFile(path.join(zhDir,page.file),html);
+  await writeFile(path.join(zhDir,page.file),withImageDimensions(html));
 }
 
 const sitemapUrls = [...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'}))].map(page => {
