@@ -1,5 +1,6 @@
 import React from 'react';
 const rows=[
+['항공편 참고','航班参考','Flight reference (Korean)'],['맛집·지도','美食与地图','Food map (Korean)'],
 ['장가계 현지 풍경','张家界实景','Real Zhangjiajie scenery'],
 ['서비스·날짜·인원 변경은 구성 수정에서 진행해 주세요.','如需更改服务、日期或人数，请返回修改配置。','To change services, dates or group size, edit your configuration.'],
 ['온라인 여행 지원','在线旅行支持','Online travel support'],
@@ -60,4 +61,4 @@ const rows=[
 ];
 const maps={zh:new Map(rows.map(x=>[x[0],x[1]])),en:new Map(rows.map(x=>[x[0],x[2]]))};
 export function translate(value,lang){if(typeof value!=='string'||!maps[lang])return value;const map=maps[lang];if(map.has(value))return map.get(value);if(value.includes(' · '))return value.split(' · ').map(x=>translate(x,lang)).join(' · ');if(value.endsWith(' 예정'))return value.slice(0,-3)+(lang==='zh'?'（预计）':' (expected)');return value;}
-export function localize(node,lang){if(!maps[lang])return node;if(typeof node==='string')return translate(node,lang);if(Array.isArray(node))return React.Children.map(node,x=>localize(x,lang));if(!React.isValidElement(node))return node;const props={};if(typeof node.props.href==='string'&&/^\/[a-z-]+\.html(?:\?|$)/.test(node.props.href)&&node.props.href!=='/admin.html'){props.href='/'+lang+(lang==='en'&&node.props.href==='/booking.html'?'/multi-booking.html':node.props.href);}for(const key of ['aria-label','placeholder','alt','title'])if(node.props[key])props[key]=translate(node.props[key],lang);if(node.props.children!==undefined)props.children=localize(node.props.children,lang);return React.cloneElement(node,props);}
+export function localize(node,lang){if(!maps[lang])return node;if(typeof node==='string')return translate(node,lang);if(Array.isArray(node))return React.Children.map(node,x=>localize(x,lang));if(!React.isValidElement(node))return node;const props={};if(typeof node.props.href==='string'&&/^\/[a-z-]+\.html(?:\?|$)/.test(node.props.href)&&node.props.href!=='/admin.html'){props.href=lang==='en'&&['/flights.html','/food-map.html'].includes(node.props.href)?node.props.href:'/'+lang+(lang==='en'&&node.props.href==='/booking.html'?'/multi-booking.html':node.props.href);}for(const key of ['aria-label','placeholder','alt','title'])if(node.props[key])props[key]=translate(node.props[key],lang);if(node.props.children!==undefined)props.children=localize(node.props.children,lang);return React.cloneElement(node,props);}

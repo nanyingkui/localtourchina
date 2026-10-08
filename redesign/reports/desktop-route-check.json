@@ -155,6 +155,15 @@
   {
     "broken": [],
     "h1": [
+      "11·12월 항공편 참고"
+    ],
+    "overflow": false,
+    "path": "/flights.html",
+    "width": 1280
+  },
+  {
+    "broken": [],
+    "h1": [
       "먹고, 쉬고,\n현지처럼 장보기"
     ],
     "overflow": false,
@@ -285,6 +294,15 @@
     ],
     "overflow": false,
     "path": "/zh/day-tours.html",
+    "width": 1280
+  },
+  {
+    "broken": [],
+    "h1": [
+      "11、12月航班参考"
+    ],
+    "overflow": false,
+    "path": "/zh/flights.html",
     "width": 1280
   },
   {

@@ -6,7 +6,7 @@ The 2026-10-08 release uses a white, light gray, graphite and blue storefront in
 
 Install dependencies with `npm --prefix redesign ci`, then run `npm run build` at repository root. This regenerates original service/content pages from `src/site-template.html`, `src/english-template.html` and existing JSON data, applies shared styling and responsive image variants, builds the React storefront, prerenders Korean/Chinese/English homepages and writes the deployable site to the repository root for existing GitHub Pages hosting.
 
-Edit source templates/data, `redesign/src`, or authoritative shared files in `redesign/public`. Root HTML files are generated. Original asset URLs remain available for external links and existing content operations.
+Edit source templates/data, `redesign/src`, or authoritative shared files in `redesign/public`. Root HTML files are generated. Flight-reference pages retain original source data, filters and itinerary prefilling. Original asset URLs remain available for external links and existing content operations.
 
 Run `npm test` and `npm run check`. Optional render smoke test: `cd redesign && node scripts/render-smoke.mjs`.
 
