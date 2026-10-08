@@ -1,0 +1,48 @@
+.food-gallery {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.food-gallery figure {
+  flex: 0 0 min(90%, 290px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.food-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.food-gallery figcaption,
+.food-image-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.food-card {
+  scroll-margin-top: 90px;
+}
+
+.food-card details {
+  margin: 16px 0;
+  line-height: 1.8;
+}
+
+#food-region {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 14px 16px;
+  border: 1px solid #afc5b8;
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+}

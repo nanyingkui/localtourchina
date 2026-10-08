@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-pages.mjs",
-    "check": "node scripts/check-pages.mjs"
+    "build": "node scripts/build-redesign.mjs",
+    "check": "node redesign/scripts/check-release.mjs",
+    "build:legacy": "node scripts/build-pages.mjs",
+    "test": "node --test redesign/tests/*.test.mjs"
   }
 }

@@ -1,0 +1,20 @@
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+import {rmSync,mkdirSync} from 'node:fs';
+const require=createRequire(import.meta.url);
+const viteRequire=createRequire(require.resolve('vite/package.json'));
+const esbuild=viteRequire('esbuild');
+const React=require('react');
+const {renderToStaticMarkup}=require('react-dom/server');
+mkdirSync('.smoke',{recursive:true});
+esbuild.buildSync({entryPoints:['src/App.jsx'],outfile:'.smoke/app.cjs',bundle:true,format:'cjs',platform:'node',external:['react'],loader:{'.css':'empty'}});
+const {default:App}=require('../.smoke/app.cjs');
+globalThis.sessionStorage={getItem:()=>null};const values=new Map();globalThis.localStorage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};
+function render(search){globalThis.location={search};return renderToStaticMarkup(React.createElement(App));}
+const home=render('');assert.ok(home.includes('장가계 여행.'));assert.ok(home.includes('https://pf.kakao.com/_hvrmn/chat'));assert.ok(home.includes('https://cafe.naver.com/lotocha/212'));
+const consult=render('?view=consult&mode=help');assert.ok(consult.includes('id="contact"'));assert.ok(consult.includes('아직 미정이에요'));assert.ok(consult.includes('상담 내용 저장하고 번호 받기'));
+const {initialDraft,savePreview,STORAGE_KEY}=await import('../src/consultation.mjs');const record=savePreview({...initialDraft('help'),contact:'test-contact',consent:true},localStorage);
+const success=render('?reference='+record.reference);assert.ok(success.includes(record.reference));assert.ok(success.includes('실제 상담은 아직 접수되지 않았습니다'));assert.ok(success.includes('카카오톡 열기'));
+assert.ok(render('?reference=nonexistent').includes('저장한 내용을 찾을 수 없어요'));
+rmSync('.smoke',{recursive:true,force:true});
+console.log('Homepage, consultation, saved reference and missing reference render smoke checks passed');

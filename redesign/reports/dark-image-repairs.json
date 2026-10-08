@@ -1,0 +1,42 @@
+[
+  {
+    "original": "/assets/routes/furong-town/furong-town-waterfall-hero.jpg",
+    "originalBytes": 41263,
+    "optimized": "/assets/routes/furong-town/furong-town-waterfall-hero-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350,
+    "replacementSource": "assets/media/attractions/furong-town.jpg",
+    "repaired": true
+  },
+  {
+    "original": "/assets/routes/south-gate/golden-whip-stream.jpg",
+    "originalBytes": 42313,
+    "optimized": "/assets/routes/south-gate/golden-whip-stream-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350,
+    "replacementSource": "assets/media/attractions/golden-whip.jpg",
+    "repaired": true
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-cableway.jpg",
+    "originalBytes": 42315,
+    "optimized": "/assets/routes/south-gate/huangshizhai-cableway-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350,
+    "replacementSource": "assets/media/attractions/forest-south.jpg",
+    "repaired": true
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-panorama.jpg",
+    "originalBytes": 6593,
+    "optimized": "/assets/routes/south-gate/huangshizhai-panorama-jpg-480.webp",
+    "optimizedBytes": 376,
+    "width": 480,
+    "height": 360,
+    "replacementSource": "assets/media/attractions/forest-south.jpg",
+    "repaired": true
+  }
+]

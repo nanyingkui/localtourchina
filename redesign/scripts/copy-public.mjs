@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';import path from 'node:path';async function copy(from,to){await fs.mkdir(to,{recursive:true});for(const item of await fs.readdir(from,{withFileTypes:true})){const a=path.join(from,item.name),b=path.join(to,item.name);if(item.isDirectory())await copy(a,b);else await fs.copyFile(a,b);}}await copy('public','dist/client');

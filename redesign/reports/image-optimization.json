@@ -1,0 +1,1178 @@
+[
+  {
+    "original": "/assets/canyon.jpg",
+    "originalBytes": 568191,
+    "optimized": "/assets/canyon-jpg-1440.webp",
+    "optimizedBytes": 343580,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/city/local-market-mobile.jpg",
+    "originalBytes": 294981,
+    "optimized": "/assets/city/local-market-mobile-jpg-900.webp",
+    "optimizedBytes": 139890,
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "original": "/assets/city/local-snacks-mobile.jpg",
+    "originalBytes": 296163,
+    "optimized": "/assets/city/local-snacks-mobile-jpg-900.webp",
+    "optimizedBytes": 145236,
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "original": "/assets/city/zhangjiajie-city-desktop.jpg",
+    "originalBytes": 220051,
+    "optimized": "/assets/city/zhangjiajie-city-desktop-jpg-900.webp",
+    "optimizedBytes": 94894,
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "original": "/assets/designed/combined-services.png",
+    "originalBytes": 1335257,
+    "optimized": "/assets/designed/combined-services-png-1536.webp",
+    "optimizedBytes": 43986,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "original": "/assets/designed/guide-planning.png",
+    "originalBytes": 1574020,
+    "optimized": "/assets/designed/guide-planning-png-1536.webp",
+    "optimizedBytes": 45090,
+    "width": 1536,
+    "height": 1024
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-1.jpg",
+    "originalBytes": 85907,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-1-jpg-700.webp",
+    "optimizedBytes": 75248,
+    "width": 700,
+    "height": 525
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-2.jpg",
+    "originalBytes": 82404,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-2-jpg-525.webp",
+    "optimizedBytes": 65904,
+    "width": 525,
+    "height": 700
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-3.jpg",
+    "originalBytes": 57225,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-jixinliya-bubugao-3-jpg-525.webp",
+    "optimizedBytes": 37692,
+    "width": 525,
+    "height": 700
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-1.jpg",
+    "originalBytes": 66710,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-1-jpg-525.webp",
+    "optimizedBytes": 47562,
+    "width": 525,
+    "height": 700
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-2.jpg",
+    "originalBytes": 68929,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-2-jpg-525.webp",
+    "optimizedBytes": 50390,
+    "width": 525,
+    "height": 700
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-3.jpg",
+    "originalBytes": 42101,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-3-jpg-525.webp",
+    "optimizedBytes": 25724,
+    "width": 525,
+    "height": 700
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-1.jpg",
+    "originalBytes": 192249,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-1-jpg-1200.webp",
+    "optimizedBytes": 77720,
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-2.jpg",
+    "originalBytes": 154948,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-2-jpg-690.webp",
+    "optimizedBytes": 82972,
+    "width": 690,
+    "height": 460
+  },
+  {
+    "original": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-3.jpg",
+    "originalBytes": 81442,
+    "optimized": "/assets/food/2026-10-04/zhangjiajie-yipinxiang-guanli-3-jpg-690.webp",
+    "optimizedBytes": 33042,
+    "width": 690,
+    "height": 460
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-1.webp",
+    "originalBytes": 57686,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-1-webp-1200.webp",
+    "optimizedBytes": 67132,
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-2.webp",
+    "originalBytes": 18632,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-2-webp-454.webp",
+    "optimizedBytes": 19922,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-3.webp",
+    "originalBytes": 28334,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-liulongzi-main-3-webp-454.webp",
+    "optimizedBytes": 30586,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-1.webp",
+    "originalBytes": 42512,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-1-webp-1200.webp",
+    "optimizedBytes": 49834,
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-2.webp",
+    "originalBytes": 15320,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-2-webp-454.webp",
+    "optimizedBytes": 16302,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-3.webp",
+    "originalBytes": 21148,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-maoshi-xiaoguan-3-webp-454.webp",
+    "optimizedBytes": 22704,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-1.webp",
+    "originalBytes": 49588,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-1-webp-1200.webp",
+    "optimizedBytes": 56916,
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-2.webp",
+    "originalBytes": 33784,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-2-webp-454.webp",
+    "optimizedBytes": 37126,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-3.webp",
+    "originalBytes": 21296,
+    "optimized": "/assets/food/2026-10-06/zhangjiajie-tujia-yecai-jinbian-3-webp-454.webp",
+    "optimizedBytes": 22636,
+    "width": 454,
+    "height": 358
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/contact-sheet.jpg",
+    "originalBytes": 259297,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/contact-sheet-jpg-1360.webp",
+    "optimizedBytes": 122054,
+    "width": 1360,
+    "height": 1400
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-01.webp",
+    "originalBytes": 387580,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-01-webp-1080.webp",
+    "optimizedBytes": 350140,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-02.webp",
+    "originalBytes": 124114,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-02-webp-1080.webp",
+    "optimizedBytes": 109814,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-03.webp",
+    "originalBytes": 357936,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-03-webp-1080.webp",
+    "optimizedBytes": 327108,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-04.webp",
+    "originalBytes": 69142,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-04-webp-1080.webp",
+    "optimizedBytes": 58114,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-05.webp",
+    "originalBytes": 179592,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-05-webp-1080.webp",
+    "optimizedBytes": 154320,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-06.webp",
+    "originalBytes": 122004,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-06-webp-1080.webp",
+    "optimizedBytes": 106394,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-07.webp",
+    "originalBytes": 105566,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-07-webp-1080.webp",
+    "optimizedBytes": 93456,
+    "width": 1080,
+    "height": 1919
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-08.webp",
+    "originalBytes": 58566,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-08-webp-1080.webp",
+    "optimizedBytes": 51286,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-09.webp",
+    "originalBytes": 104296,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-09-webp-1080.webp",
+    "optimizedBytes": 89540,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-10.webp",
+    "originalBytes": 66644,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-10-webp-1080.webp",
+    "optimizedBytes": 58574,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-11.webp",
+    "originalBytes": 61178,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-11-webp-1080.webp",
+    "optimizedBytes": 54132,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-12.webp",
+    "originalBytes": 219562,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-12-webp-1080.webp",
+    "optimizedBytes": 201536,
+    "width": 1080,
+    "height": 1799
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-13.webp",
+    "originalBytes": 32186,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-13-webp-1080.webp",
+    "optimizedBytes": 27370,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-14.webp",
+    "originalBytes": 244504,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-14-webp-1080.webp",
+    "optimizedBytes": 214180,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-15.webp",
+    "originalBytes": 50874,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-15-webp-1080.webp",
+    "optimizedBytes": 44474,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-16.webp",
+    "originalBytes": 145516,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-16-webp-1080.webp",
+    "optimizedBytes": 124542,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-17.webp",
+    "originalBytes": 123032,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-17-webp-1080.webp",
+    "optimizedBytes": 106254,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/kakasu-18.webp",
+    "originalBytes": 82014,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-18-webp-1080.webp",
+    "optimizedBytes": 72360,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na0049sim4e1ktbah50tbg0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 387580,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-01-webp-1080.webp",
+    "optimizedBytes": 350140,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na0g49sim4e1ktbaqn7ofmo!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 124114,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-02-webp-1080.webp",
+    "optimizedBytes": 109814,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na1049sim4e1ktbar98p2q8!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 357936,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-03-webp-1080.webp",
+    "optimizedBytes": 327108,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na1g49sim4e1ktbaj4albm8!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 69142,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-04-webp-1080.webp",
+    "optimizedBytes": 58114,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na2049sim4e1ktba5csac3o!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 179592,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-05-webp-1080.webp",
+    "optimizedBytes": 154320,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na2g49sim4e1ktbaruaoae0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 122004,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-06-webp-1080.webp",
+    "optimizedBytes": 106394,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na3049sim4e1ktbaes4j9m8!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 105566,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-07-webp-1080.webp",
+    "optimizedBytes": 93456,
+    "width": 1080,
+    "height": 1919
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na3g49sim4e1ktba4fanlv0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 58566,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-08-webp-1080.webp",
+    "optimizedBytes": 51286,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na4049sim4e1ktba8uqlh0o!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 104296,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-09-webp-1080.webp",
+    "optimizedBytes": 89540,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na4g49sim4e1ktbaui070lg!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 66644,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-10-webp-1080.webp",
+    "optimizedBytes": 58574,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na5049sim4e1ktbaobamsc0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 61178,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-11-webp-1080.webp",
+    "optimizedBytes": 54132,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na5g49sim4e1ktbauiu10k8!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 219562,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-12-webp-1080.webp",
+    "optimizedBytes": 201536,
+    "width": 1080,
+    "height": 1799
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na6049sim4e1ktbaol1lka0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 32186,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-13-webp-1080.webp",
+    "optimizedBytes": 27370,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323fp6fe5na6g49sim4e1ktbaoos6738!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 244504,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-14-webp-1080.webp",
+    "optimizedBytes": 214180,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323ft4q340a0049sim4e1ktbai2v5qv0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 50874,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-15-webp-1080.webp",
+    "optimizedBytes": 44474,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323ft4q340a0g49sim4e1ktbaicu07dg!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 145516,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-16-webp-1080.webp",
+    "optimizedBytes": 124542,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323ft4q340a1049sim4e1ktbaq2k3gv8!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 123032,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-17-webp-1080.webp",
+    "optimizedBytes": 106254,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323ft4q340a1g49sim4e1ktbahg14uq0!nd_dft_wlteh_webp_3 (1).webp",
+    "originalBytes": 82014,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-18-webp-1080.webp",
+    "optimizedBytes": 72360,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/food/2026-10-06-premium/kakasu/original/1040g008323ft4q340a1g49sim4e1ktbahg14uq0!nd_dft_wlteh_webp_3.webp",
+    "originalBytes": 82014,
+    "optimized": "/assets/food/2026-10-06-premium/kakasu/kakasu-18-webp-1080.webp",
+    "optimizedBytes": 72360,
+    "width": 1080,
+    "height": 1800
+  },
+  {
+    "original": "/assets/forest.jpg",
+    "originalBytes": 110529,
+    "optimized": "/assets/forest-jpg-480.webp",
+    "optimizedBytes": 45902,
+    "width": 480,
+    "height": 360
+  },
+  {
+    "original": "/assets/hero/zhangjiajie-hero-desktop-v2.jpg",
+    "originalBytes": 515498,
+    "optimized": "/assets/hero/zhangjiajie-hero-desktop-v2-jpg-1600.webp",
+    "optimizedBytes": 219286,
+    "width": 1600,
+    "height": 819
+  },
+  {
+    "original": "/assets/hero/zhangjiajie-hero-desktop.jpg",
+    "originalBytes": 222320,
+    "optimized": "/assets/hero/zhangjiajie-hero-desktop-jpg-1600.webp",
+    "optimizedBytes": 175156,
+    "width": 1600,
+    "height": 818
+  },
+  {
+    "original": "/assets/hero/zhangjiajie-hero-mobile-v2.jpg",
+    "originalBytes": 424811,
+    "optimized": "/assets/hero/zhangjiajie-hero-mobile-v2-jpg-1000.webp",
+    "optimizedBytes": 157714,
+    "width": 1000,
+    "height": 1250
+  },
+  {
+    "original": "/assets/hero/zhangjiajie-hero-mobile.jpg",
+    "originalBytes": 177928,
+    "optimized": "/assets/hero/zhangjiajie-hero-mobile-jpg-1000.webp",
+    "optimizedBytes": 131596,
+    "width": 1000,
+    "height": 1250
+  },
+  {
+    "original": "/assets/hero.jpg",
+    "originalBytes": 770252,
+    "optimized": "/assets/hero-jpg-1920.webp",
+    "optimizedBytes": 244508,
+    "width": 2478,
+    "height": 1268
+  },
+  {
+    "original": "/assets/media/attractions/72-building.jpg",
+    "originalBytes": 2593735,
+    "optimized": "/assets/media/attractions/72-building-jpg-1920.webp",
+    "optimizedBytes": 363046,
+    "width": 4032,
+    "height": 3024
+  },
+  {
+    "original": "/assets/media/attractions/baofeng-lake.jpg",
+    "originalBytes": 498299,
+    "optimized": "/assets/media/attractions/baofeng-lake-jpg-1080.webp",
+    "optimizedBytes": 264388,
+    "width": 1080,
+    "height": 1620
+  },
+  {
+    "original": "/assets/media/attractions/canyon-bridge-wide.jpg",
+    "originalBytes": 1171510,
+    "optimized": "/assets/media/attractions/canyon-bridge-wide-jpg-1920.webp",
+    "optimizedBytes": 537372,
+    "width": 2200,
+    "height": 1577
+  },
+  {
+    "original": "/assets/media/attractions/canyon-bridge.jpg",
+    "originalBytes": 568191,
+    "optimized": "/assets/canyon-jpg-1440.webp",
+    "optimizedBytes": 343580,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/media/attractions/canyon-lake.jpg",
+    "originalBytes": 883430,
+    "optimized": "/assets/media/attractions/canyon-lake-jpg-1080.webp",
+    "optimizedBytes": 620630,
+    "width": 1080,
+    "height": 1440
+  },
+  {
+    "original": "/assets/media/attractions/city.jpg",
+    "originalBytes": 341904,
+    "optimized": "/assets/media/attractions/city-jpg-1080.webp",
+    "optimizedBytes": 166974,
+    "width": 1080,
+    "height": 1456
+  },
+  {
+    "original": "/assets/media/attractions/fenghuang.jpg",
+    "originalBytes": 591960,
+    "optimized": "/assets/media/attractions/fenghuang-jpg-1440.webp",
+    "optimizedBytes": 368572,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/media/attractions/forest-east.jpg",
+    "originalBytes": 286368,
+    "optimized": "/assets/media/attractions/forest-east-jpg-972.webp",
+    "optimizedBytes": 158386,
+    "width": 972,
+    "height": 808
+  },
+  {
+    "original": "/assets/media/attractions/forest-south.jpg",
+    "originalBytes": 110529,
+    "optimized": "/assets/forest-jpg-480.webp",
+    "optimizedBytes": 45902,
+    "width": 480,
+    "height": 360
+  },
+  {
+    "original": "/assets/media/attractions/fox-fairy.jpg",
+    "originalBytes": 526184,
+    "optimized": "/assets/media/attractions/fox-fairy-jpg-1619.webp",
+    "optimizedBytes": 297208,
+    "width": 1619,
+    "height": 1080
+  },
+  {
+    "original": "/assets/media/attractions/furong-town.jpg",
+    "originalBytes": 309959,
+    "optimized": "/assets/media/attractions/furong-town-jpg-1024.webp",
+    "optimizedBytes": 149880,
+    "width": 1024,
+    "height": 768
+  },
+  {
+    "original": "/assets/media/attractions/golden-whip.jpg",
+    "originalBytes": 5179038,
+    "optimized": "/assets/media/attractions/golden-whip-jpg-1920.webp",
+    "optimizedBytes": 880118,
+    "width": 4032,
+    "height": 3024
+  },
+  {
+    "original": "/assets/media/attractions/huanglong-cave.jpg",
+    "originalBytes": 381294,
+    "optimized": "/assets/media/attractions/huanglong-cave-jpg-1080.webp",
+    "optimizedBytes": 196054,
+    "width": 1080,
+    "height": 1440
+  },
+  {
+    "original": "/assets/media/attractions/meili-xiangxi.jpg",
+    "originalBytes": 419562,
+    "optimized": "/assets/media/attractions/meili-xiangxi-jpg-1623.webp",
+    "optimizedBytes": 213468,
+    "width": 1623,
+    "height": 1080
+  },
+  {
+    "original": "/assets/media/attractions/tianmen-cave.jpg",
+    "originalBytes": 539978,
+    "optimized": "/assets/media/attractions/tianmen-cave-jpg-1080.webp",
+    "optimizedBytes": 280674,
+    "width": 1080,
+    "height": 1920
+  },
+  {
+    "original": "/assets/media/attractions/tianmen-cliff.jpg",
+    "originalBytes": 571855,
+    "optimized": "/assets/media/attractions/tianmen-cliff-jpg-1080.webp",
+    "optimizedBytes": 353622,
+    "width": 1080,
+    "height": 1440
+  },
+  {
+    "original": "/assets/media/hero/home-mobile.jpg",
+    "originalBytes": 770252,
+    "optimized": "/assets/hero-jpg-1920.webp",
+    "optimizedBytes": 244508,
+    "width": 2478,
+    "height": 1268
+  },
+  {
+    "original": "/assets/media/hero-mobile.jpg",
+    "originalBytes": 770252,
+    "optimized": "/assets/hero-jpg-1920.webp",
+    "optimizedBytes": 244508,
+    "width": 2478,
+    "height": 1268
+  },
+  {
+    "original": "/assets/media/hotels/homeinn/breakfast.webp",
+    "originalBytes": 71924,
+    "optimized": "/assets/media/hotels/homeinn/breakfast-webp-1280.webp",
+    "optimizedBytes": 81906,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/homeinn/exterior.webp",
+    "originalBytes": 169048,
+    "optimized": "/assets/media/hotels/homeinn/exterior-webp-1280.webp",
+    "optimizedBytes": 170224,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/homeinn/king.webp",
+    "originalBytes": 45478,
+    "optimized": "/assets/media/hotels/homeinn/king-webp-1280.webp",
+    "optimizedBytes": 51706,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/homeinn/twin.webp",
+    "originalBytes": 59174,
+    "optimized": "/assets/media/hotels/homeinn/twin-webp-1280.webp",
+    "optimizedBytes": 59388,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/mercure/breakfast.webp",
+    "originalBytes": 114476,
+    "optimized": "/assets/media/hotels/mercure/breakfast-webp-1280.webp",
+    "optimizedBytes": 118276,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/mercure/exterior.webp",
+    "originalBytes": 57980,
+    "optimized": "/assets/media/hotels/mercure/exterior-webp-1280.webp",
+    "optimizedBytes": 66596,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/mercure/king.webp",
+    "originalBytes": 72334,
+    "optimized": "/assets/media/hotels/mercure/king-webp-1280.webp",
+    "optimizedBytes": 81600,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/mercure/twin.webp",
+    "originalBytes": 47574,
+    "optimized": "/assets/media/hotels/mercure/twin-webp-1280.webp",
+    "optimizedBytes": 54268,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/orange/breakfast.webp",
+    "originalBytes": 102196,
+    "optimized": "/assets/media/hotels/orange/breakfast-webp-1243.webp",
+    "optimizedBytes": 118420,
+    "width": 1243,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/orange/exterior.webp",
+    "originalBytes": 192876,
+    "optimized": "/assets/media/hotels/orange/exterior-webp-1280.webp",
+    "optimizedBytes": 216478,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/orange/king.webp",
+    "originalBytes": 51380,
+    "optimized": "/assets/media/hotels/orange/king-webp-1280.webp",
+    "optimizedBytes": 59294,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/hotels/orange/twin.webp",
+    "originalBytes": 54886,
+    "optimized": "/assets/media/hotels/orange/twin-webp-1280.webp",
+    "optimizedBytes": 64206,
+    "width": 1280,
+    "height": 853
+  },
+  {
+    "original": "/assets/media/sanya/binglang-village.jpg",
+    "originalBytes": 160474,
+    "optimized": "/assets/media/sanya/binglang-village-jpg-850.webp",
+    "optimizedBytes": 62540,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/daxiaodongtian.jpg",
+    "originalBytes": 193438,
+    "optimized": "/assets/media/sanya/daxiaodongtian-jpg-850.webp",
+    "optimizedBytes": 108692,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/haitang-bay-resort.jpg",
+    "originalBytes": 336144,
+    "optimized": "/assets/media/sanya/haitang-bay-resort-jpg-1251.webp",
+    "optimizedBytes": 169120,
+    "width": 1251,
+    "height": 823
+  },
+  {
+    "original": "/assets/media/sanya/local-seafood.jpg",
+    "originalBytes": 691858,
+    "optimized": "/assets/media/sanya/local-seafood-jpg-1600.webp",
+    "optimizedBytes": 316726,
+    "width": 1600,
+    "height": 1600
+  },
+  {
+    "original": "/assets/media/sanya/monkey-island.jpg",
+    "originalBytes": 386245,
+    "optimized": "/assets/media/sanya/monkey-island-jpg-850.webp",
+    "optimizedBytes": 199764,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/night-cruise.jpg",
+    "originalBytes": 143996,
+    "optimized": "/assets/media/sanya/night-cruise-jpg-850.webp",
+    "optimizedBytes": 61194,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/night-market.jpg",
+    "originalBytes": 181071,
+    "optimized": "/assets/media/sanya/night-market-jpg-850.webp",
+    "optimizedBytes": 76020,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/song-show.jpg",
+    "originalBytes": 202788,
+    "optimized": "/assets/media/sanya/song-show-jpg-850.webp",
+    "optimizedBytes": 74314,
+    "width": 850,
+    "height": 500
+  },
+  {
+    "original": "/assets/media/sanya/tianya-haijiao.jpg",
+    "originalBytes": 214249,
+    "optimized": "/assets/media/sanya/tianya-haijiao-jpg-849.webp",
+    "optimizedBytes": 127888,
+    "width": 849,
+    "height": 499
+  },
+  {
+    "original": "/assets/media/vehicles/14-seat/exterior.jpg",
+    "originalBytes": 324646,
+    "optimized": "/assets/media/vehicles/14-seat/exterior-jpg-1706.webp",
+    "optimizedBytes": 286942,
+    "width": 1706,
+    "height": 1279
+  },
+  {
+    "original": "/assets/media/vehicles/14-seat/interior.jpg",
+    "originalBytes": 137610,
+    "optimized": "/assets/media/vehicles/14-seat/interior-jpg-1706.webp",
+    "optimizedBytes": 89924,
+    "width": 1706,
+    "height": 1279
+  },
+  {
+    "original": "/assets/media/vehicles/7-seat/exterior.jpg",
+    "originalBytes": 123903,
+    "optimized": "/assets/media/vehicles/7-seat/exterior-jpg-1400.webp",
+    "optimizedBytes": 111686,
+    "width": 1400,
+    "height": 1050
+  },
+  {
+    "original": "/assets/media/vehicles/7-seat/interior.jpg",
+    "originalBytes": 115574,
+    "optimized": "/assets/media/vehicles/7-seat/interior-jpg-1400.webp",
+    "optimizedBytes": 93040,
+    "width": 1400,
+    "height": 1050
+  },
+  {
+    "original": "/assets/media/vehicles/9-seat/exterior.jpg",
+    "originalBytes": 327262,
+    "optimized": "/assets/media/vehicles/9-seat/exterior-jpg-1920.webp",
+    "optimizedBytes": 222492,
+    "width": 1920,
+    "height": 1280
+  },
+  {
+    "original": "/assets/media/vehicles/9-seat/interior.jpg",
+    "originalBytes": 409389,
+    "optimized": "/assets/media/vehicles/9-seat/interior-jpg-1920.webp",
+    "optimizedBytes": 234056,
+    "width": 1920,
+    "height": 1280
+  },
+  {
+    "original": "/assets/routes/72-wonder-building/72-wonder-building-hero.jpg",
+    "originalBytes": 471192,
+    "optimized": "/assets/routes/72-wonder-building/72-wonder-building-hero-jpg-1440.webp",
+    "optimizedBytes": 226074,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/72-wonder-building/72-wonder-building-mobile.jpg",
+    "originalBytes": 362101,
+    "optimized": "/assets/routes/72-wonder-building/72-wonder-building-mobile-jpg-900.webp",
+    "optimizedBytes": 171660,
+    "width": 900,
+    "height": 1125
+  },
+  {
+    "original": "/assets/routes/baofeng-lake/baofeng-lake-boat-mobile.jpg",
+    "originalBytes": 597890,
+    "optimized": "/assets/routes/baofeng-lake/baofeng-lake-boat-mobile-jpg-1200.webp",
+    "optimizedBytes": 263024,
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "original": "/assets/routes/baofeng-lake/baofeng-lake-waterfall-mobile.jpg",
+    "originalBytes": 1083228,
+    "optimized": "/assets/routes/baofeng-lake/baofeng-lake-waterfall-mobile-jpg-1350.webp",
+    "optimizedBytes": 614858,
+    "width": 1350,
+    "height": 1800
+  },
+  {
+    "original": "/assets/routes/charming-xiangxi/charming-xiangxi-drama-detail.jpg",
+    "originalBytes": 174418,
+    "optimized": "/assets/routes/charming-xiangxi/charming-xiangxi-drama-detail-jpg-1440.webp",
+    "optimizedBytes": 45384,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/charming-xiangxi/charming-xiangxi-hero.jpg",
+    "originalBytes": 371686,
+    "optimized": "/assets/routes/charming-xiangxi/charming-xiangxi-hero-jpg-1440.webp",
+    "optimizedBytes": 148234,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/charming-xiangxi/charming-xiangxi-history-detail.jpg",
+    "originalBytes": 250190,
+    "optimized": "/assets/routes/charming-xiangxi/charming-xiangxi-history-detail-jpg-1440.webp",
+    "optimizedBytes": 87878,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/furong-town/furong-town-riverside-evening.jpg",
+    "originalBytes": 689855,
+    "optimized": "/assets/routes/furong-town/furong-town-riverside-evening-jpg-1800.webp",
+    "optimizedBytes": 292572,
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "original": "/assets/routes/furong-town/furong-town-waterfall-hero.jpg",
+    "originalBytes": 41263,
+    "optimized": "/assets/routes/furong-town/furong-town-waterfall-hero-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "original": "/assets/routes/grand-canyon-glass-bridge/canyon-water-mobile.jpg",
+    "originalBytes": 1221243,
+    "optimized": "/assets/routes/grand-canyon-glass-bridge/canyon-water-mobile-jpg-1200.webp",
+    "optimizedBytes": 646062,
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "original": "/assets/routes/grand-canyon-glass-bridge/glass-bridge-hero.jpg",
+    "originalBytes": 684655,
+    "optimized": "/assets/routes/grand-canyon-glass-bridge/glass-bridge-hero-jpg-1440.webp",
+    "optimizedBytes": 347024,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/routes/grand-canyon-glass-bridge/glass-bridge-walk-mobile.jpg",
+    "originalBytes": 957150,
+    "optimized": "/assets/routes/grand-canyon-glass-bridge/glass-bridge-walk-mobile-jpg-1200.webp",
+    "optimizedBytes": 441922,
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "original": "/assets/routes/huanglong-cave/huanglong-cave-hall-hero-expanded.jpg",
+    "originalBytes": 703728,
+    "optimized": "/assets/routes/huanglong-cave/huanglong-cave-hall-hero-expanded-jpg-1800.webp",
+    "optimizedBytes": 275098,
+    "width": 1800,
+    "height": 1013
+  },
+  {
+    "original": "/assets/routes/huanglong-cave/huanglong-cave-hall-hero-expanded.png",
+    "originalBytes": 2718732,
+    "optimized": "/assets/routes/huanglong-cave/huanglong-cave-hall-hero-expanded-png-1672.webp",
+    "optimizedBytes": 281062,
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "original": "/assets/routes/huanglong-cave/underground-river-mobile.jpg",
+    "originalBytes": 572861,
+    "optimized": "/assets/routes/huanglong-cave/underground-river-mobile-jpg-1200.webp",
+    "optimizedBytes": 209040,
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "original": "/assets/routes/phoenix-ancient-town/phoenix-night-mobile.jpg",
+    "originalBytes": 594224,
+    "optimized": "/assets/routes/phoenix-ancient-town/phoenix-night-mobile-jpg-1080.webp",
+    "optimizedBytes": 329888,
+    "width": 1080,
+    "height": 1350
+  },
+  {
+    "original": "/assets/routes/phoenix-ancient-town/phoenix-river-boat-detail.jpg",
+    "originalBytes": 622189,
+    "optimized": "/assets/routes/phoenix-ancient-town/phoenix-river-boat-detail-jpg-1440.webp",
+    "optimizedBytes": 364394,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/routes/phoenix-ancient-town/phoenix-riverside-hero.jpg",
+    "originalBytes": 683123,
+    "optimized": "/assets/routes/phoenix-ancient-town/phoenix-riverside-hero-jpg-1440.webp",
+    "optimizedBytes": 412230,
+    "width": 1440,
+    "height": 1080
+  },
+  {
+    "original": "/assets/routes/south-gate/golden-whip-stream.jpg",
+    "originalBytes": 42313,
+    "optimized": "/assets/routes/south-gate/golden-whip-stream-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-cableway.jpg",
+    "originalBytes": 42315,
+    "optimized": "/assets/routes/south-gate/huangshizhai-cableway-jpg-1800.webp",
+    "optimizedBytes": 4434,
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-forest-walkway-retouched.jpg",
+    "originalBytes": 522739,
+    "optimized": "/assets/routes/south-gate/huangshizhai-forest-walkway-retouched-jpg-1200.webp",
+    "optimizedBytes": 343196,
+    "width": 1200,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-forest-walkway-retouched.png",
+    "originalBytes": 3394667,
+    "optimized": "/assets/routes/south-gate/huangshizhai-forest-walkway-retouched-png-1448.webp",
+    "optimizedBytes": 485694,
+    "width": 1448,
+    "height": 1086
+  },
+  {
+    "original": "/assets/routes/south-gate/huangshizhai-panorama.jpg",
+    "originalBytes": 6593,
+    "optimized": "/assets/routes/south-gate/huangshizhai-panorama-jpg-480.webp",
+    "optimizedBytes": 376,
+    "width": 480,
+    "height": 360
+  },
+  {
+    "original": "/assets/routes/tianmen-fox-fairy/tianmen-fox-fairy-hero.jpg",
+    "originalBytes": 487537,
+    "optimized": "/assets/routes/tianmen-fox-fairy/tianmen-fox-fairy-hero-jpg-1440.webp",
+    "optimizedBytes": 213452,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/tianmen-fox-fairy/tianmen-fox-fairy-stage-detail.jpg",
+    "originalBytes": 395487,
+    "optimized": "/assets/routes/tianmen-fox-fairy/tianmen-fox-fairy-stage-detail-jpg-1440.webp",
+    "optimizedBytes": 157320,
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "original": "/assets/routes/tianmen-mountain/cliff-walkway-mobile.jpg",
+    "originalBytes": 815994,
+    "optimized": "/assets/routes/tianmen-mountain/cliff-walkway-mobile-jpg-1200.webp",
+    "optimizedBytes": 366022,
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "original": "/assets/routes/tianmen-mountain/tianmen-cave-hero-expanded.jpg",
+    "originalBytes": 777493,
+    "optimized": "/assets/routes/tianmen-mountain/tianmen-cave-hero-expanded-jpg-1800.webp",
+    "optimizedBytes": 329270,
+    "width": 1800,
+    "height": 1013
+  },
+  {
+    "original": "/assets/routes/tianmen-mountain/tianmen-cave-hero-expanded.png",
+    "originalBytes": 3065804,
+    "optimized": "/assets/routes/tianmen-mountain/tianmen-cave-hero-expanded-png-1672.webp",
+    "optimizedBytes": 352612,
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "original": "/assets/services/airport-transfer-desktop.jpg",
+    "originalBytes": 179955,
+    "optimized": "/assets/services/airport-transfer-desktop-jpg-1024.webp",
+    "optimizedBytes": 71122,
+    "width": 1024,
+    "height": 640
+  },
+  {
+    "original": "/assets/services/airport-transfer-mobile.jpg",
+    "originalBytes": 123031,
+    "optimized": "/assets/services/airport-transfer-mobile-jpg-614.webp",
+    "optimizedBytes": 39878,
+    "width": 614,
+    "height": 768
+  },
+  {
+    "original": "/assets/services/airport-transfer-night-desktop.jpg",
+    "originalBytes": 163091,
+    "optimized": "/assets/services/airport-transfer-night-desktop-jpg-1024.webp",
+    "optimizedBytes": 62214,
+    "width": 1024,
+    "height": 640
+  },
+  {
+    "original": "/assets/services/guide-reception-desktop.jpg",
+    "originalBytes": 304326,
+    "optimized": "/assets/services/guide-reception-desktop-jpg-1024.webp",
+    "optimizedBytes": 153866,
+    "width": 1024,
+    "height": 640
+  },
+  {
+    "original": "/assets/services/guide-reception-mobile.jpg",
+    "originalBytes": 236753,
+    "optimized": "/assets/services/guide-reception-mobile-jpg-614.webp",
+    "optimizedBytes": 110472,
+    "width": 614,
+    "height": 768
+  },
+  {
+    "original": "/assets/tianmen.jpg",
+    "originalBytes": 571855,
+    "optimized": "/assets/media/attractions/tianmen-cliff-jpg-1080.webp",
+    "optimizedBytes": 353622,
+    "width": 1080,
+    "height": 1440
+  }
+]
