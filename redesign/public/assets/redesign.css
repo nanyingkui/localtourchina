@@ -16,3 +16,273 @@ body{background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans K
 
 .redesign-submit{display:block;text-align:center;padding:14px 20px;background:#0071e3;color:white!important;border-radius:999px;margin-top:18px;text-decoration:none;min-height:48px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #0071e3;outline-offset:3px}.priority-state-guide{color:#6e6e73}
 .topbar>a>img,.brand-logo img,.site-logo img{filter:grayscale(1)}
+
+/* Warm, readable whole-site theme · 2026-10-09.
+   Keep this final layer after the historic theme; preserve legacy calculator/layout rules. */
+:root {
+  --bg:#faf7f2; --paper:#faf7f2; --ivory:#faf7f2; --soft:#f4eee6;
+  --ink:#2d2926; --navy:#2d2926; --brand:#315b4b; --brand2:#274a3d;
+  --green:#315b4b; --deep:#274a3d; --muted:#655e57; --line:#d9d0c5;
+  --orange:#a84f2d; --accent:#a84f2d; --primary:#a84f2d;
+  --primary-hover:#883e23; --trust-soft:#eef4f0; --warm-selected:#fff2e9;
+  --control-line:#958a7e; --danger:#a12d25; --header-scroll-fallback:164px;
+  color-scheme:light;
+}
+html { scroll-padding-top:calc(var(--sticky-header-height,var(--header-scroll-fallback)) + 24px); }
+body { background:var(--bg)!important; color:var(--ink)!important; font-size:18px; line-height:1.75; }
+a { color:var(--primary); min-height:0; text-underline-offset:.22em; }
+a:hover { text-decoration-thickness:2px; }
+h1,h2,h3,h4,.brand { color:var(--ink); line-height:1.35; }
+h1,h2,h3 { word-break:keep-all; overflow-wrap:break-word; }
+p,li,dd { line-height:1.75; }
+small { font-size:16px!important; line-height:1.6; }
+button,input,select,textarea { font-family:inherit; }
+button,summary { min-height:48px; }
+button { cursor:pointer; }
+input:not([type=checkbox]):not([type=radio]),select,textarea,.input {
+  min-height:52px; height:auto; padding:12px 14px; font-size:16px!important;
+  line-height:1.5; color:var(--ink); background:#fff; border-color:var(--control-line); border-radius:10px;
+}
+input[type=checkbox],input[type=radio] { accent-color:var(--primary); min-width:20px; min-height:20px; }
+input::placeholder,textarea::placeholder { color:var(--muted); opacity:1; }
+textarea { min-height:120px; }
+:where(button,a,input,select,textarea,summary,[tabindex]):focus-visible {
+  outline:3px solid var(--brand); outline-offset:4px;
+}
+.choice:has(input:focus-visible),.pill:has(input:focus-visible),.product-option:has(input:focus-visible),
+.check-card:has(input:focus-visible),.combo-service:has(input:focus-visible) {
+  outline:3px solid var(--brand); outline-offset:4px;
+}
+:where(section[id],h1,h2,h3,[data-private-stage],.field-error,.error,.prep-stage-picker,.flight-reference) {
+  scroll-margin-top:calc(var(--sticky-header-height,var(--header-scroll-fallback)) + 24px);
+}
+section[id],h1,h2,.prep-stage-picker,.flight-reference {
+  scroll-margin-top:calc(var(--sticky-header-height,var(--header-scroll-fallback)) + 24px);
+}
+/* Hidden stages stay hidden, including after layout/theme changes. */
+[hidden]:not([hidden="until-found"]) { display:none!important; }
+
+/* Navigation has readable targets, a light divider and a single warm action. */
+.topbar,.site-header {
+  background:#fff!important; color:var(--ink)!important; border-bottom:1px solid var(--line)!important;
+  box-shadow:0 4px 16px #2d292608; overflow:visible; border-radius:0;
+}
+.topbar { gap:16px; padding:16px 24px; }
+.topbar a,.service-tab,.nav a,.language-switch a { font-size:16px!important; line-height:1.45; }
+.service-tab,.nav a,.language-switch a,.mobile-nav-toggle,.redesign-menu {
+  min-height:48px; padding:11px 13px; border-radius:8px;
+}
+.topbar .service-nav { gap:4px; }
+.service-tab.active,.nav a.active,.language-switch .active {
+  background:var(--trust-soft); color:var(--brand); box-shadow:inset 0 -3px var(--brand);
+}
+.language-switch { background:var(--bg); border:1px solid var(--line); }
+.topbar .nav-contact,.nav-contact { background:var(--primary)!important; color:#fff!important; }
+.topbar>a>img,.brand-logo img,.site-logo img { filter:none; }
+.redesign-banner,.preview-banner { background:var(--trust-soft)!important; color:var(--brand)!important; font-size:16px; }
+.redesign-banner a { color:var(--brand); }
+
+/* Primary/secondary roles explicitly defeat the old .btn:not(.secondary) rule. */
+.btn,.button,.private-primary,.redesign-submit { min-height:52px; padding:12px 22px; font-size:16px; line-height:1.5; border-radius:10px; font-weight:750; box-shadow:none; }
+.btn:not(.secondary),.btn-primary,.button,.button.primary,.private-primary,.redesign-submit,
+.copy,.contact,.online-hero-cta,.redesign-continue>a,button.primary {
+  background:var(--primary)!important; color:#fff!important; border:1px solid var(--primary)!important;
+}
+.btn:not(.secondary):hover,.btn-primary:hover,.button.primary:hover,.private-primary:hover,.redesign-submit:hover {
+  background:var(--primary-hover)!important; border-color:var(--primary-hover)!important;
+}
+.btn.btn-outline,.btn.secondary,.button.secondary,.button.outline,.btn-outline,
+.btn.btn-outline:hover,.btn.secondary:hover,.button.secondary:hover,.button.outline:hover {
+  background:#fff!important; color:var(--brand)!important; border:1px solid var(--brand)!important; box-shadow:none;
+}
+.btn.btn-outline:hover,.btn.secondary:hover,.button.secondary:hover,.button.outline:hover { background:var(--trust-soft)!important; }
+.btn:disabled,.btn:not(.secondary):disabled,.button:disabled,.private-primary:disabled {
+  background:#eee8e0!important; color:var(--muted)!important; border:1px solid var(--control-line)!important;
+  opacity:1; box-shadow:none; cursor:not-allowed; transform:none;
+}
+.btn:disabled:after { font-size:16px; }
+.btn:active,.choice:hover,.pill:hover,.product-option:hover { transform:none; }
+
+/* Clean white panels and deliberate colour, rather than beige on every card. */
+.panel,.card,.service-panel,.config,.option-card,.summary,.online-summary,.online-rules,
+.booking-choice,.status-card,.food-card,.review-card,.prep-disclosure,.product-option,.private-day {
+  background:#fff!important; color:var(--ink)!important; border-color:var(--line)!important;
+  border-radius:16px; box-shadow:0 3px 12px #2d292605;
+}
+.service-panel { background:transparent!important; box-shadow:none; }
+.card,.summary,.online-summary,.online-rules,.status-card { padding:30px; }
+.section-head { gap:14px; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:24px; }
+.section-head h2 { font-size:clamp(23px,2.2vw,28px); }
+.section-head p { margin-top:8px; font-size:16px; color:var(--muted); }
+.step { background:var(--brand); color:#fff; min-width:36px; min-height:36px; line-height:1.3; }
+.hero,.prep-hero,.guide-intro,.review-intro,.booking-intro { background:var(--soft); color:var(--ink); border-radius:18px; }
+.hero h1,.hero h2,.hero p { color:var(--ink); }
+.hero-with-media { background:var(--brand); color:#fff; }
+.hero-with-media h1,.hero-with-media h2,.hero-with-media p { color:#fff; }
+.hero .hero-shade { background:linear-gradient(90deg,#172820c9,#17282054); }
+.module-head,#service-private .module-head { background:var(--trust-soft)!important; color:var(--ink)!important; border:1px solid var(--line); border-radius:18px; padding:36px; }
+.module-head p { font-size:18px; opacity:1; }
+.module-head.media-head:before,#service-private .module-head.media-head:before { background:linear-gradient(90deg,#182b22c9,#182b2275)!important; }
+.module-head.media-head h1,.module-head.media-head h2,.module-head.media-head p,.module-head.media-head .brand { color:#fff!important; }
+.service-media-card { border-radius:12px; overflow:hidden; }
+.service-media-card img { width:100%; height:100%; object-fit:cover; }
+.service-media-card span { background:#243a2fe8!important; font-size:16px; border-radius:8px; padding:9px 12px; }
+.media-card strong,.media-card small,.media-card .eyebrow { color:#fff; }
+.media-card .eyebrow,.photo-tile span,.day-visuals figcaption,.food-photo span { font-size:16px; }
+.service-media-strip { gap:16px; }
+.tag,.eyebrow,.visual-kicker,.review-eyebrow { color:var(--brand); }
+.choice,.pill,.subcard,.check-card,.combo-service { border-radius:10px; background:#fff; border-color:var(--line); }
+.choice,.pill,.check-card,.combo-service { min-height:52px; padding:16px; font-size:16px; }
+.choice b { font-size:18px; padding-right:0; }
+.choice.selected { padding-top:52px; }
+.choice.selected:after { background:var(--brand); top:12px; left:16px; right:auto; font-size:16px; padding:2px 8px; }
+.choice.selected,.pill.selected,.product-option.selected,.check-card:has(input:checked),.combo-service:has(input:checked) {
+  background:var(--warm-selected)!important; color:var(--ink); border-color:var(--primary)!important; box-shadow:inset 0 0 0 1px var(--primary);
+}
+.choice:hover,.pill:hover,.product-option:hover { border-color:var(--primary); box-shadow:none; }
+.route strong { font-size:18px; }
+.route small,.route.selected small { font-size:16px!important; color:var(--muted); line-height:1.65; }
+.total strong,.quote-box .price,.combo-total strong,.online-price strong { color:var(--primary); }
+.total span { font-size:16px; }
+.online-home-card { background:var(--brand)!important; border-color:var(--brand)!important; color:#fff!important; }
+.online-home-card h2,.online-home-card h3,.online-home-card p,.online-home-card strong { color:#fff; }
+.online-home-card:before { background:#f9dfad; color:var(--ink); font-size:16px; }
+.online-price,.online-result,.online-rule-points span,.prep-check,.prep-done,.support-summary,.included-box { background:var(--trust-soft); color:var(--brand); }
+.online-nav { background:#fff!important; color:var(--brand)!important; border-color:var(--brand)!important; }
+.online-account-number { color:var(--brand); }
+.prep-stage-picker button { min-height:76px; background:#fff; border-color:var(--line); }
+.prep-stage-picker button[aria-pressed=true],.food-kind-nav button.active { background:var(--brand); color:#fff; border-color:var(--brand); }
+.prep-stage-picker button span { font-size:16px; opacity:1; }
+.food-hub-head { background:var(--brand); }
+.food-hub-head h2,.food-hub-head p,.food-kind-nav button.active small { color:#fff; }
+
+/* Keep option descriptions, rules and field labels readable at every breakpoint. */
+.field>label,.field>span,label,.subhead,.age-title,.age-row b,.age-note,.summary-intro,.empty,.inquiry,.fine,
+.notice,.error,.form-hint,.field-error,.guide-key b,.guide-key li,.guide-body,.guide-body h4,.use-guide summary,
+.trip-capacity,.single-service-title p,.timeline div,.plain-list,.check-card,.muted-note,.warning-note,
+.combo-service,.support-details,.support-disclaimer,.trip-date,.trip-content p,.trip-price,.jump-links button,
+.time-slot,.intensity,.private-alert,.included-box,.interaction-legend,.handoff-guide,.handoff-guide b,.handoff-guide-note,
+.popular-intro p,.preset-card p,.preset-meta span,.preset-open,.preset-detail-head p,.preset-back,
+.preset-day b,.preset-day span,.preset-adapt-note,.selected-template-note,.private-mode-reset,.preset-source,
+.media-showcase-head p,.media-showcase-note,.media-caption,.media-group summary:after,.service-start,.order-step,.order-note,
+.business-info dt,.business-info dd,.business-contact,.business-license figcaption,.business-license-note,
+.channel-link b,.channel-link em,.food-meta span,.food-card p,.food-use b,.food-tip b,.food-source-note,
+.youtube-review summary,.youtube-review>div,.online-boundary,.online-rule-points span,.online-account dt,.prep-progress {
+  font-size:16px; line-height:1.65;
+}
+.notice,.fine,.summary-intro,.empty,.support-disclaimer,.guide-body,.plain-list,.preset-meta span,
+.media-caption,.food-card p,.business-license-note { color:var(--muted); }
+.field>label,.field>span { font-weight:700; margin-bottom:8px; }
+.fields,.form-stack { gap:20px; }
+.age-row { min-height:52px; }
+.quick-switch button,.service-start b,.order-steps a,.prep-route .order-steps a { font-size:16px; min-height:48px; }
+.review-card-top,.review-category,.review-summary>span,.review-author,.review-original,.review-more,.review-list-head span,.review-source-note { font-size:16px; }
+.review-summary p,.review-author { color:var(--muted); }
+
+/* Legacy private wizard: distinct stages, calm selection cues, large form controls. */
+#service-private { --private-night:#315b4b; --private-green:#315b4b; --private-gold:#a84f2d; }
+#service-private .private-mode { gap:16px; }
+#service-private .private-mode button { padding:22px; border-radius:12px; background:#fff; border-color:var(--line); }
+#service-private .private-mode button.active { padding-top:50px; background:var(--warm-selected); border-color:var(--primary); box-shadow:inset 0 0 0 1px var(--primary); }
+#service-private .private-mode button.active:after { top:12px; left:22px; right:auto; background:var(--primary); font-size:16px; line-height:1.5; }
+#service-private .private-mode strong { font-size:20px; }
+#service-private .private-mode small { font-size:16px; color:var(--muted); }
+#service-private .priority-row { padding:18px 20px; gap:16px; border-radius:12px; background:#fff; box-shadow:none; overflow:visible; }
+#service-private .priority-row b { font-size:18px; line-height:1.5; }
+#service-private .priority-row small { font-size:16px; margin-top:5px; color:var(--muted); }
+#service-private .priority-row:before { border-radius:12px 0 0 12px; width:4px; }
+#service-private .priority-row[data-priority="must"],#service-private .priority-row:has([data-private-attraction] option[value="must"]:checked) { background:#fff5ee!important; border-color:var(--primary)!important; box-shadow:none; }
+#service-private .priority-row[data-priority="wish"],#service-private .priority-row:has([data-private-attraction] option[value="wish"]:checked) { background:var(--trust-soft)!important; border-color:var(--brand)!important; box-shadow:none; }
+#service-private .priority-row:has([data-private-attraction] option[value="must"]:checked):before { background:var(--primary); }
+#service-private .priority-row:has([data-private-attraction] option[value="wish"]:checked):before { background:var(--brand); }
+#service-private .priority-select { min-height:52px; height:auto; padding:12px; }
+#service-private .wizard-actions .btn-primary:after,#privateCopy:after { display:none; }
+.private-mode-card.is-active,.private-step.active,.active[data-private-go] { border-color:var(--primary)!important; }
+.wizard-progress { gap:8px; }
+.wizard-progress span { height:6px; background:#c9d8ce; }
+.wizard-progress span.active { background:var(--brand); box-shadow:none!important; }
+.wizard-progress-text { font-size:16px; color:var(--brand); opacity:1; }
+.module-head.media-head .wizard-progress-text { color:#fff; }
+.module-head.media-head .wizard-progress span { background:#ffffff70; }
+.module-head.media-head .wizard-progress span.active { background:#fff; }
+.wizard-actions { border-color:var(--line); gap:14px; padding-top:24px; margin-top:30px; }
+.priority-state-guide { color:var(--muted); font-size:16px; }
+.route-nav { background:var(--brand); }
+.route-nav h3,.route-nav>p,.route-stop,.travel-tips div { color:#fff; font-size:16px; }
+.private-day h3 { font-size:21px; }
+.private-day:before,.private-summary-head span,.preset-badge { font-size:16px; }
+
+/* The light footer requires dark text, including legacy high-specificity links. */
+footer,.business-footer,.compact-footer { background:#efe8dd!important; color:var(--ink)!important; border-color:var(--line); font-size:16px; }
+footer p,.business-footer p,.compact-footer p { color:var(--muted)!important; font-size:16px; line-height:1.75; }
+footer a,footer a:not(.wordmark),footer .wordmark,.business-footer a,.compact-footer a { color:var(--brand)!important; font-size:16px; }
+footer .wordmark { font-size:32px; }
+footer nav a,.compact-footer nav a { display:inline-flex; align-items:center; min-height:48px; }
+.redesign-continue { background:var(--brand)!important; color:#fff!important; border-radius:16px; }
+.redesign-continue h2,.redesign-continue p { color:#fff!important; }
+.redesign-continue p { font-size:16px; }
+.redesign-continue>a { min-height:52px; border-radius:10px; }
+.toast { background:var(--brand); color:#fff; font-size:16px; }
+
+@media(max-width:1050px) {
+  :root { --header-scroll-fallback:220px; }
+  .topbar { flex-wrap:wrap; }
+  .topbar .service-nav { flex-wrap:wrap; }
+  .topbar .language-switch { position:static; }
+  .card,.summary,.online-summary,.online-rules,.status-card { padding:24px; }
+}
+@media(max-width:760px) {
+  :root { --header-scroll-fallback:0px; }
+  .topbar { position:relative; overflow:visible; padding:12px!important; }
+  .wrap,main { padding-left:16px; padding-right:16px; }
+  .topbar .topbar-brand { flex:0 1 130px!important; width:130px!important; }
+  .topbar .mobile-nav-toggle { font-size:16px; min-height:48px; }
+  .topbar .language-switch { position:static!important; margin-left:0; }
+  .topbar .language-switch a { padding:10px 8px; min-height:48px; }
+  .topbar .service-nav.menu-open { gap:8px; }
+  .site-header .nav a { min-height:48px; background:#fff; border:1px solid var(--line); }
+  .site-header .nav a.active { background:var(--trust-soft); color:var(--brand); }
+  .card,.summary,.online-summary,.online-rules,.booking-choice,.status-card { padding:22px 18px; border-radius:12px; }
+  .module-head,#service-private .module-head { padding:28px 22px; }
+  .hero,.prep-hero,.guide-intro,.review-intro,.booking-intro { padding:28px 22px; }
+  .module-head h1,.hero h1 { font-size:32px; }
+  .section-head h2 { font-size:23px; }
+  .service-media-strip { grid-template-columns:1fr; gap:12px; }
+  .service-media-card { aspect-ratio:16/8; }
+  .service-media-card span { left:10px; right:10px; bottom:10px; padding:10px 12px; font-size:16px; }
+  .service-media-card span small { display:block; }
+  .private-setup,.private-mode,.seg.cols3 { grid-template-columns:1fr; }
+  #service-private .priority-row { grid-template-columns:1fr; padding:18px; }
+  #service-private .private-mode button { padding:20px; }
+  #service-private .private-mode button.active { padding-top:50px; }
+  .wizard-actions { flex-wrap:wrap; gap:12px; }
+  .wizard-actions .btn { flex:1 1 160px; min-height:52px; font-size:16px; }
+  .quick-switch { gap:4px; overflow-x:auto; justify-content:flex-start; }
+  .quick-switch button { flex:0 0 auto; padding:10px 12px; font-size:16px; }
+  .redesign-continue { margin:16px; padding:26px 22px; }
+  .redesign-banner { font-size:16px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+}
+
+/* Explicit focus selectors beat older unlayered blue focus declarations. */
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,
+.service-media-card:focus-visible,.topbar .service-nav a:focus-visible {
+  outline:3px solid var(--brand); outline-offset:4px;
+}
+.button.outline:disabled,.button.secondary:disabled,.btn.btn-outline:disabled,.btn.secondary:disabled {
+  background:#eee8e0!important; color:var(--muted)!important; border-color:var(--control-line)!important;
+}
+.private-day .day-meta,.selected-template-note b,.day-region-copy strong,.hotel-block h3,.vehicle-block h3 { font-size:16px; }
+.interaction-legend { background:var(--paper); }
+.interaction-legend .legend-must:before { background:#fff2e9; border-color:var(--primary); }
+.interaction-legend .legend-wish:before { background:var(--trust-soft); border-color:var(--brand); }
+
+/* Restore real photo headers cleared by the historic important background shorthand. */
+.module-head.media-head { background-size:cover!important; background-position:center!important; background-repeat:no-repeat!important; }
+.module-head.media-head.ticket-head { background-image:url('/assets/forest-jpg-480.webp')!important; }
+.module-head.media-head.daytour-head { background-image:url('/assets/media/attractions/canyon-bridge-wide-jpg-1920.webp')!important; }
+.module-head.media-head.guide-head { background-image:url('/assets/media/attractions/golden-whip-jpg-640.webp')!important; }
+.module-head.media-head.vehicle-head { background-image:url('/assets/media/vehicles/14-seat/exterior-jpg-1706.webp')!important; background-position:center 60%!important; }
+#service-private .module-head.media-head.private-head { background-image:url('/assets/hero-jpg-1920.webp')!important; background-position:center 45%!important; }

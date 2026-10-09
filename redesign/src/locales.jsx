@@ -1,5 +1,7 @@
 import React from 'react';
 const rows=[
+['접수 중…','提交中…','Submitting…'],['확인하고 상담 접수','确认并提交咨询','Confirm and send inquiry'],['같은 내용을 다시 보내지 않아도 됩니다. 추가 문의에는 상담번호를 알려 주세요.','无需重复发送相同内容。如需补充，请提供咨询编号。','You do not need to resend these details. Use your reference for any follow-up.'],
+
 ['항공편 참고','航班参考','Flight reference (Korean)'],['맛집·지도','美食与地图','Food map (Korean)'],
 ['장가계 현지 풍경','张家界实景','Real Zhangjiajie scenery'],
 ['서비스·날짜·인원 변경은 구성 수정에서 진행해 주세요.','如需更改服务、日期或人数，请返回修改配置。','To change services, dates or group size, edit your configuration.'],

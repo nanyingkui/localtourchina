@@ -19,6 +19,8 @@ await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WI
 const englishTemplate = await readFile(path.join(root, 'src/english-template.html'), 'utf8');
 const zhTravelInfo = await readFile(path.join(root, 'src/zh-travel-info.html'), 'utf8');
 const zhPairs = [
+  ['마지막 요청을 확인해 주세요','请确认最后的需求'],['연락처는 다음 상담 화면에서 한 번만 입력합니다. 아직 상담은 접수되지 않았습니다.','联系方式只在下一页填写一次，目前尚未提交咨询。'],['상담 후 견적','咨询后报价'],['먼저 참고 일정을 고르고 필요한 조건만 바꿔 보세요. 맞춤 여행의 최종 금액은 날짜·인원·숙소를 확인한 뒤 안내합니다.','先选参考行程，再按需要调整。定制旅行的最终价格将在确认日期、人数与住宿后提供。'],['머큐어 호텔 외관 참고 사진 · 실제 지점은 상담 후 확인','美居酒店外观参考图，实际分店咨询后确认'],
+
   ['항공편 참고 자료의 시간으로 채웠습니다. 예약 확정 정보가 아니므로 실제 항공권과 대조하고 수정해 주세요.','已按航班参考资料填入时间，并非已确认预订，请与实际机票核对后修改。'],
   ["내 일정에 맞는 프라이빗 여행 →", "定制适合我的私人行程 →"],
   ["도착·출발 시간부터 함께 계획하세요", "从抵达和离开时间开始规划"],
