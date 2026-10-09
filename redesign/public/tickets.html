@@ -689,8 +689,8 @@
   function forestDatesValid(){
     const d1=val('#config-forest .date1'),d2=val('#config-forest .date2'); let ok=true;
     const date2=$('#config-forest .date2');
-    if(d1){const first=new Date(d1+'T00:00:00'),next=new Date(first),last=new Date(first);next.setDate(next.getDate()+1);last.setDate(last.getDate()+3);date2.min=next.toISOString().slice(0,10);date2.max=last.toISOString().slice(0,10);}else{date2.min=today.toISOString().slice(0,10);date2.removeAttribute('max');}
-    if(d1&&d2){const gap=(new Date(d2+'T00:00:00')-new Date(d1+'T00:00:00'))/86400000;ok=gap>=1&&gap<=3;}
+    if(d1){const first=new Date(d1+'T00:00:00Z'),next=new Date(first),last=new Date(first);next.setUTCDate(next.getUTCDate()+1);last.setUTCDate(last.getUTCDate()+3);date2.min=next.toISOString().slice(0,10);date2.max=last.toISOString().slice(0,10);}else{date2.min=today.toISOString().slice(0,10);date2.removeAttribute('max');}
+    if(d1&&d2){const gap=(new Date(d2+'T00:00:00Z')-new Date(d1+'T00:00:00Z'))/86400000;ok=gap>=1&&gap<=3;}
     $('#forestDateError').classList.toggle('show',!ok); return ok;
   }
   function dataFor(id){

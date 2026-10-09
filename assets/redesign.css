@@ -286,3 +286,28 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .module-head.media-head.guide-head { background-image:url('/assets/media/attractions/golden-whip-jpg-640.webp')!important; }
 .module-head.media-head.vehicle-head { background-image:url('/assets/media/vehicles/14-seat/exterior-jpg-1706.webp')!important; background-position:center 60%!important; }
 #service-private .module-head.media-head.private-head { background-image:url('/assets/hero-jpg-1920.webp')!important; background-position:center 45%!important; }
+
+/* Native iOS date/time fields have a non-zero intrinsic width. Let the grid
+   and the control shrink together rather than clipping the page or picker. */
+.field,.fields,.date-row,.subcard,.config,.seg,.choices,.age-grid,
+.field>*,.fields>*,.date-row>*,.seg>*,.choices>*,.age-row>*,.section-head>* { min-width:0; }
+input:not([type=checkbox]):not([type=radio]),select,textarea,.input {
+  box-sizing:border-box; min-width:0; max-width:100%;
+}
+input[type=date],input[type=time],input[type=datetime-local] {
+  display:block; width:100%; min-inline-size:0; max-inline-size:100%;
+  -webkit-appearance:none; appearance:none;
+}
+input::-webkit-date-and-time-value { min-width:0; text-align:left; }
+input::-webkit-datetime-edit { min-width:0; padding:0; }
+.date-row { grid-template-columns:minmax(0,1fr); }
+.seg.cols2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.choice,.pill,.product-option,.age-row small,.sum-item { overflow-wrap:anywhere; }
+:lang(zh-CN) h1,:lang(zh-CN) h2,:lang(zh-CN) h3 { word-break:normal; }
+.config-title,.total { flex-wrap:wrap; gap:8px; }
+@media(min-width:680px) {
+  .date-row,.fields.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:760px) {
+  .date-row,.fields.two { grid-template-columns:minmax(0,1fr); }
+}
