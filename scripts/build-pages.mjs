@@ -148,7 +148,7 @@ const sortedReviews = [...reviews].sort((a,b)=>b.publishedAt.localeCompare(a.pub
 const reviewIds = new Set();
 for (const review of sortedReviews) {
   if (reviewIds.has(review.id) || !review.title || !review.author || !review.summary || !review.category || !['review','collection','guide'].includes(review.kind)) throw new Error('Incomplete or duplicate review');
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(review.publishedAt) || review.sourceUrl !== `https://cafe.naver.com/lotocha/${review.id}` || !/^\d+$/.test(review.id)) throw new Error('Invalid review date or source URL');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(review.publishedAt) || !(new URL(review.sourceUrl).hostname === 'cafe.naver.com' && [ `/lotocha/${review.id}`, `/f-e/cafes/31682774/articles/${review.id}` ].includes(new URL(review.sourceUrl).pathname)) || !/^\d+$/.test(review.id)) throw new Error('Invalid review date or source URL');
   reviewIds.add(review.id);
 }
 const renderReview = review => {
@@ -286,7 +286,7 @@ for(const page of zhPages){
   await writeFile(path.join(zhDir,page.file),withImageDimensions(html));
 }
 
-const sitemapUrls = [...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'}))].map(page => {
+const sitemapUrls = [...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'})),{file:'reviews.html',service:'reviews',prefix:'en/'}].map(page => {
   const url = `https://localtourchina.com/${page.prefix}${page.file === 'index.html' ? '' : page.file}`;
   const priority = page.service === 'home' ? '1.0' : '0.8';
   return `  <url>\n    <loc>${url}</loc>\n    <lastmod>2026-09-28</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;

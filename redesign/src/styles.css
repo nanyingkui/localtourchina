@@ -15,3 +15,6 @@ h1[tabindex="-1"]:focus{outline:none}.header-inner nav a{min-height:44px;display
 @media(min-width:701px){.header-inner{min-height:68px;padding-top:10px;padding-bottom:10px}.storefront{padding-top:46px}.store-categories{margin-top:34px;margin-bottom:32px}}@media(max-width:360px){.store-intro h1{font-size:30px}.store-categories a{padding:4px}.store-categories strong{font-size:12px}}
 
 .store-intro h1,.store-categories strong,.store-cards h3,.store-cards p{word-break:keep-all;overflow-wrap:break-word}@media(max-width:700px){.header-contact{display:none!important}}
+
+/* Guest stories: a compact source-driven preview, with full text on its own page. */
+.review-browse{margin-top:16px}.story-source-title{margin:36px 0 18px;font-size:23px}.stories .story-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}.stories .youtube-stories{grid-template-columns:repeat(2,minmax(0,1fr))}.story-source-link{display:inline-block;margin-top:14px;font-size:13px}.story-note{max-width:80ch;color:#6e6e73;font-size:14px;line-height:1.65;margin:24px 0 12px}.stories article{min-width:0;overflow-wrap:anywhere}@media(max-width:760px){.stories .story-grid,.stories .youtube-stories{grid-template-columns:1fr}.stories .story-source-title{margin-top:28px}}

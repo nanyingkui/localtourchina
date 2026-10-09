@@ -11,7 +11,7 @@ esbuild.buildSync({entryPoints:['src/App.jsx'],outfile:'.smoke/app.cjs',bundle:t
 const {default:App}=require('../.smoke/app.cjs');
 globalThis.sessionStorage={getItem:()=>null};const values=new Map();globalThis.localStorage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};
 function render(search){globalThis.location={search};return renderToStaticMarkup(React.createElement(App));}
-const home=render('');assert.ok(home.includes('장가계 여행.'));assert.ok(home.includes('https://pf.kakao.com/_hvrmn/chat'));assert.ok(home.includes('https://cafe.naver.com/lotocha/212'));
+const home=render('');assert.ok(home.includes('장가계 여행.'));assert.ok(home.includes('https://pf.kakao.com/_hvrmn/chat'));assert.ok(home.includes('https://cafe.naver.com/f-e/cafes/31682774/articles/212'));
 const consult=render('?view=consult&mode=help');assert.ok(consult.includes('id="contact"'));assert.ok(consult.includes('아직 미정이에요'));assert.ok(consult.includes('상담 내용 저장하고 번호 받기'));
 const {initialDraft,savePreview,STORAGE_KEY}=await import('../src/consultation.mjs');const record=savePreview({...initialDraft('help'),contact:'test-contact',consent:true},localStorage);
 const success=render('?reference='+record.reference);assert.ok(success.includes(record.reference));assert.ok(success.includes('실제 상담은 아직 접수되지 않았습니다'));assert.ok(success.includes('카카오톡 열기'));

@@ -21,3 +21,7 @@ Failed or uncertain submissions never show a successful receipt. Configurations 
 See `redesign/design-qa.md` and `redesign/reports`. The previous production revision is `e1d53015759c3128d60b6378eb4c725cbd892bcd`. A rollback restores the site from that revision without changing consultation data.
 
 Two clearly labeled synthetic acceptance inquiries were created: LTC-20261008-B18AEC and LTC-20261008-C68EA5. They are not customer bookings; no customer data, payment or external messages were sent. Private tokens are excluded from this repository and deliverables.
+
+## Guest-story publishing
+
+`src/reviews.json` and `src/youtube-reviews.json` hold permission-cleared, privacy-reviewed public text and source attribution. `scripts/build-reviews.mjs` generates the Korean, Chinese and English archive pages plus the compact homepage data in `redesign/src/featured-reviews.json`. Original writing stays in its original language. Edit the source datasets, never the generated homepage data or root HTML. Add only reviewed public photos under `redesign/public/assets/reviews/`; private source archives must not be committed. Family serials, operator posts, information/ticket assistance and other operators’ trips retain their context labels. Post/comment counts must never be presented as unique customers or verified bookings.

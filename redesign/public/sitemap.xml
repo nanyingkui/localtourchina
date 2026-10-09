@@ -210,4 +210,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://localtourchina.com/en/reviews.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 <url><loc>https://localtourchina.com/flights.html</loc></url><url><loc>https://localtourchina.com/zh/flights.html</loc></url></urlset>
