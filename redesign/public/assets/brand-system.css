@@ -212,3 +212,18 @@
 .ltc-brand-page :is(.btn:not(.secondary),.btn-primary,.button.primary,.private-primary,.redesign-submit):hover{color:#fff!important}
 .ltc-brand-page :is(.btn.btn-outline,.btn.secondary,.button.secondary,.button.outline,.btn-outline){color:#0066cc!important;border-color:#0066cc!important}
 .ltc-brand-page .food-kind-nav button.active{background:#fff;border:2px solid #0071e3;color:#0066cc}.ltc-brand-page .food-kind-nav button.active small{color:#0066cc}
+
+/* Review stays in the document flow: it must never cover configuration controls. */
+.ltc-brand-page .with-selection-ledger{padding-right:16px;padding-bottom:24px;max-width:1100px}
+.ltc-brand-page .with-selection-ledger>.selection-ledger{position:static;width:100%;max-height:none;margin:32px 0 0;overflow:visible;scroll-margin-top:calc(var(--sticky-header-height,0px) + 20px)}
+.ltc-brand-page .selection-disclosure{overflow:visible}.ltc-brand-page .selection-ledger-heading{position:static}
+.ltc-brand-page .selection-footer[hidden]{display:none}.ltc-brand-page .selection-ledger:has(.selection-disclosure:not([open]))>.selection-footer{display:none}
+.ltc-brand-page .selection-review-link{display:block;margin:12px 0 20px auto;padding:10px 14px;min-height:44px;background:transparent;border:1px solid #d2d2d7;border-radius:980px;color:#1d1d1f;font:inherit;cursor:pointer}
+.ltc-brand-page .shop-product-card .shop-product-action{background:#f5f5f7;color:#1d1d1f;border:1px solid #d2d2d7}
+.ltc-brand-page .journey-groups button{background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;font-weight:500}
+.ltc-brand-page .journey-groups [aria-pressed=true]{background:transparent;border:0;border-bottom:2px solid #1d1d1f;color:#1d1d1f}
+.ltc-brand-page .journey-choices button{font-weight:400;border-color:#d2d2d7}.ltc-brand-page .journey-choices [aria-pressed=true]{border-color:#1d1d1f;background:#f5f5f7}
+.ltc-brand-page .journey-package-component>summary{padding:12px 0;min-height:44px;font-weight:500;cursor:pointer}
+.ltc-brand-page .selection-ledger-list{grid-template-columns:1fr}
+
+.ltc-brand-page .journey-area{margin-top:32px;padding-top:24px;border-top:1px solid #d2d2d7}.ltc-brand-page .journey-area-title{font-size:24px;line-height:1.4;margin:0 0 18px;color:#1d1d1f}.ltc-brand-page .journey-mode-switch button[aria-pressed=true]{display:none}.ltc-brand-page .journey-mode-switch button{border:0;padding-left:0;background:transparent;color:#0066cc}.ltc-brand-page .journey-step-actions{justify-content:flex-end}
