@@ -21,19 +21,19 @@ function render(lang,destination='zhangjiajie') {
  return renderToStaticMarkup(React.createElement(Storefront,{lang,onSelect:()=>{},onHelp:()=>{}}));
 }
 for (const lang of ['ko','zh','en']) {
- test(`${lang}: six direct service entries precede intact full package catalog`,()=>{
+ test(`${lang}: six service entries use the shared catalogue and remain available after intact packages`,()=>{
   const html=render(lang);
-  const service=html.slice(html.indexOf('id="service-entry"'),html.indexOf('id="prepared-trips"'));
+  const service=html.slice(html.indexOf('id="service-entry"'),html.indexOf('id="travel-information"'));
   assert.equal((service.match(/class="intent-card"/g)||[]).length,6);
   const prefix=lang==='ko'?'':'/'+lang;
-  for(const page of ['tickets.html','vehicles.html','local-guide.html','day-tours.html','private-tour.html?mode=custom','online-guide.html']) assert.ok(service.includes(`href="${prefix}/${page}"`),page);
-  assert.ok(html.indexOf('id="service-entry"')<html.indexOf('class="trip-catalog'));
+  for(const page of ['multi-booking.html?category=ticket','multi-booking.html?category=vehicle','multi-booking.html?category=guide','multi-booking.html?category=daytour','private-tour.html?mode=custom','online-guide.html']) assert.ok(service.includes(`href="${prefix}/${page}"`),page);
+  assert.ok(html.indexOf('id="service-entry"')>html.indexOf('class="trip-catalog'));
   assert.equal((html.match(/class="trip-catalog-card"/g)||[]).length,6);
   assert.ok(service.includes('multi-booking.html'));
  });
  test(`${lang}: Hainan distinguishes inquiry-only services and keeps destination context`,()=>{
   const html=render(lang,'hainan');
-  const service=html.slice(html.indexOf('id="service-entry"'),html.indexOf('id="prepared-trips"'));
+  const service=html.slice(html.indexOf('id="service-entry"'),html.indexOf('id="travel-information"'));
   assert.equal((service.match(/class="intent-card"/g)||[]).length,6);
   assert.equal((service.match(/<button class="intent-card"/g)||[]).length,4);
   for(const page of ['tickets.html','vehicles.html','local-guide.html','private-tour.html']) assert.ok(!service.includes(page),page);

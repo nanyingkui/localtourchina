@@ -49,6 +49,7 @@
       if(page==='reviews.html')header.querySelector('nav')?.remove();
       header.append(langs);
     }
+    const tripLink=document.createElement('a');tripLink.className='brand-my-trip';tripLink.href=route('multi-booking.html');tripLink.textContent=lang==='zh'?'我的旅行':lang==='en'?'My trip':'나의 여행';header.append(tripLink);
     const serviceRoutes=[['custom','private-tour.html',copy.custom],['ticket','tickets.html',copy.tickets],['vehicle','vehicles.html',copy.vehicles],['guide','local-guide.html',copy.guide],['day','day-tours.html',copy.day],['support','online-guide.html',copy.support]];
     const rail=document.createElement('nav');rail.className='brand-service-rail';rail.setAttribute('aria-label',copy.services);
     for(const [kind,name,label]of serviceRoutes){const a=document.createElement('a');a.href=route(name);a.innerHTML=icon(kind);const text=document.createElement('span');text.textContent=label;a.append(text);if(name===page){a.classList.add('is-current');a.setAttribute('aria-current','page');}rail.append(a);}

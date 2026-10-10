@@ -24,13 +24,14 @@
     const number=(el,{min=0,max=null,hours=false}={})=>{if(!el)return;const n=Number(el.value);if(el.value.trim()===''||!Number.isInteger(n)||n<min)flag(el,hours?'hours':min?'positive':'integer');else if(max!==null&&n>max)flag(el,hours?'hours':'group');};
     const date=(el,min=today)=>{if(!el)return;if(!validDate(el.value)||el.value<min)flag(el,min>today?'tomorrow':'date');};
     const radio=name=>{const el=$(`input[name="${name}"]`);if(el&&!$(`input[name="${name}"]:checked`))flag(el,'required');};
+    if(['combo','english'].includes(service)&&window.LTCShopCount?.()&&!selectedServices().length){if(!window.LTCShopValidate())flag(document.querySelector('.shop-extra-form input'),'required');return issues;}
     if(lang==='en' && !document.getElementById('service-'+service) && $('section.inquiry')) {
       if(!$('#datesUndecided')?.checked)required($('#dates'));
       number($('#people'),{min:1});
       return issues;
     }
     if(service==='combo') {
-      const selected=selectedServices();if(!selected.length)flag($('#comboTicket'),'choose');
+      const selected=selectedServices();if(!selected.length&&!window.LTCShopCount?.())flag($('#comboTicket'),'choose');
       selected.forEach(key=>issues.push(...collect(key,now)));return issues;
     }
     if(service==='ticket') {

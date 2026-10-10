@@ -1,0 +1,17 @@
+# Three-area storefront and trip preparation release
+
+Baseline: remote main 61781eaf70ead4ee0803eae11e1b8e9a50a60f82. Work is isolated in localtourchina-mobile-61781; the original localtourchina checkout and its eleven modified files remain untouched. No force reset or forced push is used.
+
+Homepage areas: Package, Build my trip, Travel information. Six package products and all original group price tiers are retained. Package actions open the editable package with its selected adult count. On mobile, product cards support horizontal browsing and previous/next controls. Food maps, preparation guidance, onsite YouTube and original-source review stories remain available in the information area.
+
+The preparation flow groups nine major needs into three areas, with three status choices per need. Guests can skip arranged items, request verified local products or record transport preferences. Air, rail, bus and taxi selections are requests, not live inventory or confirmed bookings. Individual day requests support multiple dates, one full-day route per date, and defer arrival/departure touring until flight times are confirmed. Package components and daily activities can be retained, reduced or replaced. Adjusted packages require a new quote without invented deductions.
+
+My trip preserves editable package/hotel and native service choices, allows removal, restores after refresh, and transfers the complete current-language text to consultation. Hotel dates, room count, traveller count, trip dates, form contact and consent remain validated. English USD pricing, WhatsApp, Homeinn Plus, labelled AI illustrations and hidden unverified food photos remain preserved. The unpublished cloud food-accessibility candidate was not synchronised; this release uses the independent local fixes and their regression checks.
+
+Visual presentation follows Apple Store category browsing, neutral #f5f5f7 and white surfaces, #1d1d1f headings, #6e6e73 secondary text, #0071e3 actions, generous spacing and product images. Three original SVG category illustrations were created. The approved orange-hat logo and verified destination images are retained.
+
+A release-mode defect was corrected: both the prerender and browser bundle now use production consultation mode. Browser tests intercept submission and verify validation, complete payload and receipt handling without creating customer records. Public configuration uses a publishable key; a read-only OPTIONS request confirms CORS connectivity. No database schema or access policy was changed.
+
+Verification: 84 automated checks pass; release check covers 47 pages, 135 inline scripts, zero missing local references and three server-visible locales. Browser rounds cover 18 service-catalogue layouts, 21 category checks, 90 localized package price tiers, 63 native product configurations, 36 home/preparation layouts, 60 legacy service layouts, 90 homepage price selections, food filters/empty results/keyboard/live count, onsite YouTube, restoration/deletion and full transfer in KO/ZH/EN. Actual customer submissions in QA: zero. QA scripts, reports and screenshots are kept in the sibling shop-design-2026-10-11 folder.
+
+Build: node scripts/build-redesign.mjs. Checks: node --test redesign/tests/*.test.mjs; node redesign/scripts/check-release.mjs; git diff --check. Publishing requires confirming remote main still matches the baseline and a normal fast-forward push; verify GitHub Pages deployment and the live assets afterwards.
