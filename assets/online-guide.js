@@ -35,8 +35,8 @@
     }catch(error){console.error(error);setStatus(uploadStatus,zh?'目前无法上传，请通过微信或KakaoTalk发送申请编号和转账截图。':'현재 업로드할 수 없습니다. 카카오톡 채널로 신청번호와 이체 화면을 보내 주세요.',true);button.disabled=false;button.textContent=zh?'重新上传':'다시 업로드'}
   });
   function showPending(restored=true){q('onlineReference').textContent=`${zh?'申请编号':'신청번호'} ${reference}`;q('onlineStatusLink').href=`${zh?'../inquiry-status.html?lang=zh&':'inquiry-status.html?'}token=${encodeURIComponent(token)}`;q('onlineResult').hidden=false;q('onlineReceipt').hidden=false;form.hidden=true;if(!restored)q('onlineReceipt').scrollIntoView({behavior:'smooth',block:'center'})}
-  q('onlineStatusCopy').addEventListener('click',async event=>{const url=new URL(q('onlineStatusLink').getAttribute('href'),location.href).href;try{await navigator.clipboard.writeText(url);event.currentTarget.textContent=zh?'专属链接已复制':'전용 링크를 복사했습니다'}catch{window.prompt(zh?'请复制下方专属链接。':'아래 전용 링크를 복사해 주세요.',url)}});
-  q('onlineAccountCopy').addEventListener('click',async event=>{try{await navigator.clipboard.writeText('82820104226025');event.currentTarget.textContent=zh?'账号已复制':'계좌번호를 복사했습니다'}catch{window.prompt(zh?'请复制下方账号。':'아래 계좌번호를 복사해 주세요.','82820104226025')}});
+  q('onlineStatusCopy').addEventListener('click',async event=>{const button=event.currentTarget,url=new URL(q('onlineStatusLink').getAttribute('href'),location.href).href;await window.LTCInterface.copyText(url,null,button)});
+  q('onlineAccountCopy').addEventListener('click',async event=>{const button=event.currentTarget;await window.LTCInterface.copyText('82820104226025',null,button)});
   q('onlineNewOrder').addEventListener('click',()=>{localStorage.removeItem(storageKey);location.reload()});
   try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved?.token&&saved?.reference){token=saved.token;reference=saved.reference;showPending();if(saved.uploaded){setStatus(q('onlineUploadStatus'),`${zh?'付款凭证已提交':'증빙이 접수되었습니다'} · ${reference}`);q('onlineKakao').hidden=false;q('onlineReceiptUpload').disabled=true;q('onlineReceiptUpload').textContent=zh?'上传完成':'업로드 완료'}}}catch{}
 })();
