@@ -51,3 +51,21 @@ test('destination switching supports back/forward and touch entries have explici
  assert.ok(css.includes('.intent-card:focus-visible'));
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
+
+test('full-bleed hero keeps responsive photo loading, direct service CTA and accessible title',()=>{
+ for(const lang of ['ko','zh','en']) {
+  const html=render(lang);
+  const hero=html.slice(html.indexOf('<section class="home-hero'),html.indexOf('id="destination-products"'));
+  assert.match(hero,/aria-label="[^"]+"/);
+  assert.match(hero,/<h1>/);
+  assert.match(hero,/sizes="100vw"/);
+  assert.match(hero,/fetchPriority="high"/);
+  assert.match(hero,/hero-jpg-320.webp 320w/);
+  assert.match(hero,/href="#service-entry"/);
+  assert.doesNotMatch(hero,/<video|autoplay|zhangjiajie-hero-desktop-v2/);
+ }
+ const css=readFileSync(path.join(root,'src/editorial.css'),'utf8');
+ assert.match(css,/min-height:350px; height:auto/);
+ assert.match(css,/scenic-hero :is\(a,button\):focus-visible/);
+ assert.doesNotMatch(css,/width:100vw/);
+});

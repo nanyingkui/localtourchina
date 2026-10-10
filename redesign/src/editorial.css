@@ -151,3 +151,61 @@ body { background:var(--paper); }
 
 /* Keep Korean words together; retain break opportunities for long tokens. */
 :lang(ko) .warm-storefront p,:lang(ko) .warm-storefront .intent-detail { word-break:keep-all; overflow-wrap:break-word; }
+
+/* Full-bleed landscape, with one clear path into the six local services.
+   A CSS scrim preserves the source photograph and creates reliable text contrast. */
+.warm-storefront { max-width:none; padding:0 0 64px; }
+.warm-storefront #destination-products,.warm-storefront>.trust-strip {
+ width:calc(100% - 128px); max-width:1112px; margin-inline:auto;
+}
+.warm-storefront .scenic-hero {
+ position:relative; isolation:isolate; display:flex; align-items:center;
+ min-height:440px; height:clamp(440px,43vw,560px); margin:0 0 54px;
+ padding:48px max(64px,calc((100% - 1112px)/2)); overflow:hidden; border-radius:0;
+ background:#233b40; color:#fff;
+}
+.warm-storefront .scenic-hero .brand-welcome {
+ position:absolute; inset:0; width:100%; height:100%; min-height:0;
+ border-radius:0; background:transparent; z-index:-2; pointer-events:none;
+}
+.warm-storefront .scenic-hero .brand-welcome>img:first-child {
+ display:block; width:100%; height:100%; object-fit:cover; object-position:60% 48%;
+}
+.warm-storefront .scenic-hero:after {
+ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+ background:linear-gradient(90deg,rgba(12,28,35,.82) 0%,rgba(12,28,35,.68) 33%,rgba(12,28,35,.16) 72%,rgba(12,28,35,.06));
+}
+.warm-storefront .scenic-hero .home-hero-copy { padding:0; width:100%; max-width:560px; }
+.warm-storefront .scenic-hero .section-kicker { color:#fff; opacity:.9; font-size:12px; letter-spacing:.055em; margin-bottom:22px; }
+.warm-storefront .scenic-hero h1 { color:#fff; font-size:clamp(38px,4.1vw,58px); max-width:14ch; line-height:1.2; font-weight:600; letter-spacing:-.04em; margin-bottom:20px; }
+.warm-storefront .scenic-hero .home-hero-copy>p:not(.section-kicker) { color:#fff; font-size:17px; max-width:39ch; line-height:1.75; }
+.warm-storefront .scenic-hero .home-hero-actions { margin-top:28px; gap:26px; }
+.warm-storefront .scenic-hero .home-hero-actions .button { background:#fffefa; color:#172b3b; border-color:#fffefa; min-height:48px; border-radius:4px; }
+.warm-storefront .scenic-hero .home-hero-actions .button:hover { background:#f9dfbf; border-color:#f9dfbf; }
+.warm-storefront .scenic-hero .text-link { color:#fff; text-decoration:underline; text-underline-offset:5px; }
+.warm-storefront .scenic-hero :is(a,button):focus-visible { outline:3px solid #ffb966; outline-offset:5px; }
+@media(max-width:1000px) {
+ .warm-storefront #destination-products,.warm-storefront>.trust-strip { width:calc(100% - 72px); }
+ .warm-storefront .scenic-hero { padding-inline:36px; }
+}
+@media(max-width:700px) {
+ .warm-storefront { padding-bottom:32px; }
+ .warm-storefront #destination-products,.warm-storefront>.trust-strip { width:calc(100% - 48px); }
+ .warm-storefront .scenic-hero { min-height:350px; height:auto; margin-bottom:30px; padding:34px 24px; }
+ .warm-storefront .scenic-hero .brand-welcome>img:first-child { object-position:63% center; }
+ .warm-storefront .scenic-hero:after { background:linear-gradient(90deg,rgba(12,28,35,.82),rgba(12,28,35,.55) 65%,rgba(12,28,35,.28)); }
+ .warm-storefront .scenic-hero .section-kicker { font-size:10px; margin-bottom:17px; }
+ .warm-storefront .scenic-hero h1 { font-size:clamp(31px,8vw,40px); max-width:15ch; margin-bottom:16px; }
+ .warm-storefront .scenic-hero .home-hero-copy>p:not(.section-kicker) { font-size:15px; max-width:31ch; }
+ .warm-storefront .scenic-hero .home-hero-actions { margin-top:23px; gap:10px 20px; }
+ .warm-storefront .scenic-hero .home-hero-actions :is(.button,.text-link) { width:auto; min-height:44px; font-size:13px; }
+ .warm-storefront .scenic-hero .home-hero-actions .text-link { padding:10px 0; }
+}
+
+/* Sanya's inherited source is 849×499. Keep it at native-size limits rather
+   than stretching a small image across a high-resolution desktop display. */
+@media(min-width:701px) {
+ .warm-storefront .scenic-hero[data-destination="hainan"] { height:clamp(440px,43vw,499px); background:#142a37; }
+ .warm-storefront .scenic-hero[data-destination="hainan"] .brand-welcome { left:auto; width:min(70%,849px); }
+ .warm-storefront .scenic-hero[data-destination="hainan"]:after { background:linear-gradient(90deg,#142a37 0%,rgba(20,42,55,.95) 25%,rgba(20,42,55,.58) 50%,rgba(20,42,55,.05) 84%); }
+}
