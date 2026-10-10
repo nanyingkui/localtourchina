@@ -1,3 +1,4 @@
+import { englishPricingNote } from './english-pricing.mjs';
 import React, { useId, useState } from 'react';
 import {
   tripCatalog, PARTY_TIERS, catalogCopy, catalogLanguage, packageTitle,
@@ -53,7 +54,7 @@ function TripCard({ product, lang, onSelect }) {
         <strong>{formatTripPrice(price, lang)}</strong>
         {price !== null && <span>{t.unit}</span>}
       </div>
-      <p className="trip-catalog-price-note">{t.basis}<br />{t.priceNote}</p>
+      <p className="trip-catalog-price-note">{t.basis}<br />{t.priceNote}{lang==='en'&&<><br />{englishPricingNote}</>}</p>
 
       <dl className="trip-catalog-inclusions">
         <div><dt>{t.includedLabel}</dt><dd>{t.included}</dd></div>

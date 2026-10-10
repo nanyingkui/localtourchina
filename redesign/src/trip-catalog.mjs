@@ -1,3 +1,4 @@
+import { formatEnglishPrice, englishPricingNote } from './english-pricing.mjs';
 /**
  * LocalTour's independently written Zhangjiajie catalog. Reference prices require a final quotation.
  * Factual provenance: official package pages listed below, checked 2026-10-09.
@@ -213,6 +214,7 @@ export function getTripPrice(product, pax) {
 
 export function formatTripPrice(priceKRW, lang = 'ko') {
   if (!Number.isFinite(priceKRW)) return catalogCopy[catalogLanguage(lang)].quote;
+  if (catalogLanguage(lang) === 'en') return formatEnglishPrice(priceKRW);
   const amount = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(priceKRW);
   return lang === 'ko' ? `${amount}원` : `KRW ${amount}`;
 }
@@ -238,6 +240,7 @@ export function catalogInquiry(product, pax, lang = 'ko') {
     `${t.partyLine}: ${validPartySize(pax) ? t.pax(Number(pax)) : t.quote}`,
     `${t.reference}: ${formatTripPrice(price, language)}${price === null ? '' : ` / ${t.unit}`}`,
     t.basis, t.priceNote,
+    ...(language === 'en' ? [englishPricingNote] : []),
     `${t.walkingLabel}: ${c.walking}`,
     `${t.includedLabel}: ${t.included}`, t.inclusionNote,
     `${t.excludedLabel}: ${t.excluded}`,
