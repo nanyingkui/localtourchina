@@ -191,3 +191,12 @@
 .ltc-brand-page .food-photo span { background: var(--navy); }
 .ltc-brand-page .food-use { background: var(--trust-soft); }
 @media(max-width:600px) { .ltc-brand-page .food-kind-nav { grid-template-columns: repeat(2,minmax(0,1fr)); } .ltc-brand-page .food-kind-nav button:first-child { grid-column: 1 / -1; } }
+
+/* Give phone shortcuts enough room for readable labels and a clear touch target. */
+@media(max-width:480px){
+  .ltc-brand-page .service-media-strip{grid-template-columns:minmax(0,1fr);gap:10px}
+  .ltc-brand-page .service-media-card{display:grid;grid-template-columns:112px minmax(0,1fr);aspect-ratio:auto;min-height:88px}
+  .ltc-brand-page .service-media-card>img{height:100%;min-height:88px;aspect-ratio:4/3;object-fit:cover}
+  .ltc-brand-page .service-media-card>span{position:static;min-width:0;gap:12px;padding:14px 16px;font-size:14px;background:var(--navy)!important}
+  .ltc-brand-page .service-media-card>span:after{flex-shrink:0;font-size:12px}
+}
