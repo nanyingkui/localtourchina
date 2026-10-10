@@ -506,3 +506,139 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .intent-card strong { font-size:18px; }
  .intent-detail,.intent-action { font-size:15px; }
 }
+
+/* Orange-hat brand preview: presentation only, unchanged service flows. */
+:root { --ink:#11223d; --navy:#11223d; --paper:#fffaf3; --line:#e9e1d6; --trust:#11223d; --trust-soft:#fff0db; }
+.site-header { background:#fffdf9; }
+.header-inner .wordmark { display:flex; gap:9px; align-items:center; flex-shrink:0; }
+.brand-avatar { width:42px; height:46px; object-fit:contain; }
+.brand-word { display:flex; flex-direction:column; gap:6px; }
+.brand-word strong { font-size:29px; letter-spacing:-.055em; }
+.brand-word small { font-size:8px; font-weight:800; letter-spacing:.16em; line-height:1; }
+.brand-word small span { color:#ff8a00; padding-left:5px; }
+.warm-storefront { padding-top:24px; }
+.warm-storefront .home-hero { background:#fff1dc; border:0; grid-template-columns:minmax(0,1.45fr) minmax(240px,.65fr); gap:0; }
+.warm-storefront .home-hero-copy { padding:30px 36px; }
+.warm-storefront .home-hero h1 { font-size:clamp(30px,3.2vw,44px); max-width:18ch; margin-bottom:12px; }
+.warm-storefront .home-hero .section-kicker { color:#774715; font-size:13px; margin-bottom:12px; }
+.warm-storefront .home-hero-actions { margin-top:20px; gap:20px; align-items:center; }
+.warm-storefront .home-hero-actions .button { background:#ff8a00; color:#11223d; border-color:#ff8a00; min-height:48px; }
+.warm-storefront .home-hero-actions .button:hover { background:#ed7b00; }
+.brand-welcome { min-height:255px; position:relative; display:flex; justify-content:center; align-items:flex-end; isolation:isolate; overflow:hidden; }
+.brand-halo { width:225px; height:225px; border-radius:50%; background:#ffe1b4; position:absolute; bottom:-23px; z-index:-1; }
+.brand-welcome>img { width:205px; height:222px; object-fit:contain; object-position:bottom; margin-bottom:0; }
+.brand-greeting { position:absolute; top:19px; right:18px; border-radius:14px 14px 4px 14px; background:white; padding:9px 15px; box-shadow:0 3px 12px #5b3a1e09; }
+.brand-greeting span { display:block; font-size:12px; font-weight:750; color:#5b3a1e; }
+.brand-greeting small { display:block; font-size:10px; color:#74604c; }
+.warm-storefront .destination-grid { margin:16px 0 10px; }
+.warm-storefront .destination-button { padding:12px 18px; grid-template-columns:60px minmax(0,1fr) 18px; gap:14px; }
+.warm-storefront .destination-button>img { width:60px; height:60px; border-radius:10px; }
+.warm-storefront .destination-button strong { font-size:21px; }
+.warm-storefront .destination-button small { font-size:14px; }
+.warm-storefront .destination-button[data-active=true] { border-color:#ff8a00; background:#fff6e9; }
+.intent-services { padding-top:18px; }
+.intent-services>.section-kicker { color:#875321; font-size:12px; margin-bottom:6px; }
+.intent-services h2 { font-size:30px; margin-bottom:6px; }
+.intent-description { font-size:15px; margin-bottom:17px; }
+.intent-card { position:relative; padding:20px 22px; gap:8px; border-radius:16px; border-color:#e9e1d6; box-shadow:0 2px 8px #11223d03; }
+.intent-card:before { content:''; width:22px; height:4px; border-radius:4px; background:#ff8a00; margin-bottom:4px; }
+.intent-card strong { font-size:20px; }
+.intent-detail { font-size:15px; }
+.intent-action { color:#805016; font-size:13px; padding-top:6px; }
+.intent-card:hover { background:#fff4e3; border-color:#ff8a00; }
+.brand-signature { width:48px; height:50px; object-fit:contain; flex-shrink:0; }
+.store-help>div { flex:1; }
+@media(min-width:1101px) { .header-inner { gap:20px; min-height:76px; } .header-inner nav { gap:18px; font-size:14px; } .header-contact { font-size:14px!important; } }
+@media(max-width:700px) {
+ .header-inner { gap:8px; padding:12px 18px; }
+ .header-inner .wordmark { gap:6px; }
+ .brand-avatar { width:34px; height:38px; }
+ .brand-word strong { font-size:24px; }
+ .brand-word small { font-size:6px; }
+ .header-inner .locale-links { font-size:12px; gap:8px; }
+ .header-inner .header-contact { display:none; }
+ .warm-storefront { padding-top:16px; }
+ .warm-storefront .home-hero { position:relative; grid-template-columns:1fr; padding:0; margin-bottom:16px; }
+ .warm-storefront .home-hero-copy { padding:22px 20px 18px; }
+ .warm-storefront .home-hero .section-kicker { font-size:11px; max-width:26ch; margin-bottom:14px; }
+ .warm-storefront .home-hero h1 { font-size:28px; max-width:9.4em; padding-right:56px; line-height:1.3; margin-bottom:14px; }
+ .warm-storefront .home-hero-copy>p:not(.section-kicker) { font-size:14px; max-width:24ch; padding-right:30px; }
+ .brand-welcome { position:absolute; width:105px; height:142px; min-height:0; right:2px; top:53px; pointer-events:none; }
+ .brand-welcome>img { width:105px; height:120px; margin:0; }
+ .brand-halo { width:99px; height:99px; bottom:0; }
+ .brand-greeting { display:none; }
+ .warm-storefront .home-hero-actions { gap:14px; margin-top:18px; flex-wrap:wrap; }
+ .warm-storefront .home-hero-actions .button { width:auto; font-size:13px; padding:10px 18px; min-height:44px; }
+ .warm-storefront .home-hero-actions .text-link { width:auto; font-size:12px; padding:8px 0; }
+ .warm-storefront .destination-grid { margin:12px 0 4px; }
+ .warm-storefront .destination-grid>.destination-button { min-height:52px; padding:10px 12px; }
+ .warm-storefront .destination-grid>.destination-button strong { font-size:16px; }
+ .intent-services { padding-top:17px; }
+ .intent-services h2 { font-size:25px; }
+ .intent-description { font-size:13px; margin-bottom:14px; }
+ .intent-grid { gap:10px; }
+ .intent-card { padding:14px 12px; gap:7px; min-height:146px; }
+ .intent-card strong { font-size:16px; }
+ .intent-detail { font-size:12px; line-height:1.55; }
+ .intent-action { font-size:11px; padding-top:4px; }
+ .intent-secondary { gap:0 16px; }
+ .intent-secondary a { font-size:12px; }
+ .store-help { flex-direction:row; flex-wrap:wrap; }
+}
+
+/* Original service pictograms share a 32px grid and 1.7px round stroke. */
+.intent-card:before { display:none; }
+.service-symbol { width:42px; height:42px; display:flex; align-items:center; justify-content:center; color:#11223d; border-radius:12px; background:#fff4e3; transition:background-color .16s ease,transform .16s ease; }
+.intent-card:hover .service-symbol { background:#ffe1b4; transform:translateY(-2px); }
+.intent-card:active { transform:translateY(1px); background:#ffebcc; }
+.intent-card:focus-visible { outline:3px solid #11223d; outline-offset:4px; }
+@media(max-width:700px) { .service-symbol { width:34px; height:34px; border-radius:9px; } .service-symbol svg { width:27px; height:27px; } .intent-card { min-height:167px; } }
+@media(prefers-reduced-motion:reduce) { .service-symbol,.intent-card { transition:none; } .intent-card:hover .service-symbol,.intent-card:active { transform:none; } }
+@media(max-width:700px) {
+ .intent-detail { font-size:14px; }
+ .intent-action { font-size:12px; }
+ .intent-card { min-height:180px; }
+ .warm-storefront .home-hero-copy>p:not(.section-kicker) { font-size:15px; }
+ .header-inner .locale-links { font-size:13px; }
+}
+
+:root { --primary:#11223d; --primary-hover:#243b59; --accent:#875321; --orange:#ff8a00; }
+.button.primary { background:#ff8a00; border-color:#ff8a00; color:#11223d; }
+.button.primary:hover { background:#ed7b00; border-color:#ed7b00; color:#11223d; }
+.footer-brand-lockup { display:flex; align-items:center; gap:10px; }
+.footer-brand-lockup img { width:38px; height:40px; object-fit:contain; }
+footer .wordmark,footer .footer-brand-lockup { color:#fff; }
+
+/* Travel editorial composition: landscape first, character as a small signature. */
+.warm-storefront .home-hero { background:transparent; border:0; border-radius:0; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); align-items:center; gap:34px; overflow:visible; margin-bottom:30px; }
+.warm-storefront .home-hero-copy { padding:18px 0; }
+.warm-storefront .home-hero h1 { max-width:13ch; font-size:clamp(34px,3.5vw,48px); letter-spacing:-.045em; line-height:1.18; margin-bottom:20px; }
+.warm-storefront .home-hero-copy>p:not(.section-kicker) { max-width:33ch; font-size:17px; }
+.brand-welcome { height:290px; border-radius:18px 60px 18px 18px; min-height:0; overflow:hidden; background:#d4ddd5; }
+.brand-welcome>img:first-child { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; margin:0; }
+.brand-welcome>img:not(:first-child) { position:absolute; bottom:15px; left:20px; width:58px; height:65px; object-fit:contain; z-index:2; margin:0; }
+.brand-halo { width:236px; height:77px; bottom:10px; left:10px; border-radius:12px; background:#fffaf3f2; z-index:1; }
+.brand-greeting { top:auto; bottom:19px; left:89px; right:auto; z-index:2; padding:0; box-shadow:none; background:transparent; border-radius:0; }
+.brand-greeting span { font-size:12px; }
+.brand-greeting small { font-size:10px; margin-top:3px; }
+.intent-grid { column-gap:24px; row-gap:0; }
+.intent-card { border:0; border-bottom:1px solid #e3ddd4; border-radius:0; box-shadow:none; padding:20px 4px; background:transparent; }
+.intent-card:hover { background:#fff5e8; border-color:#c6ab85; }
+.service-symbol { background:transparent; justify-content:flex-start; border-radius:0; height:36px; }
+.intent-card:hover .service-symbol { background:transparent; }
+@media(max-width:700px) {
+ .warm-storefront .home-hero { display:flex; flex-direction:column; gap:18px; margin-bottom:20px; }
+ .warm-storefront .home-hero-copy { padding:6px 0 0; width:100%; }
+ .warm-storefront .home-hero h1 { max-width:12ch; padding:0; font-size:34px; margin-bottom:14px; }
+ .warm-storefront .home-hero .section-kicker { max-width:none; }
+ .warm-storefront .home-hero-copy>p:not(.section-kicker) { padding:0; max-width:30ch; font-size:16px; }
+ .brand-welcome { position:relative; top:auto; right:auto; width:100%; height:180px; border-radius:12px 38px 12px 12px; }
+ .brand-welcome>img:first-child { display:block; height:100%; width:100%; }
+ .brand-welcome>img:not(:first-child) { left:16px; bottom:10px; width:42px; height:48px; }
+ .brand-halo { width:215px; height:61px; bottom:7px; left:8px; }
+ .brand-greeting { display:block; bottom:17px; left:68px; }
+ .brand-greeting span { font-size:11px; }
+ .brand-greeting small { font-size:9px; }
+ .intent-grid { gap:0 20px; }
+ .intent-card { padding:17px 0; min-height:176px; }
+}
