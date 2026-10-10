@@ -280,7 +280,12 @@
     "note": "군성화원 옆 지점. 재료와 매운맛을 주문 전에 확인하세요.",
     "image": "assets/city/local-snacks-mobile.jpg",
     "article": "215",
-    "map": "https://uri.amap.com/marker?poiid=B0FFFZ2DSP&src=rotucha&callnative=0"
+    "map": "https://uri.amap.com/marker?poiid=B0FFFZ2DSP&src=rotucha&callnative=0",
+    "imageVerification": {
+      "status": "rejected",
+      "checkedAt": "2026-10-10",
+      "reason": "Generic city/retail image is not evidence of this named store."
+    }
   },
   {
     "id": "87",
@@ -291,7 +296,12 @@
     "price": "약 67위안",
     "note": "새벽 야식, 생굴·새우·꼬치 메뉴를 함께 보기 좋은 곳.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MjhfMTgz/MDAxNzc3MzY4ODEwMzY5.SEeg3rp_XkQbW-XRyYxvDVS0LqKE08kNjRBbQGYYK78g.oZx_tdNhp_5lnHFltsgKHtwSoskRvsopCIW-S1DTycEg.JPEG/1280X1280_%285%29.jpg?type=w800",
-    "article": "87"
+    "article": "87",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "85",
@@ -302,7 +312,12 @@
     "price": "약 46위안",
     "note": "메르큐르호텔 맞은편의 현지식 싼샤궈 식당.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MjNfMjk0/MDAxNzc2OTM2NDYyMjkz.FnhRPNu8T6AZJP094nWmHCQtaR0c8BAzBKComAXJNqUg.FlcDh_nd6WdDjuPcekWjEC3xNSAPrgKL2wr8bbaPhDcg.JPEG/1280X1280_%284%29.jpg?type=w800",
-    "article": "85"
+    "article": "85",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "82",
@@ -313,7 +328,12 @@
     "price": "약 73위안",
     "note": "개별 룸이 있어 부모님과 함께하는 식사 후보로 보기 좋습니다.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MjJfNzMg/MDAxNzc2ODQ0MDYyNTYz.-tgCAADrSCTJRxikR7xmciawUgROE--yz6UbgHULc7og.k6LVUIBcNwYSiI42GbN0NOO4pGhaGVPfGPvIx7zd2NYg.JPEG/1280X1280_%282%29.jpg?type=w800",
-    "article": "82"
+    "article": "82",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "79",
@@ -324,7 +344,12 @@
     "price": "방문 전 확인",
     "note": "한중 퓨전 꼬치와 해물누룽지 매운탕을 소개한 Cafe 후기.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MjBfMTI1/MDAxNzc2Njg2NzQ4NDk4.m-0idqozFC8Hhfj44xPH5TpZFecmUbZPue2AiYwGqrUg.SqDPtj6-Y-GNJXzQoVxAkIrWF51PJw7Wnvt8iKTMTucg.JPEG/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260420194828_644.jpg?type=w800",
-    "article": "79"
+    "article": "79",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "78",
@@ -335,7 +360,12 @@
     "price": "약 85위안",
     "note": "기봉광장 4층. 산탕 우육과 제철 채소를 소개한 식당.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MjBfMzcg/MDAxNzc2NjY0OTkzNDg1.3X5kYN4Nuh1rBTrmkcgiHlcj1b3Strhp6d9gSXFaV_4g.SFrTkDDt0nzfqEZ1lRuUR66M9JKEEUKF3tRP74WTtBgg.JPEG/1280X1280_%281%29.jpg?type=w800",
-    "article": "78"
+    "article": "78",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "66a",
@@ -346,7 +376,12 @@
     "price": "약 70위안",
     "note": "관광 후 여러 명이 토가 전통요리를 나눠 먹기 좋은 체인점.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MTNfOTMg/MDAxNzc2MDY1NzM3NzA3.WoNRYAHblzA64ZDyA3cQBKic94rQV67wEHoOFkT7gdMg.aptvzsGXo9n6lt-US7rYKdEHSKJ37jicwxdBvDmRyTkg.JPEG/1d7513ba-c49b-43ab-b401-e6a8a97cd8bb_%281%29.jpeg?type=w800",
-    "article": "66"
+    "article": "66",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Identical photograph reused for two differently named branches; exact branch match unresolved."
+    }
   },
   {
     "id": "66b",
@@ -357,7 +392,12 @@
     "price": "약 70위안",
     "note": "천문산 하산 뒤 싼샤궈·훈제육·토종닭찜을 보기 좋은 지점.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA0MTNfOTMg/MDAxNzc2MDY1NzM3NzA3.WoNRYAHblzA64ZDyA3cQBKic94rQV67wEHoOFkT7gdMg.aptvzsGXo9n6lt-US7rYKdEHSKJ37jicwxdBvDmRyTkg.JPEG/1d7513ba-c49b-43ab-b401-e6a8a97cd8bb_%281%29.jpeg?type=w800",
-    "article": "66"
+    "article": "66",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Identical photograph reused for two differently named branches; exact branch match unresolved."
+    }
   },
   {
     "id": "41",
@@ -368,7 +408,12 @@
     "price": "약 55위안",
     "note": "중국 음식 사이에 삼겹살·비빔밥 등 익숙한 한식이 필요할 때.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMjJfOTkg/MDAxNzc0MTgyODE0Mzc3.RAJMScosB0X4AjqALf-53eUNH5ZDZiUS6r-lrztPoDIg.KapfqVDvK4podmjS7PSpAmQscg263VOTBNNOKC1DN1Mg.JPEG/%E6%98%8E%E6%B4%9E%E9%A6%86.JPEG?type=w800",
-    "article": "41"
+    "article": "41",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "40",
@@ -379,7 +424,12 @@
     "price": "약 75위안",
     "note": "사시미·장어덮밥·튀김 등 일식 메뉴를 찾을 때.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMjFfMjAz/MDAxNzc0MDc3NTkwMDIz.4KFysmc2-4lWqZo8uXP6mRVoXg2gpXnO7BPS1uivM_4g.apx520cTnPHMZIsBKabKuc6w4_xqPpqqv1_K_--FHOog.JPEG/%E5%92%8C%E6%A5%BD%E9%87%8C.JPEG?type=w800",
-    "article": "40"
+    "article": "40",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "34",
@@ -390,7 +440,12 @@
     "price": "약 32위안",
     "note": "부담 적은 가격대의 철판볶음과 현지식 메뉴.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfMTYx/MDAxNzczNzM3MTA4MDAw.eKSEolZFb7ZZmMoDwPiw-hHvFCNBkjw-kcxqe15cCqUg.p_kdf3bDoUp38fFH4BkmojknLhGh-15fNdGtnyXqFsEg.JPEG/1280X1280.JPEG?type=w800",
-    "article": "34"
+    "article": "34",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "33",
@@ -401,7 +456,12 @@
     "price": "약 123위안",
     "note": "스테이크와 파스타, 사진 찍기 좋은 분위기를 함께 찾을 때.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfMTg1/MDAxNzczNzM2MTE3MDc5.c9BXnvl8gKpVyA1sSpxizYV02MW5MiAyum_hJiepzxQg.awC4CNjY5DmfLyIlUEorMwXu1jI2dM4PPLhrckSZc6cg.JPEG/1.JPEG?type=w800",
-    "article": "33"
+    "article": "33",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "32",
@@ -412,18 +472,33 @@
     "price": "약 39위안",
     "note": "72기루 관광 중 재료를 골라 먹는 간단한 마라요리.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfNTgg/MDAxNzczNzM1NjM1MTgz.1MgFuwSuq0gnLBaNA1a5bbJ2WVYuDbCzeYYFMAdHl4Mg.Wwhr22opi6S-2tLYwotSVjVw3IXL6dyaf0g81jERjHkg.JPEG/One%E5%86%92%E8%8F%9C.JPEG?type=w800",
-    "article": "32"
+    "article": "32",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "31",
     "name": "구시시 · 난좡핑점",
     "chinese": "谷禧禧（南庄坪店）",
     "area": "난좡핑",
-    "category": "면요리 · 로컬 중식",
-    "price": "약 20–35위안",
-    "note": "러간면·루펀·녹두 디저트로 가볍게 식사하기 좋은 곳.",
+    "category": "식당 · 메뉴 확인 필요",
+    "price": "방문 전 확인",
+    "note": "사진 속 메뉴 안내와 기존 소개가 달라 메뉴·가격을 다시 확인하고 있습니다. 방문 전 Cafe 원문과 매장에 현재 메뉴를 확인해 주세요.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfMTgz/MDAxNzczNzM1MjI0OTg1.lL6QW0ZVikqWofKC8B5KxzxkQWP-kNpdvrI--ZqL0jUg.IvpzgMShmNkv_Ds5EexIcETfBVLLobbKcTwAGUVx5Skg.JPEG/%E8%B0%B7%E7%A6%A7%E7%A6%A7.jpeg?type=w800",
-    "article": "31"
+    "article": "31",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    },
+    "contentReview": {
+      "status": "needs_confirmation",
+      "checkedAt": "2026-10-10",
+      "reason": "Photo signage advertises pizza, steak and coffee; prior noodles and dessert description not independently verified. Removed specific dish and price claims pending verification."
+    }
   },
   {
     "id": "30",
@@ -434,7 +509,12 @@
     "price": "약 50–60위안",
     "note": "저녁에 맥주·칵테일과 간단한 안주를 찾을 때.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfMjA3/MDAxNzczNzM0ODQxNjI2.sNJrUicIcOK2vUYu7CQiyqBtSBhDjjXnYrC_2-Y9NGog.eFgINmB-GTnOMdghqYfhVAXJ3IaS6Ch9QShqp1GhWhcg.JPEG/%E9%85%92%E5%BA%A7.JPEG?type=w800",
-    "article": "30"
+    "article": "30",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "29",
@@ -445,7 +525,12 @@
     "price": "약 70–95위안",
     "note": "누룽지죽·볶음고기·싼샤궈를 여러 명이 나눠 먹기 좋은 곳.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjAzMTdfNjUg/MDAxNzczNzMzMTQxMTUw.jDNKmao4aJYuS_SeJTGon2ca5gXh6X-DfOOFVUSkGsog.0SNjkbhnEUl1YxzNsB4e5CtK3QmpmOSg8yIAUhCFa6Mg.JPEG/%E7%A7%A6%E5%A4%A7%E5%A6%88.JPEG?type=w800",
-    "article": "29"
+    "article": "29",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "207",
@@ -459,7 +544,12 @@
     "tip": "커피·과일차·디저트·간단한 식사 가능. 알리페이·위챗페이 결제 가능.",
     "image": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA5MTJfMTMz/MDAxNzg5MTk4MjI2MDE4.SMrLhYvX2gLNzAJIWD8uJWJS26J1xaIAdPrPpOvIJMQg.81GV39wJhaFGJ7FkXOgVWIju1m9soz7NLmy6sY1QpkEg.JPEG/ec436ea957e0eeb2b2c181fcb60c3c79.jpg?type=w1600",
     "article": "207",
-    "map": "https://surl.amap.com/c8RgB7I18972"
+    "map": "https://surl.amap.com/c8RgB7I18972",
+    "imageVerification": {
+      "status": "pending",
+      "checkedAt": "2026-10-10",
+      "reason": "Exact image-to-store/branch match has not been independently verified."
+    }
   },
   {
     "id": "market-meini",
@@ -472,7 +562,12 @@
     "bestFor": "숙소 도착 후 첫 장보기 · 간식 · 생필품",
     "tip": "지점이 여러 곳이므로 고덕지도에서 현재 호텔과 가장 가까운 지점을 선택하세요.",
     "image": "assets/city/local-market-mobile.jpg",
-    "map": "https://uri.amap.com/search?keyword=%E6%A2%85%E5%B0%BC%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0"
+    "map": "https://uri.amap.com/search?keyword=%E6%A2%85%E5%B0%BC%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "imageVerification": {
+      "status": "rejected",
+      "checkedAt": "2026-10-10",
+      "reason": "Generic city/retail image is not evidence of this named store."
+    }
   },
   {
     "id": "market-bubugao",
@@ -485,7 +580,12 @@
     "bestFor": "여러 날 머무는 여행 · 선물용 간식 · 대량 장보기",
     "tip": "검색 결과의 영업 상태와 이동 시간을 당일 다시 확인하세요.",
     "image": "assets/city/zhangjiajie-city-desktop.jpg",
-    "map": "https://uri.amap.com/search?keyword=%E6%AD%A5%E6%AD%A5%E9%AB%98%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0"
+    "map": "https://uri.amap.com/search?keyword=%E6%AD%A5%E6%AD%A5%E9%AB%98%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "imageVerification": {
+      "status": "rejected",
+      "checkedAt": "2026-10-10",
+      "reason": "Generic city/retail image is not evidence of this named store."
+    }
   },
   {
     "id": "market-jiahui",
@@ -498,7 +598,12 @@
     "bestFor": "간단한 장보기 · 현지 과자 · 음료",
     "tip": "중국어 상호를 복사해 지도나 기사에게 보여 주세요.",
     "image": "assets/city/local-market-mobile.jpg",
-    "map": "https://uri.amap.com/search?keyword=%E4%BD%B3%E6%83%A0%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0"
+    "map": "https://uri.amap.com/search?keyword=%E4%BD%B3%E6%83%A0%E8%B6%85%E5%B8%82&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "imageVerification": {
+      "status": "rejected",
+      "checkedAt": "2026-10-10",
+      "reason": "Generic city/retail image is not evidence of this named store."
+    }
   },
   {
     "id": "zhangjiajie-maoshi-xiaoguan",

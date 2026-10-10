@@ -66,7 +66,7 @@
 .ltc-brand-page .service-media-card span{border-radius:8px;font-size:14px}
 .ltc-brand-page :is(.tag,.eyebrow,.review-eyebrow,.visual-kicker){color:var(--brown)}
 .ltc-brand-page :is(.notice,.support-summary,.included-box){background:var(--soft);color:var(--brown)}
-.ltc-brand-page :is(.online-home-card,.food-hub-head,.route-nav){background:var(--brand)!important;color:white!important}
+.ltc-brand-page :is(.online-home-card,.route-nav){background:var(--brand)!important;color:white!important}
 .ltc-brand-page .online-home-card :is(h2,h3,p,strong){color:#fff!important}
 .ltc-brand-page .prep-stage-picker button[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:white}
 .ltc-brand-page #service-private{--private-night:#11223D;--private-green:#11223D;--private-gold:#C46400}
@@ -174,3 +174,20 @@
 }
 /* Preserve full touch targets; at narrow widths the locale row wraps naturally. */
 @media(max-width:760px){.ltc-brand-page .brand-header .language-switch a{min-width:44px;min-height:44px}.ltc-brand-page .brand-header .language-switch{margin-left:auto}}
+
+/* Food finder uses the same ivory/orange/navy language as the storefront. */
+.ltc-brand-page .food-hub-head { background: var(--soft)!important; color: var(--ink)!important; border-bottom: 1px solid var(--line); }
+.ltc-brand-page .food-hub-head h2 { color: var(--ink)!important; }
+.ltc-brand-page .food-hub-head p { color: var(--muted); }
+.ltc-brand-page .food-hub-head .eyebrow { color: var(--brown); }
+.ltc-brand-page .food-kind-nav { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.ltc-brand-page .food-kind-nav button { color: var(--ink); background: #fff; border: 1px solid var(--control-line); box-shadow: none; }
+.ltc-brand-page .food-kind-nav button small { opacity: 1; color: var(--muted); }
+.ltc-brand-page .food-kind-nav button.active { background: var(--orange); border-color: var(--orange); color: var(--ink); }
+.ltc-brand-page .food-kind-nav button.active small { color: var(--ink); }
+.ltc-brand-page .food-toolbar label { min-width: 0; flex: 1 1 220px; }
+.ltc-brand-page .food-toolbar :is(input,select) { min-width: 0; max-width: 100%; border-color: var(--control-line); }
+.ltc-brand-page .food-card { border-color: var(--line); border-radius: 18px; box-shadow: none; }
+.ltc-brand-page .food-photo span { background: var(--navy); }
+.ltc-brand-page .food-use { background: var(--trust-soft); }
+@media(max-width:600px) { .ltc-brand-page .food-kind-nav { grid-template-columns: repeat(2,minmax(0,1fr)); } .ltc-brand-page .food-kind-nav button:first-child { grid-column: 1 / -1; } }
