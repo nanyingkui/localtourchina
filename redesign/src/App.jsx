@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {DRAFT_KEY,STORAGE_KEY,serviceNames,initialDraft,partyLimit,validateDraft,dateLabel,inquiryText,savePreview} from './consultation.mjs';
 import './styles.css';
 import './editorial.css';
+import './section-layout.css';
 import Storefront from './Storefront.jsx';
 import {catalogInquiry,packageTitle} from './trip-catalog.mjs';
 import ReviewStories from './ReviewStories.jsx';

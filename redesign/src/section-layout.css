@@ -1,0 +1,108 @@
+/* Boundaries communicate product scope: individual services, full trips, then media. */
+.home-section-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:calc(100% - 48px);max-width:1112px;margin:0 auto 40px;padding:14px 0;border-bottom:1px solid #cbd3dc}
+.home-section-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:1px solid #cbd3dc;border-radius:6px;background:#fff;color:#11223d;font-size:15px;font-weight:650;text-decoration:none}
+.home-section-nav a[href="#prepared-trips"]{background:#11223d;color:#fff;border-color:#11223d}
+.home-section-nav a:hover{border-color:#a65a0a;text-decoration:underline;text-underline-offset:4px}
+.home-section-nav a:focus-visible,.service-family .intent-card:focus-visible{outline:3px solid #b55d05;outline-offset:4px}
+.warm-storefront .intent-services{padding:32px;background:#f3f5f7;border:1px solid #cbd3dc;border-radius:16px}
+.warm-storefront .intent-heading{gap:24px;margin-bottom:26px}
+.warm-storefront .intent-heading .section-kicker{font-size:14px;font-weight:650;letter-spacing:0;color:#625f58;margin-bottom:8px}
+.warm-storefront .intent-destination{justify-self:end}
+.warm-storefront .destination-grid{gap:8px}
+.warm-storefront .destination-grid>.destination-button{padding:10px 14px;background:#fff;border:1px solid #bbc7d4;border-radius:6px;min-height:44px;color:#11223d}
+.warm-storefront .destination-grid>.destination-button>span:first-child{display:block}
+.warm-storefront .destination-grid>.destination-button strong{font-size:15px;white-space:normal}
+.warm-storefront .destination-grid>.destination-button[data-active=true]{background:#11223d;color:#fff;border-color:#11223d;box-shadow:none}
+.service-families{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px}
+.service-family{min-width:0;padding:24px;background:#fff;border:1px solid #cbd3dc;border-top:4px solid #11223d;border-radius:10px}
+.service-family-planning{border-top-color:#bc6d1d}
+.service-family>header{margin-bottom:20px}
+.service-family>header h3{font-size:19px;line-height:1.45;margin:0 0 8px;color:#11223d}
+.service-family>header p{font-size:14px;line-height:1.7;color:#625f58;margin:0}
+.service-family .intent-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.service-family-planning .intent-grid{grid-template-columns:minmax(0,1fr)}
+.service-family .intent-card{min-width:0;min-height:134px;padding:16px;gap:7px 10px;grid-template-columns:28px minmax(0,1fr);border:1px solid #d6dce4;border-radius:6px;background:#fafbfd}
+.service-family .intent-card:hover{background:#fff7ec;border-color:#bc6d1d}
+.service-family .intent-card strong{font-size:17px}
+.service-family .intent-detail{font-size:13px}
+.service-family .service-symbol{width:28px}
+.warm-storefront .intent-secondary{margin-top:24px;padding-top:20px;border-top:1px solid #cbd3dc}
+.prepared-trips-section{margin-top:64px;padding-top:40px;border-top:3px solid #11223d}
+.warm-storefront .prepared-trips-section #prepared-trips{margin:0 0 32px;padding:0;max-width:760px;scroll-margin-top:100px}
+.prepared-trips-section .destination-intro h2{font-size:34px;font-weight:700;line-height:1.35}
+.prepared-trips-section .destination-intro .section-kicker{font-size:14px;font-weight:650;margin-bottom:10px}
+.prepared-trips-section .trip-catalog-group{margin:28px 0 0;padding:28px;background:#f3f5f7;border:1px solid #cbd3dc;border-radius:14px}
+.prepared-trips-section .trip-catalog-group-trekking{background:#fff7ec;border-color:#d9b890}
+.prepared-trips-section .trip-catalog-group-heading{padding:0 0 20px;margin-bottom:24px;border-bottom:1px solid #bac7d4;gap:24px}
+.prepared-trips-section .trip-catalog-group-heading h3{font-size:23px;font-weight:700;line-height:1.45;margin:0}
+.prepared-trips-section .trip-catalog-group-heading p{margin:0}
+.prepared-trips-section .trip-catalog-group-trekking .trip-catalog-group-heading{border-bottom-color:#d9b890}
+.prepared-trips-section .trip-catalog-grid{gap:20px}
+.prepared-trips-section .trip-catalog-card{border:1px solid #bfcbd7;border-radius:10px;background:#fff;overflow:hidden}
+.prepared-trips-section .trip-catalog-image{border-radius:0;height:200px}
+.prepared-trips-section .trip-catalog-body{padding:22px 20px;gap:14px}
+.prepared-trips-section .trip-catalog-body h4{font-size:21px;line-height:1.45}
+.prepared-trips-section .trip-catalog-meta{padding-bottom:12px;border-bottom:1px solid #e1e5ea;justify-content:space-between;gap:8px}
+.prepared-trips-section .trip-catalog-badge{color:#11223d;font-weight:650}
+.prepared-trips-section .trip-catalog-badge.is-trekking{color:#7d421a}
+.prepared-trips-section .trip-catalog-price{padding-top:12px;border-top:1px solid #e1e5ea}
+.prepared-trips-section .trip-catalog-price strong{font-size:27px}
+.prepared-trips-section .trip-catalog-terms{padding:28px;margin-top:32px;border:1px solid #cbd3dc;background:#fff;border-radius:10px}
+.prepared-trips-section .store-help{padding:28px;margin-top:28px;background:#fff7ec;border:1px solid #d9b890;border-radius:10px}
+.prepared-trips-section .hainan-card{border:1px solid #bfcbd7;background:#fff;border-radius:10px;overflow:hidden}
+.warm-storefront .video-guides{margin-top:64px;padding:32px;background:#eef3f8;border:1px solid #bbc7d4;border-top:3px solid #11223d;border-radius:14px;scroll-margin-top:100px}
+.warm-storefront .video-guides-heading{padding-bottom:22px;border-bottom:1px solid #bbc7d4}
+.warm-storefront .video-guide-card{background:#fff;padding:16px;border:1px solid #cbd3dc;border-radius:8px}
+.warm-storefront .video-guides-grid{gap:20px}
+.warm-storefront .trust-strip{margin-top:36px;padding:24px 0;border-top:1px solid #cbd3dc;border-bottom:1px solid #cbd3dc}
+main .section.stories{margin-top:24px;padding-top:40px;border-top:3px solid #11223d;background:#fffefa}
+.stories .section-heading{padding-bottom:24px;border-bottom:1px solid #cbd3dc}
+.stories .story-source-title{margin:32px 0 20px;padding:16px 20px;font-size:20px;background:#eef3f8;border-left:4px solid #11223d}
+.stories .story-grid{gap:20px}
+.stories .story-grid article{padding:24px;background:#fff;border:1px solid #cbd3dc;border-radius:10px}
+.stories .story-grid article h4{font-size:19px;line-height:1.6;margin:8px 0 14px}
+.stories .story-grid article h4 a{color:#11223d;text-decoration:none}
+.stories .story-grid article h4 a:hover{text-decoration:underline}
+@media(max-width:1000px){
+ .service-families{grid-template-columns:minmax(0,1fr)}
+ .service-family-planning .intent-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .prepared-trips-section .trip-catalog-grid{grid-template-columns:minmax(0,1fr)}
+ .prepared-trips-section .trip-catalog-card{max-width:none}
+ .prepared-trips-section .trip-catalog-image{height:260px}
+}
+@media(max-width:700px){
+ .home-section-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:28px}
+ .home-section-nav a{padding:10px 8px;font-size:14px}
+ .warm-storefront .intent-services{padding:20px 16px;border-radius:12px}
+ .warm-storefront .intent-heading{display:block;margin-bottom:22px}
+ .warm-storefront .intent-heading h2{font-size:27px}
+ .warm-storefront .intent-destination{margin-top:22px}
+ .warm-storefront .destination-grid{gap:8px}
+ .service-families{gap:18px}
+ .service-family{padding:18px 14px}
+ .service-family>header h3{font-size:18px}
+ .service-family .intent-grid,.service-family-planning .intent-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .service-family .intent-card{min-height:112px;padding:16px}
+ .service-family .intent-card strong{font-size:18px}
+ .service-family .intent-detail{font-size:14px}
+ .warm-storefront .intent-secondary{display:flex;align-items:flex-start;flex-direction:column;gap:14px}
+ .prepared-trips-section{margin-top:40px;padding-top:28px}
+ .prepared-trips-section .destination-intro h2{font-size:29px}
+ .prepared-trips-section .destination-intro p{font-size:15px}
+ .prepared-trips-section .trip-catalog-group{padding:20px 14px;border-radius:12px}
+ .prepared-trips-section .trip-catalog-group-heading{display:block;padding-bottom:18px;margin-bottom:20px}
+ .prepared-trips-section .trip-catalog-group-heading h3{font-size:22px;margin-bottom:10px}
+ .prepared-trips-section .trip-catalog-grid{gap:24px}
+ .prepared-trips-section .trip-catalog-image{height:190px}
+ .prepared-trips-section .trip-catalog-body{padding:20px 16px}
+ .prepared-trips-section .trip-catalog-body h4{font-size:21px}
+ .prepared-trips-section .trip-catalog-price strong{font-size:26px}
+ .prepared-trips-section .trip-catalog-terms,.prepared-trips-section .store-help{padding:22px 18px}
+ .warm-storefront .video-guides{padding:22px 16px;margin-top:40px}
+ .warm-storefront .video-guides-heading{display:block}
+ .warm-storefront .video-guides-heading h2{font-size:27px}
+ .warm-storefront .video-guides-heading>a{display:inline-block;margin-top:16px}
+ .warm-storefront .video-guides-grid{gap:14px}
+ .stories .story-source-title{font-size:19px;padding:14px 16px}
+ .stories .story-grid article{padding:20px}
+}
