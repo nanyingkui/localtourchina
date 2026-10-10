@@ -12,7 +12,7 @@ body { background:var(--paper); }
 .warm-storefront .home-hero-copy { padding:32px 0; }
 .warm-storefront .home-hero .section-kicker { color:#6a655c; font-size:12px; letter-spacing:.035em; margin-bottom:26px; font-weight:500; }
 .warm-storefront .home-hero h1 { font-size:clamp(36px,4vw,54px); line-height:1.24; font-weight:650; max-width:12ch; letter-spacing:-.05em; margin-bottom:26px; text-wrap:balance; }
-.warm-storefront .home-hero-copy>p:not(.section-kicker) { font-size:17px; line-height:1.8; max-width:29ch; }
+.warm-storefront .home-hero-copy>p:not(.section-kicker) { font-size:17px; line-height:1.8; max-width:36ch; overflow-wrap:break-word; text-wrap:pretty; }
 .warm-storefront .home-hero-actions { gap:22px; margin-top:34px; }
 .warm-storefront .home-hero-actions .button { background:#11223d; border-color:#11223d; color:#fff; border-radius:3px; font-weight:600; }
 .warm-storefront .home-hero-actions .button:hover { background:#243b59; }
@@ -148,3 +148,6 @@ body { background:var(--paper); }
  .stories h2 { font-size:28px; }
  .story-grid { gap:12px; }
 }
+
+/* Keep Korean words together; retain break opportunities for long tokens. */
+:lang(ko) .warm-storefront p,:lang(ko) .warm-storefront .intent-detail { word-break:keep-all; overflow-wrap:break-word; }

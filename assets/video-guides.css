@@ -133,3 +133,6 @@
  .video-guide-title { font-size:16px; }
  .video-load-note,.video-context-note { font-size:13px; }
 }
+
+.video-guide-title { overflow-wrap:break-word; }
+:lang(ko) .video-guide-title { word-break:keep-all; }
