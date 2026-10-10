@@ -92,3 +92,44 @@
  .video-guides-grid,.ltc-video-help .video-guides-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:minmax(240px,84%); grid-template-rows:1fr; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; scroll-padding-inline:4px; padding-top:4px; padding-bottom:14px; }
  .video-guide-card { scroll-snap-align:start; }
 }
+
+/* A film journal, with three lead films and a quieter second reading row. */
+.video-guides { margin:76px 0 0; padding:46px 0 0; border-color:#e6e3dc; }
+.video-guides-heading { gap:48px; margin-bottom:28px; }
+.video-guides-heading .section-kicker { font-size:12px; font-weight:500; letter-spacing:.03em; margin-bottom:15px; color:#736b5e; }
+.video-guides-heading h2 { font-size:34px; font-weight:600; line-height:1.4; margin-bottom:15px; }
+.video-guides-heading p:not(.section-kicker) { font-size:16px; max-width:48ch; }
+.video-guides-heading>a { font-size:13px; font-weight:500; }
+.video-category-controls { gap:24px; margin-bottom:18px; }
+.video-category-controls button { border:0; border-radius:0; padding:9px 0; min-height:46px; font-family:inherit; font-size:14px; font-weight:500; background:transparent; color:#625f58; }
+.video-category-controls button[aria-pressed=true] { background:transparent; color:#11223d; box-shadow:inset 0 -2px #bc6d1d; }
+.video-load-note { font-size:12px; margin-bottom:24px; }
+.video-guides>.video-guides-grid { gap:30px; }
+.video-guide-image,.video-guide-open { border-radius:2px; }
+.video-guide-title { font-size:17px; font-weight:550; line-height:1.65; }
+.video-watch-label { font-size:13px; font-weight:500; }
+.video-guide-card:hover { transform:none; }
+.video-guide-open:hover .video-guide-title { text-decoration:underline; text-underline-offset:4px; }
+.video-context-note { font-size:12px; margin-top:26px; max-width:80ch; }
+@media(min-width:701px) {
+ .video-guides>.video-guides-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) { border-top:1px solid #e6e3dc; padding-top:24px; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-guide-open { display:grid; grid-template-columns:88px minmax(0,1fr); gap:16px; align-items:start; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-guide-image { width:88px; aspect-ratio:16/9; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-image-fallback { font-size:8px; letter-spacing:0; gap:2px; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-image-fallback small { font-size:8px; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-guide-copy { padding-top:0; }
+ .video-guides>.video-guides-grid>.video-guide-card:nth-child(n+4) .video-guide-title { font-size:15px; }
+}
+@media(max-width:700px) {
+ .video-guides { margin-top:56px; padding-top:32px; }
+ .video-guides-heading { margin-bottom:20px; }
+ .video-guides-heading h2 { font-size:28px; }
+ .video-guides-heading p:not(.section-kicker) { font-size:15px; }
+ .video-guides-heading>a { margin-top:12px; font-size:14px; }
+ .video-category-controls { gap:4px 20px; }
+ .video-category-controls button { font-size:14px; }
+ .video-guides>.video-guides-grid { gap:24px; grid-auto-columns:minmax(240px,86%); }
+ .video-guide-title { font-size:16px; }
+ .video-load-note,.video-context-note { font-size:13px; }
+}

@@ -7,6 +7,7 @@ import {
 
 function TripCard({ product, lang, onSelect }) {
   const id = useId();
+  const [expanded, setExpanded] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).get('product') === product.id);
   const [initialPax] = useState(() => partyFromSearch(product, typeof location === 'undefined' ? '' : location.search));
   const [tier, setTier] = useState(PARTY_TIERS.includes(initialPax) ? String(initialPax) : 'custom');
   const [customPax, setCustomPax] = useState(PARTY_TIERS.includes(initialPax) ? '3' : String(initialPax));
@@ -29,9 +30,19 @@ function TripCard({ product, lang, onSelect }) {
       </div>
       <h4 id={`${id}-title`}>{packageTitle(product, lang)}</h4>
       <p className="trip-catalog-tagline">{c.tagline}</p>
-      <ul className="trip-catalog-highlights">{c.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
+
       <p className={`trip-catalog-walking${trekking ? ' is-high' : ''}`}><strong>{t.walkingLabel}</strong> {c.walking}</p>
 
+
+      <div className="trip-catalog-price" aria-live="polite" aria-atomic="true">
+        <span>{t.reference}{validPax ? ` · ${t.pax(Number(selectedPax))}` : ''}</span>
+        <strong>{formatTripPrice(price, lang)}</strong>
+        {price !== null && <span>{t.unit}</span>}
+      </div>
+      <p className="trip-catalog-price-note">{t.basis}<br />{t.priceNote}{lang==='en'&&<><br />{englishPricingNote}</>}</p>
+
+      <details className="trip-configuration" open={!validPax || expanded} onToggle={event => { if (!validPax && !event.currentTarget.open) event.currentTarget.open = true; setExpanded(event.currentTarget.open); }}><summary>{lang==='ko'?'인원·포함사항·일정 확인':lang==='zh'?'查看人数、包含项目与行程':'Party size, inclusions & itinerary'}<span aria-hidden="true"> +</span></summary><div className="trip-configuration-body">
+      <ul className="trip-catalog-highlights">{c.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
       <fieldset className="trip-catalog-party" aria-describedby={`${id}-party-help`}>
         <legend>{t.party}</legend>
         <div className="trip-catalog-tiers">
@@ -49,13 +60,6 @@ function TripCard({ product, lang, onSelect }) {
         <p id={`${id}-party-help`} className="trip-catalog-price-note">{t.customHelp}</p>
       </fieldset>
 
-      <div className="trip-catalog-price" aria-live="polite" aria-atomic="true">
-        <span>{t.reference}{validPax ? ` · ${t.pax(Number(selectedPax))}` : ''}</span>
-        <strong>{formatTripPrice(price, lang)}</strong>
-        {price !== null && <span>{t.unit}</span>}
-      </div>
-      <p className="trip-catalog-price-note">{t.basis}<br />{t.priceNote}{lang==='en'&&<><br />{englishPricingNote}</>}</p>
-
       <dl className="trip-catalog-inclusions">
         <div><dt>{t.includedLabel}</dt><dd>{t.included}</dd></div>
         <div><dt>{t.excludedLabel}</dt><dd>{t.excluded}</dd></div>
@@ -68,18 +72,19 @@ function TripCard({ product, lang, onSelect }) {
         </li>)}</ol>
         <p className="trip-catalog-price-note">{t.itineraryNote}</p>
       </details>
+      </div></details>
       <button type="button" className="trip-catalog-action button primary" disabled={!validPax || typeof onSelect !== 'function'}
         onClick={() => onSelect?.(product, Number(selectedPax))}>{t.action}<span aria-hidden="true"> →</span></button>
     </div>
   </article>;
 }
 
-export default function TripCatalog({ lang = 'ko', onSelect }) {
+export default function TripCatalog({ lang = 'ko', onSelect, compactHeading = false }) {
   const language = catalogLanguage(lang);
   const t = catalogCopy[language];
   const id = useId();
   return <section className="trip-catalog" id="zhangjiajie-trips" aria-labelledby={`${id}-heading`}>
-    <header className="trip-catalog-heading">
+    <header className={compactHeading ? "trip-catalog-heading sr-only" : "trip-catalog-heading"}>
       <p className="trip-catalog-kicker">{t.kicker}</p>
       <h2 id={`${id}-heading`}>{t.title}</h2>
       <p className="trip-catalog-intro">{t.intro}</p>

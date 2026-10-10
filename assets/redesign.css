@@ -311,3 +311,28 @@ input::-webkit-datetime-edit { min-width:0; padding:0; }
 @media(max-width:760px) {
   .date-row,.fields.two { grid-template-columns:minmax(0,1fr); }
 }
+
+/* The same quiet editorial rhythm on detail pages, with form affordances intact. */
+:root { --bg:#fffefa; --line:#e6e3dc; --soft:#f5f4ef; --trust-soft:#f5f4ef; }
+body { background:var(--bg); }
+.wrap { max-width:1220px; padding-top:32px; }
+.topbar,.site-header { background:transparent; margin-bottom:44px; }
+.hero,.prep-hero,.guide-intro,.review-intro,.booking-intro { border-radius:2px; padding:48px; }
+.module-head,#service-private .module-head { border-radius:2px; padding:44px; }
+.hero h1,.module-head h1,.module-head h2 { font-weight:650; }
+.hero p,.module-head p,.prep-hero p,.guide-intro p { max-width:62ch; line-height:1.8; }
+.card,.summary,.online-summary,.online-rules,.status-card { border-radius:6px; box-shadow:none; padding:32px; }
+.card { margin-bottom:32px; }
+.section-head { padding-bottom:20px; margin-bottom:28px; }
+.section-head h2 { font-weight:600; }
+.section-head p { max-width:62ch; }
+.service-media-card,.food-card,.review-card,.booking-choice { box-shadow:none; border-radius:4px; }
+.service-media-strip { gap:24px; margin-block:28px; }
+.business-footer { margin-top:64px; padding-top:32px; }
+@media(max-width:760px) {
+ .wrap { padding-top:22px; }
+ .topbar,.site-header { margin-bottom:28px; }
+ .hero,.prep-hero,.guide-intro,.review-intro,.booking-intro,.module-head,#service-private .module-head { padding:28px 22px; }
+ .card,.summary,.online-summary,.online-rules,.status-card { padding:24px 20px; }
+ .service-media-strip { gap:16px; }
+}
