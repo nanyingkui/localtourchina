@@ -1,0 +1,63 @@
+/* Two clearly labelled, uncropped AI brand illustrations. No service/form rules. */
+.service-illustration-hero {
+  position:relative; isolation:isolate; overflow:hidden; min-height:340px;
+  margin:18px 0 24px; padding:30px 32px; border:0; border-radius:2px;
+  background:#fff4e2!important; color:#11223d!important; box-shadow:none;
+}
+.service-illustration-copy { position:relative; z-index:1; width:48%; min-width:0; }
+.service-illustration-copy > :is(.brand,.eyebrow) {
+  display:block; color:#5b3a1e!important; font-size:11px; line-height:1.5;
+  font-weight:800; letter-spacing:.08em; opacity:1;
+}
+.service-illustration-copy h1 {
+  margin:9px 0 14px; max-width:none; color:#11223d!important;
+  font-size:clamp(30px,3.1vw,43px); line-height:1.19; letter-spacing:-.045em;
+}
+.service-illustration-copy p {
+  margin:0; max-width:43ch; color:#33435a!important; font-size:16px; line-height:1.65; opacity:1;
+}
+.service-illustration-hero .service-illustration-copy .brand-heading-icon { display:none; }
+.service-illustration-copy .wizard-progress { margin-top:15px; }
+.service-illustration-copy .wizard-progress span { background:#decab5; }
+.service-illustration-copy .wizard-progress span.active { background:#ff8a00; }
+.service-illustration-copy .wizard-progress-text { color:#566276!important; font-size:12px!important; }
+.service-illustration-copy > .button {
+  display:inline-flex; align-items:center; justify-content:center; gap:12px;
+  min-height:44px; margin-top:18px; padding:10px 16px; font-size:14px;
+  line-height:1.4; text-align:center; text-decoration:none;
+}
+.service-illustration-art {
+  position:absolute; z-index:0; inset:0 0 0 auto; width:70%; margin:0; pointer-events:none;
+}
+.service-illustration-art img {
+  display:block; width:100%; height:100%; max-width:100%;
+  object-fit:contain; object-position:right center; border:0; border-radius:0;
+}
+.service-illustration-art figcaption {
+  position:absolute; right:12px; bottom:10px; padding:3px 7px;
+  color:#33435a; background:#fffcf7f5; border-radius:3px;
+  font-size:11px; font-weight:600; line-height:1.5;
+}
+@media(max-width:760px) {
+  .service-illustration-hero { min-height:0; padding:22px 20px; margin:12px 0 20px; }
+  .service-illustration-copy { width:100%; }
+  .service-illustration-copy > :is(.brand,.eyebrow) { width:53%; font-size:10px; }
+  .service-illustration-copy h1 {
+    width:56%; min-height:104px; margin:8px 0 16px; font-size:clamp(25px,5.8vw,32px); line-height:1.23;
+  }
+  .service-illustration-copy p { max-width:none; font-size:15px; line-height:1.6; }
+  .service-illustration-copy > .button { margin-top:15px; }
+  .service-illustration-art { inset:8px 0 auto auto; width:64%; height:155px; }
+  .service-illustration-art img { object-position:right top; }
+  .service-illustration-art figcaption { right:8px; bottom:0; max-width:60%; font-size:10px; text-align:right; }
+}
+@media(max-width:360px) {
+  .service-illustration-hero { padding:20px 16px; }
+  .service-illustration-copy h1 { width:57%; font-size:24px; min-height:105px; }
+  .service-illustration-art { height:151px; }
+}
+@media print {
+  .service-illustration-art { display:none; }
+  .service-illustration-copy { width:100%; }
+  .service-illustration-copy h1 { width:auto; min-height:0; }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "trip-planning",
+    "original_filename": "AI品牌插画-橙帽向导行程规划.png",
+    "original_sha256": "4390a74f0fb99ed7fdfb47fef2924b2cc683ef302442059f57b86be43e97e094",
+    "original_width": 1672,
+    "original_height": 940,
+    "transform": "Full uncropped image; proportional LANCZOS resize and WebP encoding at quality 84. No generated or edited pixels.",
+    "variants": [
+      {
+        "path": "redesign/public/assets/brand/illustrations/trip-planning-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 12220,
+        "sha256": "4388708f9bf915cbbf904de4e6e32c8402ecd9bcdd48f72f5a045ddc4919cea3"
+      },
+      {
+        "path": "redesign/public/assets/brand/illustrations/trip-planning-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 23976,
+        "sha256": "d14cce2d0b051a66f9e1e32b80241763026164cffd120bc69650a91c8166300a"
+      },
+      {
+        "path": "redesign/public/assets/brand/illustrations/trip-planning-1200.webp",
+        "width": 1200,
+        "height": 675,
+        "bytes": 41070,
+        "sha256": "e97dd01f80bbc79d89225de39b04962257b61a14def54128a2229226c0190926"
+      }
+    ],
+    "ai_generated": true,
+    "use": "Approved brand illustration for private-tour or vehicles service hero; not a photograph of actual service delivery."
+  },
+  {
+    "slug": "airport-welcome",
+    "original_filename": "AI品牌插画-橙帽机场接机.png",
+    "original_sha256": "7efb33bff3f0efe14476c9a10411adf6818695dfb4d95812959b575d27dd4187",
+    "original_width": 1672,
+    "original_height": 941,
+    "transform": "Full uncropped image; proportional LANCZOS resize and WebP encoding at quality 84. No generated or edited pixels.",
+    "variants": [
+      {
+        "path": "redesign/public/assets/brand/illustrations/airport-welcome-480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 11004,
+        "sha256": "aa009d4f1809e4c5fd12727eeea2d2bfa1f48261e7606b3ca76fbd04755b156d"
+      },
+      {
+        "path": "redesign/public/assets/brand/illustrations/airport-welcome-800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 20872,
+        "sha256": "d20b27d4b41816b09f57b8402601a98b4443e07574c66d5504465b6c050ece96"
+      },
+      {
+        "path": "redesign/public/assets/brand/illustrations/airport-welcome-1200.webp",
+        "width": 1200,
+        "height": 675,
+        "bytes": 33810,
+        "sha256": "58cbd7d856d16d6bbfc123abcd7ca0e250f106aa9638849b4dc6d26edc86ce0f"
+      }
+    ],
+    "ai_generated": true,
+    "use": "Approved brand illustration for private-tour or vehicles service hero; not a photograph of actual service delivery."
+  }
+]
