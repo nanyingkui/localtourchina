@@ -10,7 +10,7 @@ function setup(lang='en'){
  vm.runInNewContext(code,context);
  const input=(id,value='',extra={})=>{const el={id,value:String(value),...extra};ids.set(id,el);return el;};
  const select=(s,...els)=>selectors.set(s,els);
- return {api:context.window.LTCValidation,input,select,ids};
+ return {api:context.window.LTCValidation,input,select,ids,document};
 }
 const now=new Date('2026-10-10T15:59:59Z');
 const keys=issues=>Array.from(issues,x=>x.key);
@@ -31,3 +31,13 @@ test('guide rejects duplicate dates and impossible per-day hours',()=>{const x=s
 test('Sanya date and minimum party rules apply',()=>{const x=setup('ko');const date=x.input('dayDate','2026-10-10'),count=x.input('count',1,{max:'30'});x.select('#dayDate',date);x.select('#dayAgeRows .day-count',count);x.select('input[name="dayProduct"]:checked',{value:'sanya-monkey'});x.select('#dayMeeting',x.input('dayMeeting','Meeting point'));assert.deepEqual(keys(x.api.collect('daytour',now)),['tomorrow','twoPeople']);date.value='2026-10-11';count.value='2';assert.equal(x.api.collect('daytour',now).length,0);});
 test('private request requires ordered dates and positive people/rooms',()=>{const x=setup('ko');for(const [id,v]of Object.entries({privateStart:'2026-10-11',privateEnd:'2026-10-11',privatePeople:0,privateRooms:0,privateSingles:0})){const el=x.input(id,v);x.select('#'+id,el);}assert.deepEqual(keys(x.api.collect('private',now)),['end','positive','positive']);});
 test('configured copy/continue pages load the shared validator',()=>{for(const name of ['site-template.html','english-template.html'])assert.match(readFileSync(new URL('../src/'+name,import.meta.url),'utf8'),/assets\/service-validation\.js/);assert.match(readFileSync(new URL('../redesign/public/assets/redesign.js',import.meta.url),'utf8'),/LTCValidation\.validate/);});
+
+test('English generic inquiry renders only one estimate notice and clears it after correction',()=>{
+ const x=setup('en'),notices=[];
+ const scope={dataset:{},querySelectorAll:()=>[],querySelector:()=>null,prepend(el){notices.push(el);x.ids.set(el.id,el);}};
+ x.document.createElement=()=>({setAttribute(){}});
+ x.select('section.inquiry',scope);
+ x.select('#people',x.input('people',''));x.select('#dates',x.input('dates','December'));
+ x.api.refresh();assert.equal(notices.length,1);assert.equal(notices[0].hidden,false);
+ x.ids.get('people').value='2';x.api.refresh();assert.equal(notices.length,1);assert.equal(notices[0].hidden,true);
+});

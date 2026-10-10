@@ -108,7 +108,8 @@
     const first=$('#config-forest .date1'),second=$('#config-forest .date2');if(second){second.min=validDate(first?.value)?addDays(first.value,1):today;if(validDate(first?.value))second.max=addDays(first.value,3);else second.removeAttribute('max');}
     for(const id of Object.keys(copyServices)){const button=document.getElementById(id);if(button)button.disabled=false;}
     attempted.forEach(service=>present(service,collect(service)));
-    for(const service of ['ticket','guide','vehicle','private','daytour','combo']){
+    const estimateServices=lang==='en'&&$('section.inquiry')?['english']:['ticket','guide','vehicle','private','daytour','combo'];
+    for(const service of estimateServices){
       const scope=scopeFor(service);if(!scope)continue;
       const issues=collect(service);scope.dataset.ready=String(!issues.length);const copyId=Object.keys(copyServices).find(id=>copyServices[id]===service);const button=document.getElementById(copyId);if(button)button.dataset.ready=String(!issues.length);
       const hint=document.getElementById({ticket:'formHint',guide:'guideFormHint',vehicle:'vehicleFormHint',private:'privateAlerts',daytour:'dayFormHint',combo:'comboStatus'}[service]);if(hint&&issues.length&&service!=='private')hint.textContent=issues[0].message;

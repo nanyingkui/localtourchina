@@ -53,6 +53,13 @@
     const rail=document.createElement('nav');rail.className='brand-service-rail';rail.setAttribute('aria-label',copy.services);
     for(const [kind,name,label]of serviceRoutes){const a=document.createElement('a');a.href=route(name);a.innerHTML=icon(kind);const text=document.createElement('span');text.textContent=label;a.append(text);if(name===page){a.classList.add('is-current');a.setAttribute('aria-current','page');}rail.append(a);}
     header.after(rail);
+    // The legacy enhancement prepends this synthetic company H1 before navigation.
+    // Move only that generated heading, preserving all company information and actions.
+    if(page==='company.html'){
+      const heading=document.querySelector('main>.redesign-page-title');
+      if(heading && heading.parentElement===header.parentElement &&
+        (heading.compareDocumentPosition(header)&Node.DOCUMENT_POSITION_FOLLOWING))rail.after(heading);
+    }
     const serviceKind={'tickets.html':'ticket','vehicles.html':'vehicle','local-guide.html':'guide','day-tours.html':'day','private-tour.html':'custom','online-guide.html':'support','multi-booking.html':'custom','booking.html':'custom'}[page];
     if(serviceKind){
       const livePanel=document.querySelector('.service-panel:not([hidden])');
