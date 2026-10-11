@@ -3,6 +3,7 @@ import {tripCatalog} from './trip-catalog.mjs';
 import featuredReviews from './featured-reviews.json';
 import videoGuides from './video-guides.json';
 import './home-gallery.css';
+import UiIcon from './UiIcon.jsx';
 
 const tr=(lang,ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko;
 const path=(lang,url)=>url.startsWith('#')?url:(lang==='ko'||(lang==='en'&&url.startsWith('food-map.html'))?'/':'/'+lang+'/')+url;
@@ -18,7 +19,7 @@ function Rail({id,title,note,children,lang,link,linkLabel,small=false}) {
  return <section className={'gallery-section'+(small?' gallery-small':'')} id={id} aria-labelledby={id+'-heading'}>
   <div className="gallery-section-header"><div><h2 id={id+'-heading'}>{title}</h2>{note&&<p>{note}</p>}</div>{link&&<a href={link}>{linkLabel}</a>}</div>
   <div className="gallery-rail" ref={rail} onScroll={sync} tabIndex="0" aria-label={title}>{children}</div>
-  <div className="gallery-controls"><button type="button" aria-label={title+' '+tr(lang,'이전','上一项','previous')} disabled={ends[0]} onClick={()=>move(-1)}>{tr(lang,'이전','上一项','Previous')}</button><button type="button" aria-label={title+' '+tr(lang,'다음','下一项','next')} disabled={ends[1]} onClick={()=>move(1)}>{tr(lang,'다음','下一项','Next')}</button></div>
+  <div className="gallery-controls"><button type="button" aria-label={title+' '+tr(lang,'이전','上一项','previous')} disabled={ends[0]} onClick={()=>move(-1)}><UiIcon kind="previous"/>{tr(lang,'이전','上一项','Previous')}</button><button type="button" aria-label={title+' '+tr(lang,'다음','下一项','next')} disabled={ends[1]} onClick={()=>move(1)}>{tr(lang,'다음','下一项','Next')}<UiIcon kind="next"/></button></div>
  </section>;
 }
 
@@ -69,7 +70,7 @@ export default function HomeGallery({lang='ko',onHelp}) {
  <Rail id="gallery-attractions" title={t('하루의 여행. 가보고 싶은 곳부터.','一日旅行。从想去的地方开始。','A day away. Start with a place you love.')} note={t('입장권 또는 하루 투어로 선택하세요. 코스별 이동·도보 조건은 상세 페이지에서 확인합니다.','可选择门票或一日游，交通与步行条件请查看详情。','Choose tickets or a day tour. See details for transport and walking conditions.')} lang={lang} link={path(lang,'day-tours.html')} linkLabel={t('하루 투어 보기','查看一日游','Explore day tours')}>
  {sights.map(([image,id,title,description])=><Card lang={lang} key={image} image={attraction(image)} title={title} description={description} href={path(lang,['forest','tianmen','canyon','huanglong'].includes(id)?'day-tours.html?tour='+(id==='huanglong'?'canyon':id):'private-tour.html?mode=custom')} label={['forest','tianmen','canyon','huanglong'].includes(id)?t('하루 투어','一日游','Day tour'):t('맞춤여행으로 구성','组合定制旅行','Add to a custom trip')}/>)}</Rail>
  <Rail id="gallery-stays" title={t('쉬어가는 시간. 숙소도 여행의 일부니까.','休息的时光。住宿，也是旅行的一部分。','Time to rest. Your stay is part of the trip.')} note={t('실제 객실 사진입니다. 날짜별 객실 가능 여부와 요금은 구성 후 확인합니다.','使用实际客房图片。房态与价格按日期确认。','Actual room photos. Availability and rates require confirmation.')} lang={lang} link={path(lang,'multi-booking.html?category=hotel')} linkLabel={t('숙박 구성하기','配置住宿','Choose a stay')}>
- {[['mercure',t('장가계 머큐어','张家界美居','Mercure Zhangjiajie'),'king'],['orange',t('장가계 오렌지','张家界桔子','Orange Zhangjiajie'),'twin'],['homeinn',t('홈인 셀렉트','如家精选','Home Inn Select'),'twin']].map(([id,title,view])=><Card lang={lang} key={id} image={hotel(id,view)} title={title} description={t('객실·위치·식사 조건을 함께 확인해요.','一起确认房型、位置与餐食条件。','Check rooms, location and meal options.')} href={path(lang,'multi-booking.html?category=hotel')} label={t('장가계 시내 숙박','张家界市区住宿','Stays in Zhangjiajie')} wide/>)}
+ {[['mercure',t('장가계 머큐어','张家界美居','Mercure Zhangjiajie'),'king'],['orange',t('장가계 오렌지','张家界桔子','Orange Zhangjiajie'),'twin'],['homeinn',t('홈 인 플러스 호텔','如家精选酒店','Homeinn Plus'),'twin']].map(([id,title,view])=><Card lang={lang} key={id} image={hotel(id,view)} title={title} description={t('객실·위치·식사 조건을 함께 확인해요.','一起确认房型、位置与餐食条件。','Check rooms, location and meal options.')} href={path(lang,'multi-booking.html?category=hotel')} label={t('장가계 시내 숙박','张家界市区住宿','Stays in Zhangjiajie')} wide/>)}
  </Rail>
  <Rail id="gallery-transport" title={t('편안한 이동. 인원과 짐에 맞춰서.','舒适的交通。按人数和行李来选择。','A comfortable ride. Room for your group.')} note={t('실차량 사진입니다. 정원에는 운전자가 포함되며 탑승 인원·짐·배차는 예약 전 확인합니다.','使用实际车辆图片。座位数包含司机，人数、行李与调度需预订前确认。','Actual vehicle photos. Seats include the driver; confirm passengers, luggage and dispatch.')} lang={lang} link={path(lang,'vehicles.html')} linkLabel={t('차량 조건 보기','查看车辆条件','Vehicle details')}>
  {['7','9','14'].map(n=><Card lang={lang} key={n} image={vehicle(n)} title={t(n+'인승 차량',n+'座车辆',n+'-seat vehicle')} description={t('실내·수하물 조건을 확인하세요.','查看内饰与行李条件。','See interior and luggage conditions.')} href={path(lang,'multi-booking.html?category=vehicle')} label={t('전용차량','包车','Private vehicle')}/>)}

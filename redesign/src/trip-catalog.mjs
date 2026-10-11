@@ -37,7 +37,7 @@ export const catalogCopy = {
     action: '이 코스로 견적 문의',
     termsTitle: '예약 전에 함께 확인해요',
     hotelTitle: '숙소 선택',
-    hotels: '머큐어(Mercure/美居) · 오렌지(Orange/桔子) · 홈인플러스(Homeinn Plus/如家精选) 중 희망 브랜드를 알려 주세요. 실제 지점·객실·예약 가능 여부와 차액은 견적 시 확인합니다.',
+    hotels: '머큐어(Mercure/美居) · 오렌지(Orange/桔子) · 홈 인 플러스(Homeinn Plus/如家精选) 중 희망 브랜드를 알려 주세요. 실제 지점·객실·예약 가능 여부와 차액은 견적 시 확인합니다.',
     vehicleTitle: '이동과 식사',
     vehicle: '차량은 실제 인원과 수하물에 맞춰 배정하며 특정 브랜드나 차종을 확약하지 않습니다.',
     meals: '식사 횟수와 구성은 항공편·동선에 따라 달라집니다. 점심은 간편식으로 진행될 수 있습니다.',

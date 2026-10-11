@@ -8,5 +8,5 @@ for (const lang of ['ko','zh','en']) test(`${lang}: verified Homeinn Plus name r
 });
 test('Chinese name and existing Korean brand remain consistent',()=>{
  assert.match(catalogCopy.zh.hotels,/如家精选/);
- assert.match(catalogCopy.ko.hotels,/홈인플러스/);
+ assert.match(catalogCopy.ko.hotels,/홈 인 플러스/);
 });
