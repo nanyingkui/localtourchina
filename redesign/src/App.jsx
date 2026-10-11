@@ -4,6 +4,7 @@ import './styles.css';
 import './editorial.css';
 import './section-layout.css';
 import './apple-presentation.css';
+import './home-gallery.css';
 import Storefront from './Storefront.jsx';
 import {catalogInquiry,packageTitle} from './trip-catalog.mjs';
 import ReviewStories from './ReviewStories.jsx';

@@ -34,3 +34,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 
 # Direct selection feedback (2026-10-11)
 - Required preparation statuses, traveller counts and package adjustments must be directly visible and clickable. Do not hide primary selection controls behind disclosures. Remove redundant entry layers; keep optional explanatory details collapsible. Preserve all saved selections, quote rules and inquiry handoff.
+
+# Complete visual homepage (2026-10-12)
+- User chose Apple Store imagery and explicitly authorized all design, routine verification and publication; do not re-ask.
+- Keep neutral surfaces and complete image-led service shelves, genuine scenery/hotel/vehicle images and separately identified service concepts.
+- HomeGallery sits above the existing direct-selection flows. Keep visible party/preparation controls and full inquiry handoff from the latest release.
+- New conceptual ticket/support artwork is not a real ticket, app screenshot, guide portrait or vehicle photograph.

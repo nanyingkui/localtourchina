@@ -52,20 +52,20 @@ test('destination switching supports back/forward and touch entries have explici
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
 
-test('full-bleed hero keeps responsive photo loading, direct service CTA and accessible title',()=>{
+test('image-led homepage exposes the complete service range with named destinations and working conversion links',()=>{
  for(const lang of ['ko','zh','en']) {
   const html=render(lang);
-  const hero=html.slice(html.indexOf('<section class="home-hero'),html.indexOf('id="destination-products"'));
-  assert.match(hero,/aria-label="[^"]+"/);
-  assert.match(hero,/<h1>/);
-  assert.match(hero,/sizes="100vw"/);
-  assert.match(hero,/fetchPriority="high"/);
-  assert.match(hero,/hero-jpg-320.webp 320w/);
-  assert.match(hero,/href="#service-entry"/);
-  assert.doesNotMatch(hero,/<video|autoplay|zhangjiajie-hero-desktop-v2/);
+  assert.match(html,/<section class="gallery-intro" aria-labelledby="gallery-title"/);
+  assert.match(html,/<h1 id="gallery-title">/);
+  const services=html.slice(html.indexOf('id="gallery-services"'),html.indexOf('id="gallery-attractions"'));
+  const prefix=lang==='ko'?'':'/'+lang;
+  for(const target of ['multi-booking.html?category=ticket','multi-booking.html?category=vehicle','multi-booking.html?category=guide','day-tours.html','multi-booking.html?planner=1','online-guide.html']) assert.ok(services.includes(`href="${prefix}/${target}"`),target);
+  for(const id of ['gallery-packages','gallery-attractions','gallery-stays','gallery-transport','gallery-experiences','gallery-sanya','gallery-information','gallery-videos','gallery-stories']) assert.ok(html.includes(`id="${id}"`),id);
+  assert.ok(html.includes('aria-label="'));
+  assert.doesNotMatch(services,/<video|autoplay/);
  }
- const css=readFileSync(path.join(root,'src/editorial.css'),'utf8');
- assert.match(css,/min-height:350px; height:auto/);
- assert.match(css,/scenic-hero :is\(a,button\):focus-visible/);
+ const css=readFileSync(path.join(root,'src/home-gallery.css'),'utf8');
+ assert.match(css,/focus-visible/);
+ assert.match(css,/prefers-reduced-motion/);
  assert.doesNotMatch(css,/width:100vw/);
 });
