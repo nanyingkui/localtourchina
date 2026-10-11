@@ -977,7 +977,7 @@
     if(window.LTCShopCount?.())$('#comboTotal').textContent=(document.documentElement.lang.startsWith('zh')?'最终合计 · 咨询后逐项报价':'최종 합계 · 咨询 후 항목별 견적');
     const selectedAny=useTicket||useDay||useGuide||useVehicle||window.LTCShopCount?.(),ticketReady=!useTicket||$('#copyBtn').dataset.ready==='true',dayReady=!useDay||$('#service-daytour').dataset.ready==='true',guideReady=!useGuide||$('#service-guide').dataset.ready==='true',vehicleReady=!useVehicle||$('#service-vehicle').dataset.ready==='true';
     const pending=[];if(!ticketReady)pending.push('门票');if(!dayReady)pending.push('一日游');if(!guideReady)pending.push('当地导游');if(!vehicleReady)pending.push('车型·接送');
-    $('#comboStatus').textContent=!selectedAny?'请先选择需要的服务，下方将显示对应配置入口。':pending.length?pending.join(', ')+' 설정을 열어 必填信息를 请填写.':'选择한 서비스의 必填信息가 모두 반영되었습니다. 통합 咨询内容을 请确认.';
+    $('#comboStatus').textContent=!selectedAny?'请先选择需要的服务，下方将显示对应配置入口。':pending.length?pending.join(', ')+' 설정을 열어 必填信息를 请填写.':'所选服务的必填信息已齐全，请核对综合咨询内容。';
     $('#comboCopy').disabled=false;$('#comboCopy').textContent='① 复制综合咨询内容';
   }
   window.LTCRefreshCombo=renderCombo;

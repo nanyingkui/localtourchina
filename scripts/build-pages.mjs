@@ -21,6 +21,7 @@ await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WI
 const englishTemplate = await readFile(path.join(root, 'src/english-template.html'), 'utf8');
 const zhTravelInfo = await readFile(path.join(root, 'src/zh-travel-info.html'), 'utf8');
 const zhPairs = [
+  ["선택한 서비스의 필수 정보가 모두 반영되었습니다. 통합 문의 내용을 확인해 주세요.","所选服务的必填信息已齐全，请核对综合咨询内容。"],
   ["4일권 · 재입장 예약 안내", "四日有效门票 · 再次入园预约说明"],
   ["티켓은 최초 활성화 당일부터 4일간 유효하지만, 4일치 입장이 자동으로 예약되는 것은 아닙니다.", "门票自首次激活当日起四天有效，但不代表四天的入园日期已自动预约。"],
   ["동시에 유지할 수 있는 미사용 입장 예약은 최대 2회입니다.", "同时最多保留两个尚未使用的入园预约。"],
