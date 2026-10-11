@@ -7,7 +7,6 @@ import {
 
 function TripCard({ product, lang, onSelect }) {
   const id = useId();
-  const [expanded, setExpanded] = useState(() => typeof location !== 'undefined' && new URLSearchParams(location.search).get('product') === product.id);
   const [initialPax] = useState(() => partyFromSearch(product, typeof location === 'undefined' ? '' : location.search));
   const [tier, setTier] = useState(PARTY_TIERS.includes(initialPax) ? String(initialPax) : 'custom');
   const [customPax, setCustomPax] = useState(PARTY_TIERS.includes(initialPax) ? '3' : String(initialPax));
@@ -41,7 +40,7 @@ function TripCard({ product, lang, onSelect }) {
       </div>
       <p className="trip-catalog-price-note">{t.basis}<br />{t.priceNote}{lang==='en'&&<><br />{englishPricingNote}</>}</p>
 
-      <details className="trip-configuration" open={!validPax || expanded} onToggle={event => { if (!validPax && !event.currentTarget.open) event.currentTarget.open = true; setExpanded(event.currentTarget.open); }}><summary>{lang==='ko'?'인원·포함사항·일정 확인':lang==='zh'?'查看人数、包含项目与行程':'Party size, inclusions & itinerary'}<span aria-hidden="true"> +</span></summary><div className="trip-configuration-body">
+      <section className="trip-configuration"><div className="trip-configuration-body">
       <ul className="trip-catalog-highlights">{c.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
       <fieldset className="trip-catalog-party" aria-describedby={`${id}-party-help`}>
         <legend>{t.party}</legend>
@@ -72,7 +71,7 @@ function TripCard({ product, lang, onSelect }) {
         </li>)}</ol>
         <p className="trip-catalog-price-note">{t.itineraryNote}</p>
       </details>
-      </div></details>
+      </div></section>
       <button type="button" className="trip-catalog-action button primary" disabled={!validPax || typeof onSelect !== 'function'}
         onClick={() => onSelect?.(product, Number(selectedPax))}>{t.action}<span aria-hidden="true"> →</span></button>
     </div>
