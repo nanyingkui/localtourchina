@@ -31,3 +31,6 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 # Production delivery authorization
 The user requested a fully launchable delivery and delegated all routine decisions. This release is distinct from the local preview. Preserve canonical original public URLs and existing service calculators. Use existing public Supabase RPCs; never expose secret keys. Keep original source photos archived outside public.
+
+# Direct selection feedback (2026-10-11)
+- Required preparation statuses, traveller counts and package adjustments must be directly visible and clickable. Do not hide primary selection controls behind disclosures. Remove redundant entry layers; keep optional explanatory details collapsible. Preserve all saved selections, quote rules and inquiry handoff.
