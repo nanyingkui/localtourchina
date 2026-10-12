@@ -62,6 +62,8 @@ test('simple homepage preserves three entry paths, representative packages and s
   for(const id of ['prepared-trips','service-entry','travel-information']) assert.ok(html.includes(`href="#${id}"`));
   assert.equal((html.match(/class="home-featured-card"/g)||[]).length,3);
   assert.equal((html.match(/class="home-feedback-card"/g)||[]).length,3);
+  assert.equal((html.match(/class="home-feedback-meta"/g)||[]).length,3);
+  assert.doesNotMatch(html.slice(html.indexOf('class="home-featured home-feedback"'),html.indexOf('id="destination-products"')),/<footer/);
   const prefix=lang==='ko'?'':'/'+lang;
   for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}"`));
   const reviews=html.slice(html.indexOf('class="home-featured home-feedback"'),html.indexOf('id="destination-products"'));
