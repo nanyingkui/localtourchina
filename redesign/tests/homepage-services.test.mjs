@@ -52,20 +52,24 @@ test('destination switching supports back/forward and touch entries have explici
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
 
-test('image-led homepage exposes the complete service range with named destinations and working conversion links',()=>{
+test('simple homepage preserves three entry paths, representative packages and sourced feedback',()=>{
  for(const lang of ['ko','zh','en']) {
   const html=render(lang);
-  assert.match(html,/<section class="gallery-intro" aria-labelledby="gallery-title"/);
-  assert.match(html,/<h1 id="gallery-title">/);
-  const services=html.slice(html.indexOf('id="gallery-services"'),html.indexOf('id="gallery-attractions"'));
+  assert.match(html,/<section class="home-hero scenic-hero"/);
+  const actions=html.slice(html.indexOf('class="home-hero-actions"'),html.indexOf('class="brand-welcome"'));
+  assert.ok(actions.includes('href="#prepared-trips"'));
+  assert.match(actions,/<button/);
+  for(const id of ['prepared-trips','service-entry','travel-information']) assert.ok(html.includes(`href="#${id}"`));
+  assert.equal((html.match(/class="home-featured-card"/g)||[]).length,3);
+  assert.equal((html.match(/class="home-feedback-card"/g)||[]).length,3);
   const prefix=lang==='ko'?'':'/'+lang;
-  for(const target of ['multi-booking.html?category=ticket','multi-booking.html?category=vehicle','multi-booking.html?category=guide','day-tours.html','multi-booking.html?planner=1','online-guide.html']) assert.ok(services.includes(`href="${prefix}/${target}"`),target);
-  for(const id of ['gallery-packages','gallery-attractions','gallery-stays','gallery-transport','gallery-experiences','gallery-sanya','gallery-information','gallery-videos','gallery-stories']) assert.ok(html.includes(`id="${id}"`),id);
-  assert.ok(html.includes('aria-label="'));
-  assert.doesNotMatch(services,/<video|autoplay/);
+  for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}"`));
+  const reviews=html.slice(html.indexOf('class="home-featured home-feedback"'),html.indexOf('id="destination-products"'));
+  for(const id of ['221','212','210']) assert.ok(reviews.includes(`/articles/${id}?`));
+  assert.ok(html.indexOf('class="home-pathways"')<html.indexOf('id="featured-packages-heading"'));
+  assert.ok(html.indexOf('id="featured-packages-heading"')<html.indexOf('id="featured-feedback-heading"'));
  }
- const css=readFileSync(path.join(root,'src/home-gallery.css'),'utf8');
- assert.match(css,/focus-visible/);
- assert.match(css,/prefers-reduced-motion/);
- assert.doesNotMatch(css,/width:100vw/);
+ const css=readFileSync(path.join(root,'src/apple-presentation.css'),'utf8');
+ assert.match(css,/home-hero-actions\{display:flex!important/);
+ assert.match(css,/home-featured-grid\{grid-template-columns:1fr/);
 });

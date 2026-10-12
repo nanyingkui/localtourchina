@@ -40,3 +40,6 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Keep neutral surfaces and complete image-led service shelves, genuine scenery/hotel/vehicle images and separately identified service concepts.
 - HomeGallery sits above the existing direct-selection flows. Keep visible party/preparation controls and full inquiry handoff from the latest release.
 - New conceptual ticket/support artwork is not a real ticket, app screenshot, guide portrait or vehicle photograph.
+
+# Screenshot homepage refinement (2026-10-12)
+- User selected the provided simple homepage screenshot. Keep its white/gray/black/blue style, three entry cards and mountain photo. Add only hero actions, three representative regular packages and three sourced Cafe review summaries before the footer. Preserve original source links and detailed booking flows.
