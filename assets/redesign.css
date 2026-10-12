@@ -391,3 +391,9 @@ body:has(.shop-category-nav) .brand-service-rail,.selection-catalog>.brand-headi
 
 /* Explicit colours prevent the legacy button surface from erasing the action fill. */
 .shop-product-card .shop-product-action{background:#0066cc!important;border:1px solid #0066cc!important;color:#fff!important}.shop-product-card .shop-product-action:hover{background:#0055ad!important;border-color:#0055ad!important}.shop-product-card .shop-product-action:active{background:#00458f!important}.shop-product-card .shop-product-action:focus-visible{outline:3px solid #0066cc;outline-offset:3px}.ltc-brand-page .service-media-card.service-media-card>span{background:#1d1d1f!important;color:#fff!important}
+
+/* Image headings need their own contrast layer; brand defaults must not restore black text. */
+body.ltc-brand-page .module-head.media-head:before{content:"";display:block!important;position:absolute;inset:0;z-index:0;background:rgba(0,0,0,.72)!important;border-radius:inherit}
+body.ltc-brand-page .module-head.media-head>*{position:relative;z-index:1}
+body.ltc-brand-page .module-head.media-head :is(h1,h2,p,.brand,.eyebrow){color:#fff!important}
+.handoff-status{flex-basis:100%;grid-column:1/-1;margin:12px 0;padding:12px 14px;border:1px solid #86868b;background:#fff;color:#1d1d1f;line-height:1.6;overflow-wrap:anywhere}.handoff-chat-fallback{display:inline-block;min-height:44px;padding:10px 0;color:#0055ad!important;text-decoration:underline}.selection-checkout[aria-busy=true]{cursor:progress}

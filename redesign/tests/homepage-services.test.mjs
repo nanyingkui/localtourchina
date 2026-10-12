@@ -52,26 +52,15 @@ test('destination switching supports back/forward and touch entries have explici
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
 
-test('simple homepage preserves three entry paths, representative packages and sourced feedback',()=>{
+test('journal homepage preserves distinct paths, conditional prices and sourced feedback',()=>{
  for(const lang of ['ko','zh','en']) {
-  const html=render(lang);
-  assert.match(html,/<section class="home-hero scenic-hero"/);
-  const actions=html.slice(html.indexOf('class="home-hero-actions"'),html.indexOf('class="brand-welcome"'));
-  assert.ok(actions.includes('href="#prepared-trips"'));
-  assert.match(actions,/<button/);
-  for(const id of ['prepared-trips','service-entry','travel-information']) assert.ok(html.includes(`href="#${id}"`));
-  assert.equal((html.match(/class="home-featured-card"/g)||[]).length,3);
-  assert.equal((html.match(/class="home-feedback-card"/g)||[]).length,3);
-  assert.equal((html.match(/class="home-feedback-meta"/g)||[]).length,3);
-  assert.doesNotMatch(html.slice(html.indexOf('class="home-featured home-feedback"'),html.indexOf('id="destination-products"')),/<footer/);
-  const prefix=lang==='ko'?'':'/'+lang;
+  const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
+  assert.match(html,/<section class="journal-hero"/);
+  assert.ok(html.includes('href="#prepared-trips"'));
+  assert.ok(html.includes(`href="${prefix}/multi-booking.html?planner=1"`));
+  assert.equal((html.match(/class="journal-package"/g)||[]).length,3);
+  assert.equal((html.match(/class="journal-reference-price"/g)||[]).length,3);
   for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}"`));
-  const reviews=html.slice(html.indexOf('class="home-featured home-feedback"'),html.indexOf('id="destination-products"'));
-  for(const id of ['221','212','210']) assert.ok(reviews.includes(`/articles/${id}?`));
-  assert.ok(html.indexOf('class="home-pathways"')<html.indexOf('id="featured-packages-heading"'));
-  assert.ok(html.indexOf('id="featured-packages-heading"')<html.indexOf('id="featured-feedback-heading"'));
+  for(const id of ['221','212','210']) assert.ok(html.includes(`/articles/${id}?`));
  }
- const css=readFileSync(path.join(root,'src/apple-presentation.css'),'utf8');
- assert.match(css,/home-hero-actions\{display:flex!important/);
- assert.match(css,/home-featured-grid\{grid-template-columns:1fr/);
 });

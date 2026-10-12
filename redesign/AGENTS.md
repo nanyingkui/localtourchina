@@ -43,3 +43,10 @@ The user requested a fully launchable delivery and delegated all routine decisio
 
 # Screenshot homepage refinement (2026-10-12)
 - User selected the provided simple homepage screenshot. Keep its white/gray/black/blue style, three entry cards and mountain photo. Add only hero actions, three representative regular packages and three sourced Cafe review summaries before the footer. Preserve original source links and detailed booking flows.
+
+# Journal release (2026-10-12)
+- User selected the third journal concept: warm ivory, fine rules, orange, left mountain/right hero. Apply to child pages and interactions, not just home.
+- Navigation: home, selected items, prepared packages with conditional guide prices, tailor-made itineraries with personal quotes, travel information.
+- Preserve existing production submission and full selection/quote handoff. Guide prices state party size and per-adult entire-trip basis; adjustments require a new quote.
+- User explicitly authorized publication of this complete preview on 2026-10-12.
+- Child-page theme is injected by redesign/scripts/apply-journal-theme.mjs after generated legacy/review pages; source styles and UX enhancements remain in redesign/public/assets/journal*.
