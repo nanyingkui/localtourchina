@@ -50,3 +50,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Preserve existing production submission and full selection/quote handoff. Guide prices state party size and per-adult entire-trip basis; adjustments require a new quote.
 - User explicitly authorized publication of this complete preview on 2026-10-12.
 - Child-page theme is injected by redesign/scripts/apply-journal-theme.mjs after generated legacy/review pages; source styles and UX enhancements remain in redesign/public/assets/journal*.
+
+
+# Rounded production release (2026-10-13)
+- User requests applying approved rounded design and imagery to production on desktop/mobile, with working interactions.
+- RoundedLanding is the visible homepage backed by existing calculators, selection ledger and production inquiry handoff.
+- Orange #FF8A00, navy #11223D, brown #5B3A1E. Photo edits and service concepts are identified separately.

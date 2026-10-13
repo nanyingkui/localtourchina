@@ -52,15 +52,17 @@ test('destination switching supports back/forward and touch entries have explici
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
 
-test('journal homepage preserves distinct paths, conditional prices and sourced feedback',()=>{
+test('rounded homepage preserves direct service paths, conditional prices and sourced feedback',()=>{
  for(const lang of ['ko','zh','en']) {
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
-  assert.match(html,/<section class="journal-hero"/);
+  assert.match(html,/<section class="rounded-hero"/);
   assert.ok(html.includes('href="#prepared-trips"'));
-  assert.ok(html.includes(`href="${prefix}/multi-booking.html?planner=1"`));
-  assert.equal((html.match(/class="journal-package"/g)||[]).length,3);
-  assert.equal((html.match(/class="journal-reference-price"/g)||[]).length,3);
-  for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}"`));
+  assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=ticket"`));
+  assert.equal((html.match(/class="rounded-package"/g)||[]).length,3);
+  assert.equal((html.match(/class="rounded-project"/g)||[]).length,5);
+  assert.match(html,/hero-mobile.webp/);
+  for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}&amp;pax=4"`));
   for(const id of ['221','212','210']) assert.ok(html.includes(`/articles/${id}?`));
  }
 });
+

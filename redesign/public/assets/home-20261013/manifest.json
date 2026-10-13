@@ -1,0 +1,104 @@
+{
+  "brand": {
+    "orange": "#FF8A00",
+    "navy": "#11223D",
+    "brown": "#5B3A1E"
+  },
+  "generation": "Built-in image_gen tool",
+  "images": [
+    {
+      "id": "hero-desktop",
+      "title": "电脑首屏",
+      "kind": "相册全景精修 · 宽幅构图",
+      "file": "images/hero-desktop.png",
+      "width": 1672,
+      "height": 940,
+      "bytes": 2932355
+    },
+    {
+      "id": "hero-mobile",
+      "title": "手机首屏",
+      "kind": "同源山景精修 · 独立竖向构图",
+      "file": "images/hero-mobile.png",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 2926385
+    },
+    {
+      "id": "ticket",
+      "title": "天门山项目与套餐",
+      "kind": "天门山实拍精修",
+      "file": "images/ticket.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 3243832
+    },
+    {
+      "id": "village",
+      "title": "芙蓉镇套餐与图库",
+      "kind": "芙蓉镇实拍精修",
+      "file": "images/village.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 3084215
+    },
+    {
+      "id": "transfer",
+      "title": "接送项目",
+      "kind": "AI 车辆服务概念图",
+      "file": "images/transfer.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2070706
+    },
+    {
+      "id": "hotel",
+      "title": "住宿项目",
+      "kind": "AI 客房服务概念图",
+      "file": "images/hotel.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2818723
+    },
+    {
+      "id": "guide",
+      "title": "导游项目",
+      "kind": "AI 导览物品概念图",
+      "file": "images/guide.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2443560
+    },
+    {
+      "id": "experience",
+      "title": "体验项目",
+      "kind": "AI 演出与体验概念图",
+      "file": "images/experience.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2351676
+    },
+    {
+      "id": "mascot-clean",
+      "title": "品牌头像",
+      "kind": "用户 Logo 衍生 · 透明背景",
+      "file": "images/mascot-clean.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 877126
+    }
+  ],
+  "iconCount": 30,
+  "sourcePhotos": [
+    "IMG_0525.jpeg",
+    "IMG_6666.jpeg",
+    "img_20260922_184255.jpeg"
+  ],
+  "referenceLogo": "../brand-reference.png",
+  "notes": [
+    "AI 车辆与酒店图片表达服务概念，不代表实际车队或可预订客房。",
+    "景点图片由用户实拍照片经 AI 精修与构图调整。",
+    "Logo 两个 SVG 组合文件内含头像 PNG；30 个功能图标为原生矢量。",
+    "当前素材覆盖已制作的主页原型；新增具体产品需要对应实拍或独立制作。"
+  ]
+}
