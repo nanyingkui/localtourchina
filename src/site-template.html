@@ -758,9 +758,9 @@
       const panel=$('#service-'+name);
       const intro=document.createElement('div');intro.className='combo-editor-note';
       intro.textContent=service.label+' 설정 중 · 입력한 내용은 이 페이지에서 유지됩니다. 설정 후 묶음예약에 반영해 주세요.';
-      const apply=document.createElement('button');apply.type='button';apply.className='btn btn-primary combo-apply';apply.textContent='묶음예약에 반영';
-      apply.addEventListener('click',()=>openService('combo',false));
-      const back=apply.cloneNode(true);back.textContent='← 묶음예약으로 돌아가기';back.addEventListener('click',()=>openService('combo',false));
+      const apply=document.createElement('button');apply.type='button';apply.className='btn btn-primary combo-apply';apply.dataset.comboAction='save';apply.textContent=document.documentElement.lang.startsWith('zh')?'确认并加入清单':'확인하고 선택 명세에 추가';
+      apply.addEventListener('click',()=>{if(!window.LTCValidation?.validate(name))return;openService('combo',false);document.dispatchEvent(new CustomEvent('ltc-shop-saved',{detail:{category:name,isService:true}}));});
+      const back=apply.cloneNode(true);back.dataset.comboAction='back';back.textContent=document.documentElement.lang.startsWith('zh')?'返回产品列表（保留填写内容）':'상품 목록으로 돌아가기 · 입력 유지';back.addEventListener('click',()=>openService('combo',false));
       intro.append(back);panel.prepend(intro);panel.append(apply);
     });
   }

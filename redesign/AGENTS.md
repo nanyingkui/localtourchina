@@ -63,3 +63,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Clamp shelf navigation to actual content boundaries and disable unavailable arrows. Gallery must retain the current decoded photo while loading the next; do not wrap past the last photo.
 - Gallery now contains 8 distinct scenes including 5 additional photos selected and exported from the user's Apple Photos. Keep captions, thumbnail selection, source disclosure and page count.
 - Homepage review shelf needs an explicit all-stories link to the existing full review archive.
+
+# Unified child pages (2026-10-13)
+- User requests matching all child pages to the current approved rounded-card homepage. Preserve homepage design, calculators, Tianmen C-only restrictions and inquiry handoff.
+- Shared presentation resides in public/assets/rounded-pages.css and rounded-pages.js, injected by apply-journal-theme.mjs with content hashes. Use existing homepage photographs, explicitly labelled concepts, mascot and SVG assets.
+- Cover legacy service-illustration-hero as well as module-head; service guide disclosures follow the hero/media strip.
+- User expanded scope to interactions and flow: one category selector on combination booking, preserve drafts on return, validate service details before adding to ledger, and provide an explicit contact-form handoff with Kakao copy as an alternative.
