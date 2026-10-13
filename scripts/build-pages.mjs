@@ -261,7 +261,7 @@ for (const page of pages) {
   html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service) || page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file === 'index.html' ? '' : page.file}">\n</head>`);
   if (page.service === 'reviews') html = html.replace(/  <link rel="alternate" hreflang="en"[^>]*>\n/, '');
   html = `<!-- Generated from src/site-template.html. Run: npm run build -->\n${html}`;
-  await writeFile(path.join(root, page.file), withImageDimensions(html));
+  await writeFile(path.join(root, page.file), withImageDimensions(html.replace(/<(section|div)\b[^>]*class="[^"]*\bservice-panel\b[^"]*"[^>]*>/g, tag => { const id=tag.match(/id="service-([^"]+)"/)?.[1]; return tag.replace(/\s+hidden\b/g, "").replace(/>$/, id===page.service ? ">" : " hidden>"); })));
 }
 
 const englishPages = [
@@ -307,13 +307,13 @@ for(const page of zhPages){
   if(page.service==='reviews')html=html.replace('</head>','<style>.youtube-reviews{display:none}</style></head>');
   html=html.replace('</head>',`  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service)||page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file==='index.html'?'':page.file}">\n</head>`);
   html=`<!-- Generated from src/site-template.html with Chinese translations. Run: npm run build -->\n${html}`;
-  await writeFile(path.join(zhDir,page.file),withImageDimensions(html));
+  await writeFile(path.join(zhDir,page.file),withImageDimensions(html.replace(/<(section|div)\b[^>]*class="[^"]*\bservice-panel\b[^"]*"[^>]*>/g, tag => { const id=tag.match(/id="service-([^"]+)"/)?.[1]; return tag.replace(/\s+hidden\b/g, "").replace(/>$/, id===page.service ? ">" : " hidden>"); })));
 }
 
 const sitemapUrls = [...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'})),{file:'reviews.html',service:'reviews',prefix:'en/'}].map(page => {
   const url = `https://localtourchina.com/${page.prefix}${page.file === 'index.html' ? '' : page.file}`;
   const priority = page.service === 'home' ? '1.0' : '0.8';
-  return `  <url>\n    <loc>${url}</loc>\n    <lastmod>2026-09-28</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString().slice(0,10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }).join('\n');
 
 await writeFile(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`);
