@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {shelfEdges,shelfTarget,sceneTarget} from '../src/gallery-navigation.mjs';
+test('shelf arrows stop at physical edges and do not expose trailing blank space',()=>{assert.deepEqual(shelfEdges(0,400,1300),{previous:false,next:true,max:900});assert.equal(shelfEdges(900,400,1300).next,false);assert.equal(shelfTarget(890,400,1300,1),900);assert.equal(shelfTarget(5,400,1300,-1),0);assert.deepEqual(shelfEdges(0,1400,1300),{previous:false,next:false,max:0});});
+test('scenery navigation clamps at first and last photographs',()=>{assert.equal(sceneTarget(0,-1,8),0);assert.equal(sceneTarget(7,1,8),7);assert.equal(sceneTarget(6,1,8),7);assert.equal(sceneTarget(2,-1,8),1);});

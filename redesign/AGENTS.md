@@ -58,3 +58,8 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Orange #FF8A00, navy #11223D, brown #5B3A1E. Photo edits and service concepts are identified separately.
 
 - User rejected coarse classification icons. Use refined 64-unit SVG pictograms, fine rounded strokes, navy and restrained orange accents.
+
+# Gallery and navigation feedback (2026-10-13)
+- Clamp shelf navigation to actual content boundaries and disable unavailable arrows. Gallery must retain the current decoded photo while loading the next; do not wrap past the last photo.
+- Gallery now contains 8 distinct scenes including 5 additional photos selected and exported from the user's Apple Photos. Keep captions, thumbnail selection, source disclosure and page count.
+- Homepage review shelf needs an explicit all-stories link to the existing full review archive.
