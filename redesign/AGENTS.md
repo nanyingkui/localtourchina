@@ -56,3 +56,5 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - User requests applying approved rounded design and imagery to production on desktop/mobile, with working interactions.
 - RoundedLanding is the visible homepage backed by existing calculators, selection ledger and production inquiry handoff.
 - Orange #FF8A00, navy #11223D, brown #5B3A1E. Photo edits and service concepts are identified separately.
+
+- User rejected coarse classification icons. Use refined 64-unit SVG pictograms, fine rounded strokes, navy and restrained orange accents.
