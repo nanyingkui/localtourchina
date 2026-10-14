@@ -69,3 +69,6 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Shared presentation resides in public/assets/rounded-pages.css and rounded-pages.js, injected by apply-journal-theme.mjs with content hashes. Use existing homepage photographs, explicitly labelled concepts, mascot and SVG assets.
 - Cover legacy service-illustration-hero as well as module-head; service guide disclosures follow the hero/media strip.
 - User expanded scope to interactions and flow: one category selector on combination booking, preserve drafts on return, validate service details before adding to ledger, and provide an explicit contact-form handoff with Kakao copy as an alternative.
+
+# Journey clarity (2026-10-14)
+- User wants a clear current section and minimal required content. Journey overview shows compact task rows; open one task at a time. Display a current-location label and return-to-trip entry. Preserve automatic drafts, selections, preparation progress and inquiry handoff.
