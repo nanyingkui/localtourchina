@@ -72,3 +72,13 @@ The user requested a fully launchable delivery and delegated all routine decisio
 
 # Journey clarity (2026-10-14)
 - User wants a clear current section and minimal required content. Journey overview shows compact task rows; open one task at a time. Display a current-location label and return-to-trip entry. Preserve automatic drafts, selections, preparation progress and inquiry handoff.
+
+# Independent travel planner entry (2026-10-14)
+- User requested a public, separate Korean China travel planner with browser-local personal itineraries and the Zhangjiajie template.
+- Add its entry near the bottom of the homepage; preserve the existing homepage presentation and service/inquiry flows.
+- The standalone planner and its entry use the user's selected Edigital reference: black surfaces, neon lime emphasis, bold headings and sculptural travel imagery. This direction does not restyle other homepage sections.
+- Planner URL: https://china-trip-planner.nanyingkui.chatgpt.site/ . Explicitly describe browser-local saving, backup/PDF, and the Korean interface on non-Korean homepages.
+
+# Latest approved visual direction (2026-10-14)
+- Heavn One (https://heavn-one.webflow.io/) supersedes Edigital for the standalone planner and homepage bottom entry only. Full-bleed scenic hero, large neutral type, generous white/gray surfaces, scroll timeline with clock and light-to-dark phases, accessible disclosures. Preserve existing functional planner and homepage flows.
+- Use sourced travel scenery; label Fenghuang as an optional extension and brightness effects as visual time previews, not live weather. Respect reduced motion.
