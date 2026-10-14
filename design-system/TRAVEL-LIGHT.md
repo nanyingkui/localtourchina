@@ -47,3 +47,13 @@ React复用 src/ScenicHero.jsx + scenic-hero.css。旅行工具复用 experience
 
 ## 导航与按钮 v1.1 / 이용 목적과 버튼
 首页明确区分免费行程工具、免费旅行情报和可选付费服务。不购买也可规划与查资料；产品服务按需推荐。规划和天气放主视觉后、产品前，保留昼夜渐变。详情先读具体说明，选项进入配置，不能用同一句简介充当详情。主操作用#3f5c36白字、次操作白底细边；10px按钮圆角、46px高度，不混用下划线与胶囊。阅读链接保留下划线，说明卡片16px圆角、无厚阴影。
+
+## V2: prepare first, book only when needed
+
+The primary navigation has three destinations: free travel information, optional paid service configuration, and the independent free itinerary tool. Keep a Home link alongside them.
+
+The homepage primary action opens itinerary preparation. Its secondary action opens booking. Do not put product shelves, package prices, booking forms or full guides on the homepage. Preserve old deep links for compatibility.
+
+Show a current-hour weather summary on the homepage. One click opens the full ten-day/hourly panel. The information page has a directly addressable weather disclosure and does not display product-category navigation. Keep unavailable visibility explicitly missing.
+
+Prioritize native Korean UI fonts (Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR). Mobile headline 29px; body 14-15px. Keep day/night scenery as a supporting experience below the useful navigation. Preserve the mascot outfit and proportions. Existing quote calculations and validations remain authoritative.
