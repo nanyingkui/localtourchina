@@ -23,3 +23,5 @@ body.rounded-page{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",
 body[data-journey-screen] .ltc-video-help{display:none!important}body.journey-focused .journey-mode-switch{display:none!important}.journey-mode-switch{margin:8px 0!important;padding:0!important;min-height:0!important}.journey-location{scroll-margin-top:90px}.journey-step-actions{margin:10px 0!important;padding:0!important}.journey-focused .journey-planner .journey-area{margin-top:18px!important;padding-top:0!important}.journey-focused .journey-task-heading{margin-bottom:12px!important}
 
 body[data-journey-screen] .journey-location{position:sticky;top:0;z-index:30;background:#f4f6f8}body[data-journey-screen] .journey-location+.journey-step-actions{position:sticky;top:var(--journey-location-height,48px);z-index:29;background:#f5f5f7;padding:8px 0!important}
+
+body[data-journey-screen] :is(.journey-planner,.shop-config-heading){scroll-margin-top:150px}
