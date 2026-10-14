@@ -51,3 +51,25 @@ body.rounded-page :is(#page-main,.wrap) button,body.rounded-page :is(#page-main,
 body.rounded-page,.storefront,.site-header{font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif!important}.info-weather-disclosure{margin:16px 0 24px;scroll-margin-top:100px}.info-weather-disclosure>div{margin-top:14px}.info-weather-disclosure>.weather-widget{background:white}.info-weather-disclosure summary{font-size:15px}
 body.information-page .brand-service-rail{display:none!important}body.information-page .journal-flow-guide{display:none!important}
 .site-header nav a[aria-current=page],body.rounded-page .rounded-page-header .service-nav a[aria-current=page]{font-weight:700!important;color:#3f5c36!important;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+/* Three-screen consultation: choose, details, review. */
+.inquiry-progress{display:flex;gap:8px;list-style:none;padding:16px 0;margin:0 auto 20px;max-width:1120px;counter-reset:inquiry-step;font-size:14px;line-height:1.5}
+.inquiry-progress li{flex:1;padding:12px;background:#eef1ec;color:#566158;border-radius:10px;counter-increment:inquiry-step}
+.inquiry-progress li::before{content:counter(inquiry-step) ' · ';font-weight:700}
+.inquiry-progress li[aria-current=step]{background:#355c45;color:white;font-weight:700}
+.quick-inquiry-review .inquiry-progress li::before{content:none}
+.inquiry-contact-inline{display:grid;gap:10px;padding:20px;margin:20px 0 10px;border:1px solid #cbd6c9;border-radius:14px;background:#f5f7f2;max-width:720px}
+.inquiry-contact-inline label{font-weight:650;font-size:15px;color:#24392d}
+.inquiry-contact-inline input{width:100%;min-height:48px;padding:12px;border:1px solid #9eafa2;border-radius:9px;background:#fff;color:#24392d;font:inherit;box-sizing:border-box}
+.inquiry-contact-inline .inquiry-next{min-height:48px;border-radius:10px;background:#355c45;color:#fff;border:1px solid #355c45;font-size:16px;font-weight:650;cursor:pointer}
+.inquiry-contact-inline .field-error:empty{display:none}
+.inquiry-add-more{background:transparent!important;color:#355c45!important;border:1px solid #a9b8ac!important;border-radius:10px!important;min-height:44px}
+.quick-inquiry-review fieldset[hidden]{display:none!important}
+@media(max-width:600px){.inquiry-progress{gap:5px;font-size:12px;padding:10px 12px;box-sizing:border-box}.inquiry-progress li{padding:10px 7px}.inquiry-contact-inline{padding:16px}}
+.three-step-inquiry .service-panel .order-steps,.three-step-inquiry .service-panel .order-note,.three-step-inquiry .service-panel .module-actions,.three-step-inquiry .service-panel .handoff-guide,.three-step-inquiry .service-panel .handoff-guide-note{display:none!important}
+.inquiry-review-summary{font-weight:650;line-height:1.8;color:#274532}
+.quick-inquiry-review .consult-aside{display:none}
+.quick-inquiry-review .consult-layout{grid-template-columns:minmax(0,760px);justify-content:center}
+.quick-inquiry-review .consult-heading h1{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:32px;line-height:1.35;letter-spacing:-.035em;font-weight:700}
+.quick-inquiry-review .consult-heading>p:last-child{display:none}
+.quick-inquiry-review .consult-heading{margin-bottom:24px}
+@media(max-width:600px){.quick-inquiry-review .consult-heading h1{font-size:27px}.quick-inquiry-review .inquiry-progress{padding-left:0;padding-right:0}.quick-inquiry-review .inquiry-progress li{word-break:keep-all;overflow-wrap:anywhere}}

@@ -57,3 +57,6 @@ The homepage primary action opens itinerary preparation. Its secondary action op
 Show a current-hour weather summary on the homepage. One click opens the full ten-day/hourly panel. The information page has a directly addressable weather disclosure and does not display product-category navigation. Keep unavailable visibility explicitly missing.
 
 Prioritize native Korean UI fonts (Apple SD Gothic Neo, Malgun Gothic, Noto Sans KR). Mobile headline 29px; body 14-15px. Keep day/night scenery as a supporting experience below the useful navigation. Preserve the mascot outfit and proportions. Existing quote calculations and validations remain authoritative.
+
+### Three-screen service inquiry
+The primary Korean and Chinese catalogue route is: (1) choose a service, (2) configure dates, party and contact in the same screen, (3) review and submit the inquiry with explicit consent. The receipt is a result, not another form step. Saving more services is secondary. Full service conditions and quote references travel with the inquiry. No payment or reservation confirmation is implied. English and bespoke itinerary builders retain their existing flows.

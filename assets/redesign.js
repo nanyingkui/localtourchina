@@ -111,6 +111,29 @@
  }
  const continueInquiry=e=>{if(!validateSelection()){e.preventDefault();return;}transfer();};
  link.addEventListener('click',continueInquiry);
+ // The primary route has three screens; saving extra services stays optional.
+ if(service==='combo'&&!en){
+  const words=(ko,cn,english)=>zh?cn:en?english:ko;
+  let pendingContact='';
+  const progress=document.createElement('ol');progress.className='inquiry-progress';
+  for(const label of [words('서비스 선택','选择服务','Choose service'),words('일정·연락처 입력','填写行程与联系方式','Dates & contact'),words('확인 후 상담 신청','确认并提交咨询','Review & submit')]){const item=document.createElement('li');item.textContent=label;progress.append(item);}
+  document.body.classList.add('three-step-inquiry');if(header)header.after(progress);else main.prepend(progress);
+  const install=()=>{
+   document.querySelectorAll('.combo-apply[data-combo-action="save"],.shop-extra-form .shop-product-action').forEach(save=>{
+    if(save.dataset.quickInquiry)return;save.dataset.quickInquiry='true';
+    const area=document.createElement('div');area.className='inquiry-contact-inline';
+    const label=document.createElement('label');const input=document.createElement('input');input.id='quick-contact-'+document.querySelectorAll('.inquiry-contact-inline').length;input.type='text';input.maxLength=200;input.required=true;input.autocomplete='off';label.htmlFor=input.id;label.textContent=words('카카오톡 ID 또는 전화번호 · 필수','Kakao ID 或电话 · 必填','Kakao ID or phone · required');input.placeholder=words('연락받을 ID 또는 전화번호','填写可联系到您的 ID 或电话','Your contact ID or phone');
+    try{input.value=sessionStorage.getItem('ltc-quick-contact')||'';}catch{}
+    const error=document.createElement('p');error.className='field-error';error.setAttribute('role','alert');
+    const next=document.createElement('button');next.type='button';next.className='btn btn-primary inquiry-next';next.textContent=words('선택 내용 확인하기 →','下一步：核对咨询 →','Review inquiry →');
+    next.addEventListener('click',()=>{if(!input.value.trim()){error.textContent=words('연락받을 카카오톡 ID 또는 전화번호를 입력해 주세요.','请填写接收回复的 Kakao ID 或电话。','Enter your contact ID or phone.');input.setAttribute('aria-invalid','true');input.focus();return;}error.textContent='';input.removeAttribute('aria-invalid');pendingContact=input.value.trim();try{sessionStorage.setItem('ltc-quick-contact',pendingContact);}catch{}save.click();pendingContact='';});
+    area.append(label,input,error,next);save.before(area);save.textContent=words('다른 서비스도 추가하기','继续添加其他服务','Add another service');save.classList.add('inquiry-add-more');
+   });
+   const active=[...document.querySelectorAll('.inquiry-contact-inline')].some(x=>x.getClientRects().length);progress.children[active?1:0].setAttribute('aria-current','step');progress.children[active?0:1].removeAttribute('aria-current');
+  };
+  document.addEventListener('ltc-shop-saved',event=>{if(!pendingContact)return;event.detail.quickInquiry=true;const contact=pendingContact;queueMicrotask(()=>{if(!validateSelection())return;const selected=transfer();selected.contact=contact;selected.quickInquiry=true;try{sessionStorage.setItem('ltc-selected-conditions',JSON.stringify(selected));}catch{return;}location.href=link.href;});},true);
+  install();new MutationObserver(install).observe(main,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+ }
  const summary=document.querySelector('#service-'+(service==='combo'?'combo':service)+' .summary')||document.querySelector('.private-summary')||document.querySelector('section.inquiry')||(service==='combo'?document.getElementById('service-combo'):null);
  if(summary){
   const actions=summary.querySelector('.module-actions,.actions');
