@@ -1,0 +1,134 @@
+[
+  {
+    "id": "welcome",
+    "source": "design-system/mascot-originals/welcome.png",
+    "file": "assets/mascot-v1/welcome.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "guide",
+    "source": "design-system/mascot-originals/guide.png",
+    "file": "assets/mascot-v1/guide.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "route",
+    "source": "design-system/mascot-originals/route.png",
+    "file": "assets/mascot-v1/route.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "tickets",
+    "source": "design-system/mascot-originals/tickets.png",
+    "file": "assets/mascot-v1/tickets.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "pickup",
+    "source": "design-system/mascot-originals/pickup.png",
+    "file": "assets/mascot-v1/pickup.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "hotel",
+    "source": "design-system/mascot-originals/hotel.png",
+    "file": "assets/mascot-v1/hotel.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "checklist",
+    "source": "design-system/mascot-originals/checklist.png",
+    "file": "assets/mascot-v1/checklist.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "weather",
+    "source": "design-system/mascot-originals/weather.png",
+    "file": "assets/mascot-v1/weather.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "support",
+    "source": "design-system/mascot-originals/support.png",
+    "file": "assets/mascot-v1/support.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "success",
+    "source": "design-system/mascot-originals/success.png",
+    "file": "assets/mascot-v1/success.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "photo",
+    "source": "design-system/mascot-originals/photo.png",
+    "file": "assets/mascot-v1/photo.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  },
+  {
+    "id": "reminder",
+    "source": "design-system/mascot-originals/reminder.png",
+    "file": "assets/mascot-v1/reminder.webp",
+    "width": 512,
+    "height": 768,
+    "reference": "welcome full-body master",
+    "tool": "built-in image_gen",
+    "fixedWardrobe": "orange cap / navy collared untucked shirt / beige long trousers / white sneakers",
+    "ratio": "same full-body reference; approx 24% head incl cap to total standing height"
+  }
+]

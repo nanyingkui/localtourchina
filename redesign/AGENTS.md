@@ -90,3 +90,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Korean visitor flow: choose4–7days, optional arrival date, party, airport/rail and pace; create recommended modules; click timeline gaps to add and remove with undo; contextual gap recommendations and concrete checklist instructions.
 - Keep Heavn same-view daytime/night scenery as one optional disclosure. Avoid duplicate starts and generic repeated feature panels.
 - LocalTourChina service links are optional contextual assistance, not automatically booked products. Consultation summary is user-reviewed and manually copied, never automatically sent. Preserve browser-local itineraries and backups.
+
+# Travel Light design system (2026-10-14 latest feedback)
+- User extends Heavn-like scenic interaction to the homepage and asks for consistent controls, text and progress graphics across child pages. Preserve saved selections, original prices, real source reviews and production inquiry behavior.
+- Reuse Travel Light tokens in redesign/public/assets/travel-design.css and the task design-system/TRAVEL-LIGHT.md. Keep controls 44–46px or larger, inputs16px, useful labels/focus/disabled states.
+- Derived orange-cap illustrations must retain fixed outfit AND fixed head-to-body/shoulder proportions across actions. Original logo stays unchanged. Navy collared shirt, beige straight long trousers, white sneakers. Use a single full-body reference; only gestures, expressions and travel props change.
+- Scenery is visible by default; 12-place select + previous/next, continuous scroll and manual time. Short-screen controls must remain reachable below image; loading retains current scene.

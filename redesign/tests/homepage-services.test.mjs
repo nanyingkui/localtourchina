@@ -55,12 +55,14 @@ test('destination switching supports back/forward and touch entries have explici
 test('rounded homepage preserves direct service paths, conditional prices and sourced feedback',()=>{
  for(const lang of ['ko','zh','en']) {
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
-  assert.match(html,/<section class="rounded-hero"/);
+  assert.match(html,/<section class="travel-light-hero"/);
   assert.ok(html.includes('href="#prepared-trips"'));
   assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=ticket"`));
   assert.equal((html.match(/class="rounded-package"/g)||[]).length,3);
   assert.equal((html.match(/class="rounded-project"/g)||[]).length,5);
-  assert.match(html,/hero-mobile.webp/);
+  assert.match(html,/yuanjiajie-day.webp/);
+  assert.match(html,/yuanjiajie-night.webp/);
+  assert.match(html,/id="home-scene-time"/);
   for(const id of ['regular34','regular45','regular56']) assert.ok(html.includes(`href="${prefix}/multi-booking.html?category=package&amp;product=${id}&amp;pax=4"`));
   for(const id of ['221','212','210']) assert.ok(html.includes(`/articles/${id}?`));
  }
