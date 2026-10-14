@@ -7,8 +7,6 @@ import './apple-presentation.css';
 import './home-gallery.css';
 import './rounded-home.css';
 import '../public/assets/travel-design.css';
-import WeatherWidget from "./WeatherWidget.jsx";
-import TravelPlannerEntry from "./TravelPlannerEntry.jsx";
 import Storefront from './Storefront.jsx';
 import {catalogInquiry,packageTitle} from './trip-catalog.mjs';
 import ReviewStories from './ReviewStories.jsx';
@@ -65,8 +63,6 @@ export default function App(){
  <main id="main">
  {view==='home'&&<>
  <Storefront lang={lang} onSelect={beginPackage} onHelp={beginDestinationHelp}/>
- <TravelPlannerEntry lang={lang}/>
- <WeatherWidget lang={lang}/>
  </>}
  {view==='consult'&&<section className="consult-page"><button className="back-link" onClick={()=>go('home')}>홈으로 돌아가기</button><div className="consult-heading"><p className="section-kicker">{draft.mode==='private'?'전체 여행 상담':draft.mode==='single'?'필요한 서비스 상담':'여행 방법 추천'}</p><h1 ref={heading} tabIndex={-1}>내 여행을 조금만 알려 주세요.</h1><p>아직 정하지 못한 내용은 비워 두셔도 괜찮아요.<br/>{LIVE?'작성한 내용은 상담 담당자에게 전달됩니다.':'미리보기에서는 이 브라우저에만 저장됩니다.'}</p></div><div className="consult-layout"><form onSubmit={submit} noValidate>
  {draft.configuration?.inquiryText&&<section className="configuration-review"><h2>선택한 구성</h2><p>상세 선택 내용은 문의 메시지에 모두 포함됩니다.</p><details><summary>전체 구성 확인</summary><pre>{draft.configuration.inquiryText}</pre></details><a href={/^\/(?!\/)[a-zA-Z0-9/_?.=&%-]+$/.test(draft.configuration.sourcePath||'')?draft.configuration.sourcePath:'/booking.html'}>구성 수정하기</a></section>}<fieldset className="form-group"><legend>어떤 도움이 필요하세요?</legend><p className="form-help">{draft.configuration?.inquiryText?'서비스·날짜·인원 변경은 구성 수정에서 진행해 주세요.':'여러 서비스를 선택할 수 있습니다.'}</p><div className="service-options">{Object.entries(serviceNames).map(([key,label])=><label key={key} className={draft.services.includes(key)?'selected':''}><input disabled={Boolean(draft.configuration?.inquiryText)} name="services" type="checkbox" checked={draft.services.includes(key)} onChange={()=>toggleService(key)} aria-invalid={errors.services?'true':undefined} aria-describedby={errors.services?'services-error':undefined}/><span>{label}</span></label>)}</div><ErrorText name="services"/></fieldset>
