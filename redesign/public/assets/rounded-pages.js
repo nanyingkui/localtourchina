@@ -2,7 +2,7 @@
 (()=>{
  const start=()=>{
   if(document.getElementById('root'))return;
-  import('/assets/journey-resume.mjs?v=20261014-resume1').then(module=>module.mountJourneyResume()).catch(()=>{});
+  import('/assets/journey-resume.mjs?v=20261014-resume2').then(module=>module.mountJourneyResume()).catch(()=>{});
   document.body.classList.add('rounded-page');if(location.pathname.endsWith('multi-booking.html'))document.body.classList.add('rounded-booking-flow');
   const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang.startsWith('en')?'en':'ko';
   const prefix=lang==='ko'?'/':'/'+lang+'/';const home=prefix;
