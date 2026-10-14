@@ -271,4 +271,4 @@
  const requested=new URLSearchParams(location.search).get('category');window.LTCShopRequestedCategory=requested;show(categories.some(x=>x[0]===requested)?requested:'package');
 })();
 
-if(location.pathname.split('/').pop()==='multi-booking.html')import('/assets/journey-planner.mjs?v=20261014-resume3').then(module=>module.mountJourneyPlanner()).catch(()=>{});
+if(location.pathname.split('/').pop()==='multi-booking.html')import('/assets/journey-planner.mjs?v=20261015-inquiry-isolated').then(module=>module.mountJourneyPlanner()).catch(()=>{});
