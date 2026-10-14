@@ -82,3 +82,5 @@ The user requested a fully launchable delivery and delegated all routine decisio
 # Latest approved visual direction (2026-10-14)
 - Heavn One (https://heavn-one.webflow.io/) supersedes Edigital for the standalone planner and homepage bottom entry only. Full-bleed scenic hero, large neutral type, generous white/gray surfaces, scroll timeline with clock and light-to-dark phases, accessible disclosures. Preserve existing functional planner and homepage flows.
 - Use sourced travel scenery; label Fenghuang as an optional extension and brightness effects as visual time previews, not live weather. Respect reduced motion.
+
+- Entry now uses the same Fenghuang composition for day/night, continuous scroll interpolation, simulated-light disclosure, and the standalone planner has 12 selectable scenic places. Avoid stepwise theme switching.
