@@ -57,7 +57,7 @@ test('homepage separates free planning, information and optional booking without
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
   const home=html.slice(html.indexOf('class="travel-home"'),html.indexOf('<section hidden',html.indexOf('class="travel-home"')));
   assert.ok(home.includes('href="/travel-planner/#start-plan"'));
-  assert.ok(home.includes(`href="${prefix}/multi-booking.html?category=ticket"`));
+  assert.ok(home.includes(`href="${prefix}/multi-booking.html?category=ticket&amp;planner=0&amp;entry=home"`));
   assert.ok(home.includes(`href="${prefix}/travel-info.html#weather-information"`));
   assert.ok(!home.includes('class="rounded-project"'));
   assert.ok(!home.includes('class="rounded-package"'));

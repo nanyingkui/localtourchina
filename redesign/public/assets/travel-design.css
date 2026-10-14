@@ -73,3 +73,11 @@ body.information-page .brand-service-rail{display:none!important}body.informatio
 .quick-inquiry-review .consult-heading>p:last-child{display:none}
 .quick-inquiry-review .consult-heading{margin-bottom:24px}
 @media(max-width:600px){.quick-inquiry-review .consult-heading h1{font-size:27px}.quick-inquiry-review .inquiry-progress{padding-left:0;padding-right:0}.quick-inquiry-review .inquiry-progress li{word-break:keep-all;overflow-wrap:anywhere}}
+.inquiry-mobile-next{display:none}
+@media(max-width:600px){
+ body.three-step-inquiry{padding-bottom:90px}
+ .inquiry-mobile-next:not([hidden]){display:block;position:fixed;z-index:45;bottom:max(12px,env(safe-area-inset-bottom));left:16px;width:calc(100% - 32px);min-height:50px;background:#355c45;color:#fff;border:1px solid #355c45;border-radius:10px;box-shadow:0 4px 20px #18312135;font:600 15px 'Apple SD Gothic Neo','Malgun Gothic',sans-serif;cursor:pointer}
+ .quick-inquiry-review .submit-area{position:sticky;bottom:0;z-index:4;background:#fff;padding:12px 0 max(12px,env(safe-area-inset-bottom));border-top:1px solid #dbe2da}
+}
+.home-inquiry-entry .journey-location,.home-inquiry-entry .journey-step-actions{display:none!important}
+.quick-inquiry-review .submit-area .button.primary{background:#355c45;color:#fff;border:1px solid #355c45;border-radius:10px}

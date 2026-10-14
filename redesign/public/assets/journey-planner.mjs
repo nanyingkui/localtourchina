@@ -94,5 +94,5 @@ export function mountJourneyPlanner(){
  const plannerMode=new URLSearchParams(location.search).get('planner');const requested=window.LTCShopRequestedCategory;render();setMode(plannerMode==='1'?'journey':plannerMode==='0'||requested?'browse':'journey');save();
  if(location.hash==='#my-trip-selections')setMode('review');
  if(returnTask)requestAnimationFrame(()=>document.getElementById('journey-task-'+returnTask)?.scrollIntoView({block:'center'}));
- const query=new URLSearchParams(location.search);if(requested==='package'&&query.get('product'))shop.configure('package',query.get('product')).then(()=>{const people=document.getElementById('shop-people');const pax=+query.get('pax');if(people&&Number.isInteger(pax)&&pax>=1&&pax<=30){people.value=String(pax);people.dispatchEvent(new Event('input',{bubbles:true}));}});
+ const query=new URLSearchParams(location.search);if(query.get('resumeProduct')&&requested){shop.configure(requested,query.get('resumeProduct'));}else if(requested==='package'&&query.get('product'))shop.configure('package',query.get('product')).then(()=>{const people=document.getElementById('shop-people');const pax=+query.get('pax');if(people&&Number.isInteger(pax)&&pax>=1&&pax<=30){people.value=String(pax);people.dispatchEvent(new Event('input',{bubbles:true}));}});
 }

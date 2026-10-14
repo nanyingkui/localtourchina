@@ -60,3 +60,5 @@ Prioritize native Korean UI fonts (Apple SD Gothic Neo, Malgun Gothic, Noto Sans
 
 ### Three-screen service inquiry
 The primary Korean and Chinese catalogue route is: (1) choose a service, (2) configure dates, party and contact in the same screen, (3) review and submit the inquiry with explicit consent. The receipt is a result, not another form step. Saving more services is secondary. Full service conditions and quote references travel with the inquiry. No payment or reservation confirmation is implied. English and bespoke itinerary builders retain their existing flows.
+
+Homepage header, navigation, hero and footer use the same `inquiryEntry()` destination. Korean/Chinese copy explicitly says three-step inquiry. Mobile review shows the existing contact as text; editing it is optional and synchronizes the service form on return. A resumeProduct link reopens the configured product, preserving existing fields. Fresh transfers reset consent. Direct messaging channels remain available on contact and receipt screens.

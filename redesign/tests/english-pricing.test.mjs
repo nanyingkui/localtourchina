@@ -53,11 +53,12 @@ test('generated English service pages request USD and online support uses shared
 });
 
 
-test('WhatsApp is correctly linked in all language storefronts and English contact pages', async () => {
+test('homepages share the inquiry entry and contact pages keep the correct WhatsApp link', async () => {
   for (const name of ['index.html','zh/index.html','en/index.html','en/company.html','en/online-guide.html','company.html','zh/company.html']) {
     const html=await readFile(new URL('../../'+name,import.meta.url),'utf8');
-    assert.match(html, /href="https:\/\/wa\.me\/821055722601"/);
+    if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /href="https:\/\/wa\.me\/821055722601"/);
     assert.match(html, /WhatsApp \+82 10-5572-2601/);
-    assert.match(html, /pf\.kakao\.com/);
+    if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /pf\.kakao\.com/);
+    else assert.match(html,/multi-booking\.html\?category=ticket&amp;planner=0&amp;entry=home/);
   }
 });

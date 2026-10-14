@@ -5,3 +5,6 @@
 .hub-weather-data summary:after{content:none!important}.hub-weather-data .wx-source{font-size:11px!important}
 
 .site-header .header-contact,.site-header .menu-button{border-radius:10px!important}
+.travel-home .hub-inquiry-hint{font-size:12px;line-height:1.7;margin:10px 0 0;color:#355c45;word-break:keep-all}
+.inquiry-contact-review{border-top:1px solid #dbe2da;padding-top:16px;margin:16px 0;overflow-wrap:anywhere}
+.inquiry-contact-review strong{font-size:14px}.inquiry-contact-review p{font-size:16px;margin:6px 0}.inquiry-contact-review button{min-height:44px;padding:8px 12px;border:1px solid #a9b8a5;border-radius:10px;background:white;color:#355c45;cursor:pointer}
