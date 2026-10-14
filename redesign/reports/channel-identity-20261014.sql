@@ -1,0 +1,1 @@
+alter table public.inquiries add column if not exists identity_status text not null default 'unverified' check(identity_status in ('unverified','customer_provided','staff_verified')), add column if not exists identity_note text, add column if not exists previous_reference text;

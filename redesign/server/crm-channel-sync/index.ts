@@ -44,7 +44,7 @@ Deno.serve(async req=>{
    do{
     if(Date.now()-started>45000)throw Error('scan_resume_required');
     const messages=await api(config,'user-chats/'+encodeURIComponent(chat.id)+'/messages',{sortOrder:'asc',limit:100,from,to,cursor:messageCursor});
-    await rpc('crm_channel_import',{p_chat:chat,p_messages:publicMessages(chat.id,messages.messages),p_name:'Kakao 고객'});
+    await rpc('crm_channel_import',{p_chat:chat,p_messages:publicMessages(chat.id,messages.messages),p_name:'Kakao 고객 · '+chat.id.slice(-6)});
     messageCursor=nextCursor(messages);
     if(messageCursor&&seen.has(messageCursor))throw Error('repeated_message_cursor');
     if(messageCursor)seen.add(messageCursor);
