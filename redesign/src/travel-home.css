@@ -8,3 +8,4 @@
 .travel-home .hub-inquiry-hint{font-size:12px;line-height:1.7;margin:10px 0 0;color:#355c45;word-break:keep-all}
 .inquiry-contact-review{border-top:1px solid #dbe2da;padding-top:16px;margin:16px 0;overflow-wrap:anywhere}
 .inquiry-contact-review strong{font-size:14px}.inquiry-contact-review p{font-size:16px;margin:6px 0}.inquiry-contact-review button{min-height:44px;padding:8px 12px;border:1px solid #a9b8a5;border-radius:10px;background:white;color:#355c45;cursor:pointer}
+.receipt-next{padding:20px;margin:24px 0;border:1px solid #cfdbce;border-radius:12px;background:#f4f7f1;color:#253b2b}.receipt-next h2{font-size:21px;line-height:1.4;margin:0 0 12px}.receipt-next ol{padding-left:22px;margin:0;font-size:15px;line-height:1.8}.receipt-next li+li{margin-top:8px}.success-page .summary-grid dd{overflow-wrap:anywhere}
