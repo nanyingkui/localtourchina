@@ -11,3 +11,18 @@ test('same-browser login keeps the auth token only at the configured provider an
 test('same-browser login rejects foreign hosts, misleading credentials, recovery and non-verification links',()=>{
  for(const value of [link.replace(auth,'https://evil.example'),link.replace(auth,'https://test-project.supabase.co.evil.example'),link.replace(auth,'https://user@test-project.supabase.co'),link.replace('magiclink','recovery'),link.replace('/verify','/logout'),link+'#access_token=synthetic',link.replace('synthetic_test_token_123456789','short')])assert.throws(()=>currentBrowserLoginUrl(value,auth,origin));
 });
+
+import {requestAdminEmail,loginEmailFailure} from '../public/assets/admin-login.mjs';
+test('email rate limits are distinguished from account and provider failures without reflecting private response data',()=>{
+ const rate=loginEmailFailure(429,{code:'over_email_send_rate_limit'},'120');
+ assert.match(rate.message,/服务限额/);assert.equal(rate.cooldownSeconds,120);assert.equal(rate.code,'over_email_send_rate_limit');
+ assert.match(loginEmailFailure(400,{code:'email_address_not_authorized'}).message,/发信服务/);
+ assert.match(loginEmailFailure(500,{code:'unexpected_failure',msg:'private@example.com secret-token'}).message,/服务异常/);
+ assert.ok(!loginEmailFailure(500,{msg:'private@example.com secret-token'}).message.includes('private@'));
+});
+test('one email request preserves create_user=false and returns the actual failure category without retrying',async()=>{
+ let calls=0;
+ const result=await requestAdminEmail({url:auth,key:'public-test-key',email:'synthetic@example.invalid',redirect:origin+'/admin.html'},async(_url,options)=>{calls++;assert.equal(JSON.parse(options.body).create_user,false);return {ok:false,status:429,json:async()=>({code:'over_email_send_rate_limit'}),headers:{get:()=>null}};});
+ assert.equal(calls,1);assert.equal(result.code,'over_email_send_rate_limit');assert.equal(result.ok,false);
+ const network=await requestAdminEmail({url:auth,email:'synthetic@example.invalid'},async()=>{throw Error('private-token');});assert.equal(network.code,'network');assert.ok(!network.message.includes('private-token'));
+});
