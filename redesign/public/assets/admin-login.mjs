@@ -27,3 +27,29 @@ export async function requestAdminEmail(config,fetcher=fetch){
  }catch{return {ok:false,code:'network',message:'未能确认邮件发送结果，请先检查收件箱；不要连续重发。网络恢复后再试。',cooldownSeconds:60};}
  finally{clearTimeout(timeout);}
 }
+
+export function passwordAuthFailure(status,body={}){
+ const known={invalid_credentials:'邮箱或密码不正确；从未设置过密码时，请先在已登录后台设置。',email_not_confirmed:'此账号的邮箱尚未完成验证，请检查账号状态。',user_banned:'此账号目前不能登录，请联系账号管理员。',weak_password:'密码未满足账号服务要求，请使用至少12位的新密码。',reauthentication_needed:'设置密码需要重新验证身份，请保留当前后台，完成身份验证后再设置。',reauthentication_not_valid:'身份验证未通过，请重新验证后设置。',same_password:'新密码与当前密码相同，无需重复修改。',session_not_found:'登录会话已失效，请重新登录后再设置密码。',session_expired:'登录会话已过期，请重新登录后再设置密码。',over_request_rate_limit:'登录尝试过于频繁，请稍后再试。'};
+ const code=Object.hasOwn(known,body?.code)?body.code:'unknown';
+ return {ok:false,code,message:known[code]||(status===400?'邮箱或密码未通过验证，请核对账号；未设置密码时需要先设置。':status===401?'当前验证信息已失效，请重新登录。':status===429?'登录尝试受到频率限制，请稍后再试。':status>=500?'账号服务暂时异常，请稍后再试。':'未能完成身份验证，请核对账号状态。')};
+}
+export async function requestAdminPassword(config,fetcher=fetch){
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),15000);
+ try{
+  const response=await fetcher(config.url+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({email:config.email,password:config.password}),signal:controller.signal});
+  let body={};try{body=await response.json();}catch{}
+  if(!response.ok)return passwordAuthFailure(response.status,body);
+  if(!body.access_token||!body.refresh_token||!body.user?.id)return {ok:false,code:'response',message:'登录响应不完整，请稍后重试。'};
+  return {ok:true,session:body};
+ }catch{return {ok:false,code:'network',message:'无法连接账号服务，请检查网络后重试。'};}finally{clearTimeout(timeout);}
+}
+export async function changeAdminPassword(config,fetcher=fetch){
+ if(config.password!==config.confirm)return {ok:false,code:'mismatch',message:'两次输入的密码不一致。'};
+ if(typeof config.password!=='string'||config.password.length<12)return {ok:false,code:'weak_password',message:'请使用至少12位的新密码。'};
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),15000);
+ try{
+  const response=await fetcher(config.url+'/auth/v1/user',{method:'PUT',headers:{apikey:config.key,Authorization:'Bearer '+config.accessToken,'Content-Type':'application/json'},body:JSON.stringify({password:config.password}),signal:controller.signal});
+  if(!response.ok){let body={};try{body=await response.json();}catch{}return passwordAuthFailure(response.status,body);}
+  return {ok:true};
+ }catch{return {ok:false,code:'network',message:'未能确认密码是否已更新，请保留当前登录，并通过另一个浏览器验证新密码。不要连续修改。'};}finally{clearTimeout(timeout);}
+}
