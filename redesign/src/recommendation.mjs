@@ -5,13 +5,14 @@ export const DEFAULT_ROUTE='regular34';
 export const RECOMMENDED_ROUTES=['regular34','regular45','regular56'];
 export const RECOMMENDATION_VERSION='route-v1';
 export const recommendedRoute=id=>findTrip(RECOMMENDED_ROUTES.includes(id)?id:DEFAULT_ROUTE);
-export function recommendationUrl(lang='ko',routeId=DEFAULT_ROUTE,step='details'){
+export const validRecommendationParty=value=>/^(?:[1-9]|[12][0-9]|30)$/.test(String(value??''))?String(value):'';
+export function recommendationUrl(lang='ko',routeId=DEFAULT_ROUTE,step='details',people=''){
  const prefix=['zh','en'].includes(lang)?`/${lang}/index.html`:'/';
- return `${prefix}?view=recommendation&mode=help&route=${recommendedRoute(routeId).id}&step=${step==='review'?'review':'details'}`;
+ return `${prefix}?view=recommendation&mode=help&route=${recommendedRoute(routeId).id}&step=${step==='review'?'review':'details'}${validRecommendationParty(people)?'&party='+validRecommendationParty(people):''}`;
 }
-export function restoreRecommendation(saved={},routeId=DEFAULT_ROUTE){
+export function restoreRecommendation(saved={},routeId=DEFAULT_ROUTE,party=''){
  const previous=saved.recommendation?.version===RECOMMENDATION_VERSION?saved:{};
- return {...initialDraft('help'),...previous,mode:'help',services:['help'],people:previous.people??'',
+ return {...initialDraft('help'),...previous,mode:'help',services:['help'],people:validRecommendationParty(party)||(previous.people??''),
   contact:typeof saved.contact==='string'?saved.contact:'',nickname:typeof saved.nickname==='string'?saved.nickname:'',
   consent:false,configuration:null,recommendation:{version:RECOMMENDATION_VERSION,lessWalking:false,withChildren:false,requestPackage:false,...previous.recommendation,routeId:recommendedRoute(routeId).id}};
 }

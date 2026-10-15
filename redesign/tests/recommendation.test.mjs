@@ -42,3 +42,14 @@ test('the existing production endpoint receives one complete recommended inquiry
  const receipt=await submitInquiry(prepared,'ko',{url:'https://example.test',key:'public-test-key'},async(url,options)=>{calls++;payload=JSON.parse(options.body);assert.match(url,/create_public_inquiry$/);return{ok:true,json:async()=>[{reference:'LTC-20261015-TEST01',access_token:'11111111-2222-3333-4444-555555555555'}]};});
  assert.equal(calls,1);assert.equal(payload.p_service,'help');assert.equal(payload.p_contact,prepared.contact);assert.match(payload.p_inquiry_text,/2026-11-20/);assert.match(payload.p_inquiry_text,/4명/);assert.ok(payload.p_inquiry_text.includes(prepared.configuration.productTitle));assert.equal(receipt.productionSubmitted,true);
 });
+test('homepage party choice overrides an older draft and travels to consultation without extra entry',()=>{
+ const previous=valid();
+ const href=recommendationUrl('ko','regular45','details','6');
+ const q=new URL(href,'https://localtourchina.com').searchParams;
+ const carried=restoreRecommendation(previous,q.get('route'),q.get('party'));
+ assert.equal(carried.people,'6');assert.equal(carried.contact,previous.contact);assert.equal(carried.recommendation.routeId,'regular45');
+ assert.equal(recommendationPrice(carried),950000);
+ assert.equal(restoreRecommendation(previous,'regular34','3').people,'3');
+ assert.equal(recommendationPrice(restoreRecommendation(previous,'regular34','3')),null);
+ for(const invalid of ['0','31','2.5','-1','<script>'])assert.ok(!recommendationUrl('ko','regular34','details',invalid).includes('&party='));
+});
