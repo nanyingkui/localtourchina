@@ -57,7 +57,7 @@ test('homepage starts with one recommended route, a qualified budget and optiona
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
   const home=html.slice(html.indexOf('class="travel-home"'),html.indexOf('<section hidden',html.indexOf('class="travel-home"')));
   assert.ok(home.includes('href="/travel-planner/#start-plan"'));
-  assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details"`));
+  assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details&amp;departure=unknown"`));
   assert.ok(home.includes('class="recommended-details"'));
   assert.ok(!home.includes('class="recommended-details" open'));
   assert.ok(home.includes('class="recommended-price"'));

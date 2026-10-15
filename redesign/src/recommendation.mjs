@@ -6,14 +6,16 @@ export const RECOMMENDED_ROUTES=['regular34','regular45','regular56'];
 export const RECOMMENDATION_VERSION='route-v1';
 export const recommendedRoute=id=>findTrip(RECOMMENDED_ROUTES.includes(id)?id:DEFAULT_ROUTE);
 export const validRecommendationParty=value=>/^(?:[1-9]|[12][0-9]|30)$/.test(String(value??''))?String(value):'';
-export function recommendationUrl(lang='ko',routeId=DEFAULT_ROUTE,step='details',people=''){
+export const validRecommendationDate=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '';const date=new Date(value+'T00:00:00Z');return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===value?value:'';};
+export function recommendationUrl(lang='ko',routeId=DEFAULT_ROUTE,step='details',people='',departure){
  const prefix=['zh','en'].includes(lang)?`/${lang}/index.html`:'/';
- return `${prefix}?view=recommendation&mode=help&route=${recommendedRoute(routeId).id}&step=${step==='review'?'review':'details'}${validRecommendationParty(people)?'&party='+validRecommendationParty(people):''}`;
+ return `${prefix}?view=recommendation&mode=help&route=${recommendedRoute(routeId).id}&step=${step==='review'?'review':'details'}${validRecommendationParty(people)?'&party='+validRecommendationParty(people):''}${departure===''||departure==='unknown'?'&departure=unknown':validRecommendationDate(departure)?'&departure='+validRecommendationDate(departure):''}`;
 }
-export function restoreRecommendation(saved={},routeId=DEFAULT_ROUTE,party=''){
+export function restoreRecommendation(saved={},routeId=DEFAULT_ROUTE,party='',departure){
  const previous=saved.recommendation?.version===RECOMMENDATION_VERSION?saved:{};
  return {...initialDraft('help'),...previous,mode:'help',services:['help'],people:validRecommendationParty(party)||(previous.people??''),
   contact:typeof saved.contact==='string'?saved.contact:'',nickname:typeof saved.nickname==='string'?saved.nickname:'',
+  ...(departure==='unknown'?{date:'',month:'',dateMode:'unknown'}:validRecommendationDate(departure)?{date:departure,month:'',dateMode:'exact'}:{}),
   consent:false,configuration:null,recommendation:{version:RECOMMENDATION_VERSION,lessWalking:false,withChildren:false,requestPackage:false,...previous.recommendation,routeId:recommendedRoute(routeId).id}};
 }
 export function recommendationPrice(draft){
@@ -23,13 +25,14 @@ export function recommendationPrice(draft){
 export function validateRecommendationDetails(draft,now=new Date()){
  return validateDraft({...draft,services:['help'],consent:true},now);
 }
+export function recommendationEndDate(departure,routeId){if(!validRecommendationDate(departure))return '';const end=new Date(departure+'T00:00:00Z');end.setUTCDate(end.getUTCDate()+recommendedRoute(routeId).days-1);return end.toISOString().slice(0,10);}
 export function prepareRecommendation(draft,lang='ko'){
  const preferences=draft.recommendation,product=recommendedRoute(preferences.routeId),changed=preferences.lessWalking||preferences.withChildren;
  const words=(ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko;
  const heading=words('추천 일정 상담','推荐行程咨询','Recommended itinerary inquiry');
  const price=recommendationPrice(draft);
  const date=draft.dateMode==='exact'?draft.date:'';
- let endDate='';if(date){const end=new Date(date+'T00:00:00Z');if(Number.isFinite(end.getTime())){end.setUTCDate(end.getUTCDate()+product.days-1);endDate=end.toISOString().slice(0,10);}}
+ const endDate=recommendationEndDate(date,product.id);
  const original=catalogInquiry(product,draft.people,lang);
  // Adjusted routes never inherit an unverified numerical package quote.
  const itinerary=changed?[heading,packageTitle(product,lang),tripDuration(product,lang),words('참고가: 변경 조건은 별도 견적','参考价：调整条件需单独报价','Guide price: changed conditions require a separate quote'),...product.copy[lang].itinerary.map((line,i)=>`${i+1}. ${line}`),product.copy[lang].walking].join('\n'):original;

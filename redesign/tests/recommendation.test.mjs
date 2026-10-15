@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {restoreRecommendation,prepareRecommendation,recommendationPrice,validateRecommendationDetails,recommendationUrl} from '../src/recommendation.mjs';
+import {restoreRecommendation,prepareRecommendation,recommendationPrice,validateRecommendationDetails,recommendationUrl,validRecommendationDate} from '../src/recommendation.mjs';
 import {inquiryText} from '../src/consultation.mjs';
 import {submitInquiry} from '../src/production.mjs';
 const now=new Date(2026,9,15,12);
@@ -52,4 +52,19 @@ test('homepage party choice overrides an older draft and travels to consultation
  assert.equal(restoreRecommendation(previous,'regular34','3').people,'3');
  assert.equal(recommendationPrice(restoreRecommendation(previous,'regular34','3')),null);
  for(const invalid of ['0','31','2.5','-1','<script>'])assert.ok(!recommendationUrl('ko','regular34','details',invalid).includes('&party='));
+});
+
+test('homepage date, duration and party are carried together; choosing unknown clears an old date',()=>{
+ for(const lang of ['ko','zh','en']){
+  const q=new URL(recommendationUrl(lang,'regular56','details','6','2026-11-20'),'https://localtourchina.com').searchParams;
+  const restored=restoreRecommendation(valid(),q.get('route'),q.get('party'),q.get('departure'));
+  assert.equal(restored.date,'2026-11-20');assert.equal(restored.dateMode,'exact');assert.equal(restored.people,'6');
+  const prepared=prepareRecommendation(restored,lang);assert.equal(prepared.configuration.endDate,'2026-11-25');assert.equal(prepared.configuration.productId,'regular56');
+ }
+ assert.equal(restoreRecommendation(valid(),'regular34','4','unknown').dateMode,'unknown');
+ assert.equal(restoreRecommendation(valid(),'regular34','4','unknown').date,'');
+ for(const invalid of ['2026-02-30','2026-13-01','broken'])assert.equal(validRecommendationDate(invalid),'');
+ assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular34','4')),870000);
+ assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular45','4')),970000);
+ assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular56','4')),1130000);
 });
