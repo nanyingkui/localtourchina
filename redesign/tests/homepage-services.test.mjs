@@ -52,12 +52,16 @@ test('destination switching supports back/forward and touch entries have explici
  assert.match(css,/\.intent-grid \{ grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 });
 
-test('homepage separates free planning, information and optional booking without visible product shelves',()=>{
+test('homepage starts with one recommended route, a qualified budget and optional details',()=>{
  for(const lang of ['ko','zh','en']) {
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
   const home=html.slice(html.indexOf('class="travel-home"'),html.indexOf('<section hidden',html.indexOf('class="travel-home"')));
   assert.ok(home.includes('href="/travel-planner/#start-plan"'));
-  assert.ok(home.includes(`href="${prefix}/multi-booking.html?category=ticket&amp;planner=0&amp;entry=home"`));
+  assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details"`));
+  assert.ok(home.includes('class="recommended-details"'));
+  assert.ok(!home.includes('class="recommended-details" open'));
+  assert.ok(home.includes('class="recommended-price"'));
+  assert.ok(home.includes('regular34'));
   assert.ok(home.includes(`href="${prefix}/travel-info.html#weather-information"`));
   assert.ok(!home.includes('class="rounded-project"'));
   assert.ok(!home.includes('class="rounded-package"'));

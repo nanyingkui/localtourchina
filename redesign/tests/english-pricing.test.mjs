@@ -59,6 +59,6 @@ test('homepages share the inquiry entry and contact pages keep the correct Whats
     if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /href="https:\/\/wa\.me\/821055722601"/);
     assert.match(html, /WhatsApp \+82 10-5572-2601/);
     if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /pf\.kakao\.com/);
-    else assert.match(html,/multi-booking\.html\?category=ticket&amp;planner=0&amp;entry=home/);
+    else assert.match(html,/view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details/);
   }
 });

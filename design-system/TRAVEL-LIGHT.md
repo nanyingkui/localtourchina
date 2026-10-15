@@ -52,7 +52,7 @@ React复用 src/ScenicHero.jsx + scenic-hero.css。旅行工具复用 experience
 
 The primary navigation has three destinations: free travel information, optional paid service configuration, and the independent free itinerary tool. Keep a Home link alongside them.
 
-The homepage primary action opens itinerary preparation. Its secondary action opens booking. Do not put product shelves, package prices, booking forms or full guides on the homepage. Preserve old deep links for compatibility.
+The homepage primary action starts the recommended itinerary inquiry. The secondary action opens the free independent itinerary tool. Show one recommended route and its clearly qualified budget example; keep the full itinerary, other durations and service details collapsed. Preserve old deep links for compatibility.
 
 Show a current-hour weather summary on the homepage. One click opens the full ten-day/hourly panel. The information page has a directly addressable weather disclosure and does not display product-category navigation. Keep unavailable visibility explicitly missing.
 
@@ -64,3 +64,8 @@ The primary Korean and Chinese catalogue route is: (1) choose a service, (2) con
 Homepage header, navigation, hero and footer use the same `inquiryEntry()` destination. Korean/Chinese copy explicitly says three-step inquiry. Mobile review shows the existing contact as text; editing it is optional and synchronizes the service form on return. A resumeProduct link reopens the configured product, preserving existing fields. Fresh transfers reset consent. Direct messaging channels remain available on contact and receipt screens.
 
 For homepage inquiries (`entry=home`), independent itinerary preparation drafts are excluded from inquiry text, party-size fallback and validation. This avoids an unrelated old plan contradicting the selected service dates and travellers. Successful production receipts explicitly say the request is received, no resend is needed, and explain progress tracking, contact and quote confirmation before booking/payment.
+
+### Recommended itinerary flow — 2026-10-15
+One coherent path: homepage recommendation → actual dates/party/contact → review and explicit consent. Default to regular34, with 5/6-day alternatives inside the disclosure. The adult-four-person price is an example, never an actual-party default. Odd parties, children and reduced-walking requests require separate quotes. No paid service is selected automatically. Package quoting is an unchecked optional request. Unknown dates are allowed; contacts persist without repeated entry. Rebuild the full itinerary configuration on review refresh, reset consent and retain inputs on back/edit. Keep weather and AI day/night scenery below the main recommendation. Keep service-only booking accessible within the details.
+
+Use Korean native typography, restrained green controls, generous touch targets and one primary action per stage. Preserve mascot proportions and clothing. Do not add separate simple/detailed mode choices: progressive disclosure provides both levels in one page.
