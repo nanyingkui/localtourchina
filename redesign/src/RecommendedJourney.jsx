@@ -3,7 +3,6 @@ import {DEFAULT_ROUTE,RECOMMENDED_ROUTES,validRecommendationParty,validRecommend
 import {getTripPrice,catalogCopy} from './trip-catalog.mjs';
 import {dateLabel} from './consultation.mjs';
 import {translate} from './locales.jsx';
-import {serviceInquiryEntry} from './inquiry-entry.mjs';
 import './recommended-journey.css';
 
 const copy={
@@ -36,7 +35,7 @@ export function RecommendedOverview({lang='ko'}){
   </div></div>
   <details className="recommended-details"><summary><span><strong>{t.details}</strong><small>{t.detailHint}</small></span><span className="recommended-expand" aria-hidden="true">＋</span></summary><div className="recommended-detail-body">
    <ol className="recommended-timeline">{body.itinerary.map((line,i)=><li key={i}><span>{t.day(i+1)}</span><p>{line}</p></li>)}</ol>
-   <p className="recommended-walking"><strong>{t.walking}</strong><br/>{body.walking}</p><div className="recommended-budget-scope"><div><h3>{t.included}</h3><p>{t.includedText}</p><small>{t.inclusion}</small></div><div><h3>{t.excluded}</h3><p>{t.excludedText}</p><small>{terms.seasons}</small></div></div><p>{terms.itineraryNote}</p><details className="recommended-terms"><summary>{terms.termsTitle}</summary><p>{terms.hotels}</p><p>{terms.vehicle} {terms.meals}</p><p>{terms.special}</p></details><a className="recommended-free" href={serviceInquiryEntry(lang)}>{t.individual} →</a>
+   <p className="recommended-walking"><strong>{t.walking}</strong><br/>{body.walking}</p><div className="recommended-budget-scope"><div><h3>{t.included}</h3><p>{t.includedText}</p><small>{t.inclusion}</small></div><div><h3>{t.excluded}</h3><p>{t.excludedText}</p><small>{terms.seasons}</small></div></div><p>{terms.itineraryNote}</p><details className="recommended-terms"><summary>{terms.termsTitle}</summary><p>{terms.hotels}</p><p>{terms.vehicle} {terms.meals}</p><p>{terms.special}</p></details>
   </div></details>
  </section>;
 }

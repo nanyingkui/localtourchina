@@ -71,3 +71,5 @@ One coherent path: homepage recommendation → actual dates/party/contact → re
 Use Korean native typography, restrained green controls, generous touch targets and one primary action per stage. Preserve mascot proportions and clothing. Do not add separate simple/detailed mode choices: progressive disclosure provides both levels in one page.
 
 The homepage recommendation exposes departure date, trip duration (4/5/6 days) and actual party in one group above its budget. One short hint explains the interaction; the selected date range and route update immediately. Transfer all three choices into consultation and preserve them when returning. Unknown dates explicitly clear any old departure date. Keep the detailed route selector out of the collapsed content to avoid duplication.
+
+Put tickets, vehicle/pickup and local-guide shortcuts above the full-itinerary recommendation, visible without expansion. The tickets shortcut is the strongest service action and opens the ticket-filtered catalogue. The main navigation must label and link ticket booking accurately; full-itinerary advice stays a separate action. Do not bury single-service booking in route details.
