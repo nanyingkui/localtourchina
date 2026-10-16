@@ -20,3 +20,9 @@ test('failed save keeps an explicit failure and re-enables retry',async()=>{
  const {ctx,q,buttons}=setup(async()=>{throw Error('offline');});await ctx.saveOrder({preventDefault(){}});
  assert.match(q('saveStatus').textContent,/保存失败.*offline/);assert.ok(buttons.every(b=>!b.disabled));
 });
+test('routine internal follow-up saves without owner, reminder or known guest name',async()=>{
+ let saved;const {ctx,q}=setup(async(_,options)=>{saved=JSON.parse(options.body);});
+ q('fAssigned').value='';q('fFollow').value='';q('fName').value='';q('fInternal').value='等待客人确认日期';q('fCustomer').value='Existing customer message';
+ await ctx.saveOrder({preventDefault(){}});
+ assert.equal(saved.assigned_to,null);assert.equal(saved.follow_up_at,null);assert.equal(saved.internal_note,'等待客人确认日期');assert.equal(saved.customer_note,'Existing customer message');assert.equal(saved.customer_name,'미입력');assert.match(q('saveStatus').textContent,/已保存/);
+});
