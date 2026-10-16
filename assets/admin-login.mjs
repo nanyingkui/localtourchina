@@ -100,3 +100,15 @@ export function inquiryMatchesSearch(row,term){
  const normalize=value=>String(value??'').toLowerCase().replace(/\s+/g,'');
  return normalize([row.reference,row.customer_name,row.contact,row.service,row.previous_reference,row.travel_date,row.inquiry_text].join(' ')).includes(normalize(term));
 }
+
+export function compareAdminInquiries(a,b,now=Date.now()){
+ const priority=x=>x.travel_date&&new Date(x.travel_date)-now<3*86400000?0:x.payment_received?1:x.follow_up_at&&new Date(x.follow_up_at)<=now?2:3;
+ const difference=priority(a)-priority(b);if(difference)return difference;
+ if(a.follow_up_at&&b.follow_up_at)return new Date(a.follow_up_at)-new Date(b.follow_up_at)||new Date(b.created_at)-new Date(a.created_at);
+ return new Date(b.created_at)-new Date(a.created_at);
+}
+export function findInquiryByReference(rows,reference){
+ const term=String(reference||'').trim().toUpperCase();
+ if(!/^LTC-\d{8}-[A-F0-9]{6}$/.test(term))return null;
+ return rows.find(row=>row.reference===term)||null;
+}

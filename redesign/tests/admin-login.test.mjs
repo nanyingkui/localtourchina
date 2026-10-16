@@ -89,3 +89,17 @@ test('unnamed inquiries can be found by embedded contact, date and spaced Korean
  for(const term of ['2026-11-02','synthetic@example.invalid','이철민'])assert.equal(inquiryMatchesSearch(row,term),true);
  assert.equal(inquiryMatchesSearch(row,'unrelated'),false);
 });
+
+import {compareAdminInquiries,findInquiryByReference} from '../public/assets/admin-login.mjs';
+test('new unhandled applications precede old ones while due follow-ups remain prioritized',()=>{
+ const now=Date.parse('2026-10-16T04:00:00Z');
+ const rows=[{reference:'old',created_at:'2026-09-01'},{reference:'recent',created_at:'2026-10-15'},{reference:'due',created_at:'2026-09-15',follow_up_at:'2026-10-15'}];
+ assert.deepEqual(rows.sort((a,b)=>compareAdminInquiries(a,b,now)).map(r=>r.reference),['due','recent','old']);
+});
+test('reference links select only an exact record already returned to the authorized admin',()=>{
+ const rows=[{reference:'LTC-20261016-ABC123',inquiry_text:'full original content'}];
+ assert.equal(findInquiryByReference(rows,'ltc-20261016-abc123'),rows[0]);
+ assert.equal(findInquiryByReference(rows,'LTC-20261016-ABC124'),null);
+ assert.equal(findInquiryByReference(rows,'ABC123'),null);
+ assert.equal(findInquiryByReference(rows,'<script>'),null);
+});
