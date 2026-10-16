@@ -14,3 +14,12 @@ test('clicking a delivery opens the exact loaded inquiry and clears stale filter
  const ctx=vm.createContext({q,api:async(path)=>{assert.match(path,/inquiries!inner/);assert.match(path,/inquiries.source_channel=eq.website/);return [row];},renderReminderHistory,orders:[customer],selected:null,renderList(){list=true;},renderDetail(){detail=true;},window:{confirm:()=>true}});
  vm.runInContext(fn,ctx);await ctx.loadDeliveryHistory();button.onclick();assert.equal(ctx.selected,customer);assert.equal(q('search').value,'TEST-123');assert.equal(q('statusFilter').value,'');assert.equal(q('queueFilter').value,'');assert.ok(list&&detail&&q('orderDetail').focused);
 });
+test('exact reference search opens the matching customer and unmatched search clears stale detail',async()=>{
+ const {findInquiryByReference,inquiryMatchesSearch,compareAdminInquiries}=await import('../public/assets/admin-login.mjs');
+ const source=fs.readFileSync(new URL('../public/assets/admin.js',import.meta.url),'utf8');const fn=source.slice(source.indexOf('function renderList()'),source.indexOf('  async function renderDetail()'));
+ const fields={};const q=id=>fields[id]??={value:'',textContent:'',querySelectorAll:()=>[]};const first={id:'one',reference:'LTC-20261016-AAAAAA',customer_name:'First',contact:'test',language:'ko',status:'received',crm_stage:'new',created_at:'2026-10-16T10:00:00Z'},second={...first,id:'two',reference:'LTC-20261016-BBBBBB',customer_name:'Second'};let renders=0;
+ const ctx=vm.createContext({q,orders:[first,second],selected:first,findInquiryByReference,inquiryMatchesSearch,compareAdminInquiries,stages:{new:'未回复'},serviceLabels:{},esc:v=>String(v||''),renderDetail:()=>renders++,Date});vm.runInContext(fn,ctx);
+ q('search').value=second.reference;ctx.renderList();assert.equal(ctx.selected.id,'two');assert.equal(renders,1);
+ q('search').value='NO-MATCH';ctx.renderList();assert.equal(ctx.selected,null);assert.equal(renders,2);
+ ctx.selected=first;q('saveStatus').textContent='有未保存的修改';q('search').value=second.reference;ctx.renderList();assert.equal(ctx.selected.id,'one');
+});

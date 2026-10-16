@@ -105,3 +105,4 @@ body.three-step-inquiry[data-config-category=ticket] #config-tianmen .route-susp
 
 .inquiry-use-guide{margin:12px 0;border:1px solid var(--ltc-line);border-radius:12px;padding:0 14px}.inquiry-use-guide>summary{min-height:48px;padding:12px 0;cursor:pointer;font-size:14px;line-height:1.6}.inquiry-use-guide>.use-guide{margin-top:0}.three-step-inquiry .card>.section-head .step{display:none!important}
 body.three-step-inquiry .summary:has(#copyBtn[data-ready=true]) #formHint{display:none!important}
+body.three-step-inquiry[data-config-category] .service-media-strip{display:none!important}
