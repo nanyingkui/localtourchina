@@ -8,8 +8,8 @@ test('same-browser login keeps the auth token only at the configured provider an
  assert.equal(result.origin,auth);assert.equal(result.searchParams.get('redirect_to'),origin+'/admin.html');assert.equal(result.searchParams.get('type'),'magiclink');
  assert.equal(result.searchParams.get('token'),'synthetic_test_token_123456789');
 });
-test('same-browser login rejects foreign hosts, misleading credentials, recovery and non-verification links',()=>{
- for(const value of [link.replace(auth,'https://evil.example'),link.replace(auth,'https://test-project.supabase.co.evil.example'),link.replace(auth,'https://user@test-project.supabase.co'),link.replace('magiclink','recovery'),link.replace('/verify','/logout'),link+'#access_token=synthetic',link.replace('synthetic_test_token_123456789','short')])assert.throws(()=>currentBrowserLoginUrl(value,auth,origin));
+test('same-browser login rejects foreign hosts, misleading credentials and non-verification links',()=>{
+ for(const value of [link.replace(auth,'https://evil.example'),link.replace(auth,'https://test-project.supabase.co.evil.example'),link.replace(auth,'https://user@test-project.supabase.co'),link.replace('/verify','/logout'),link+'#access_token=synthetic',link.replace('synthetic_test_token_123456789','short')])assert.throws(()=>currentBrowserLoginUrl(value,auth,origin));
 });
 
 import {requestAdminEmail,loginEmailFailure} from '../public/assets/admin-login.mjs';
@@ -40,4 +40,52 @@ test('password setup validates locally and changes only the authenticated user w
  assert.equal((await changeAdminPassword({...config,confirm:'different'},fetcher)).code,'mismatch');assert.equal(calls,0);
  assert.equal((await changeAdminPassword({...config,password:'short',confirm:'short'},fetcher)).code,'weak_password');assert.equal(calls,0);
  const result=await changeAdminPassword(config,fetcher);assert.equal(calls,1);assert.deepEqual(result,{ok:true});
+});
+
+import {createAdminRequester,requestAdminRecovery,inquiryMatchesSearch} from '../public/assets/admin-login.mjs';
+test('recovery accepts only first-party verification URLs and fixed admin redirect',()=>{
+ const parsed=new URL(currentBrowserLoginUrl(link.replace('magiclink','recovery'),auth,origin));
+ assert.equal(parsed.searchParams.get('type'),'recovery');assert.equal(parsed.searchParams.get('redirect_to'),origin+'/admin.html');
+});
+test('recovery sends once without account creation and recognizes actual error_code',async()=>{
+ let calls=0;const result=await requestAdminRecovery({url:auth,key:'public-key',email:'synthetic@example.invalid',redirect:origin+'/admin.html'},async(url,opts)=>{calls++;assert.equal(new URL(url).pathname,'/auth/v1/recover');assert.deepEqual(JSON.parse(opts.body),{email:'synthetic@example.invalid'});return {ok:false,status:429,json:async()=>({error_code:'over_email_send_rate_limit'}),headers:{get:()=>null}};});
+ assert.equal(calls,1);assert.equal(result.code,'over_email_send_rate_limit');assert.equal(result.cooldownSeconds,60);
+});
+test('concurrent expired requests refresh once and use renewed token',async()=>{
+ let session={access_token:'expired',refresh_token:'old-refresh',expires_at:1},refreshes=0,expired=0;
+ const api=createAdminRequester({url:auth,key:'public-key',getSession:()=>session,setSession:s=>session=s,onExpired:()=>{expired++;session=null}},async(url,opts)=>{
+  if(url.includes('grant_type=refresh_token')){refreshes++;await new Promise(r=>setTimeout(r,10));assert.equal(JSON.parse(opts.body).refresh_token,'old-refresh');return {ok:true,json:async()=>({access_token:'new-access',refresh_token:'new-refresh',expires_in:3600,user:{id:'admin'}})};}
+  assert.equal(opts.headers.Authorization,'Bearer new-access');return {ok:true,status:200,json:async()=>true};
+ });
+ assert.deepEqual(await Promise.all([api('/rest/v1/rpc/is_admin'),api('/rest/v1/inquiries')]),[true,true]);assert.equal(refreshes,1);assert.equal(expired,0);assert.equal(session.refresh_token,'new-refresh');
+});
+test('network refresh failure preserves session, revoked refresh signs out',async()=>{
+ for(const mode of ['network','revoked']){
+  let session={access_token:'old',refresh_token:'refresh',expires_at:1},expired=0;
+  const api=createAdminRequester({url:auth,key:'public-key',getSession:()=>session,setSession:s=>session=s,onExpired:()=>{expired++;session=null}},async()=>{if(mode==='network')throw Error('network');return {ok:false,status:400};});
+  await assert.rejects(api('/rest/v1/inquiries'));assert.equal(expired,mode==='revoked'?1:0);assert.equal(Boolean(session),mode==='network');
+ }
+});
+test('401 refreshes then retries once; 403 does not retry mutations',async()=>{
+ let session={access_token:'old',refresh_token:'refresh'},calls=0;
+ const api=createAdminRequester({url:auth,key:'key',getSession:()=>session,setSession:s=>session=s,onExpired:()=>session=null},async url=>{
+  if(url.includes('grant_type'))return {ok:true,json:async()=>({access_token:'new',refresh_token:'next',user:{id:'admin'}})};
+  calls++;return calls===1?{ok:false,status:401}:{ok:true,status:200,json:async()=>['protected']};
+ });
+ assert.deepEqual(await api('/rest/v1/inquiries'),['protected']);assert.equal(calls,2);
+ let forbidden=0;const denied=createAdminRequester({url:auth,key:'key',getSession:()=>session,setSession:()=>{},onExpired:()=>{}},async()=>{forbidden++;return {ok:false,status:403};});
+ await assert.rejects(denied('/rest/v1/inquiries',{method:'PATCH'}));assert.equal(forbidden,1);
+});
+test('late refresh never revives an explicitly signed-out session',async()=>{
+ let session={access_token:'old',refresh_token:'refresh',expires_at:1};
+ const api=createAdminRequester({url:auth,key:'key',getSession:()=>session,setSession:s=>session=s,onExpired:()=>session=null},async url=>{
+  if(url.includes('grant_type')){session=null;return {ok:true,json:async()=>({access_token:'new',refresh_token:'next',user:{id:'admin'}})};}
+  throw Error('must not request after logout');
+ });
+ await assert.rejects(api('/rest/v1/inquiries'));assert.equal(session,null);
+});
+test('unnamed inquiries can be found by embedded contact, date and spaced Korean name',()=>{
+ const row={customer_name:'이름 미입력',inquiry_text:'2026-11-02 / 3명 / synthetic@example.invalid / 이 철 민'};
+ for(const term of ['2026-11-02','synthetic@example.invalid','이철민'])assert.equal(inquiryMatchesSearch(row,term),true);
+ assert.equal(inquiryMatchesSearch(row,'unrelated'),false);
 });
