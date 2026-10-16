@@ -2,9 +2,12 @@ import {initialDraft,validateDraft} from './consultation.mjs';
 import {findTrip,getTripPrice,formatTripPrice,catalogInquiry,packageTitle,tripDuration} from './trip-catalog.mjs';
 
 export const DEFAULT_ROUTE='regular34';
-export const RECOMMENDED_ROUTES=['regular34','regular45','regular56'];
+export const RECOMMENDED_ROUTES=['regular34','regular45','regular56','custom67'];
 export const RECOMMENDATION_VERSION='route-v1';
-export const recommendedRoute=id=>findTrip(RECOMMENDED_ROUTES.includes(id)?id:DEFAULT_ROUTE);
+export const recommendedRoute=id=>{
+ if(id!=='custom67')return findTrip(RECOMMENDED_ROUTES.includes(id)?id:DEFAULT_ROUTE);
+ const base=findTrip('regular56');return {...base,id:'custom67',days:7,nights:6,prices:[],names:{ko:'장가계 6박 7일 · 맞춤 연장',zh:'张家界7天6晚 · 自定义延长',en:'Zhangjiajie 7 days · custom extension'},copy:Object.fromEntries(Object.entries(base.copy).map(([lang,c])=>[lang,{...c,itinerary:[...c.itinerary.slice(0,-1),({ko:'휴식 또는 원하는 장소를 정하는 하루. 추가 이동·숙박은 별도 확인합니다.',zh:'增加一天休息或自选地点，另行确认交通与住宿。',en:'An extra rest day or a place of your choice; confirm transport and lodging separately.'})[lang],c.itinerary.at(-1)]}]))};
+};
 export const validRecommendationParty=value=>/^(?:[1-9]|[12][0-9]|30)$/.test(String(value??''))?String(value):'';
 export const validRecommendationDate=value=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return '';const date=new Date(value+'T00:00:00Z');return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===value?value:'';};
 export function recommendationUrl(lang='ko',routeId=DEFAULT_ROUTE,step='details',people='',departure){

@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import fs from 'node:fs/promises';
+import {recommendedRoute,recommendationPrice,recommendationEndDate,restoreRecommendation} from '../src/recommendation.mjs';
+const source=await fs.readFile(new URL('../public/assets/trip-preferences.js',import.meta.url),'utf8');
+function fixture(){const values=new Map(),store={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)},context={URLSearchParams,localStorage:store};vm.runInNewContext(source,context);return {api:context.LTCTripPreferences,store};}
+test('shared preferences keep only basic choices; empty date and people are not fabricated',()=>{const {api,store}=fixture();api.write({date:'',people:'',days:5,contact:'PRIVATE',token:'SECRET'});assert.equal(api.read().people,'');assert.equal(api.read().date,'');assert.equal(api.read().days,5);assert.doesNotMatch(store.getItem(api.KEY),/PRIVATE|SECRET|contact|token/);});
+test('explicit homepage choices including cleared date override a saved plan',()=>{const {api}=fixture();const v=api.fromQuery('?departure=unknown&party=3&days=5',{date:'2026-11-20',people:'4',days:6});assert.equal(v.date,'');assert.equal(v.people,'3');assert.equal(v.days,5);const q=new URL(api.plannerUrl(v),'https://localtourchina.com').searchParams;assert.equal(q.get('departure'),'unknown');assert.equal(q.get('party'),'3');assert.equal(q.get('days'),'5');});
+test('first use can inherit an existing planner without copying its private fields',()=>{const {api,store}=fixture();store.setItem('china-planner-v1',JSON.stringify({modules:[{title:'private'}],trip:{start:'2026-11-20',people:'3',contact:'secret'},template:{days:6}}));assert.equal(api.read().date,'2026-11-20');assert.equal(api.read().days,6);assert.equal(api.read().people,'3');assert.equal(api.read().contact,undefined);});
+test('invalid dates, fractions and unsafe query values cannot become travel choices',()=>{const {api}=fixture();for(const date of ['2026-02-30','x','2026-13-01'])assert.equal(api.normalize({date}).date,'');for(const people of ['0','-2','2.5','<script>','101'])assert.equal(api.normalize({people}).people,'');assert.equal(api.endDate('2026-12-30',4),'2027-01-02');});
+test('seven-day custom extension carries through to inquiry without inheriting a six-day price',()=>{const p=recommendedRoute('custom67');assert.equal(p.days,7);assert.equal(p.copy.ko.itinerary.length,7);const d=restoreRecommendation({},'custom67','4','2026-11-20');assert.equal(recommendationPrice(d),null);assert.equal(recommendationEndDate(d.date,'custom67'),'2026-11-26');});
+
+test('blocked browser storage leaves defaults usable without crashing the page',()=>{const context={URLSearchParams};Object.defineProperty(context,'localStorage',{get(){throw Error('blocked')}});vm.runInNewContext(source,context);assert.equal(context.LTCTripPreferences.read().days,4);assert.equal(context.LTCTripPreferences.write({days:5}),false);});

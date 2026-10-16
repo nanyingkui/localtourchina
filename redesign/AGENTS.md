@@ -99,3 +99,10 @@ The user requested a fully launchable delivery and delegated all routine decisio
 
 # Homepage information density (2026-10-16)
 - User requests a cleaner homepage with less weather information. Remove the standalone homepage weather panel and modal; keep one concise weather/clothing link in travel information, leading to the existing detailed forecast. Preserve service entry, recommended trips and inquiry behavior across all three languages.
+
+# Shared travel choices and map timeline (2026-10-16)
+- Home, recommendation inquiry and personal planner share only date, duration and party via assets/trip-preferences.js. Never copy contacts or reservations into this shared store. Explicit URL choices take precedence. Blank dates and party remain blank.
+- Keep existing custom itineraries intact until the traveller explicitly chooses a new recommendation; back up before replacing. Planner changes flow back to the homepage. Seven days is an unpriced custom extension, not a new fixed-price product.
+- Success receipts show the reference, service/date/party/contact summary and progress action before optional raw inquiry text. No resubmit-as-edit button for already submitted live inquiries.
+- Controls use Travel Light neutral surfaces, forest-green primary actions, light secondary actions, orange status accents, visible focus and minimum46px targets. Keep the fixed mascot outfit/proportions.
+- AMap is opt-in per-day and lazy-loaded. map-config.json must have public JS Key, same-origin security proxy, and explicit commercial authorization confirmation before enabling. Never put securityJsCode in public files. Without configuration or on SDK failure, retain functional address lists and external AMap links. Search-derived positions are not verified entrances; never draw an invented navigation route between mountain points.

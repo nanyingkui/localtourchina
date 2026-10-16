@@ -81,3 +81,8 @@ body.information-page .brand-service-rail{display:none!important}body.informatio
 }
 .home-inquiry-entry .journey-location,.home-inquiry-entry .journey-step-actions{display:none!important}
 .quick-inquiry-review .submit-area .button.primary{background:#355c45;color:#fff;border:1px solid #355c45;border-radius:10px}
+
+/* Shared consultation controls: the same action has the same hierarchy on every step. */
+.consult-page :is(.button.primary,button.primary),.recommendation-flow .recommended-flow-action>button{background:#355c45!important;border:1px solid #355c45!important;border-radius:12px!important;color:#fff!important;min-height:50px;box-sizing:border-box}
+.consult-page :is(.button.outline,.back-link),.site-header .header-contact,.consult-page .text-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border:1px solid #a8b6a8;border-radius:12px;background:#fff;color:#355c45;text-decoration:none;box-sizing:border-box;cursor:pointer}
+.consult-page :is(.button.primary,button.primary):hover,.recommendation-flow .recommended-flow-action>button:hover{background:#274735!important}.consult-page :is(.button.outline,.back-link,.text-link):hover,.site-header .header-contact:hover{background:#edf2e9}.consult-page :is(input,select,textarea){border-color:#a8b6a8}.consult-page .summary-grid dd{overflow-wrap:anywhere}

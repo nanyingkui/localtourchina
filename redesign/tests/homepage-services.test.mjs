@@ -56,7 +56,8 @@ test('homepage starts with one recommended route, a qualified budget and optiona
  for(const lang of ['ko','zh','en']) {
   const html=render(lang),prefix=lang==='ko'?'':'/'+lang;
   const home=html.slice(html.indexOf('class="travel-home"'),html.indexOf('<section hidden',html.indexOf('class="travel-home"')));
-  assert.ok(home.includes('href="/travel-planner/#start-plan"'));
+  assert.ok(home.includes('href="/travel-planner/?departure=unknown&amp;days=4&amp;party=&amp;from=home#start-plan"'));
+  assert.doesNotMatch(home,/870,000|970,000/,'no numerical price before a party is chosen');
   assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details&amp;departure=unknown"`));
   assert.ok(home.includes('class="recommended-details"'));
   assert.ok(!home.includes('class="recommended-details" open'));
