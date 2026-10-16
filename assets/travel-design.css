@@ -86,3 +86,22 @@ body.information-page .brand-service-rail{display:none!important}body.informatio
 .consult-page :is(.button.primary,button.primary),.recommendation-flow .recommended-flow-action>button{background:#355c45!important;border:1px solid #355c45!important;border-radius:12px!important;color:#fff!important;min-height:50px;box-sizing:border-box}
 .consult-page :is(.button.outline,.back-link),.site-header .header-contact,.consult-page .text-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border:1px solid #a8b6a8;border-radius:12px;background:#fff;color:#355c45;text-decoration:none;box-sizing:border-box;cursor:pointer}
 .consult-page :is(.button.primary,button.primary):hover,.recommendation-flow .recommended-flow-action>button:hover{background:#274735!important}.consult-page :is(.button.outline,.back-link,.text-link):hover,.site-header .header-contact:hover{background:#edf2e9}.consult-page :is(input,select,textarea){border-color:#a8b6a8}.consult-page .summary-grid dd{overflow-wrap:anywhere}
+
+/* One progress indicator and one mobile action; keep saved selections reachable. */
+body.three-step-inquiry .journal-flow-guide,body.three-step-inquiry .journal-mobile-review,body.three-step-inquiry .redesign-contact-backup{display:none!important}
+body.three-step-inquiry[data-journey-screen] .selection-ledger{display:block!important}
+body.three-step-inquiry .mascot-page-tip{display:none!important}
+body.three-step-inquiry[data-config-category=ticket] #service-ticket .service-media-strip,body.three-step-inquiry[data-config-category=ticket] #service-ticket .card:has(>#attractions){display:none!important}
+body.three-step-inquiry .summary .field:has(>textarea){display:none!important}
+body.three-step-inquiry .shop-config-context{font-size:20px;line-height:1.5;margin:12px 0;font-weight:700}
+body.three-step-inquiry .shop-config-heading{scroll-margin-top:24px}
+body.three-step-inquiry .selection-ledger{scroll-margin-top:24px}
+.quick-inquiry-review .submit-area{position:static!important}
+body.three-step-inquiry[data-config-category] .rounded-service-hero{display:none!important}
+body.three-step-inquiry .selection-checkout{display:none!important}
+body.three-step-inquiry .selection-ledger:has(.selection-empty)>.selection-footer{display:none!important}
+body.three-step-inquiry .service-panel:not(#service-combo) .summary .actions{display:none!important}
+body.three-step-inquiry[data-config-category=ticket] #config-tianmen .route-suspended{display:none!important}
+
+.inquiry-use-guide{margin:12px 0;border:1px solid var(--ltc-line);border-radius:12px;padding:0 14px}.inquiry-use-guide>summary{min-height:48px;padding:12px 0;cursor:pointer;font-size:14px;line-height:1.6}.inquiry-use-guide>.use-guide{margin-top:0}.three-step-inquiry .card>.section-head .step{display:none!important}
+body.three-step-inquiry .summary:has(#copyBtn[data-ready=true]) #formHint{display:none!important}

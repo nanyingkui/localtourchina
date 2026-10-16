@@ -106,3 +106,7 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Success receipts show the reference, service/date/party/contact summary and progress action before optional raw inquiry text. No resubmit-as-edit button for already submitted live inquiries.
 - Controls use Travel Light neutral surfaces, forest-green primary actions, light secondary actions, orange status accents, visible focus and minimum46px targets. Keep the fixed mascot outfit/proportions.
 - AMap is opt-in per-day and lazy-loaded. map-config.json must have public JS Key, same-origin security proxy, and explicit commercial authorization confirmation before enabling. Never put securityJsCode in public files. Without configuration or on SDK failure, retain functional address lists and external AMap links. Search-derived positions are not verified entrances; never draw an invented navigation route between mountain points.
+
+# Mobile inquiry audit (2026-10-16)
+- Keep one progress indicator and one fixed next action in the guided service flow. Saved choices must be visible, editable and removable. Removing the last ticket must remove the empty category and return to the product list.
+- Guided checkout submits the website inquiry before the copy-and-chat action so the customer message includes a searchable inquiry reference. Keep optional explanations collapsible, preserve every selection and show invalid fields before advancing.
