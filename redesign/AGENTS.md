@@ -96,3 +96,6 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Reuse Travel Light tokens in redesign/public/assets/travel-design.css and the task design-system/TRAVEL-LIGHT.md. Keep controls 44–46px or larger, inputs16px, useful labels/focus/disabled states.
 - Derived orange-cap illustrations must retain fixed outfit AND fixed head-to-body/shoulder proportions across actions. Original logo stays unchanged. Navy collared shirt, beige straight long trousers, white sneakers. Use a single full-body reference; only gestures, expressions and travel props change.
 - Scenery is visible by default; 12-place select + previous/next, continuous scroll and manual time. Short-screen controls must remain reachable below image; loading retains current scene.
+
+# Homepage information density (2026-10-16)
+- User requests a cleaner homepage with less weather information. Remove the standalone homepage weather panel and modal; keep one concise weather/clothing link in travel information, leading to the existing detailed forecast. Preserve service entry, recommended trips and inquiry behavior across all three languages.

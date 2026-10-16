@@ -69,7 +69,7 @@ test('homepage starts with one recommended route, a qualified budget and optiona
   const guides=home.slice(home.indexOf('class="hub-guide-grid"'),home.indexOf('class="hub-scenery"'));
   assert.ok(!guides.includes('multi-booking.html'));
   assert.ok(!guides.includes('tickets.html'));
-  assert.match(home,/hub-weather-dialog/);
+  assert.doesNotMatch(home,/hub-weather|weather-widget|home-weather/);
   assert.match(home,/yuanjiajie-day.webp/);
   assert.match(home,/yuanjiajie-night.webp/);
   assert.match(home,/id="home-scene-time"/);
