@@ -38,8 +38,8 @@ test('password setup validates locally and changes only the authenticated user w
  let calls=0;const config={url:auth,key:'public-test-key',accessToken:'synthetic-access',password:'synthetic-password-only',confirm:'synthetic-password-only'};
  const fetcher=async(url,options)=>{calls++;assert.equal(url,auth+'/auth/v1/user');assert.equal(options.method,'PUT');assert.equal(options.headers.Authorization,'Bearer synthetic-access');assert.deepEqual(JSON.parse(options.body),{password:config.password});return {ok:true};};
  assert.equal((await changeAdminPassword({...config,confirm:'different'},fetcher)).code,'mismatch');assert.equal(calls,0);
- assert.equal((await changeAdminPassword({...config,password:'short',confirm:'short'},fetcher)).code,'weak_password');assert.equal(calls,0);
- const result=await changeAdminPassword(config,fetcher);assert.equal(calls,1);assert.deepEqual(result,{ok:true});
+ assert.equal((await changeAdminPassword({...config,password:'1234567',confirm:'1234567'},fetcher)).code,'weak_password');assert.equal(calls,0);
+ const result=await changeAdminPassword({...config,password:'test1234',confirm:'test1234'},async(url,options)=>{calls++;assert.equal(url,auth+'/auth/v1/user');assert.equal(JSON.parse(options.body).password,'test1234');return {ok:true};});assert.equal(calls,1);assert.deepEqual(result,{ok:true});
 });
 
 import {createAdminRequester,requestAdminRecovery,inquiryMatchesSearch} from '../public/assets/admin-login.mjs';

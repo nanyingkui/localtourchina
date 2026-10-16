@@ -29,7 +29,7 @@ export async function requestAdminEmail(config,fetcher=fetch){
 }
 
 export function passwordAuthFailure(status,body={}){
- const known={invalid_credentials:'邮箱或密码不正确。不记得密码时，请使用“找回／首次设置密码”。',email_not_confirmed:'此账号的邮箱尚未完成验证，请检查账号状态。',user_banned:'此账号目前不能登录，请联系账号管理员。',weak_password:'密码未满足账号服务要求，请使用至少12位的新密码。',reauthentication_needed:'设置密码需要重新验证身份，请保留当前后台，完成身份验证后再设置。',reauthentication_not_valid:'身份验证未通过，请重新验证后设置。',same_password:'新密码与当前密码相同，无需重复修改。',session_not_found:'登录会话已失效，请重新登录后再设置密码。',session_expired:'登录会话已过期，请重新登录后再设置密码。',over_request_rate_limit:'登录尝试过于频繁，请稍后再试。'};
+ const known={invalid_credentials:'邮箱或密码不正确。不记得密码时，请使用“找回／首次设置密码”。',email_not_confirmed:'此账号的邮箱尚未完成验证，请检查账号状态。',user_banned:'此账号目前不能登录，请联系账号管理员。',weak_password:'密码未满足账号服务要求，请使用至少8个字符的新密码。',reauthentication_needed:'设置密码需要重新验证身份，请保留当前后台，完成身份验证后再设置。',reauthentication_not_valid:'身份验证未通过，请重新验证后设置。',same_password:'新密码与当前密码相同，无需重复修改。',session_not_found:'登录会话已失效，请重新登录后再设置密码。',session_expired:'登录会话已过期，请重新登录后再设置密码。',over_request_rate_limit:'登录尝试过于频繁，请稍后再试。'};
  const code=Object.hasOwn(known,body?.code||body?.error_code)?(body.code||body.error_code):'unknown';
  return {ok:false,code,message:known[code]||(status===400?'邮箱或密码未通过验证，请核对账号；未设置密码时需要先设置。':status===401?'当前验证信息已失效，请重新登录。':status===429?'登录尝试受到频率限制，请稍后再试。':status>=500?'账号服务暂时异常，请稍后再试。':'未能完成身份验证，请核对账号状态。')};
 }
@@ -45,7 +45,7 @@ export async function requestAdminPassword(config,fetcher=fetch){
 }
 export async function changeAdminPassword(config,fetcher=fetch){
  if(config.password!==config.confirm)return {ok:false,code:'mismatch',message:'两次输入的密码不一致。'};
- if(typeof config.password!=='string'||config.password.length<12)return {ok:false,code:'weak_password',message:'请使用至少12位的新密码。'};
+ if(typeof config.password!=='string'||config.password.length<8)return {ok:false,code:'weak_password',message:'请使用至少8个字符的新密码。'};
  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),15000);
  try{
   const response=await fetcher(config.url+'/auth/v1/user',{method:'PUT',headers:{apikey:config.key,Authorization:'Bearer '+config.accessToken,'Content-Type':'application/json'},body:JSON.stringify({password:config.password}),signal:controller.signal});
