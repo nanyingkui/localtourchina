@@ -26,3 +26,6 @@ http://127.0.0.1:61949/?review=service-request
 
 ## Mobile acceptance still required
 At 390px and 320px: inspect all four entries and forms, no horizontal overflow/overlap; edit home date, length and party then verify transfer; change service and verify contact retained; children/ages and vehicle subtype fields; invalid/past date and missing required fields; successful preview submit with complete receipt, no compulsory Kakao action; back/edit without lost draft. Inspect desktop layout and browser console too.
+
+## Release decision update — 2026-10-18
+The user subsequently explicitly authorized skipping the blocked Chrome/mobile browser verification and publishing these existing changes together. Earlier release holds above are superseded for this release. Actual mobile/browser interaction and visual QA remain unverified; automated checks and deployed HTTP/resource checks must be reported separately.

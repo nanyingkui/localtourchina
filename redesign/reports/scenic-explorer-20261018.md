@@ -20,3 +20,6 @@ Production build and release checker passed: 48 pages, 135 inline scripts, zero 
 Actual browser/mobile QA remains blocked by Chrome feature-gate load error, even after the authorized new-window retry. In-app browser unavailable. No screenshots or visual/mobile acceptance are claimed. Local preview remains unpublished, together with the four intent-based request forms from d5e3e6e. Do not release until actual browser checks are possible.
 
 Preview: http://127.0.0.1:61949/?review=scenery-explorer#home-scene-place
+
+## Release decision update — 2026-10-18
+The user subsequently explicitly authorized skipping the blocked Chrome/mobile browser verification and publishing these existing changes together. Earlier release holds above are superseded for this release. Actual mobile/browser interaction and visual QA remain unverified; automated checks and deployed HTTP/resource checks must be reported separately.

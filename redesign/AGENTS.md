@@ -124,3 +124,6 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Visible place selector, previous/next boundaries, continuous time slider, full day-to-night playback and optional scroll control. Enlarge opens a dismissible dialog with its own labelled time slider.
 - Keep the previous loaded pair while another place loads; ignore stale completions, preserve the day view on a missing night image, and expose retry/error status.
 - Label cave lighting as simulated lighting, not natural day/night. Fenghuang and Furong are optional outside-Zhangjiajie extensions. Preserve the AI/light-simulation disclosure.
+
+# User-authorized release without Chrome QA (2026-10-18)
+- User explicitly requested omitting the blocked Chrome/mobile browser checks and publishing the existing scenic explorer and four service request forms together. This overrides the earlier browser-before-release hold for these changes only. Preserve all existing implementations; do not claim mobile visual verification. Run required build/tests/release checks and verify deployed HTML/assets over HTTP.
