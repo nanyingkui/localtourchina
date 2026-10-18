@@ -110,3 +110,10 @@ The user requested a fully launchable delivery and delegated all routine decisio
 # Mobile inquiry audit (2026-10-16)
 - Keep one progress indicator and one fixed next action in the guided service flow. Saved choices must be visible, editable and removable. Removing the last ticket must remove the empty category and return to the product list.
 - Guided checkout submits the website inquiry before the copy-and-chat action so the customer message includes a searchable inquiry reference. Keep optional explanations collapsible, preserve every selection and show invalid fields before advancing.
+
+# Intent-first service requests (2026-10-18)
+- Homepage primary service entry has four clear intents: tailor-made trip, vehicle/airport transfer, Korean-speaking guide, tickets. Each goes directly to ?view=request&service=... and collects only service-specific essentials.
+- Shared date, party and trip length carry over through existing trip-preferences. Contact and optional name can be reused within this tab session when changing services; never put contact information in URL parameters or the shared preference store.
+- Private trip dates may remain undecided. Single services request the actual use date. No automatic paid add-ons. Detailed original catalogues/calculators remain available through a secondary link.
+- Submit directly through the existing public inquiry interface. Success means received, not confirmed booking. Do not require copying or resending the application on KakaoTalk. Chat is optional for corrections/support.
+- Mobile acceptance must be based on actual browser checks, not inferred from CSS or unit tests.

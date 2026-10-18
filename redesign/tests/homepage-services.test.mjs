@@ -81,7 +81,7 @@ test('single-service booking is visible before the itinerary recommendation in e
  for(const lang of ['ko','zh','en']){
   const html=render(lang),prefix=lang==='ko'?'/':`/${lang}/`;
   assert.ok(html.indexOf('class="home-service-shortcuts"')<html.indexOf('class="recommended-experience"'));
-  for(const category of ['ticket','vehicle','guide'])assert.ok(html.includes(`${prefix}multi-booking.html?category=${category}&amp;planner=0&amp;entry=home`));
+  for(const category of ['private','ticket','vehicle','guide'])assert.ok(html.includes(`${lang==='ko'?'/':prefix+'index.html'}?view=request&amp;service=${category}`));
   const shortcuts=html.slice(html.indexOf('class="home-service-shortcuts"'),html.indexOf('class="recommended-experience"'));
   assert.ok(!shortcuts.includes('<details'));
   assert.ok(!shortcuts.includes('view=recommendation'));
