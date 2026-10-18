@@ -117,3 +117,10 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Private trip dates may remain undecided. Single services request the actual use date. No automatic paid add-ons. Detailed original catalogues/calculators remain available through a secondary link.
 - Submit directly through the existing public inquiry interface. Success means received, not confirmed booking. Do not require copying or resending the application on KakaoTalk. Chat is optional for corrections/support.
 - Mobile acceptance must be based on actual browser checks, not inferred from CSS or unit tests.
+
+# Complete homepage scenic explorer (2026-10-18)
+- Homepage scenery uses ScenicExplorer, with the existing twelve paired day/night assets. Keep ScenicHero for older non-home uses.
+- Show the entire photograph with object-fit:contain. Keep the controls outside the photograph, beside it on wide screens and below it on phones. No dark panel overlay or wide cropped photo strip.
+- Visible place selector, previous/next boundaries, continuous time slider, full day-to-night playback and optional scroll control. Enlarge opens a dismissible dialog with its own labelled time slider.
+- Keep the previous loaded pair while another place loads; ignore stale completions, preserve the day view on a missing night image, and expose retry/error status.
+- Label cave lighting as simulated lighting, not natural day/night. Fenghuang and Furong are optional outside-Zhangjiajie extensions. Preserve the AI/light-simulation disclosure.
