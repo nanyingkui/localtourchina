@@ -1,7 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {money,quoteTotal,paymentBalance,prepareFinance} from '../public/assets/admin-finance.mjs';
+import {money,quoteTotal,paymentBalance,prepareFinance,balanceSummary} from '../public/assets/admin-finance.mjs';
 const payment={id:'11111111-1111-4111-8111-111111111111',kind:'receipt',amount:'100.10',occurred_at:'2026-10-19T10:00:00Z',method:'bank',note:''};
+test('cancelled inquiries show reconciliation guidance without requesting the old quoted balance',()=>{
+ assert.match(balanceSummary({status:'cancelled',quote_amount:200},[],'KRW'),/已取消/);
+ assert.doesNotMatch(balanceSummary({status:'cancelled',quote_amount:200},[],'KRW'),/剩余应收/);
+ assert.match(balanceSummary({status:'received',quote_amount:200},[{...payment,currency:'KRW',amount:50}],'KRW'),/150/);
+});
 test('quote totals use cents and reject malformed quantities and negative prices',()=>{
  assert.equal(quoteTotal([{name:'A',quantity:3,unit_price:'0.10'},{name:'B',quantity:1,unit_price:'0.20'}]),0.5);
  for(const value of ['-1','NaN','1.001','1e3'])assert.throws(()=>money(value));assert.throws(()=>quoteTotal([{name:'A',quantity:1.5,unit_price:1}]));

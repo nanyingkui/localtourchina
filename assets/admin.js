@@ -4,7 +4,7 @@
   const serviceLabels={'online-guide':'在线旅行支持',private:'私人定制游',ticket:'景区门票',daytour:'一日游',guide:'导游服务',vehicle:'包车服务',combo:'组合预订'};
   const stages={new:'未回复',information:'待补信息',quote:'待报价',followup:'待跟进',payment:'待付款',booked:'已预约',paused:'暂缓',closed:'结束'};
   const {changedDraft,isTestInquiry,isActive,isOverdue,normalizedContact,inquirySummary,filterInquiries,statusConflict}=await import('./admin-workspace.mjs?v=workspace-20261019');
-  const {bindFinanceEditor,prepareFinance,quoteTotal,paymentBalance}=await import('./admin-finance.mjs?v=operations-20261019');
+  const {bindFinanceEditor,prepareFinance,quoteTotal,paymentBalance}=await import('./admin-finance.mjs?v=operations-20261019-2');
   let financeEditor=null,editorBase=null;const paymentIds=new Map();
   const drafts=new Map();
   function bindFinanceBase(x){return {quote_items:(x.admin_data?.quote_items||[]).map(i=>({...i,quantity:Number(i.quantity),unit_price:String(i.unit_price)})),deposit_due:String(x.admin_data?.deposit_due??'')};}
