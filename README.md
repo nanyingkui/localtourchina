@@ -25,3 +25,7 @@ Two clearly labeled synthetic acceptance inquiries were created: LTC-20261008-B1
 ## Guest-story publishing
 
 `src/reviews.json` and `src/youtube-reviews.json` hold permission-cleared, privacy-reviewed public text and source attribution. `scripts/build-reviews.mjs` generates the Korean, Chinese and English archive pages plus the compact homepage data in `redesign/src/featured-reviews.json`. Original writing stays in its original language. Edit the source datasets, never the generated homepage data or root HTML. Add only reviewed public photos under `redesign/public/assets/reviews/`; private source archives must not be committed. Family serials, operator posts, information/ticket assistance and other operators’ trips retain their context labels. Post/comment counts must never be presented as unique customers or verified bookings.
+
+## Travel handbook invitation (2026-10-19)
+
+`redesign/src/HandbookEntry.jsx` adds a compact invitation above the homepage service shortcuts in all three languages. Both calls to action use the existing map domain in the same browser tab; feedback targets `#vRouteComments` below the handbook. No inquiry, account or comment data is migrated.

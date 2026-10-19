@@ -11,3 +11,9 @@
 No payment, real booking or outgoing customer message was performed. Two labeled synthetic inquiry records remain for operator identification. Existing price policies are retained. Automated route scans do not exhaust every possible calculator combination or constitute legal certification.
 
 Release reports contain no private inquiry access tokens. Raw private acceptance receipt stays outside this repository and public deliverables.
+
+### 2026-10-19: handbook invitation
+- Isolated worktree from origin/main e2d0677; original in-progress checkout preserved.
+- Existing green/neutral visual language; concise test invitation and direct handbook/comment links.
+- Actual Chrome: Korean homepage invitation is the first content card; 390px viewport measured scrollWidth=390, card within viewport; both destinations verified in DOM. No forms submitted.
+- Production build, release check (48 pages, zero missing local references) and all 184 tests pass. npm aliases executed through their exact Node entry points because npm is unavailable on PATH.

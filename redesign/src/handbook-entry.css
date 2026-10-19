@@ -1,0 +1,11 @@
+.handbook-entry{display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:22px;margin:22px 0 30px;padding:28px 30px;border:1px solid #c9d8c5;border-radius:24px;background:#f0f4e9;color:#263e32}
+.handbook-entry-mascot{width:64px;height:64px;object-fit:contain}
+.handbook-entry-copy .handbook-entry-tag{margin:0 0 8px;color:#42614c;font-size:13px;font-weight:700}
+.handbook-entry-copy h2{margin:0 0 9px;font-size:clamp(22px,2.3vw,29px);line-height:1.35;letter-spacing:-.035em}
+.handbook-entry-copy>p:last-child{margin:0;color:#526158;font-size:15px;line-height:1.65;max-width:580px;word-break:keep-all}
+.handbook-entry-actions{display:flex;flex-direction:column;align-items:center;gap:8px}
+.handbook-entry-primary{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 21px;border-radius:14px;background:#315b47;color:white!important;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap}
+.handbook-entry-primary:hover{background:#234936}
+.handbook-entry-comment{display:flex;align-items:center;min-height:44px;color:#315b47!important;text-underline-offset:4px;font-size:13px}
+.handbook-entry a:focus-visible{outline:3px solid #b15c21;outline-offset:4px}
+@media(max-width:760px){.handbook-entry{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:22px 20px;margin:16px 0 24px;border-radius:20px}.handbook-entry-mascot{width:44px;height:54px;align-self:start}.handbook-entry-copy h2{font-size:23px}.handbook-entry-copy>p:last-child{font-size:14px}.handbook-entry-actions{grid-column:1/-1;align-items:stretch;gap:2px}.handbook-entry-primary{white-space:normal}.handbook-entry-comment{justify-content:center}}
