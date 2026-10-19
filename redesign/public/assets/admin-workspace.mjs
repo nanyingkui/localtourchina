@@ -1,4 +1,9 @@
 // Pure workspace rules. No customer records are changed by filtering or summaries.
+export function changedDraft(values,finance,base={}){
+ const changed=Object.fromEntries(Object.entries(values).filter(([key,value])=>value!==base.values?.[key]));
+ const financial={};if(finance)for(const key of ['quote_items','deposit_due'])if(JSON.stringify(finance[key])!==JSON.stringify(base.finance?.[key]))financial[key]=finance[key];
+ return {values:changed,finance:Object.keys(financial).length?financial:undefined};
+}
 export function isTestInquiry(row){
  if(row.admin_data?.test_mode==='live')return false;
  if(row.admin_data?.test_mode==='test')return true;
