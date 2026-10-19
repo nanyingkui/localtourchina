@@ -9,8 +9,10 @@ export function isTestInquiry(row){
  if(row.admin_data?.test_mode==='test')return true;
  return /\[(?:测试|테스트|test)(?:\s*\/\s*(?:测试|테스트|test))*\]|RELEASE QA|上线验收测试|TEST-QA-|로투차 (?:모바일 테스트|테스트 주문)/i.test(row.customer_name||'') || /^TEST[-_]/i.test(row.contact||'');
 }
-export function isActive(row){return !['closed','paused'].includes(row.crm_stage)&&!['completed','cancelled'].includes(row.status);}
-export function isOverdue(row,now=Date.now()){return row.crm_stage!=='closed'&&!['completed','cancelled'].includes(row.status)&&!!row.follow_up_at&&new Date(row.follow_up_at).getTime()<=now;}
+export function isArchived(row){return !!row.admin_data?.archived_at;}
+export function archivePatch(row,archived,now=new Date()){return {admin_data:{...row.admin_data,archived_at:archived?now.toISOString():null}};}
+export function isActive(row){return !isArchived(row)&& !['closed','paused'].includes(row.crm_stage)&&!['completed','cancelled'].includes(row.status);}
+export function isOverdue(row,now=Date.now()){return !isArchived(row)&&row.crm_stage!=='closed'&&!['completed','cancelled'].includes(row.status)&&!!row.follow_up_at&&new Date(row.follow_up_at).getTime()<=now;}
 export function normalizedContact(value){const s=String(value||'').trim().toLowerCase();return /^[+\d\s()-]+$/.test(s)?s.replace(/[^\d]/g,''):s;}
 export function inquirySummary(row){
  const text=String(row.inquiry_text||'');
@@ -21,6 +23,7 @@ export function inquirySummary(row){
 }
 export function filterInquiries(rows,f={},now=Date.now()){
  return rows.filter(x=>{
+  if(isArchived(x)!==(f.area==='archived'))return false;
   if(f.scope==='test'&&!isTestInquiry(x)||f.scope!=='all'&&f.scope!=='test'&&isTestInquiry(x))return false;
   if(f.service&&x.service!==f.service)return false;
   if(f.owner==='__unassigned'&&x.assigned_to||f.owner&&f.owner!=='__unassigned'&&x.assigned_to!==f.owner)return false;
