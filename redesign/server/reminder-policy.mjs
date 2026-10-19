@@ -5,7 +5,7 @@ export function isTestReminder(inquiry){
 }
 const closed = new Set(['closed']);
 export function reminderFor(inquiry, now = new Date()) {
-  if (isTestReminder(inquiry)||closed.has(inquiry.crm_stage) || ['completed','cancelled'].includes(inquiry.status)) return null;
+  if (inquiry.admin_data?.archived_at||isTestReminder(inquiry)||closed.has(inquiry.crm_stage) || ['completed','cancelled'].includes(inquiry.status)) return null;
   const deadline = inquiry.follow_up_at && new Date(inquiry.follow_up_at);
   const created = new Date(inquiry.created_at);
   let kind;
