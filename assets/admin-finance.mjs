@@ -15,6 +15,12 @@ export function paymentBalance(payments,currency){
  for(const row of payments){if(row.currency!==currency)continue;total+=(row.kind==='refund'?-1:1)*money(row.amount);}
  return total/100;
 }
+export function balanceSummary(order,payments,currency){
+ const net=paymentBalance(payments,currency);
+ if(order.payment_received&&!payments.length)return '历史收款金额待核对，暂不计算剩余应收。';
+ if(order.status==='cancelled')return '申请已取消；报价和收款仅供对账，取消费用及是否退款请另行核对。';
+ return order.quote_amount!=null?'剩余应收：'+currency+' '+Math.max(0,Math.round((Number(order.quote_amount)-net)*100)/100)+(net>Number(order.quote_amount)?' · 存在超收，请核对。':''):'尚未确认报价总额，暂不计算剩余应收。';
+}
 export function prepareFinance(existing,items,deposit,payment,currency,ackLegacy=false){
  const data=structuredClone(existing||{}),history=data.payments||[];
  quoteTotal(items);data.quote_items=items;
@@ -39,8 +45,7 @@ export function prepareFinance(existing,items,deposit,payment,currency,ackLegacy
 export function bindFinanceEditor({host,order,draft,onChange,escape:esc}){
  let items=structuredClone(draft?.quote_items??order.admin_data?.quote_items??[]);
  const payments=order.admin_data?.payments||[],currency=(order.quote_currency||'KRW').toUpperCase();
- const net=paymentBalance(payments,currency),legacyUnknown=order.payment_received&&!payments.length;
- const balance=legacyUnknown?'历史收款金额待核对，暂不计算剩余应收。':order.quote_amount!=null?'剩余应收：'+currency+' '+Math.max(0,Math.round((Number(order.quote_amount)-net)*100)/100)+(net>Number(order.quote_amount)?' · 存在超收，请核对。':''):'尚未确认报价总额，暂不计算剩余应收。';
+ const net=paymentBalance(payments,currency),balance=balanceSummary(order,payments,currency);
  host.innerHTML=`<h4>逐项报价</h4><p class="admin-section-help">这里是人工确认的报价，不改变网站产品价格。无明细时保留原总额报价。</p><div id="quoteItems"></div><button type="button" class="secondary" id="addQuoteItem">添加报价项目</button><p id="itemTotal" role="status"></p><label>应收定金<input id="fDepositDue" type="number" min="0" step="0.01" value="${esc(draft?.deposit_due??order.admin_data?.deposit_due??'')}"></label><h4>收款与退款记录</h4><p class="admin-section-help">只记录实际发生的款项，不会发起扣款或退款。按报价币种记账，保存处理进度后生效；已有流水不可覆盖，录错请追加更正记录。</p><div class="readbox">${payments.length?payments.map(p=>`${p.kind==='refund'?'退款':'收款'} · ${p.currency} ${p.amount} · ${new Date(p.occurred_at).toLocaleString('zh-CN')} · ${p.method||'方式未填'}${p.note?' · '+p.note:''}`).map(esc).join('\n'):order.payment_received?'历史已标记收款，但金额尚未核对。':'暂无付款记录。'}</div><p>已记录净收款：${esc(currency)} ${net}</p><p>${esc(balance)}</p><div class="form-grid"><label>本次记账<select id="fPaymentKind"><option value="">本次不新增</option><option value="receipt">实际收款</option><option value="refund">实际退款</option></select></label><label>本次金额<input id="fPaymentAmount" type="number" min="0.01" step="0.01"></label><label>发生时间<input id="fPaymentDate" type="datetime-local"></label><label>方式<input id="fPaymentMethod" maxlength="100" placeholder="例如：银行转账"></label><label class="wide">记账备注<input id="fPaymentEntryNote" maxlength="500"></label>${order.payment_received&&!payments.length?'<label class="wide"><input id="fLegacyReconciled" type="checkbox">已核对历史收款，本次录入包含全部历史收款</label>':''}</div>`;
  const list=host.querySelector('#quoteItems'),status=host.querySelector('#itemTotal');
  const read=()=>Array.from(list.querySelectorAll('[data-quote-item]')).map(row=>({name:row.querySelector('[data-name]').value.trim(),quantity:Number(row.querySelector('[data-qty]').value),unit_price:row.querySelector('[data-price]').value}));
