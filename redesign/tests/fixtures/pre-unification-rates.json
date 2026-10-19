@@ -1,0 +1,47 @@
+[
+  {
+    "name": "ticket-rates",
+    "pattern": "  const priceSettings=.*?  function updatePricing",
+    "sha256": "66551a2ed0f4f434ff0a87cd6cc4df6c76c22453d3b2537c88aa0cad0f4e7dd1"
+  },
+  {
+    "name": "day-tour-catalogue",
+    "pattern": "  const tours=.*?  function renderTourPicker",
+    "sha256": "d2c3063dea48d23b80e1c6d119dcf0ef776be7afac7d7b3de79a318b4b9446ae"
+  },
+  {
+    "name": "guide-rates",
+    "pattern": "  const guides=.*?;\\n",
+    "sha256": "30a1482e263988d746682fdb02ddf9d5315f5bbbaeee646d55ac3e651c23834f"
+  },
+  {
+    "name": "vehicle-rates",
+    "pattern": "  const vehicleProducts=.*?  function renderVehicle",
+    "sha256": "7f292e6a62611a1218883d6150c9caefd6588ebef642c627f5c0add35b1b89de"
+  },
+  {
+    "name": "day-tour-calculation",
+    "pattern": "const people=groups.reduce.*?total=base\\+pickup\\+smallGroupFee\\*payingPeople",
+    "sha256": "23131fa5cd7e6dd6216b09a67cbcdd1ba2238448cd38104587e9fb9e084aa756"
+  },
+  {
+    "name": "guide-calculation",
+    "pattern": "const people=Math.max\\(1,parseInt\\(\\$\\(\\'#guidePeople\\'\\).*?roleKo=",
+    "sha256": "1a1fd3d6a2c0db1e82a5228bb8e3d9fcbc2e3c05eb553b54422a2a7b5a05777f"
+  },
+  {
+    "name": "airport-calculation",
+    "pattern": "const route=val\\('#vehicleRoute'\\).*?total=p\\[route\\]\\*count\\+furongFee;",
+    "sha256": "969b5bf3c5dc77aed61d38d1157db2453bbb60390004381f88a6fd5f81220f72"
+  },
+  {
+    "name": "rental-calculation",
+    "pattern": "const hours=Math.max\\(1,\\+val\\('#vehicleHours'\\).*?total=p.price\\+Math.max\\(0,hours-8\\)\\*20000\\+meal;",
+    "sha256": "c8a91df4fdb603014c5362d5a5825078affa999df2058cb31b76bed1e060219d"
+  },
+  {
+    "name": "all-ticket-product-prices",
+    "pattern": "  const pricing=.*?  const priceSettings=",
+    "sha256": "a8a4c77781e50d92a3eddd5fd2662c93ffd6a0019c6b173e0c6b406f4e497894"
+  }
+]

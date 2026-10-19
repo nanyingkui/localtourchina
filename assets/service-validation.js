@@ -63,10 +63,11 @@
     if(service==='guide') {
       const dates=all('.guide-date'),seen=new Set();dates.forEach(el=>{date(el);if(seen.has(el.value))flag(el,'duplicate');seen.add(el.value);});
       required($('#guideStartTime'));required($('#guideMeetingPlace'));
-      if(!$('#guideSights input:checked')&&!value('guideItinerary'))flag($('#guideItinerary'),'required');
+      if((value('guideRole')!=='travel'||!$('#guideSights input:checked'))&&!value('guideItinerary'))flag($('#guideItinerary'),'required');
       number($('#guidePeople'),{min:1,max:99});number($('#guideHours'),{min:1,max:24,hours:true});
     }
     if(service==='vehicle') {
+      if(value('vehicleDirection')==='round'&&$('#vehicleService input:checked')?.value==='airport'){date($('#vehicleReturnDate'));if(value('vehicleReturnDate')<value('vehicleDate'))flag($('#vehicleReturnDate'),'end');['vehicleReturnTime','vehicleReturnPickup','vehicleReturnDropoff'].forEach(id=>required(document.getElementById(id)));if(value('vehicleReturnDate')+'T'+value('vehicleReturnTime')<=value('vehicleDate')+'T'+value('vehicleTime'))flag($('#vehicleReturnTime'),'date');}
       date($('#vehicleDate'));['vehicleTime','vehiclePickup','vehicleDropoff'].forEach(id=>required(document.getElementById(id)));
       number($('#vehiclePeople'),{min:1,max:34});number($('#vehicleLuggage'),{max:40});
       if($('#vehicleService input:checked')?.value==='rental')number($('#vehicleHours'),{min:1,max:24,hours:true});

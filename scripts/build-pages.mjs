@@ -266,7 +266,7 @@ for (const page of pages) {
 
   const activePattern = new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html = html.replace(activePattern, '$1 active$2');
-  html = html.replace('href="en/index.html" data-en-link', `href="en/${['reviews','booking','food'].includes(page.service) ? 'index.html' : page.file}" data-en-link`);
+  html = html.replace('href="en/index.html" data-en-link', `href="en/${page.service==='booking'?'multi-booking.html':page.service==='food'?'travel-info.html':page.service==='reviews'?'reviews.html':page.file}" data-en-link`);
   html = html.replace('href="zh/index.html" data-zh-link', `href="zh/${page.file}" data-zh-link`);
   html = html.replace('</head>', `  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service) || page.file === 'index.html' ? '' : page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file === 'index.html' ? '' : page.file}">\n</head>`);
   if (page.service === 'reviews') html = html.replace(/  <link rel="alternate" hreflang="en"[^>]*>\n/, '');
@@ -308,7 +308,7 @@ for(const page of zhPages){
     .replace(/service-tab active/g,'service-tab');
   const activePattern=new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html=html.replace(activePattern,'$1 active$2');
-  html=html.replace(/<span class="language-switch"[\s\S]*?<\/span>/,`<span class="language-switch" aria-label="语言选择"><a lang="ko" href="../${page.file}">KO</a><a lang="en" href="../en/${englishPages.some(item=>item.file===page.file)?page.file:'index.html'}">EN</a><a class="active" lang="zh-CN" aria-current="page">中文</a></span>`);
+  html=html.replace(/<span class="language-switch"[\s\S]*?<\/span>/,`<span class="language-switch" aria-label="语言选择"><a lang="ko" href="../${page.file}">KO</a><a lang="en" href="../en/${page.service==='booking'?'multi-booking.html':page.service==='food'?'travel-info.html':englishPages.some(item=>item.file===page.file)?page.file:'index.html'}">EN</a><a class="active" lang="zh-CN" aria-current="page">中文</a></span>`);
   html=html.replace(/<div class="service-nav" id="main-navigation"[\s\S]*?<\/div><span class="language-switch"/,`<div class="service-nav" id="main-navigation" aria-label="主要菜单"><a class="service-tab online-nav${page.service==='onlineguide'?' active':''}" data-service="onlineguide" href="online-guide.html">在线支持</a><a class="service-tab${page.service==='booking'?' active':''}" data-service="booking" href="booking.html">旅行预订</a><a class="service-tab${page.service==='info'?' active':''}" data-service="info" href="travel-info.html">旅行准备</a><a class="service-tab${page.service==='food'?' active':''}" data-service="food" href="food-map.html">美食·地图</a><a class="service-tab${page.service==='reviews'?' active':''}" data-service="reviews" href="reviews.html">旅行评价</a><a class="nav-contact" href="#business-info">微信咨询 ↗</a></div><span class="language-switch"`);
   html=html.replaceAll('assets/','../assets/');
   html=html.replace(/<section class="service-panel" id="service-info"[\s\S]*?(?=<section class="service-panel" id="service-food")/,zhTravelInfo+'\n');
