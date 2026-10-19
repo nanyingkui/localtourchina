@@ -16,3 +16,5 @@ test('product age boundaries stay distinct and height bands are never inferred f
 test('four-day validity crosses month and year boundaries',()=>{assert.equal(api.addDays('2026-12-30',3),'2027-01-02');});
 test('explicit undecided date clears the previous common date',()=>{const {api}=setup();api.remember({date:'2026-11-20'});api.remember({date:''});assert.equal(api.read().date,'');});
 test('invalid calendar dates are never reused',()=>{const {api}=setup();api.remember({date:'2026-99-99'});api.remember({date:'2026-02-31'});assert.equal(api.read().date,undefined);});
+
+test('an explicitly undecided start date also clears the stale shared end date',()=>{const {api}=setup();api.remember({date:'2026-11-20',endDate:'2026-11-24'});api.remember({date:''});assert.equal(api.read().date,'');assert.equal(api.read().endDate,'');});
