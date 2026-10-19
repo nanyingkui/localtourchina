@@ -52,7 +52,7 @@ async function run(config,testMode){
  await rpc('crm_enqueue_reminders');
  const last=(await db('crm_kakao_runtime?id=eq.true&select=last_sent_at'))[0].last_sent_at;
  if(last&&Date.now()-new Date(last)<15*60000){await runtime({last_run_at:new Date().toISOString()});return json({batched_until_next_window:true});}
- const jobs=await db('crm_reminder_deliveries?select=*,inquiries(id,reference,status,crm_stage,created_at,first_replied_at,assigned_to,follow_up_at)&status=eq.pending&next_attempt_at=lte.'+encodeURIComponent(now.toISOString())+'&order=created_at.asc&limit=200');
+ const jobs=await db('crm_reminder_deliveries?select=*,inquiries(id,reference,status,crm_stage,created_at,first_replied_at,assigned_to,follow_up_at,customer_name,contact,admin_data)&status=eq.pending&next_attempt_at=lte.'+encodeURIComponent(now.toISOString())+'&order=created_at.asc&limit=200');
  const valid=[],cancelled=[];
  for(const job of jobs){const row=job.inquiries;const reminder=row&&reminderFor(row,new Date());if(reminder&&(reminder.dedup_key===job.dedup_key||job.dedup_key.startsWith(reminder.dedup_key+':')))valid.push(job);else cancelled.push(job.dedup_key);}
  const updateBatch=(keys,status,error=null,next=new Date())=>rpc('crm_reminder_batch_update',{p_keys:keys,p_status:status,p_error:error,p_next:next.toISOString()});

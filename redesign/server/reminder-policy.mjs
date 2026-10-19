@@ -1,6 +1,11 @@
+export function isTestReminder(inquiry){
+ if(inquiry.admin_data?.test_mode==='live')return false;
+ if(inquiry.admin_data?.test_mode==='test')return true;
+ return /\[(?:测试|테스트|test)(?:\s*\/\s*(?:测试|테스트|test))*\]|RELEASE QA|上线验收测试|TEST-QA-|로투차 (?:모바일 테스트|테스트 주문)/i.test(inquiry.customer_name||'')||/^TEST[-_]/i.test(inquiry.contact||'');
+}
 const closed = new Set(['closed']);
 export function reminderFor(inquiry, now = new Date()) {
-  if (closed.has(inquiry.crm_stage) || ['completed','cancelled'].includes(inquiry.status)) return null;
+  if (isTestReminder(inquiry)||closed.has(inquiry.crm_stage) || ['completed','cancelled'].includes(inquiry.status)) return null;
   const deadline = inquiry.follow_up_at && new Date(inquiry.follow_up_at);
   const created = new Date(inquiry.created_at);
   let kind;

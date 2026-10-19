@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {reminderFor,retryDelay,kakaoTemplate,reminderDigest} from '../server/reminder-policy.mjs';
+import {reminderFor,retryDelay,kakaoTemplate,reminderDigest,isTestReminder} from '../server/reminder-policy.mjs';
+import {isTestInquiry} from '../public/assets/admin-workspace.mjs';
 const now = new Date('2026-10-13T12:00:00Z');
 const lead = {id:'test-id',reference:'TEST',crm_stage:'new',status:'received',created_at:'2026-10-13T11:00:00Z',first_replied_at:null,assigned_to:'Operator',contact:'PRIVATE',inquiry_text:'PRIVATE'};
 test('unanswered reminders wait 30 minutes and never disclose contact or full messages',()=>{
@@ -24,4 +25,10 @@ test('paused customers get the agreed follow-up reminder, but no unanswered aler
 test('large batches count every queued event while keeping private data out of Kakao messages',()=>{
  const rows=Array.from({length:200},(_,i)=>({kind:'unanswered',inquiries:{reference:'LTC-TEST-'+i,contact:'PRIVATE',inquiry_text:'PRIVATE'}}));
  const text=reminderDigest(rows);assert.ok(text.includes('미응답 200건'));assert.ok(text.includes('외 190개'));assert.ok(text.length<1000);assert.ok(!text.includes('PRIVATE'));
+});
+test('test inquiries are excluded at delivery time, while an explicit live override is respected',()=>{
+ for(const row of [{customer_name:'[测试/테스트] 验收'},{contact:'TEST-NO-CONTACT'},{admin_data:{test_mode:'test'}}]){
+  assert.equal(reminderFor({...lead,...row},now),null);assert.equal(isTestReminder(row),isTestInquiry(row));
+ }
+ const explicit={...lead,contact:'TEST-NO-CONTACT',admin_data:{test_mode:'live'}};assert.ok(reminderFor(explicit,now));assert.equal(isTestReminder(explicit),false);
 });
