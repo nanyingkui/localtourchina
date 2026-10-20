@@ -21,6 +21,6 @@ test('all localized review pages contain original text and link to exact sources
  assert.match(page,/id="review-search"/);assert.match(page,/loading="lazy"/);
  }
 });
-test('homepages have visible full-browse entry and previews from both sources',async()=>{
- for(const lang of ['','zh/','en/']){const home=await read('../dist/client/'+lang+'index.html');assert.match(home,/review-browse/);assert.match(home,/youtube-stories/);assert.match(home,/reviews\.html/);assert.equal((home.match(/class="story-source-link"/g)||[]).length,5);}
+test('homepages link directly to complete existing reviews without republishing personal excerpts',async()=>{
+ for(const lang of ['','zh/','en/']){const home=await read('../dist/client/'+lang+'index.html');assert.match(home,/review-browse/);assert.match(home,/YouTube/);assert.match(home,/reviews\.html/);assert.equal((home.match(/class="story-source-link"/g)||[]).length,0);}
 });

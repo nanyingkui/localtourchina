@@ -1,19 +1,31 @@
-import React from 'react';
+import React,{useState,useRef} from 'react';
+import {copyInquiryAndOpenChat,CUSTOMER_CHAT_URL} from './chat-handoff.mjs';
 import {serviceNames,dateLabel} from './consultation.mjs';
 import './inquiry-receipt.css';
 const words={
- ko:{title:'상담 요청을 접수했습니다.',intro:'담당자가 남겨 주신 연락처로 안내합니다. 카카오톡에 신청 내용을 다시 보낼 필요는 없어요.',number:'상담번호',copy:'번호 복사',status:'문의 진행 상황 확인',date:'여행 날짜',people:'인원',services:'선택한 서비스',contact:'답변받을 연락처',next:'이제 무엇을 하면 되나요?',steps:['아래 연락처가 맞는지 확인해 주세요.','담당자가 일정·예약 가능 여부·최종 견적을 안내합니다.','견적을 확인한 뒤 예약과 결제를 진행합니다. 지금 결제할 필요는 없어요.'],correction:'연락처·요청 수정 문의',full:'신청한 내용 자세히 보기',copyAll:'신청 내용 복사',home:'홈으로 돌아가기',waiting:'현재 상태 · 담당자 확인 대기',preview:'미리보기 · 아직 실제 접수되지 않았습니다.'},
- zh:{title:'咨询已提交成功。',intro:'工作人员会通过您留下的联系方式回复，无需再到 KakaoTalk 重复发送申请。',number:'咨询编号',copy:'复制编号',status:'查看咨询进度',date:'出行日期',people:'人数',services:'所选服务',contact:'接收回复的联系方式',next:'接下来怎么做？',steps:['请确认下方联系方式准确。','工作人员将核对行程、可用情况和最终报价。','确认报价后再安排预订和付款，现在无需付款。'],correction:'更正联系方式或补充需求',full:'展开完整申请内容',copyAll:'复制申请内容',home:'返回首页',waiting:'当前状态 · 等待工作人员核对',preview:'预览记录，尚未实际提交。'},
- en:{title:'Your inquiry has been received.',intro:'Our team will reply using your contact details. You do not need to resend your request on KakaoTalk.',number:'Inquiry number',copy:'Copy number',status:'Check inquiry progress',date:'Travel dates',people:'Travellers',services:'Selected services',contact:'Your contact',next:'What happens next?',steps:['Check that your contact details below are correct.','Our team will confirm the itinerary, availability and final quote.','Booking and payment follow quote confirmation. No payment is needed now.'],correction:'Correct details or add a request',full:'View the complete inquiry',copyAll:'Copy inquiry details',home:'Back to home',waiting:'Current status · awaiting team review',preview:'Preview only. Not submitted to our team.'}
+ ko:{title:'상담 요청을 접수했습니다.',intro:'신청 내용이 저장되었습니다. 아래 버튼으로 카카오톡 채널을 열고 상담번호를 보내 주세요.',number:'상담번호',copy:'번호 복사',status:'문의 진행 상황 확인',date:'여행 날짜',people:'인원',services:'선택한 서비스',contact:'답변받을 연락처',next:'이제 무엇을 하면 되나요?',steps:['카카오톡 채널에서 복사한 상담번호를 붙여넣고 전송해 주세요. 채널 추가나 채팅창 열기만으로는 메시지가 전송되지 않습니다.','담당자가 일정·예약 가능 여부·최종 견적을 안내합니다.','견적을 확인한 뒤 예약과 결제를 진행합니다. 지금 결제할 필요는 없어요.'],correction:'연락처·요청 수정 문의',full:'신청한 내용 자세히 보기',copyAll:'신청 내용 복사',home:'홈으로 돌아가기',waiting:'현재 상태 · 담당자 확인 대기',preview:'미리보기 · 아직 실제 접수되지 않았습니다.'},
+ zh:{title:'咨询已提交成功。',intro:'申请内容已保存。请点击下方按钮打开 KakaoTalk Channel，并发送咨询编号。',number:'咨询编号',copy:'复制编号',status:'查看咨询进度',date:'出行日期',people:'人数',services:'所选服务',contact:'接收回复的联系方式',next:'接下来怎么做？',steps:['在 KakaoTalk Channel 粘贴并发送咨询编号。仅添加频道或打开聊天窗口，不会发送消息。','工作人员将核对行程、可用情况和最终报价。','确认报价后再安排预订和付款，现在无需付款。'],correction:'更正联系方式或补充需求',full:'展开完整申请内容',copyAll:'复制申请内容',home:'返回首页',waiting:'当前状态 · 等待工作人员核对',preview:'预览记录，尚未实际提交。'},
+ en:{title:'Your inquiry has been received.',intro:'Your details are saved. Open our KakaoTalk channel below and send your inquiry number.',number:'Inquiry number',copy:'Copy number',status:'Check inquiry progress',date:'Travel dates',people:'Travellers',services:'Selected services',contact:'Your contact',next:'What happens next?',steps:['Paste and send your inquiry number in KakaoTalk. Opening the chat or adding the channel does not send a message.','Our team will confirm the itinerary, availability and final quote.','Booking and payment follow quote confirmation. No payment is needed now.'],correction:'Correct details or add a request',full:'View the complete inquiry',copyAll:'Copy inquiry details',home:'Back to home',waiting:'Current status · awaiting team review',preview:'Preview only. Not submitted to our team.'}
 };
 export default function InquiryReceipt({record,lang,heading,copy,notice,text,copyArea,onHome,onEdit}){
  const t=words[lang]||words.ko;
+ const [chatStatus,setChatStatus]=useState(''),[chatBusy,setChatBusy]=useState(false),chatLock=useRef(false);
+ const chatWords={
+ ko:{title:'카카오톡으로 상담을 이어가세요',action:'상담번호 복사 · 카카오톡 열기',hint:'채팅창에 붙여넣고 전송 버튼을 눌러 주세요. 상세 신청 내용을 다시 작성할 필요는 없습니다.',fallback:'카카오톡 직접 열기',fail:'자동 복사가 되지 않았습니다. 위 상담번호를 복사한 뒤 카카오톡에서 보내 주세요.',copied:'상담번호가 복사되었습니다. 채팅창에서 붙여넣고 전송해 주세요.',busy:'상담번호 복사 중…',alternative:'카카오톡 연결이 안 되면 아래 연락처가 정확한지 확인하고, 상담번호와 함께 WhatsApp으로 연락해 주세요.'},
+ zh:{title:'通过 KakaoTalk 继续咨询',action:'复制咨询编号并打开 KakaoTalk',hint:'进入聊天后请粘贴并点击发送，无需重新填写详细申请。',fallback:'直接打开 KakaoTalk',fail:'自动复制失败，请复制上方咨询编号后到 KakaoTalk 发送。',copied:'咨询编号已复制，请在聊天中粘贴并发送。',busy:'正在复制…',alternative:'如果无法连接 KakaoTalk，请核对下方联系方式，也可通过 WhatsApp 提供咨询编号。'},
+ en:{title:'Continue your consultation on KakaoTalk',action:'Copy inquiry number · open KakaoTalk',hint:'Paste and press Send in the chat. You do not need to fill out your detailed application again.',fallback:'Open KakaoTalk directly',fail:'Copy failed. Copy the inquiry number above and send it in KakaoTalk.',copied:'Inquiry number copied. Paste and send it in the chat.',busy:'Copying…',alternative:'If KakaoTalk is unavailable, check your contact details below and send your inquiry number via WhatsApp.'}
+ }[lang]||{};
+ async function openChat(){
+  if(chatLock.current)return;chatLock.current=true;setChatBusy(true);setChatStatus('');
+  try{const result=await copyInquiryAndOpenChat(record.reference);setChatStatus(result.copied?chatWords.copied:chatWords.fail);}finally{chatLock.current=false;setChatBusy(false);}
+ }
  const serviceText=record.services.map(id=>({zh:{private:'私人定制游',ticket:'景区门票',vehicle:'用车与接送',tickets:'景区门票',vehicles:'用车与接送',localguide:'导游服务',onlineguide:'在线旅行支持',guide:'导游',help:'行程咨询'},en:{private:'Private trip',ticket:'Attraction tickets',vehicle:'Transport & transfers',tickets:'Attraction tickets',vehicles:'Transport & transfers',localguide:'Local guide',onlineguide:'Online travel support',guide:'Guide',help:'Itinerary advice'}}[lang]?.[id]||serviceNames[id]||id)).join(' · ');
  return <section className="success-page receipt-v2">
   <header className="receipt-heading"><img src="/assets/mascot-v1/success.webp" alt="" width="64" height="80"/><div><p className="receipt-state">{record.productionSubmitted?t.waiting:t.preview}</p><h1 ref={heading} tabIndex={-1}>{t.title}</h1><p>{t.intro}</p></div></header>
   <div className="receipt-card"><div className="receipt-number"><div><span>{t.number}</span><strong>{record.reference}</strong></div><button type="button" className="receipt-secondary" onClick={()=>copy(record.reference,'number')}>{t.copy}</button></div>
+   <section className="receipt-chat-handoff"><h2>{chatWords.title}</h2><p>{chatWords.hint}</p><button type="button" className="receipt-primary receipt-kakao" disabled={chatBusy} onClick={openChat}>{chatBusy?chatWords.busy:chatWords.action}</button><p role="status" className="receipt-chat-status">{chatStatus}</p><a className="receipt-secondary" href={CUSTOMER_CHAT_URL} target="_blank" rel="noopener noreferrer">{chatWords.fallback}</a><p>{chatWords.alternative} <a href="https://wa.me/821055722601" target="_blank" rel="noopener noreferrer">WhatsApp</a></p></section>
    <dl className="receipt-summary"><div><dt>{t.services}</dt><dd>{serviceText}</dd></div><div><dt>{t.date}</dt><dd>{dateLabel(record)}</dd></div><div><dt>{t.people}</dt><dd>{record.people}{lang==='zh'?'人':lang==='en'?' travellers':'명'}</dd></div><div className="receipt-contact"><dt>{t.contact}</dt><dd>{record.contact}</dd></div></dl>
-   {record.statusUrl&&<a className="receipt-primary" href={record.statusUrl}>{t.status}<span aria-hidden="true"> →</span></a>}
+   {record.statusUrl&&<a className="receipt-secondary receipt-status-link" href={record.statusUrl}>{t.status}<span aria-hidden="true"> →</span></a>}
   </div>
   <section className="receipt-next"><h2>{t.next}</h2><ol>{t.steps.map(line=><li key={line}>{line}</li>)}</ol></section>
   <div className="receipt-actions"><a className="receipt-secondary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">{t.correction}</a><button className="receipt-secondary" onClick={onHome}>{t.home}</button></div>
@@ -22,3 +34,4 @@ export default function InquiryReceipt({record,lang,heading,copy,notice,text,cop
   {!record.productionSubmitted&&<button className="receipt-secondary" onClick={onEdit}>Edit preview</button>}
  </section>;
 }
+

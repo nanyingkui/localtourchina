@@ -127,3 +127,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 
 # User-authorized release without Chrome QA (2026-10-18)
 - User explicitly requested omitting the blocked Chrome/mobile browser checks and publishing the existing scenic explorer and four service request forms together. This overrides the earlier browser-before-release hold for these changes only. Preserve all existing implementations; do not claim mobile visual verification. Run required build/tests/release checks and verify deployed HTML/assets over HTTP.
+
+# Detailed booking and consultation continuity (2026-10-20)
+- User rejected short single-service request forms. Homepage and old request URLs must lead to original detailed ticket, guide, vehicle, day-tour, online-support and private-trip pages. Preserve complete calculator choices, pricing rules and saved drafts through consultation submission.
+- Six services must be directly visible from home. Day tours also have a visible product section; information/tools follow booking services and genuine reviews. Keep one service navigation on child pages.
+- After a successful website submission, prominently ask the guest to copy the inquiry reference, open the KakaoTalk channel and manually paste/send it. Opening the chat does not send a message. Retain the progress link and copy/direct-open fallbacks. Never auto-send messages or put private receipt tokens in the chat URL.
+- User explicitly authorized implementing and publishing these integrated changes on 2026-10-20 after initially requesting advice only. This supersedes the four-short-form and optional-chat directions from 2026-10-18.
