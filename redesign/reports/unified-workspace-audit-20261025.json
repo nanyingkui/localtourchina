@@ -38,10 +38,10 @@
     "stale version update affects zero rows"
   ],
   "verification": {
-    "tests_passed": 245,
-    "release_pages_checked": 49,
+    "tests_passed": 249,
+    "release_pages_checked": 51,
     "missing_local_references": 0,
-    "browser": "local synthetic fixtures; existing production login remains required"
+    "browser": "synthetic fixture UI verified; production admin login and anonymous library verified"
   },
   "future_app": "PWA or native clients use the same existing project and APIs, no separate client/order database"
 }
