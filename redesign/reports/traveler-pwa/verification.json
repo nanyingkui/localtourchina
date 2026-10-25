@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-25",
+  "canonical_app": "https://localtourchina.com/app/",
+  "canonical_admin": "https://localtourchina.com/admin.html",
+  "existing_project": "znfcmancrhymrdnlowuh",
+  "new_databases": 0,
+  "new_customer_or_order_tables": 0,
+  "original_inquiries": 27,
+  "original_columns_md5_before": "4020e8ae6d0e76d391494ca3490d2879",
+  "original_columns_md5_after": "4020e8ae6d0e76d391494ca3490d2879",
+  "production_qa_rows_created": 0,
+  "unit_tests_passed": 262,
+  "release_check": {
+    "pages": 52,
+    "missing_local_references": 0
+  },
+  "database_rollback_checks": [
+    "owner creates pickup on original inquiries",
+    "request key replay returns original ID",
+    "changed payload with same key rejected",
+    "invalid time and forged status rejected",
+    "another user cannot read or change reservation",
+    "raw ledger and internal fields inaccessible to tourists",
+    "anonymous RPC denied",
+    "supplier confirmation gate preserved",
+    "admin date and meeting changes reflected to owner",
+    "all synthetic users and orders rolled back"
+  ],
+  "browser_checks": [
+    "390px guest homepage and focus animation",
+    "320px no horizontal overflow and54px bottom navigation buttons",
+    "local synthetic Google/Kakao PKCE callback through actual Supabase SDK",
+    "pickup review and submit updates dashboard",
+    "same local synthetic record edited through existing admin",
+    "new date/time/status/meeting details displayed to traveler",
+    "logout removes visible customer information",
+    "worker active with /app/ scope",
+    "cache allowlist contains only10static resources; no auth/customer/admin data",
+    "PKCE callback finishes through SDK with URL code removed; cross-window continuation accepts only first-party code",
+    "cached app shell renders after local server stops; private bookings are not restored from cache"
+  ],
+  "verification_limits": [
+    "OAuth return URL and providers are configured; no real human account was impersonated for authentication testing.",
+    "Installation on a physical iPhone or Android device remains a user-device check.",
+    "Payment, supplier dispatch and push notifications are outside this release."
+  ],
+  "public_auth_checks": {
+    "google": "302 to accounts.google.com",
+    "kakao": "302 to kauth.kakao.com",
+    "anonymous_traveler_dashboard": 401,
+    "anonymous_submit_traveler_pickup": 401
+  }
+}

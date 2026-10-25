@@ -18,3 +18,14 @@
 - Source files and legacy imports are references. The one-time content import must never overwrite later curated edits or import DEMO customer/payment records. The old localtourchina-hub SQLite is historical demo material, not a writable production master.
 - Keep customer data behind existing admin authorization. Public travel-library.html reads only published non-internal content; no raw member articles, customer records or internal operational tasks.
 - Keep future PWA/native app clients on these same APIs and records. Do not create app-only copies of customers, payments or content.
+
+# Traveler PWA 2026-10-25
+
+- Canonical Korean visitor app: https://localtourchina.com/app/ (source redesign/src/traveler plus redesign/public/app). Build through redesign/scripts/build-traveler.mjs in the existing website release pipeline.
+- Reuse existing Supabase Auth (Google/Kakao). The exact OAuth redirect is https://localtourchina.com/app/; preserve the existing admin Site URL and other callbacks. No app-only customer or order database.
+- New PWA pickup requests are original inquiries with traveler_user_id, client_request_id, pickup_request_hash, pickup_details; travel_date is still the canonical date. Never infer ownership of legacy records from name/contact or reassign immutable ownership.
+- Public traveler RPC wrappers are SECURITY INVOKER and delegate to the non-exposed ltc_private boundary, which checks Auth subject and returns only guest-visible fields. Keep base inquiries SELECT/UPDATE policies admin-only; do not grant visitors access to raw rows containing internal notes, receipt tokens or financial metadata.
+- Existing admin edits pickup details through assets/admin-pickup.mjs; preserve row_version compare-and-swap, quote/payment history, supplier-confirmation guard and old customer flows. Guest data is refreshed while the app is open; no push or automatic driver confirmation is implemented.
+- PWA worker scope is /app/ only. Cache allowlisted static shell assets only; NEVER cache Auth/RPC/customer responses, tokens, callback URLs or admin pages. Do not queue offline bookings. Retain the same idempotency key across ambiguous submission retries; never manufacture a successful receipt.
+- Mobile navigation, one expanded card with peers visible but smaller, minimum46px controls, 16px inputs, reduced motion, Chinese-time arrival scheduling. Logout clears visible private data and temporary pickup drafts.
+- Supabase SDK is pinned to2.118.0; keep package-lock.json synchronized. Production files must not contain QA/mock login paths. SQL integration tests roll back synthetic users/orders; never seed real customer tables with demo bookings.

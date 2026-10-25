@@ -17,7 +17,7 @@ export function normalizedContact(value){const s=String(value||'').trim().toLowe
 export function inquirySummary(row){
  const text=String(row.inquiry_text||'');
  const date=row.travel_date||text.match(/(?:여행 시기|여행 기간|날짜\s*\/\s*시간|방문|여행 날짜|이용 날짜|출발 날짜|旅行日期|出发日期|日期|Travel date|Date)\s*[:：]\s*(\d{4}-\d{2}-\d{2})/i)?.[1]||'';
- const people=text.match(/(?:인원(?:\s*\/\s*연령)?|전체 인원|人数|Party size|Travell?ers)\s*[:：]\s*(\d+)\s*(?:명|人|people)?/i)?.[1]||'';
+ const people=row.pickup_details?String(Number(row.pickup_details.adults||0)+Number(row.pickup_details.children||0)):text.match(/(?:인원(?:\s*\/\s*연령)?|전체 인원|人数|Party size|Travell?ers)\s*[:：]\s*(\d+)\s*(?:명|人|people)?/i)?.[1]||'';
  const amount=text.match(/(?:예상 총 금액|예상 총액|预计总金额|Estimated total)\s*[:：]\s*([^\n]+)/i)?.[1]?.trim()||'';
  return {date,people,amount,dateInferred:!row.travel_date&&!!date};
 }
