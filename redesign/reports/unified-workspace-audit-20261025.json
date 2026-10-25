@@ -1,0 +1,47 @@
+{
+  "checked_on": "2026-10-25",
+  "database_project": "znfcmancrhymrdnlowuh",
+  "canonical_admin": "https://localtourchina.com/admin.html",
+  "existing_records": {
+    "inquiries": 27,
+    "website": 23,
+    "kakao": 4,
+    "quote_versions": 1,
+    "archived_inquiries": 1,
+    "duplicate_contact_candidate_groups": 4,
+    "missing_structured_travel_date": 26,
+    "unverified_identity": 27
+  },
+  "preservation": {
+    "inquiries_before": "45382bf54c57c51c3f551e47a51101b8",
+    "inquiries_after": "45382bf54c57c51c3f551e47a51101b8",
+    "quotes_before": "5fd90a1aae209df5e0d8837e1ea8e3b7",
+    "quotes_after": "5fd90a1aae209df5e0d8837e1ea8e3b7",
+    "original_rows_modified": 0,
+    "demo_orders_imported": 0
+  },
+  "new_capability": {
+    "tables": [
+      "knowledge_items",
+      "knowledge_revisions"
+    ],
+    "content_records": 109,
+    "operating_checklist_records": 12,
+    "published_records": 0,
+    "default_state": "needs_review"
+  },
+  "permissions_verified": [
+    "anonymous cannot read drafts or internal source column",
+    "ordinary authenticated user cannot read/write drafts",
+    "existing admin can read 121 records",
+    "versioned update and history tested in rolled-back transaction",
+    "stale version update affects zero rows"
+  ],
+  "verification": {
+    "tests_passed": 245,
+    "release_pages_checked": 49,
+    "missing_local_references": 0,
+    "browser": "local synthetic fixtures; existing production login remains required"
+  },
+  "future_app": "PWA or native clients use the same existing project and APIs, no separate client/order database"
+}
