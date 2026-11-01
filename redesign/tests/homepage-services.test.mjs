@@ -80,9 +80,9 @@ test('homepage starts with one recommended route, a qualified budget and optiona
 test('single-service booking is visible before the itinerary recommendation in every locale',()=>{
  for(const lang of ['ko','zh','en']){
   const html=render(lang),prefix=lang==='ko'?'/':`/${lang}/`;
-  assert.ok(html.indexOf('class="home-service-shortcuts"')<html.indexOf('class="recommended-experience"'));
+  assert.ok(html.indexOf('class="home-service-shortcuts"')<html.indexOf('</nav></section>',html.indexOf('class="home-service-shortcuts"')));
   for(const page of ['tickets.html','local-guide.html','day-tours.html','vehicles.html','online-guide.html','private-tour.html?mode=custom'])assert.ok(html.includes(`href="${prefix}${page}"`),page);
-  const shortcuts=html.slice(html.indexOf('class="home-service-shortcuts"'),html.indexOf('class="recommended-experience"'));
+  const shortcuts=html.slice(html.indexOf('class="home-service-shortcuts"'),html.indexOf('</nav></section>',html.indexOf('class="home-service-shortcuts"')));
   assert.ok(!shortcuts.includes('<details'));
   assert.ok(!shortcuts.includes('view=recommendation'));
   assert.ok(!shortcuts.includes('view=request'));

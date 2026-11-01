@@ -37,7 +37,7 @@ const flexibleCopy={
 const brandCopy={ko:{hello:'반가워요, 로투차입니다.',caption:'중국 여행을 더 가까이.',note:'궁금한 여행, 편하게 이야기해요.'},zh:{hello:'您好，欢迎来到罗途查。',caption:'让中国旅行更亲近。',note:'聊聊您想要的旅行。'},en:{hello:'Hello, we’re LocalTourChina.',caption:'A little closer to China.',note:'Tell us about the trip you have in mind.'}};
 const route=(path,lang)=>lang==='zh'?'/zh/'+path:lang==='en'?'/en/'+path:'/'+path;
 function Photo({src,alt,srcSet,priority=false,sizes='(max-width: 700px) 100vw, 48vw'}){return <img src={src} srcSet={srcSet||imageManifest[src]?.srcSet} sizes={sizes} width="960" height="640" alt={alt} loading={priority?'eager':'lazy'} fetchPriority={priority?'high':'auto'} decoding="async"/>;}
-export default function Storefront({lang='ko',onSelect,onHelp}){
+export default function Storefront({lang='ko',onSelect,onHelp,onTransfer}){
  const t=copy[lang]||copy.ko;
  const entry=entryCopy[lang]||entryCopy.ko;
  const brand=brandCopy[lang]||brandCopy.ko;
@@ -58,7 +58,7 @@ export default function Storefront({lang='ko',onSelect,onHelp}){
 
  return <div className="storefront warm-storefront focused-storefront" id="services" data-home-branch={branch}>
  <TianmenTicker lang={lang}/>
- {!branch&&<TravelHome lang={lang}/>}
+ {!branch&&<TravelHome lang={lang} onTransfer={onTransfer}/>}
  
  {branch&&<a className="home-options-back" href="#services">{paths.back}</a>}
  <section hidden className="home-hero scenic-hero" data-destination={destination} aria-label={isHainan?entry.title:flexible.label}><div className="home-hero-copy"><p className="section-kicker">{isHainan?t.kicker:flexible.label}</p><h1>{(isHainan?entry.title:flexible.title).split('\n').map((line,i)=><React.Fragment key={line}>{i>0&&<br/>}{line}</React.Fragment>)}</h1><p>{(isHainan?entry.intro:flexible.intro).split('\n').map((line,i)=><React.Fragment key={line}>{i>0&&<br/>}{line}</React.Fragment>)}</p><div className="home-hero-actions"><a className="button primary" href={isHainan?"#service-entry":"#prepared-trips"}>{isHainan?entry.choose:flexible.action}</a><button className="text-link" onClick={()=>onHelp(destination)}>{t.helpAction}</button></div></div><div className="brand-welcome"><Photo src={isHainan?'/assets/media/sanya/tianya-haijiao-jpg-849.webp':'/assets/hero-jpg-1920.webp'} alt={isHainan?t.hainan:t.zjj} priority sizes="100vw" srcSet={isHainan?undefined:imageManifest['/assets/hero-jpg-1920.webp'].srcSet+', /assets/hero-jpg-2478.webp 2478w'}/></div>{!isHainan&&<details className="flexible-story"><summary>{flexible.heading}</summary><div className="flexible-challenges">{flexible.pains.map(([title,body])=><article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div><div className="flexible-responsibilities"><article><h3>{flexible.ours}</h3><p>{flexible.oursText}</p></article><article><h3>{flexible.yours}</h3><p>{flexible.yoursText}</p></article></div></details>}</section>
