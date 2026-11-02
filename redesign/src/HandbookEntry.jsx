@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
+import {cleanHandbookPath,HANDBOOK_RETURN_KEY} from './handbook-member.mjs';
 import './handbook-entry.css';
 
 const words={
@@ -9,10 +10,12 @@ const words={
 
 export default function HandbookEntry({lang='ko'}){
  const t=words[lang]||words.ko;
- const href='https://map.localtourchina.com/travel?lang='+(lang==='zh'?'zh':'ko')+'&source=home';
+ const [resume,setResume]=useState(null);useEffect(()=>{try{setResume(cleanHandbookPath(new URL(location.href).searchParams.get('handbook'))||cleanHandbookPath(localStorage.getItem(HANDBOOK_RETURN_KEY)))}catch{}},[]);
+ const origin=import.meta.env?.DEV?'http://127.0.0.1:4181':'https://map.localtourchina.com';
+ const href=origin+(resume||'/travel?lang='+(lang==='zh'?'zh':'ko')+'&source=home');
  return <section className="handbook-entry" aria-labelledby="handbook-entry-title">
   <img className="handbook-entry-mascot" src="/assets/home-20261013/mascot-clean.webp" width="64" height="64" alt=""/>
   <div className="handbook-entry-copy"><p className="handbook-entry-tag">{t.tag}</p><h2 id="handbook-entry-title">{t.title}</h2><p>{t.body}</p></div>
-  <div className="handbook-entry-actions"><a className="handbook-entry-primary" href={href}>{t.action}</a><a className="handbook-entry-comment" href={href+'#vRouteComments'}>{t.comment}</a></div>
+  <div className="handbook-entry-actions"><a className="handbook-entry-primary" href={href}>{resume?(lang==='zh'?'继续上次的旅行手册':lang==='en'?'Continue my handbook':'여행 수첩 이어보기'):t.action}</a><a className="handbook-entry-comment" href={href+'#vRouteComments'}>{t.comment}</a></div>
  </section>;
 }
