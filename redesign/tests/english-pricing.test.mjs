@@ -30,7 +30,7 @@ test('all 30 package tiers show and hand off USD without changing Korean or Chin
   }
   assert.equal(tiers,30);
   assert.equal(formatTripPrice(null,'en'),'Quote required');
-  assert.equal(getTripPrice(tripCatalog[0],3),null);
+  assert.equal(getTripPrice(tripCatalog[0],3),970000);
 });
 
 test('existing saved KRW inquiry text is preserved rather than silently repriced', () => {

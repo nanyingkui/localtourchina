@@ -24,7 +24,7 @@ export const catalogCopy = {
     trekkingIntro: '장거리 도보와 계단이 포함된 고강도 트레킹 코스입니다. 일행 모두의 체력과 보행 가능 여부를 먼저 확인하세요.',
     regularBadge: '대표 명소', trekkingBadge: '고강도 트레킹',
     party: '함께 여행하는 성인 인원', pax: n => `${n}명`, custom: '다른 인원', customLabel: '실제 여행 인원',
-    customHelp: '1–30명까지 입력할 수 있습니다. 홀수·1인·11인 이상 및 아동 동반은 별도 견적입니다.',
+    customHelp: '1–30명까지 입력할 수 있습니다. 기본 코스의 홀수 인원은 바로 아래 짝수 인원과 같은 1인 참고가입니다. 1인·12인 이상·아동 및 트레킹 홀수 인원은 별도 견적입니다.',
     reference: '조건부 참고가', unit: '성인 1인 · 전체 일정', quote: '별도 견적',
     basis: '성인 2인 1실 · 비성수기 기준',
     priceNote: '확정 판매가가 아닙니다. 날짜·호텔·객실·예약 가능 여부 확인 후 최종 견적을 안내합니다.',
@@ -43,7 +43,7 @@ export const catalogCopy = {
     meals: '식사 횟수와 구성은 항공편·동선에 따라 달라집니다. 점심은 간편식으로 진행될 수 있습니다.',
     quoteTitle: '별도 확인이 필요한 조건',
     seasons: '춘절, 5월 1–5일, 7–8월, 10월 1–7일 등 성수기는 별도 견적입니다.',
-    special: '아동 동반, 1인실, 홀수 인원과 일정 변경은 별도 문의해 주세요. 참고가만으로 예약이 확정되지 않습니다.',
+    special: '아동 동반, 1인실과 일정 변경은 별도 문의해 주세요. 기본 코스 홀수 인원은 바로 아래 짝수 인원의 1인 참고가를 적용합니다. 참고가만으로 예약이 확정되지 않습니다.',
     selection: '선택 코스', partyLine: '여행 인원', itineraryLabel: '일정 예시', walkingLabel: '도보 안내',
   },
   zh: {
@@ -55,7 +55,7 @@ export const catalogCopy = {
     trekkingIntro: '高强度徒步路线，包含长距离步行与阶梯。请先确认每位同行者的体力和步行能力。',
     regularBadge: '经典景点', trekkingBadge: '高强度徒步',
     party: '同行成人人数', pax: n => `${n}人`, custom: '其他人数', customLabel: '实际出行人数',
-    customHelp: '可填写1–30人。奇数人数、单人、11人以上及携儿童出行需另行报价。',
+    customHelp: '可填写1–30人。经典行程奇数人数沿用上一偶数档的每人参考价；单人、12人以上、儿童及奇数人数徒步行程需另行报价。',
     reference: '附条件参考价', unit: '每位成人 · 全程', quote: '单独报价',
     basis: '成人双人入住一间 · 非旺季',
     priceNote: '此价格并非确认售价。日期、酒店、房型及余位核实后提供最终报价。',
@@ -74,7 +74,7 @@ export const catalogCopy = {
     meals: '用餐次数和安排取决于航班与路线，午餐可能为简餐。',
     quoteTitle: '需要单独确认的条件',
     seasons: '春节、5月1–5日、7–8月、10月1–7日等旺季需另行报价。',
-    special: '儿童、单人房、奇数人数及路线调整请单独咨询。参考价格不代表预订已确认。',
+    special: '儿童、单人房及路线调整请单独咨询。经典行程奇数人数沿用上一偶数档的每人参考价。参考价格不代表预订已确认。',
     selection: '所选路线', partyLine: '出行人数', itineraryLabel: '参考行程', walkingLabel: '步行提示',
   },
   en: {
@@ -86,7 +86,7 @@ export const catalogCopy = {
     trekkingIntro: 'Strenuous routes with long walks and many steps. Check that everyone in your party is comfortable with the physical demands.',
     regularBadge: 'Classic sights', trekkingBadge: 'Strenuous trekking',
     party: 'Adults travelling together', pax: n => `${n} adults`, custom: 'Other size', customLabel: 'Actual party size',
-    customHelp: 'Enter 1–30 guests. Odd-numbered parties, solo travel, 11+ guests and children need a separate quote.',
+    customHelp: 'Enter 1–30 guests. Classic odd parties use the preceding even tier per adult. Solo travel, 12+ guests, children and odd trekking parties need a separate quote.',
     reference: 'Conditional guide price', unit: 'per adult · entire package', quote: 'Quote required',
     basis: 'Two adults sharing a room · off-peak',
     priceNote: 'This is not a confirmed sale price. Final pricing follows checks of dates, hotel, room type and availability.',
@@ -105,7 +105,7 @@ export const catalogCopy = {
     meals: 'Meal counts and arrangements depend on flights and routing; lunch may be a light meal.',
     quoteTitle: 'When a separate quote is needed',
     seasons: 'Peak dates, including Lunar New Year, May 1–5, July–August and October 1–7, require a separate quote.',
-    special: 'Ask about children, single rooms, odd-numbered parties and route changes. A guide price does not confirm a booking.',
+    special: 'Ask about children, single rooms and route changes. Classic packages use the preceding even tier per adult for odd parties. A guide price does not confirm a booking.',
     selection: 'Selected route', partyLine: 'Party size', itineraryLabel: 'Sample itinerary', walkingLabel: 'Walking note',
   },
 };
@@ -206,10 +206,13 @@ export function partyFromSearch(product, search = '') {
   return trip && params.get('product') === trip.id && validPartySize(pax) ? Number(pax) : 4;
 }
 
-/** Exact verified tiers only. Never interpolate, round, or multiply per-day. */
+/** Classic packages: odd parties use the preceding published even tier per adult. */
 export function getTripPrice(product, pax) {
   if (!validPartySize(pax)) return null;
-  return resolveTrip(product)?.prices.find(tier => tier.pax === Number(pax))?.priceKRW ?? null;
+  const trip = resolveTrip(product);
+  const count = Number(pax);
+  const tierSize = trip?.kind === 'regular' && count > 1 && count % 2 === 1 ? count - 1 : count;
+  return trip?.prices.find(tier => tier.pax === tierSize)?.priceKRW ?? null;
 }
 
 export function formatTripPrice(priceKRW, lang = 'ko') {

@@ -18,7 +18,7 @@ test('returning to the recommendation keeps actual details and preferences while
 test('advice-only is the default, with a qualified package reference and a computed end date',()=>{
  const draft=prepareRecommendation(valid(),'ko');
  assert.deepEqual(draft.services,['help']);assert.equal(draft.mode,'help');assert.equal(draft.configuration.endDate,'2026-11-23');assert.equal(draft.configuration.referencePriceKRW,870000);assert.match(draft.configuration.inquiryText,/유료 서비스 선택 없음/);assert.match(draft.configuration.inquiryText,/항공권/);
- const two={...valid(),people:'2'};assert.equal(recommendationPrice(two),970000);assert.equal(recommendationPrice({...two,people:'3'}),null);
+ const two={...valid(),people:'2'};assert.equal(recommendationPrice(two),970000);assert.equal(recommendationPrice({...two,people:'3'}),970000);
 });
 test('changed walking or children remove the numerical guide price instead of reusing an uncosted quote',()=>{
  for(const key of ['lessWalking','withChildren']){
@@ -50,7 +50,7 @@ test('homepage party choice overrides an older draft and travels to consultation
  assert.equal(carried.people,'6');assert.equal(carried.contact,previous.contact);assert.equal(carried.recommendation.routeId,'regular45');
  assert.equal(recommendationPrice(carried),950000);
  assert.equal(restoreRecommendation(previous,'regular34','3').people,'3');
- assert.equal(recommendationPrice(restoreRecommendation(previous,'regular34','3')),null);
+ assert.equal(recommendationPrice(restoreRecommendation(previous,'regular34','3')),970000);
  for(const invalid of ['0','31','2.5','-1','<script>'])assert.ok(!recommendationUrl('ko','regular34','details',invalid).includes('&party='));
 });
 
@@ -67,4 +67,21 @@ test('homepage date, duration and party are carried together; choosing unknown c
  assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular34','4')),870000);
  assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular45','4')),970000);
  assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular56','4')),1130000);
+});
+
+test('classic odd party references carry the preceding tier through inquiry without changing actual travellers',()=>{
+ for(const route of ['regular34','regular45','regular56'])for(const odd of [3,5,7,9,11]){
+  const draft=restoreRecommendation(valid(),route,String(odd));
+  const price=recommendationPrice(draft);
+  assert.equal(price,recommendationPrice(restoreRecommendation(valid(),route,String(odd-1))));
+  assert.ok(price>0);
+  for(const lang of ['ko','zh','en']){
+   const prepared=prepareRecommendation(draft,lang);
+   assert.equal(prepared.configuration.people,String(odd));
+   assert.equal(prepared.configuration.referencePriceKRW,price);
+   assert.ok(prepared.configuration.inquiryText.includes(new Intl.NumberFormat('en-US').format(price)) || lang==='en');
+  }
+ }
+ for(const count of ['1','12','13','30'])assert.equal(recommendationPrice(restoreRecommendation(valid(),'regular34',count)),null);
+ assert.equal(recommendationPrice(restoreRecommendation(valid(),'custom67','3')),null);
 });
