@@ -1,3 +1,4 @@
+import {classicTerms,classicItineraries,classicWalking} from './classic-package.mjs';
 import { formatEnglishPrice, englishPricingNote } from './english-pricing.mjs';
 /**
  * LocalTour's independently written Zhangjiajie catalog. Reference prices require a final quotation.
@@ -187,6 +188,12 @@ export const tripCatalog = [
   },
 ];
 
+for (const product of tripCatalog.filter(item => item.kind === 'regular')) {
+  for (const lang of CATALOG_LANGUAGES) {
+    product.copy[lang] = {...product.copy[lang], itinerary:classicItineraries[product.id][lang], walking:classicWalking[lang], highlights: lang==='zh'?['天门山','森林公园','黄龙洞＋大峡谷',...(product.id==='regular56'?['芙蓉镇夜景']:[])]:lang==='ko'?['천문산','국가삼림공원','황룡동·대협곡',...(product.id==='regular56'?['부용진 야경']:[])]:['Tianmen','Forest Park','Huanglong Cave & Grand Canyon',...(product.id==='regular56'?['Furong evening lights']:[])]};
+  }
+}
+export function catalogTerms(product,lang='ko') {const language=catalogLanguage(lang);return resolveTrip(product)?.kind==='regular'?{...catalogCopy[language],...classicTerms[language]}:catalogCopy[language];}
 export const catalog = tripCatalog;
 export const findTrip = id => tripCatalog.find(product => product.id === id) ?? null;
 const resolveTrip = product => typeof product === 'string' ? findTrip(product) : product;
@@ -235,7 +242,7 @@ export function catalogInquiry(product, pax, lang = 'ko') {
   const trip = resolveTrip(product);
   if (!trip) return '';
   const language = catalogLanguage(lang);
-  const t = catalogCopy[language];
+  const t = catalogTerms(trip,language);
   const c = trip.copy[language];
   const price = getTripPrice(trip, pax);
   return [

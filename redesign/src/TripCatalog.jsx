@@ -1,7 +1,7 @@
 import { englishPricingNote } from './english-pricing.mjs';
 import React, { useId, useState } from 'react';
 import {
-  tripCatalog, PARTY_TIERS, catalogCopy, catalogLanguage, packageTitle,
+  tripCatalog, PARTY_TIERS, catalogCopy, catalogTerms, catalogLanguage, packageTitle,
   tripDuration, getTripPrice, formatTripPrice, validPartySize, partyFromSearch,
 } from './trip-catalog.mjs';
 
@@ -10,7 +10,7 @@ function TripCard({ product, lang, onSelect }) {
   const [initialPax] = useState(() => partyFromSearch(product, typeof location === 'undefined' ? '' : location.search));
   const [tier, setTier] = useState(PARTY_TIERS.includes(initialPax) ? String(initialPax) : 'custom');
   const [customPax, setCustomPax] = useState(PARTY_TIERS.includes(initialPax) ? '3' : String(initialPax));
-  const t = catalogCopy[lang];
+  const t = catalogTerms(product,lang);
   const c = product.copy[lang];
   const selectedPax = tier === 'custom' ? customPax : tier;
   const validPax = validPartySize(selectedPax);
