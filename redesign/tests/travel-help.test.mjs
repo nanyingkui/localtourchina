@@ -32,7 +32,7 @@ test('research drafts cannot be accidentally published from the existing editor'
  assert.throws(()=>validateKnowledge({title:'draft',summary:'',status:'published',verified:true},{kind:'guide',data:{module:'travel_research'}}),/研究底稿不能直接发布/);
 });
 test('the existing versioned admin editor can edit every case field without losing source metadata',()=>{
- const original=rows[0],d=original.data,input=Object.fromEntries(['result','caution','phrase','phrase_ko','published_display','event_display'].map(k=>['case_'+k,d[k]]));input.case_steps=d.steps.join('\n');input.case_outcome=d.outcome;
+ const original=rows[0],d=original.data,input=Object.fromEntries(['result','caution','phrase','phrase_ko','published_display','event_display','source_context'].map(k=>['case_'+k,d[k]]));input.case_steps=d.steps.join('\n');input.case_outcome=d.outcome;
  const next=travelCasePatch(input,original);assert.equal(next.source_id,d.source_id);assert.deepEqual(next.steps,d.steps);assert.equal(next.original_read,true);
  assert.throws(()=>travelCasePatch({...input,case_result:''},original),/不能为空/);
 });
