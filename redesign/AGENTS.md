@@ -143,3 +143,9 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Release authorization: on 2026-11-04 the user approved publishing this verified package inquiry preview to the existing production website. This supersedes the local-only hold for these changes.
 
 - Latest release steering: KakaoTalk Channel is the first consultation entry. The homepage and recommended package primary actions open the existing channel directly. Optional copying must not block the channel; keep the website quote form as a secondary route with the verified arrival/children/review logic. Direct chat creates no website inquiry reference until an actual website submission.
+
+# Site-wide visual consistency (2026-11-04)
+- User delegated the complete visual direction and routine design/QA choices: unify the existing website, handbook and traveler app; deliver a local preview before a separate rollout. Do not ask the owner to decide each visual detail.
+- Canonical presentation lives in assets/visual-system.css and visual-system.js. Mountain photography, forest-green task controls and yellow Kakao contact actions retain their roles. Keep typography, spacing, surfaces, focus, pressed/disabled states, disclosures and dialogs consistent. No perpetual glow, gratuitous animations or extra steps.
+- Preserve all prices, product/inquiry fields, account boundaries and route-arrival behavior. Header/interaction improvements must not send messages or submit real customer data. Local-only preview guards stay in Vite's serve-only plugin and must never enter production assets.
+- sync-legacy must not overwrite the new canonical visual files from previously generated root assets. Every public document loads one shared presentation; app offline caching stays a static allowlist and the visual assets participate in its version hash.

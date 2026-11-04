@@ -1,0 +1,244 @@
+/* LocalTourChina · Mountain Light. One visual language, several useful layouts. */
+html.ltc-visual:root{
+ --ltc-paper:#f3f6f4;--ltc-surface:#fff;--ltc-ink:#1c302b;--ltc-muted:#586b63;
+ --ltc-line:#d7e1db;--ltc-accent:#285c4b;--ltc-focus:#267369;--ltc-success:#28634b;
+ --ltc-danger:#a83d39;--ltc-warning:#80601e;--ltc-orange:#ba6e31;--ltc-kakao:#fee500;
+ --ltc-radius:14px;--ltc-radius-card:22px;--ltc-control:48px;--ltc-content:1180px;
+ --ltc-font:"Apple SD Gothic Neo","Noto Sans KR","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+ --ltc-shadow:0 4px 18px #153c2c06,0 1px 3px #153c2c05;
+ --ltc-shadow-float:0 18px 50px #173e2b14;--ltc-ease:cubic-bezier(.2,.7,.2,1);
+}
+html.ltc-visual{color-scheme:light;scroll-padding-top:100px;accent-color:var(--ltc-accent)}
+html.ltc-visual body{font-family:var(--ltc-font)!important;color:var(--ltc-ink);font-size:16px;line-height:1.65;background:radial-gradient(ellipse 80% 450px at 8% 0,#dfede5a6,transparent),var(--ltc-paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html.ltc-visual :is(button,input,select,textarea){font-family:var(--ltc-font)!important;letter-spacing:normal}
+html.ltc-visual :is(h1,h2,h3){color:var(--ltc-ink);letter-spacing:-.035em;line-height:1.3;text-wrap:balance}
+html.ltc-visual :is(p,li){line-height:1.75}
+html.ltc-visual :is(a,button,input,select,textarea,summary){-webkit-tap-highlight-color:#285c4b18}
+html.ltc-visual :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--ltc-focus)!important;outline-offset:4px!important;box-shadow:0 0 0 7px #dcefe8!important}
+html.ltc-visual :is(button,.button,.btn){min-height:46px;border-radius:var(--ltc-radius);font-weight:650;touch-action:manipulation}
+html.ltc-visual :is(button,.button,.btn,a.service-shortcut,a.hub-guide,.home-day-tour-list>a){transition:background-color .18s ease,border-color .18s ease,box-shadow .22s ease,transform .22s var(--ltc-ease),color .18s ease}
+html.ltc-visual :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),select,textarea){font-size:16px!important;min-height:48px;border:1px solid #bbcfc3!important;border-radius:var(--ltc-radius)!important;background:#fff;color:var(--ltc-ink);padding:11px 13px;max-width:100%;box-sizing:border-box;box-shadow:inset 0 1px 2px #173e2b03;transition:border-color .18s,box-shadow .18s}
+html.ltc-visual :is(input,textarea):focus,html.ltc-visual select:focus{border-color:var(--ltc-accent)!important}
+html.ltc-visual input::placeholder,html.ltc-visual textarea::placeholder{color:#73857c;opacity:1}
+html.ltc-visual input[type=checkbox],html.ltc-visual input[type=radio]{accent-color:var(--ltc-accent)}
+html.ltc-visual [aria-invalid=true]{border-color:var(--ltc-danger)!important}
+html.ltc-visual :is(.field-error,.error,[role=alert]){color:var(--ltc-danger)}
+html.ltc-visual [hidden]{display:none!important}
+html.ltc-visual a{text-underline-offset:4px}
+html.ltc-visual :is(button,.button,.btn):active:not(:disabled){transform:translateY(1px) scale(.985)}
+html.ltc-visual :is(button,.button,.btn):disabled{opacity:.48;box-shadow:none!important;transform:none!important;cursor:not-allowed}
+html.ltc-visual :is(.site-header,.rounded-page-header,.admin-head,.visitor-header,.planner-site-header){background:#ffffffec!important;border-bottom:1px solid #d7e1dbb3!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 2px 14px #193e2e04!important}
+html.ltc-visual .site-header .header-inner{max-width:var(--ltc-content);min-height:76px;margin:auto;padding-inline:24px}
+html.ltc-visual .site-header .site-nav a{font-size:14px;color:var(--ltc-muted)}
+html.ltc-visual .site-header .wordmark{color:var(--ltc-ink)}
+html.ltc-visual :is(.header-contact,.home-channel-primary,.recommended-channel-action,.rounded-page-contact,.kakao,#vContact,.kakao-login){background:var(--ltc-kakao)!important;color:#211f15!important;border:1px solid #e7d34b!important;border-radius:var(--ltc-radius)!important;text-decoration:none!important;box-shadow:0 2px 0 #b09a1910!important;font-weight:700}
+html.ltc-visual :is(.header-contact,.rounded-page-contact){min-height:46px;padding:10px 18px}
+html.ltc-visual :is(.hub-primary,.recommended-flow-action>button,.rounded-hero-copy .button,.journey-next,.primary,.btn.primary,.login-card button[type=submit]){background:linear-gradient(160deg,#356c58,#245442)!important;color:#fff!important;border-color:#285c4b!important;border-radius:var(--ltc-radius)!important;box-shadow:inset 0 1px 0 #ffffff1a,0 3px 8px #1c4b3710;text-decoration:none}
+html.ltc-visual :is(.home-channel-primary,.recommended-channel-action){background:var(--ltc-kakao)!important;color:#211f15!important;border-color:#e7d34b!important}
+html.ltc-visual :is(.secondary,.ghost,.recommended-edit,.menu-button,.rounded-page-menu){background:#fff!important;color:var(--ltc-accent)!important;border:1px solid var(--ltc-line)!important;border-radius:var(--ltc-radius)!important}
+html.ltc-visual :is(dialog,.rounded-dialog){border:1px solid #dce6df!important;border-radius:24px!important;box-shadow:0 24px 90px #183a2c2b!important;color:var(--ltc-ink);background:#fff;max-height:88dvh}
+html.ltc-visual dialog::backdrop{background:#142b2559;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+html.ltc-visual dialog[open]{animation:ltc-dialog-in .2s var(--ltc-ease)}
+html.ltc-visual summary{cursor:pointer;touch-action:manipulation;min-height:44px}
+html.ltc-visual details.ltc-just-opened>:not(summary){animation:ltc-disclosure-in .18s ease both}
+html.ltc-visual .ltc-dismiss{position:absolute;right:12px;top:12px;min-height:40px;padding:6px 12px;background:#f1f5f2;color:var(--ltc-accent);border:1px solid var(--ltc-line);border-radius:12px;font-size:13px;z-index:3}
+
+/* Homepage: an identifiable travel image, one clear contact action, distinct shelves. */
+html.ltc-visual .travel-home{max-width:var(--ltc-content);padding:0 24px 64px;font-family:var(--ltc-font);--hub-ink:var(--ltc-ink);--hub-muted:var(--ltc-muted);--hub-line:var(--ltc-line)}
+html.ltc-visual .handbook-member{max-width:calc(var(--ltc-content) - 48px);border-radius:16px;background:#ffffffc9;border-color:var(--ltc-line);box-shadow:none;padding:14px 20px;margin-top:18px}
+html.ltc-visual .handbook-member :is(p,small){color:var(--ltc-muted)}
+html.ltc-visual .handbook-member .handbook-member-actions>a{border-radius:12px;border:1px solid var(--ltc-line);min-height:44px;text-decoration:none}
+html.ltc-visual .handbook-member .handbook-member-actions>a:first-child{background:#e6eee7!important;color:var(--ltc-accent)!important;border-color:#c4d6ca!important}
+html.ltc-visual .home-service-shortcuts{padding-top:24px}
+html.ltc-visual .home-service-shortcuts>header{position:relative;isolation:isolate;min-height:242px;padding:34px 38px;box-sizing:border-box;border-radius:24px;overflow:hidden;background:linear-gradient(90deg,#ffffff 0%,#fffffffb 39%,#ffffffcc 57%,#ffffff00 77%),url('/travel-planner/assets/scenery/places/yuanjiajie-day.webp') right 46%/58% auto no-repeat,#e4ece6;border:1px solid #d4e1d8;box-shadow:var(--ltc-shadow);margin-bottom:20px}
+html.ltc-visual .travel-home .home-service-shortcuts h1{font-size:clamp(28px,3.3vw,42px);line-height:1.25;margin-bottom:12px;max-width:58%;font-weight:750}
+html.ltc-visual .home-service-shortcuts>header p{max-width:50%;font-size:15px;color:var(--ltc-muted);line-height:1.8}
+html.ltc-visual .home-channel-primary{margin:20px 0 0;padding:12px 22px;gap:28px;min-height:50px}
+html.ltc-visual .home-service-shortcuts nav{gap:12px}
+html.ltc-visual .home-service-shortcuts a.service-shortcut{position:relative;min-height:102px;padding:20px;border-radius:18px;background:#fff;border:1px solid var(--ltc-line);box-shadow:var(--ltc-shadow);text-decoration:none;color:var(--ltc-ink)}
+html.ltc-visual .service-shortcut>svg:first-child{width:26px;height:26px;color:var(--ltc-accent);background:#edf4ef;border-radius:10px;padding:8px;box-sizing:content-box;flex-shrink:0}
+html.ltc-visual .service-shortcut strong{font-size:16px;font-weight:700;line-height:1.5}
+html.ltc-visual .service-shortcut small{font-size:13px;color:var(--ltc-muted);line-height:1.65}
+html.ltc-visual .travel-home :is(.home-day-tours,.hub-information,.handbook-entry,.hub-scenery){margin-top:40px;padding-top:32px;border-top:1px solid var(--ltc-line)}
+html.ltc-visual .home-day-tours{padding-bottom:30px;border-bottom:0}
+html.ltc-visual .home-day-tours header h2,html.ltc-visual .hub-information h2{font-size:24px;letter-spacing:-.035em}
+html.ltc-visual .home-day-tour-list>a{border-radius:16px;border:1px solid var(--ltc-line);background:#fff;box-shadow:var(--ltc-shadow);padding:20px;text-decoration:none}
+html.ltc-visual .furong-home-module{margin-top:24px;border-radius:18px;overflow:hidden;border:1px solid var(--ltc-line);background:#fff;box-shadow:var(--ltc-shadow)}
+html.ltc-visual .furong-module-heading{padding:13px 20px;background:#fff}
+html.ltc-visual .furong-inline>summary{background:linear-gradient(100deg,#edf5ee,#f8faf6);border-radius:0;border:0;padding:20px}
+html.ltc-visual .furong-from{color:var(--ltc-accent)}
+html.ltc-visual .recommended-experience{padding-top:34px;margin-top:12px;border-top:1px solid var(--ltc-line)}
+html.ltc-visual .recommended-hero{gap:36px;align-items:stretch}
+html.ltc-visual .recommended-visual{border-radius:24px;min-height:560px;box-shadow:0 12px 28px #23433113}
+html.ltc-visual .recommended-visual>span{background:#ffffffde;border:1px solid #ffffffb3;box-shadow:0 4px 20px #112d2820;backdrop-filter:blur(14px)}
+html.ltc-visual .recommended-copy{padding:12px 0}
+html.ltc-visual .recommended-copy h1{font-size:34px!important}
+html.ltc-visual .recommended-details{border-radius:18px;box-shadow:var(--ltc-shadow)}
+html.ltc-visual .recommended-price>strong{color:var(--ltc-accent);font-size:36px}
+html.ltc-visual .recommended-choices{gap:12px}
+html.ltc-visual .recommended-main-action{min-height:52px!important;font-size:16px;padding:14px 18px}
+html.ltc-visual .recommended-form-entry{font-size:14px;margin-top:8px}
+html.ltc-visual .hub-guide{background:#fff;border:1px solid var(--ltc-line);border-radius:18px;box-shadow:var(--ltc-shadow);padding:20px}
+html.ltc-visual :is(.review-story-card,.review-archive-entry,.review-card){border-radius:18px;border-color:var(--ltc-line);box-shadow:none}
+
+/* Existing detailed service pages retain calculators, selection ledgers and forms. */
+html.ltc-visual body.rounded-page{background:var(--ltc-paper)!important;color:var(--ltc-ink)!important}
+html.ltc-visual .rounded-page .rounded-page-header{padding:12px 24px!important;min-height:76px!important;box-sizing:border-box;border-radius:0;gap:20px!important}
+html.ltc-visual .rounded-page .rounded-page-header .service-nav a{font-size:14px;color:var(--ltc-muted)!important}
+html.ltc-visual .rounded-page .brand-service-rail{gap:8px;padding:14px 0!important;margin:0!important;border-bottom:1px solid var(--ltc-line)!important}
+html.ltc-visual .rounded-page .brand-service-rail a{min-height:52px!important;flex:0 0 auto;flex-direction:row!important;border-radius:12px!important;gap:9px;padding:10px 14px!important;font-size:13px}
+html.ltc-visual .rounded-page .brand-service-rail img{width:28px!important;height:28px!important;display:block!important;object-fit:contain}
+html.ltc-visual .rounded-page .brand-service-rail a.is-current{background:#e2ede4!important;color:#214e3c!important}
+html.ltc-visual .rounded-page .page-purpose{font-size:13px;color:var(--ltc-muted);padding:12px 0;margin:0;border-bottom:1px solid var(--ltc-line)}
+html.ltc-visual .rounded-page .journal-flow-guide{margin:18px 0 24px;gap:10px}
+html.ltc-visual .journal-flow-guide>span,html.ltc-visual .recommended-progress>li{border-radius:12px!important;border:1px solid var(--ltc-line)!important;background:#edf2ed!important;color:var(--ltc-muted)!important;min-height:46px;box-sizing:border-box;font-size:13px}
+html.ltc-visual .journal-flow-guide>.is-current,html.ltc-visual .recommended-progress>li[aria-current]{background:var(--ltc-accent)!important;color:#fff!important;border-color:var(--ltc-accent)!important}
+html.ltc-visual body.rounded-page .service-panel .rounded-service-hero{display:grid!important;grid-template-columns:1.1fr 1fr!important;gap:32px!important;align-items:center!important;margin:24px 0 32px!important;padding:30px!important;min-height:290px!important;background:#fff!important;border:1px solid var(--ltc-line)!important;border-radius:24px!important;overflow:hidden!important;box-shadow:var(--ltc-shadow)}
+html.ltc-visual body.rounded-page .service-panel .rounded-service-hero>.rounded-hero-copy{grid-column:1!important;grid-row:1!important;min-width:0}
+html.ltc-visual .rounded-page .rounded-hero-copy h1{font-size:clamp(30px,3.4vw,44px)!important;color:var(--ltc-ink)!important;margin:0 0 16px!important}
+html.ltc-visual .rounded-page .rounded-hero-copy p{font-size:16px!important;color:var(--ltc-muted)!important;line-height:1.8;max-width:46ch}
+html.ltc-visual .rounded-page .rounded-service-visual{display:block!important;grid-column:2!important;grid-row:1!important;position:relative!important;width:100%!important;margin:0!important;border-radius:18px;overflow:hidden;opacity:1!important}
+html.ltc-visual .rounded-page .rounded-service-visual img{display:block!important;width:100%!important;height:230px!important;object-fit:cover!important;border-radius:18px!important;opacity:1!important}
+html.ltc-visual .rounded-page .rounded-service-visual figcaption{display:block;font-size:11px;color:var(--ltc-muted);padding:8px 2px 0;background:transparent}
+html.ltc-visual .rounded-page :is(.service-card,.calc-card,.shop-card,.service-section,.rounded-service-details,.journey-task){border-color:var(--ltc-line)!important;border-radius:18px!important;background:#fff;box-shadow:var(--ltc-shadow)}
+html.ltc-visual .rounded-page :is(.module-head h2,.service-section h2,.calc-card h2){font-size:25px!important;color:var(--ltc-ink)!important}
+html.ltc-visual .rounded-page :is(.calc-note,.muted,.note,.hint,.shop-price-basis){color:var(--ltc-muted)!important;line-height:1.8}
+html.ltc-visual .rounded-page .mascot-page-tip{background:#edf4ee!important;border-color:var(--ltc-line)!important;border-radius:16px!important}
+html.ltc-visual :is(.journey-next,.journey-action,.shop-product-action){border-radius:12px!important}
+
+/* Inquiry and operations: quiet panels, legible information, restrained feedback. */
+html.ltc-visual .recommendation-flow{max-width:1040px;color:var(--ltc-ink);font-family:var(--ltc-font);padding-top:24px}
+html.ltc-visual .recommendation-flow>header h1{font-size:clamp(27px,3vw,36px);line-height:1.35;margin-top:10px}
+html.ltc-visual .recommended-progress{margin-bottom:26px}
+html.ltc-visual :is(.recommended-form,.recommended-review,.consult-page form,.consult-aside,.configuration-review,.success-card,.status-card,.login-card){border:1px solid var(--ltc-line)!important;border-radius:22px!important;background:#fff!important;box-shadow:var(--ltc-shadow)!important}
+html.ltc-visual .recommended-form,.ltc-visual .recommended-review{padding:26px}
+html.ltc-visual :is(.recommended-form-budget,.package-arrival-status,.package-pending,.recommended-request-scope){background:linear-gradient(135deg,#edf5ed,#f5f8f3)!important;border-color:#d4e2d7!important;border-radius:16px!important}
+html.ltc-visual .recommended-form-budget strong{color:var(--ltc-accent)}
+html.ltc-visual .recommended-form-budget{position:sticky;top:96px}
+html.ltc-visual .recommended-review .recommended-form-budget{position:static}
+html.ltc-visual .recommended-review dl>div{border-color:var(--ltc-line);padding:16px 0}
+html.ltc-visual .recommended-review dd{font-weight:600}
+html.ltc-visual .recommended-review dt{color:var(--ltc-muted)}
+html.ltc-visual .recommended-flow-action{background:#ffffffed;backdrop-filter:blur(14px)}
+html.ltc-visual .admin-head{padding:16px 28px;min-height:76px;box-sizing:border-box}
+html.ltc-visual .admin-head b{font-size:19px;color:var(--ltc-ink)}
+html.ltc-visual :is(.admin-head span,.admin-section-help,.login-help){color:var(--ltc-muted)}
+html.ltc-visual .login-card{margin-top:52px;max-width:560px;padding:32px}
+html.ltc-visual .login-card h1{font-size:30px}
+html.ltc-visual .login-card .eyebrow{font-size:12px;color:var(--ltc-accent);letter-spacing:.06em}
+html.ltc-visual :is(.order-list,.order-detail,.metric,.admin-password-settings){border-radius:18px;border-color:var(--ltc-line);box-shadow:var(--ltc-shadow)}
+html.ltc-visual .order-row{border-radius:12px;border-color:var(--ltc-line)}
+html.ltc-visual .order-row.active{background:#e8f2e9;border-color:#a7c5b3}
+html.ltc-visual .order-savebar{background:#ffffffed;backdrop-filter:blur(14px)}
+html.ltc-visual .site-footer{background:#eaf0ec!important;border-top:1px solid var(--ltc-line);color:var(--ltc-muted);margin-top:32px}
+
+/* Planner and traveler app: same materials, their own task-oriented layouts. */
+html.ltc-visual .planner-site-header{min-height:76px}
+html.ltc-visual .planner-site-header .primary{background:var(--ltc-accent)!important}
+html.ltc-visual :is(.template-card,.guided-checks,.check-card,.module,.quick-hint){border:1px solid var(--ltc-line);border-radius:18px;background:#fff;box-shadow:var(--ltc-shadow)}
+html.ltc-visual .template-card{background:linear-gradient(125deg,#edf4ed,#f7faf5);padding:24px}
+html.ltc-visual .planner-hero{border-radius:0 0 28px 28px;overflow:hidden}
+html.ltc-visual .tabs button.active{background:var(--ltc-accent)!important;color:#fff!important}
+html.ltc-visual .module{border-left:3px solid #97b8a3!important}
+html.ltc-visual .scenery-story{border-radius:22px;border:1px solid var(--ltc-line)}
+html.ltc-visual .phone{background:var(--ltc-paper);box-shadow:0 0 60px #123d2d0b;--forest:var(--ltc-accent);--ink:var(--ltc-ink);--muted:var(--ltc-muted);--paper:var(--ltc-paper);--line:var(--ltc-line);--soft:#e6f0e7}
+html.ltc-visual .phone .app-header{background:#ffffffd9;backdrop-filter:blur(16px);border-bottom:1px solid var(--ltc-line)}
+html.ltc-visual .phone :is(.tile,.card,.arrivals,.feature-card){border-radius:20px;border-color:var(--ltc-line);background:#fff;box-shadow:var(--ltc-shadow)}
+html.ltc-visual .phone .bottom-nav{background:#ffffffeb;backdrop-filter:blur(18px);border-top:1px solid var(--ltc-line)}
+html.ltc-visual .phone .bottom-nav button[aria-current],html.ltc-visual .phone .bottom-nav .active{color:var(--ltc-accent);background:#e4efe7}
+
+/* Map handbook shares tokens without sacrificing compact navigation or geographic layers. */
+html.ltc-visual .visitor-page{--ink:var(--ltc-ink);--muted:var(--ltc-muted);--paper:var(--ltc-paper);--green:var(--ltc-accent);--line:var(--ltc-line);background:var(--ltc-paper)!important}
+html.ltc-visual .visitor-header{padding:12px 22px;min-height:76px;box-sizing:border-box}
+html.ltc-visual .visitor-header nav{gap:8px}
+html.ltc-visual .visitor-header :is(button,a.visitor-home-link){border-radius:12px;border:1px solid var(--ltc-line);background:#fff;min-height:44px;font-size:13px;text-decoration:none}
+html.ltc-visual :is(.visitor-access,.visitor-archive,.visitor-planner,.visitor-map-panel,#vCard,.visitor-help){border:1px solid var(--ltc-line)!important;border-radius:20px!important;box-shadow:var(--ltc-shadow)!important;background:#fff!important}
+html.ltc-visual .visitor-access{background:#ffffffd9!important;padding:16px 20px}
+html.ltc-visual .visitor-journal-hero{border-radius:22px;overflow:hidden;border:1px solid var(--ltc-line)}
+html.ltc-visual .visitor-planner{background:#edf4ed!important}
+html.ltc-visual .visitor-progress{color:var(--ltc-muted)}
+html.ltc-visual .visitor-layout{gap:24px}
+html.ltc-visual .visitor-map-heading{padding:14px;background:#f8faf7;border-bottom:1px solid var(--ltc-line)}
+html.ltc-visual .visitor-step-nav{gap:10px}
+html.ltc-visual .visitor-step-nav button{min-height:48px;border-radius:14px}
+
+@media(hover:hover) and (pointer:fine){
+ html.ltc-visual :is(a.service-shortcut,a.hub-guide,.home-day-tour-list>a):hover{transform:translateY(-3px);border-color:#aac8b4;box-shadow:0 12px 26px #1c4a3310}
+ html.ltc-visual :is(.primary,.hub-primary,.recommended-flow-action>button,.rounded-hero-copy .button):hover:not(:disabled){filter:brightness(1.05);box-shadow:0 6px 18px #1b503a24}
+ html.ltc-visual :is(.home-channel-primary,.recommended-channel-action,.header-contact,.rounded-page-contact):hover{filter:brightness(1.025);box-shadow:0 5px 16px #8e7c2420!important}
+ html.ltc-visual :is(summary,.secondary,.ghost):hover{background-color:#f0f5ef}
+}
+@media(max-width:850px){
+ html.ltc-visual .home-service-shortcuts>header{padding:30px;min-height:230px;background-size:auto,64% auto}
+ html.ltc-visual .recommended-visual{min-height:510px}
+ html.ltc-visual body.rounded-page .service-panel .rounded-service-hero{gap:22px!important;padding:24px!important}
+ html.ltc-visual .rounded-page .rounded-service-visual img{height:210px!important}
+ html.ltc-visual .recommended-form-budget{position:static}
+}
+@media(max-width:600px){
+ html.ltc-visual{scroll-padding-top:84px}
+ html.ltc-visual .site-header .header-inner{min-height:68px;padding-inline:18px}
+ html.ltc-visual .travel-home{padding-inline:18px;padding-bottom:40px}
+ html.ltc-visual .handbook-member{margin:12px 18px 0;padding:14px 16px;border-radius:16px}
+ html.ltc-visual .home-service-shortcuts{padding-top:16px}
+ html.ltc-visual .home-service-shortcuts>header{min-height:0;padding:24px 22px;border-radius:20px;background:linear-gradient(90deg,#fffffffd,#ffffffdf 64%,#ffffff73),url('/travel-planner/assets/scenery/places/yuanjiajie-day.webp') right center/cover no-repeat,#edf3ed}
+ html.ltc-visual .travel-home .home-service-shortcuts h1{font-size:29px;max-width:100%;margin-bottom:10px}
+ html.ltc-visual .home-service-shortcuts>header p{max-width:100%;font-size:14px}
+ html.ltc-visual .home-channel-primary{margin-top:18px;min-height:50px}
+ html.ltc-visual .home-service-shortcuts nav{gap:10px}
+ html.ltc-visual .home-service-shortcuts a.service-shortcut{padding:15px 13px;min-height:112px;border-radius:16px;gap:10px}
+ html.ltc-visual .service-shortcut>svg:first-child{width:22px;height:22px;padding:6px;border-radius:9px}
+ html.ltc-visual .service-shortcut strong{font-size:15px}
+ html.ltc-visual .service-shortcut small{font-size:12px;line-height:1.6}
+ html.ltc-visual .travel-home :is(.home-day-tours,.hub-information,.handbook-entry,.hub-scenery){margin-top:28px;padding-top:24px}
+ html.ltc-visual .recommended-experience{padding-top:24px}
+ html.ltc-visual .recommended-visual{min-height:0;height:210px;border-radius:20px}
+ html.ltc-visual .recommended-copy h1{font-size:28px!important}
+ html.ltc-visual .recommended-hero{gap:20px}
+ html.ltc-visual .recommended-copy{padding:0}
+ html.ltc-visual .recommended-main-action{font-size:15px}
+ html.ltc-visual .rounded-page .rounded-page-header{padding:10px 16px!important;min-height:68px!important;gap:12px!important}
+ html.ltc-visual .rounded-page .brand-service-rail{padding:12px 0!important;gap:6px}
+ html.ltc-visual .rounded-page .brand-service-rail a{padding:9px 12px!important;font-size:12px;min-height:48px!important}
+ html.ltc-visual .rounded-page .brand-service-rail img{width:24px!important;height:24px!important}
+ html.ltc-visual body.rounded-page .service-panel .rounded-service-hero{grid-template-columns:1fr!important;gap:18px!important;min-height:0!important;padding:22px!important;border-radius:20px!important;margin:20px 0 26px!important}
+ html.ltc-visual .rounded-page .rounded-service-visual{grid-column:1!important;grid-row:2!important;max-height:220px}
+ html.ltc-visual .rounded-page .rounded-service-visual img{height:180px!important}
+ html.ltc-visual .rounded-page .rounded-hero-copy h1{font-size:30px!important}
+ html.ltc-visual .rounded-page .rounded-hero-copy p{font-size:15px!important}
+ html.ltc-visual .recommendation-flow{padding-inline:18px}
+ html.ltc-visual .recommended-form,html.ltc-visual .recommended-review{padding:20px;border-radius:18px!important}
+ html.ltc-visual .recommended-progress>li{font-size:11px}
+ html.ltc-visual .recommended-flow-action{padding-bottom:max(14px,env(safe-area-inset-bottom))}
+ html.ltc-visual .login-card{margin:28px 18px;padding:24px}
+ html.ltc-visual .admin-head{padding:12px 18px;min-height:68px}
+ html.ltc-visual .template-card{padding:18px;gap:18px}
+ html.ltc-visual .visitor-header{padding:10px 14px;min-height:68px}
+ html.ltc-visual .visitor-header nav{gap:6px}
+ html.ltc-visual :is(.visitor-map-panel,#vCard,.visitor-planner){border-radius:16px!important}
+ html.ltc-visual .visitor-layout{gap:16px}
+}
+@keyframes ltc-dialog-in{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes ltc-disclosure-in{from{opacity:.4;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html.ltc-visual{scroll-behavior:auto!important}html.ltc-visual *,html.ltc-visual *::before,html.ltc-visual *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(prefers-reduced-transparency:reduce){html.ltc-visual :is(.site-header,.rounded-page-header,.admin-head,.visitor-header,.recommended-flow-action){background:#fff!important;backdrop-filter:none!important}}
+@media(forced-colors:active){html.ltc-visual :is(button,.button,.btn,a.service-shortcut){border:1px solid ButtonText!important;box-shadow:none!important}}
+
+html.ltc-visual .handbook-member .member-resume{background:#e6eee7!important;color:var(--ltc-accent)!important;border-color:#c4d6ca!important}
+
+html.ltc-visual .immersive-hero :is(h1,h2,h3){color:#fff!important;text-shadow:0 2px 20px #10261e55}
+html.ltc-visual .ltc-shell{background:#ffffffec!important;border-bottom:1px solid var(--ltc-line);backdrop-filter:blur(18px)}
+html.ltc-visual .ltc-shell nav a{border-radius:12px;text-decoration:none;min-height:44px}
+html.ltc-visual .ltc-shell nav a[aria-current]{background:var(--ltc-accent)!important;color:#fff!important}
+html.ltc-visual .information-page .brand-service-rail{display:none!important}
+
+html.ltc-visual :is(h1,h2,h3,h4){font-family:var(--ltc-font)!important}
+html.ltc-visual :is(.site-nav.open,.service-nav.menu-open){border:1px solid var(--ltc-line);border-radius:16px;background:#fffffffa!important;box-shadow:var(--ltc-shadow-float);animation:ltc-disclosure-in .18s var(--ltc-ease)}
+@media(max-width:600px){html.ltc-visual .rounded-page .rounded-page-contact{display:inline-flex!important;min-height:42px;padding:9px 14px;font-size:12px;margin-left:auto}.ltc-visual .rounded-page .language-switch{margin-right:0!important}}
+
+html.ltc-visual .phone .app-header .brand{display:flex;align-items:center;gap:8px;text-decoration:none;line-height:1.3}html.ltc-visual .phone .app-header .brand img{width:36px;height:38px;object-fit:contain;flex-shrink:0}html.ltc-visual .phone .app-header .app-brand-copy{font-size:21px;color:var(--ltc-ink);line-height:1.3}html.ltc-visual .phone .app-header .app-brand-copy small{display:block;font-size:10px;font-weight:500;color:var(--ltc-muted);margin-top:3px}
+html.ltc-visual .policy-ticker{background:#edf1ed!important;color:var(--ltc-muted);border:1px solid var(--ltc-line);border-radius:12px;margin-block:14px;padding:8px 12px;box-sizing:border-box}
+html.ltc-visual .preview-banner{background:#e7eee8;color:var(--ltc-accent);font-size:13px;line-height:1.6;padding:10px 18px}
+html.ltc-visual #navigation.open{border:1px solid var(--ltc-line);border-radius:16px;background:#fffffffa;box-shadow:var(--ltc-shadow-float);animation:ltc-disclosure-in .18s var(--ltc-ease)}
+html.ltc-visual #vMapDialog[open]{width:100vw;height:100dvh;max-height:100dvh;max-width:100vw;border-radius:0!important;margin:0;border:0!important;padding:0}
+html.ltc-visual :is(button[aria-pressed=true]:not(.primary):not(.hub-primary),.shop-card.selected,.shop-card.is-selected,.service-card.selected){border-color:var(--ltc-accent)!important;background:#e5efe7!important;color:var(--ltc-accent)!important}

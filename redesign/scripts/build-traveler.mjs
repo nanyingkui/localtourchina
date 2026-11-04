@@ -10,7 +10,7 @@ const bundle=path.join(out,'app.mjs');
 const minified=await transformWithEsbuild(await fs.readFile(bundle,'utf8'),bundle,{minify:true,target:'es2022',legalComments:'none',supported:{'template-literal':false}});
 await fs.writeFile(bundle,minified.code);
 const files=['index.html','app.css','app.mjs','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/apple-touch-icon.png'];
-const digest=crypto.createHash('sha256');for(const f of files)digest.update(await fs.readFile(path.join(out,f)));digest.update(await fs.readFile(path.join(root,'public/assets/supabase-config.js')));
+const digest=crypto.createHash('sha256');for(const f of files)digest.update(await fs.readFile(path.join(out,f)));digest.update(await fs.readFile(path.join(root,'public/assets/supabase-config.js')));for(const f of ['visual-system.css','visual-system.js','home-20261013/mascot-clean.webp'])digest.update(await fs.readFile(path.join(root,'public/assets',f)));
 const version=digest.digest('hex').slice(0,16);
 let sw=await fs.readFile(path.join(root,'src/traveler/service-worker.js'),'utf8');sw=sw.replace('__CACHE_VERSION__',version);await fs.writeFile(path.join(out,'sw.js'),sw);
 console.log('Built traveler PWA '+version+' in existing website.');

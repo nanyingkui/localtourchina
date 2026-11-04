@@ -1,5 +1,5 @@
-const CACHE='ltc-traveler-3306e488f405c366';
-const SHELL=['/app/','/app/index.html','/app/app.css','/app/app.mjs','/app/manifest.webmanifest','/app/icons/icon-192.png','/app/icons/icon-512.png','/app/icons/apple-touch-icon.png','/assets/supabase-config.js','/assets/media/attractions/tianmen-cave-jpg-960.webp'];
+const CACHE='ltc-traveler-4b0e98cd9d775617';
+const SHELL=['/assets/home-20261013/mascot-clean.webp','/assets/visual-system.css','/assets/visual-system.js','/app/','/app/index.html','/app/app.css','/app/app.mjs','/app/manifest.webmanifest','/app/icons/icon-192.png','/app/icons/icon-512.png','/app/icons/apple-touch-icon.png','/assets/supabase-config.js','/assets/media/attractions/tianmen-cave-jpg-960.webp'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)));});
 // Wait for old windows to close; never reload or replace an in-progress booking.
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('ltc-traveler-')&&key!==CACHE)await caches.delete(key);await self.clients.claim();})());});
