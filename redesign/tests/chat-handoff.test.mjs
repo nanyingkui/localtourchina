@@ -1,5 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {copyInquiryAndOpenChat,CUSTOMER_CHAT_URL} from '../src/chat-handoff.mjs';
+import {copyInquiryAndOpenChat,copyChannelBrief,CUSTOMER_CHAT_URL} from '../src/chat-handoff.mjs';
+test('direct-channel optional copy preserves complete choices without controlling navigation',async()=>{
+ const text='TEST · 3명 · 4일\n도착 시간 확인 필요';let copied='';
+ assert.equal(await copyChannelBrief(text,async value=>{copied=value;}),true);assert.equal(copied,text);
+ assert.equal(await copyChannelBrief(text,async()=>{throw Error('clipboard unavailable');}),false);
+ assert.equal(await copyChannelBrief('',async()=>{throw Error('must not copy');}),false);
+});
 test('copies the complete inquiry before navigation, without sending a chat message',async()=>{
  const events=[],text='상담번호: TEST\n'+('선택 항목\n'.repeat(2000));
  const result=await copyInquiryAndOpenChat(text,{write:async value=>{events.push('copy');assert.equal(value,text);},navigate:url=>{events.push('navigate');assert.equal(url,CUSTOMER_CHAT_URL);}});

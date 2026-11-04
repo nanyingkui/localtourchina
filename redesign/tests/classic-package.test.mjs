@@ -6,7 +6,7 @@ test('owner-confirmed classic inclusions and sole-use room survive every-languag
   const trip=findTrip(route),text=catalogInquiry(trip,3,lang),terms=catalogTerms(trip,lang);
   assert.ok(text.includes(terms.hotels));assert.ok(text.includes(terms.meals));assert.ok(text.includes(terms.inclusionNote));
   assert.match(text,/13:00/);assert.match(text,/80/);assert.doesNotMatch(text,/Homeinn|如家精选|홈 인 플러스/);
-  const prepared=prepareRecommendation(restoreRecommendation({},route,'3'),lang);
+  const draft=restoreRecommendation({},route,'3');draft.recommendation.arrivalTime='12:00';const prepared=prepareRecommendation(draft,lang);
   assert.equal(prepared.configuration.people,'3');assert.equal(prepared.configuration.referencePriceKRW,getTripPrice(trip,2));
   assert.ok(prepared.configuration.inquiryText.includes(terms.included));
  }

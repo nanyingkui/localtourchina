@@ -20,6 +20,16 @@ function render(lang,destination='zhangjiajie') {
  globalThis.location={search:'?destination='+destination};
  return renderToStaticMarkup(React.createElement(Storefront,{lang,onSelect:()=>{},onHelp:()=>{}}));
 }
+test('KakaoTalk is the first consultation entry; the package form remains a secondary link in every locale',()=>{
+ for(const lang of ['ko','zh','en']){
+  const html=render(lang);
+  assert.match(html,/<a class="home-channel-primary" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
+  assert.match(html,/<a class="hub-primary recommended-main-action recommended-channel-action" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
+  assert.ok(html.indexOf('home-channel-primary')<html.indexOf('class="service-shortcut"'));
+  assert.ok(html.indexOf('recommended-channel-action')<html.indexOf('recommended-form-entry'));
+  assert.match(html,/class="recommended-form-entry" href="[^\"]*view=recommendation&amp;mode=private/);
+ }
+});
 for (const lang of ['ko','zh','en']) {
  test(`${lang}: six service entries use the shared catalogue and remain available after intact packages`,()=>{
   const html=render(lang);
@@ -58,7 +68,7 @@ test('homepage starts with one recommended route, a qualified budget and optiona
   const home=html.slice(html.indexOf('class="travel-home"'),html.indexOf('<section hidden',html.indexOf('class="travel-home"')));
   assert.ok(home.includes('href="/travel-planner/?departure=unknown&amp;days=4&amp;party=&amp;from=home#start-plan"'));
   assert.doesNotMatch(home,/870,000|970,000/,'no numerical price before a party is chosen');
-  assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=help&amp;route=regular34&amp;step=details&amp;departure=unknown"`));
+  assert.ok(home.includes(`href="${lang==='ko'?'/':prefix+'/index.html'}?view=recommendation&amp;mode=private&amp;route=regular34&amp;step=details&amp;departure=unknown"`));
   assert.ok(home.includes('class="recommended-details"'));
   assert.ok(!home.includes('class="recommended-details" open'));
   assert.ok(home.includes('class="recommended-price"'));

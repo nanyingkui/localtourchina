@@ -4,6 +4,7 @@ import React from 'react';
 import ReviewStories from './ReviewArchiveEntry.jsx';
 import {serviceInquiryEntry} from './inquiry-entry.mjs';
 import UiIcon from './UiIcon.jsx';
+import {CUSTOMER_CHAT_URL} from './chat-handoff.mjs';
 import ScenicExplorer from './ScenicExplorer.jsx';
 import './travel-home.css';
 import {RecommendedOverview} from './RecommendedJourney.jsx';
@@ -18,7 +19,7 @@ export function ServiceShortcuts({lang='ko'}){
  ['onlineguide',ko?'온라인 여행지원':zh?'线上向导':'Online travel support',ko?'여행 전 준비·여행 중 한국어 도움':zh?'行前准备及旅途中的韩语支持':'Before & during your trip'],
  ['private',ko?'맞춤여행':zh?'定制旅行':'Tailor-made trip',ko?'숙소·식사·관광지·전체 일정 구성':zh?'配置住宿、餐饮、景点及完整行程':'Lodging, meals & full itinerary']
  ];
- return <section className="home-service-shortcuts" aria-labelledby="home-services-title"><header><h1 id="home-services-title">{ko?'어떤 도움이 필요하세요?':zh?'您需要什么帮助？':'What do you need?'}</h1><p>{ko?'필요한 서비스를 선택하고 상세 조건을 입력해 주세요. 접수 후 카카오톡 채널로 상담을 이어갑니다.':zh?'选择需要的服务并填写详细条件，提交后通过 KakaoTalk Channel 继续咨询。':'Choose a service and complete its detailed options. Continue on KakaoTalk after submitting.'}</p></header><nav aria-label={ko?'서비스 예약':zh?'预订服务':'Booking services'}>{items.map(([kind,title,detail])=><a key={kind} className="service-shortcut" href={serviceInquiryEntry(lang,kind)}><UiIcon kind={kind==='daytour'?'itinerary':kind==='onlineguide'?'information':kind}/><span><strong>{title}</strong><small>{detail}</small></span><UiIcon kind="next"/></a>)}</nav></section>
+ return <section className="home-service-shortcuts" aria-labelledby="home-services-title"><header><h1 id="home-services-title">{ko?'어떤 도움이 필요하세요?':zh?'您需要什么帮助？':'What do you need?'}</h1><p>{ko?'카카오톡 채널에서 먼저 상담하세요. 서비스와 가격은 아래에서 살펴볼 수 있어요.':zh?'先在KakaoTalk频道直接咨询；也可以先浏览下方服务与价格。':'Start a conversation on our KakaoTalk channel, or explore services and prices below.'}</p><a className="home-channel-primary" href={CUSTOMER_CHAT_URL} target="_blank" rel="noopener noreferrer">{ko?'카카오톡 채널에서 바로 상담':zh?'直接在KakaoTalk频道咨询':'Chat on KakaoTalk Channel'} <span aria-hidden="true">→</span></a></header><nav aria-label={ko?'서비스 예약':zh?'预订服务':'Booking services'}>{items.map(([kind,title,detail])=><a key={kind} className="service-shortcut" href={serviceInquiryEntry(lang,kind)}><UiIcon kind={kind==='daytour'?'itinerary':kind==='onlineguide'?'information':kind}/><span><strong>{title}</strong><small>{detail}</small></span><UiIcon kind="next"/></a>)}</nav></section>
 }
 function DayTourEntry({lang}){
  const ko=lang==='ko',zh=lang==='zh';

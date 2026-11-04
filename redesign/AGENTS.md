@@ -133,3 +133,13 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Six services must be directly visible from home. Day tours also have a visible product section; information/tools follow booking services and genuine reviews. Keep one service navigation on child pages.
 - After a successful website submission, prominently ask the guest to copy the inquiry reference, open the KakaoTalk channel and manually paste/send it. Opening the chat does not send a message. Retain the progress link and copy/direct-open fallbacks. Never auto-send messages or put private receipt tokens in the chat URL.
 - User explicitly authorized implementing and publishing these integrated changes on 2026-10-20 after initially requesting advice only. This supersedes the four-short-form and optional-chat directions from 2026-10-18.
+
+# Classic package inquiry preview (2026-11-04)
+- User requested a local preview only: keep the existing details/review stages, make the package entry explicitly request a quote, and never treat a quote request as booking/payment consent.
+- Arrival is the scheduled arrival in Zhangjiajie, in China local time. Before 13:00 uses the early-arrival proposal; later arrivals use next-day sightseeing. Exactly 13:00 remains subject to staff confirmation and provisionally uses next-day sightseeing. Undecided times remain allowed.
+- Collect total travellers, visible child count and conditional ages. Derive adult count automatically. Family prices require a quote; do not infer child discounts or bed eligibility from age alone. Four-day late/unknown-arrival scope must not inherit the full early-arrival reference.
+- Preserve the confirmed adult reference tiers, preceding-even-tier odd pricing, and included sole-use room for one adult in odd adult parties. Review and handoff must carry the same arrival, party, room, scope, itinerary and pending confirmations. No new pages or production deployment for this preview.
+
+- Release authorization: on 2026-11-04 the user approved publishing this verified package inquiry preview to the existing production website. This supersedes the local-only hold for these changes.
+
+- Latest release steering: KakaoTalk Channel is the first consultation entry. The homepage and recommended package primary actions open the existing channel directly. Optional copying must not block the channel; keep the website quote form as a secondary route with the verified arrival/children/review logic. Direct chat creates no website inquiry reference until an actual website submission.
