@@ -1,0 +1,4223 @@
+[
+  {
+    "id": "travel-case:S001",
+    "kind": "guide",
+    "title": "택시와 야시장에서 결제 수단을 바꿔 해결했어요",
+    "summary": "택시 요금 결제 때 한국 간편결제 앱이 QR을 읽지 못했고, 지갑도 보이지 않았어요.",
+    "source_url": "https://blog.naver.com/serape98/224463992218",
+    "source_path": "naver-research-20261104/S001",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "칭다오",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S001",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "칭다오",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "호텔 직원의 도움으로 요금을 처리하고 알리페이를 설치했어요. 야시장에서는 상인이 다른 결제 코드를 보여 준 뒤 Naver Pay 결제가 됐다고 해요.",
+      "caution": "한 지점에서 성공했다고 모든 QR에 같은 지갑이 되는 것은 아니에요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "중국 자유여행 결제에서 멘붕 온 이유, 칭다오 택시비 못 내고 알리페이 깐 후기",
+      "published_display": "2026.11.04 확인 시 ‘14시간 전’ 표시",
+      "published_sort": "2026-11-04",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q001",
+        "Q002",
+        "Q003",
+        "Q004"
+      ],
+      "keywords": [
+        "칭다오",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S010",
+    "kind": "guide",
+    "title": "eSIM은 되는데 인증문자는 늦고, 영상 앱은 안 됐어요",
+    "summary": "상하이에서 데이터는 대체로 됐지만 한국 번호 인증문자가 늦었고, 특정 영상 서비스는 이용할 수 없었어요.",
+    "source_url": "https://blog.naver.com/byosoz/224448982446",
+    "source_path": "naver-research-20261104/S010",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S010",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "network"
+      ],
+      "result": "호텔 Wi-Fi와 데이터를 전환한 뒤 문자가 모여 들어왔지만, Tving 이용 문제는 해결되지 않았어요.",
+      "caution": "문자 지연의 원인과 네트워크 전환의 효과를 따로 검증한 사례는 아니에요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "Wi-Fi와 여행 데이터를 하나씩 전환해 화면이 열리는지 확인하세요.",
+        "한국 번호의 문자 수신, 앱 로그인, 데이터 연결 상태를 따로 확인하세요. 결제는 승인 내역 확인 후 다시 시도하세요."
+      ],
+      "phrase": "请问可以连接店里的Wi-Fi试一下吗？",
+      "phrase_ko": "가게 Wi-Fi에 연결해 확인해 봐도 될까요?",
+      "source_title": "중국 상하이 이심 추천｜VPN 없이 카카오톡·인스타 가능한 로밍도깨비 내돈내산 후기",
+      "published_display": "2026.10.21",
+      "published_sort": "2026-10-21",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q018",
+        "Q019",
+        "Q020",
+        "Q021"
+      ],
+      "keywords": [
+        "상하이",
+        "로밍 이심 eSIM 와이파이 wifi 인증 문자 카카오톡 구글"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S014",
+    "kind": "guide",
+    "title": "친구 인증 없이 위챗 제한을 풀었던 경험",
+    "summary": "출국 전 위챗 소셜 기능이 제한됐고, 도움을 줄 수 있는 인증 친구도 없었어요.",
+    "source_url": "https://blog.naver.com/jv1110/224308625163",
+    "source_path": "naver-research-20261104/S014",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "위챗 계정",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S014",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "위챗 계정",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "network"
+      ],
+      "result": "Feedback의 Contact Us로 상황을 제출한 뒤 약 하루 후 추가 본인 확인 방법이 나타나 제한을 풀었다고 해요.",
+      "caution": "메뉴와 심사 결과는 계정마다 다를 수 있어요. 비공식 유료 인증을 권하는 내용은 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "Wi-Fi와 여행 데이터를 하나씩 전환해 화면이 열리는지 확인하세요.",
+        "한국 번호의 문자 수신, 앱 로그인, 데이터 연결 상태를 따로 확인하세요. 결제는 승인 내역 확인 후 다시 시도하세요."
+      ],
+      "phrase": "请问可以连接店里的Wi-Fi试一下吗？",
+      "phrase_ko": "가게 Wi-Fi에 연결해 확인해 봐도 될까요?",
+      "source_title": "위챗 계정 제한 차단 잠김 해제 성공 친구인증 불가 시 해결 방법",
+      "published_display": "2026.06.07",
+      "published_sort": "2026-06-07",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q027",
+        "Q028",
+        "Q029",
+        "Q030"
+      ],
+      "keywords": [
+        "위챗 계정",
+        "로밍 이심 eSIM 와이파이 wifi 인증 문자 카카오톡 구글"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S020",
+    "kind": "guide",
+    "title": "밤에 디디에 휴대폰을 두고 내렸어요",
+    "summary": "밤 11시쯤 차에 휴대폰을 두고 내려, 원래 결제 앱만으로는 연락이 어려웠어요.",
+    "source_url": "https://blog.naver.com/dotori1906/224200686807",
+    "source_path": "naver-research-20261104/S020",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S020",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "다른 기기에서 디디 앱 고객센터에 연락하고 호텔의 전화·통역 도움을 받아 약 한 시간 뒤 돌려받았다고 해요. 반환 이동비로 100위안을 지불했어요.",
+      "caution": "반환 시간과 비용은 이 한 건의 경험이며 고정 요금이 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "[중국/상하이] 상하이여행 디디택시에서 핸드폰 분실 후 되찾은 후기! (DiDi Taxi 고객센터이용)",
+      "published_display": "2026.03.01",
+      "published_sort": "2026-03-01",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q038",
+        "Q039",
+        "Q040",
+        "Q041",
+        "Q042"
+      ],
+      "keywords": [
+        "상하이",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S021",
+    "kind": "guide",
+    "title": "데이터 eSIM만 있어 분실물 기사에게 전화를 못 했어요",
+    "summary": "동행인의 휴대폰이 없어졌지만 현지 번호가 없는 eSIM이라 기사에게 직접 전화하기 어려웠어요.",
+    "source_url": "https://blog.naver.com/wnslqm/224381628202",
+    "source_path": "naver-research-20261104/S021",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S021",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "위치 찾기만으로 해결되지 않아 현지 공안의 도움을 구했고, 기사가 휴대폰을 돌려줬다고 해요.",
+      "caution": "위치 표시가 곧 회수를 보장하지 않아요. 플랫폼 주문과 기기 정보를 함께 준비하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "상하이 디디에서 최신 아이폰을 잃어버렸다… 그리고 13시간 만에 찾은 썰",
+      "published_display": "2026.08.18",
+      "published_sort": "2026-08-18",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q043",
+        "Q044",
+        "Q045"
+      ],
+      "keywords": [
+        "상하이",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S030",
+    "kind": "guide",
+    "title": "알리페이 교통 기능이 막혀 위챗으로 바꿨어요",
+    "summary": "계정을 만들고 카드를 연결했는데도 교통코드 개통이 안 됐고 영상 인증도 실패했어요.",
+    "source_url": "https://blog.naver.com/dawn_of_winter/224389342710",
+    "source_path": "naver-research-20261104/S030",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S030",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "위챗 교통코드를 대신 발급받아 이동했어요. 그 과정에서도 인증문자가 늦는 일이 있었어요.",
+      "caution": "일반 결제, 계정 인증, 도시별 교통코드는 서로 다른 기능이에요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "중국 상하이 여행 알리페이 대중교통 카드 오류 제한걸려서 위챗페이로 등록한 후기",
+      "published_display": "2026.08.25",
+      "published_sort": "2026-08-25",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q062",
+        "Q063",
+        "Q064"
+      ],
+      "keywords": [
+        "상하이",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S042",
+    "kind": "guide",
+    "title": "전자 입국카드를 썼는데 추가 확인을 받았어요",
+    "summary": "상하이 입국 때 전자 입국카드를 미리 작성했지만 별도의 신원 확인을 받았어요.",
+    "source_url": "https://blog.naver.com/1978mm/224294823492",
+    "source_path": "naver-research-20261104/S042",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이 입국",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S042",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이 입국",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "추가 확인 뒤 입국했으며, 착륙부터 짐 찾기까지 약 한 시간이 걸렸다고 해요. 추가 확인 이유는 쓰지 않았어요.",
+      "caution": "이 경험으로 추가 심사 원인이나 보통 소요 시간을 단정할 수 없어요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "중국 입국 신고서 작성 방법 모바일 QR, 상하이 공항 입국 심사",
+      "published_display": "2026.05.24",
+      "published_sort": "2026-05-24",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q080",
+        "Q081",
+        "Q082",
+        "Q083"
+      ],
+      "keywords": [
+        "상하이 입국",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S046",
+    "kind": "guide",
+    "title": "국제선은 탔는데 중국 국내선 환승 때 보조배터리가 걸렸어요",
+    "summary": "인천에서 지난을 거쳐 싼야로 가며 국내선 환승 보안검색을 다시 받았어요.",
+    "source_url": "https://blog.naver.com/lovely237/224441575147",
+    "source_path": "naver-research-20261104/S046",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "지난 환승·싼야행",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S046",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "지난 환승·싼야행",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "CCC 표시가 없는 배터리 세 개를 반입하지 못했다고 해요. 미개봉 새 제품도 포함됐고 회수 기록은 없어요.",
+      "caution": "새 제품이라는 이유만으로 통과가 보장되지 않아요. 실제 구간과 현재 항공사·공항 안내를 확인하세요.",
+      "outcome": "미해결",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "중국 보조배터리 압수 CCC 국내선 환승 입국신고서",
+      "published_display": "2026.10.14",
+      "published_sort": "2026-10-14",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q088",
+        "Q089",
+        "Q090",
+        "Q091"
+      ],
+      "keywords": [
+        "지난 환승·싼야행",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S052",
+    "kind": "guide",
+    "title": "고궁 예약을 못 해 주변 일정으로 바꿨어요",
+    "summary": "고궁 예약이 마감돼 천안문과 주변을 둘러보려 했지만 도착 시간도 늦었어요.",
+    "source_url": "https://blog.naver.com/namgyu9299/224352557657",
+    "source_path": "naver-research-20261104/S052",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "베이징",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S052",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "베이징",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "고궁에 들어가지 못했고 태묘 일부 건물도 닫혀 있어 가능한 주변 코스로 바꿨어요.",
+      "caution": "대체 장소도 입장 예약과 마지막 입장 시간을 각각 확인해야 해요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 베이징 자금성 예약 실패? 천안문부터 태묘까지 대안 코스!",
+      "published_display": "2026.07.20",
+      "published_sort": "2026-07-20",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q098",
+        "Q099",
+        "Q100"
+      ],
+      "keywords": [
+        "베이징",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S054",
+    "kind": "guide",
+    "title": "디즈니 표를 샀는데 앱에 연결되지 않았어요",
+    "summary": "표를 앱에 등록할 때 최대 파티 수와 관련된 오류가 반복됐어요.",
+    "source_url": "https://blog.naver.com/glassr/224098195311",
+    "source_path": "naver-research-20261104/S054",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이 디즈니",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S054",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이 디즈니",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "여러 번 시도하고 고객센터에 문의한 뒤 나중에 등록된 것을 확인했어요. 식음료 쿠폰은 당시 별도 등록 절차가 필요했어요.",
+      "caution": "정확히 어느 조치가 문제를 풀었는지는 확정되지 않았어요. 표 결제와 앱 연결을 구분하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "상하이여행준비 :: 디즈니랜드 얼리버드티켓 / 디즈니앱 티켓등록오류",
+      "published_display": "2025.12.04",
+      "published_sort": "2025-12-04",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q102",
+        "Q103",
+        "Q104"
+      ],
+      "keywords": [
+        "상하이 디즈니",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S058",
+    "kind": "guide",
+    "title": "배달 연락처와 도착 날짜를 잘못 이해했어요",
+    "summary": "한국 번호 입력과 호텔 연락처 사용에 도움을 받았지만, 다른 주문에서는 다음 날 배달 상품을 골랐어요.",
+    "source_url": "https://blog.naver.com/25800j/224317842389",
+    "source_path": "naver-research-20261104/S058",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "배달 앱",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S058",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "배달 앱",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "food"
+      ],
+      "result": "번호 입력은 프런트 도움을 받았어요. 날짜를 잘못 고른 주문은 취소 요청을 여러 번 남겼는데도 음식이 도착했어요.",
+      "caution": "호텔 번호를 쓸 때는 사전 동의를 받고, 전화번호 형식을 모든 플랫폼에 그대로 적용하지 마세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "중국여행 필수 배달 어플 메이투안 ㅣ 가입방법, 주문방법, 오류해결, 전화번호",
+      "published_display": "2026.06.16",
+      "published_sort": "2026-06-16",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q108",
+        "Q109",
+        "Q110",
+        "Q111"
+      ],
+      "keywords": [
+        "배달 앱",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S068",
+    "kind": "guide",
+    "title": "병원에서 진료와 결제, 서류 발급이 따로였어요",
+    "summary": "작성자는 여행 중 장염 진단을 받았다고 적었고, 접수·진료·약 수령 과정의 언어 장벽을 겪었어요.",
+    "source_url": "https://blog.naver.com/ham9119/224176990238",
+    "source_path": "naver-research-20261104/S068",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "다롄",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S068",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "다롄",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "영사 전화 통역 도움을 받아 진료를 받았어요. 여러 단계에서 따로 결제했으며 날짜가 적힌 진단서의 필요성을 기록했어요.",
+      "caution": "개인 진료 경험이에요. 약이나 치료를 따라 하는 안내가 아니며 증상은 의료진에게 설명하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "身体不舒服，请帮我联系正规医院或现场医务人员。",
+      "phrase_ko": "몸이 불편해요. 정식 병원이나 현장 의료진에게 연락해 주세요.",
+      "source_title": "[대련 여행] 세균성장염으로 병원다녀온 후기(대련우의의원 링거맞는법, 영사콜센터 도움 후기)",
+      "published_display": "2026.02.09",
+      "published_sort": "2026-02-09",
+      "event_display": "2026.02.08 진료",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q125",
+        "Q126",
+        "Q127",
+        "Q128",
+        "Q129"
+      ],
+      "keywords": [
+        "다롄",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S074",
+    "kind": "guide",
+    "title": "하얼빈에서 여권을 잃어버리고 선양으로 이동했어요",
+    "summary": "여권을 잃어버린 뒤 열차 이동과 숙박, 출국 준비까지 함께 막혔어요.",
+    "source_url": "https://blog.naver.com/wjdms12/224174221750",
+    "source_path": "naver-research-20261104/S074",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "하얼빈·선양",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S074",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "하얼빈·선양",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "분실 신고 후 관련 증빙으로 이동·숙박을 조율하고 선양에서 임시 여권을 발급받았다고 해요.",
+      "caution": "주말 협조와 이동 허용은 개별 처리였어요. 임시 여권만 있으면 출국 준비가 끝난다고 해석하지 마세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "중국에서 여권 분실한 후기 / 선양 대한민국 총영사관/ 임시여권 발급 법 /",
+      "published_display": "2026.02.06",
+      "published_sort": "2026-02-06",
+      "event_display": "2025.12.09–14 예정 여행 중 12.12 여권 분실",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q138",
+        "Q139",
+        "Q140",
+        "Q141",
+        "Q142",
+        "Q143"
+      ],
+      "keywords": [
+        "하얼빈·선양",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S077",
+    "kind": "guide",
+    "title": "항공 취소 환불이 128일 걸렸고, 부가요금은 따로였어요",
+    "summary": "출발 약 55시간 전에 항공편 취소 통지를 받았어요. 예약 플랫폼과 여러 번 연락해야 했어요.",
+    "source_url": "https://blog.naver.com/jinijini0824/224052655514",
+    "source_path": "naver-research-20261104/S077",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이행 항공편",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S077",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이행 항공편",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "소비자기관 도움까지 거친 뒤 128일 후 전액 환급됐다고 해요. 호텔·디즈니 환불과 부가요금도 각각 추적했어요.",
+      "caution": "환불 기간이나 같은 보상 결과를 보장하는 사례는 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "아고다예약 춘추항공 일방적인항공편취소 환불후기 128일만에 전액환불",
+      "published_display": "2025.10.24",
+      "published_sort": "2025-10-24",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q146",
+        "Q147",
+        "Q148",
+        "Q149",
+        "Q150",
+        "Q151"
+      ],
+      "keywords": [
+        "상하이행 항공편",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S082",
+    "kind": "guide",
+    "title": "화장실은 장소와 비투숙객 이용 여부까지 확인해야 했어요",
+    "summary": "작성자는 칭다오 쇼핑몰, 호텔 로비, 카페, 골목 공중화장실을 실제 이용하며 위치를 기록했어요.",
+    "source_url": "https://blog.naver.com/eggtta/224273763373",
+    "source_path": "naver-research-20261104/S082",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "칭다오",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S082",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "칭다오",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "여러 시설을 찾았지만 지금도 같은 입구가 열려 있거나 누구나 이용할 수 있는지는 별도 확인이 필요해요.",
+      "caution": "건물 좌표만으로 안내하지 말고 입구·층·이용 허용 범위를 확인하세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "칭다오 깨끗한 화장실 모음 :: 공익을 위한 후기 공유",
+      "published_display": "2026.05.04",
+      "published_sort": "2026-05-04",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q157",
+        "Q158"
+      ],
+      "keywords": [
+        "칭다오",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S089",
+    "kind": "guide",
+    "title": "쇼핑 때 못 받은 환급 서류를 다음 호텔로 받았어요",
+    "summary": "상점에서 서류 발급이 바로 되지 않았고 다음 날 다시 가도 처리가 어려웠어요.",
+    "source_url": "https://blog.naver.com/cai6915/224117308304",
+    "source_path": "naver-research-20261104/S089",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "선전·샤먼공항",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S089",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "선전·샤먼공항",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "서류를 샤먼 호텔로 받아 공항에서 물품 확인·도장 절차를 거쳤어요. 환급 창구가 열리지 않았을 때 현장 QR로 신청해 입금됐다고 해요.",
+      "caution": "모든 공항이 같은 방식은 아니에요. 세관 확인과 실제 환급 창구를 구분하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "샤먼국제공항 택스리펀 후기(2025년 12월 기준)",
+      "published_display": "2025.12.21",
+      "published_sort": "2025-12-21",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q170",
+        "Q171",
+        "Q172",
+        "Q173",
+        "Q174",
+        "Q175"
+      ],
+      "keywords": [
+        "선전·샤먼공항",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S094",
+    "kind": "guide",
+    "title": "공유 배터리 환급이 알리페이가 아닌 업체 화면에 남아 있었어요",
+    "summary": "대여 중 배터리 보유 옵션을 잘못 골랐고, 고객센터가 환급을 안내한 뒤에도 돈을 바로 찾지 못했어요.",
+    "source_url": "https://blog.naver.com/wwwsy1214/223910193123",
+    "source_path": "naver-research-20261104/S094",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S094",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "업체 미니프로그램의 보증금 화면에서 별도 환급을 신청해야 한다는 것을 알아냈고, 최종적으로 알리페이로 돌려받았다고 해요.",
+      "caution": "알리페이 수령과 은행 입금은 다른 단계예요. 플랫폼과 실제 대여업체의 고객센터를 구분하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "중국 보조배터리 에너지 몬스터 보증금 환불 후기",
+      "published_display": "2025.06.24",
+      "published_sort": "2025-06-24",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q180",
+        "Q181",
+        "Q182",
+        "Q183"
+      ],
+      "keywords": [
+        "상하이",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S097",
+    "kind": "guide",
+    "title": "자전거 주간권이어도 반납 장소와 회당 시간이 달랐어요",
+    "summary": "하루 이동에 공유 자전거를 사용하며 주간 상품과 회당 이용 조건을 확인했어요.",
+    "source_url": "https://blog.naver.com/sayjhy3333/224365856360",
+    "source_path": "naver-research-20261104/S097",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S097",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "작성자는 지정 반납 위치를 먼저 찾는 방법을 소개했어요. 별도 초과요금 분쟁이 해결된 사례는 아니에요.",
+      "caution": "상품 기간과 한 번 탈 수 있는 시간은 다른 조건이에요. 화면의 현재 규정을 확인하세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "상하이 여행, 자전거 타는 법! 헬로바이크 이용 방법",
+      "published_display": "2026.08.02",
+      "published_sort": "2026-08-02",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q187",
+        "Q188"
+      ],
+      "keywords": [
+        "상하이",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S104",
+    "kind": "guide",
+    "title": "휠체어 이동은 목적지 역과 체험 장소 입구도 확인했어요",
+    "summary": "장애 아동 동반 외출에서 지하철 환승과 계단·문턱이 있는 체험 공간을 이용했어요.",
+    "source_url": "https://blog.naver.com/smyaaa/224420393829",
+    "source_path": "naver-research-20261104/S104",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S104",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "지하철 직원의 목적지 확인·다음 역 협조와 현장 도움을 받았다고 해요. 체험 공간의 구조적 장애물은 남아 있었어요.",
+      "caution": "휠체어를 사람이 들어 옮기는 방식을 일반 대안으로 안내하지 않아요. 무단차 경로를 먼저 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "[상하이트립1일차]상하이 휠체어 여행, 아이가 처음 상하이 지하철을 타본 날",
+      "published_display": "2026.09.23",
+      "published_sort": "2026-09-23",
+      "event_display": "2026.09.21",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q197",
+        "Q198",
+        "Q199"
+      ],
+      "keywords": [
+        "상하이",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S105",
+    "kind": "guide",
+    "title": "빌린 휠체어 반납 시간이 관광 일정을 줄였어요",
+    "summary": "백화점에서 빌린 휠체어의 반납 시각 때문에 예원·와이탄 일정을 서둘러야 했어요.",
+    "source_url": "https://blog.naver.com/young___2i/224440746400",
+    "source_path": "naver-research-20261104/S105",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S105",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "사람이 많은 곳에서 차량을 잡고 휠체어를 싣는 데도 부담이 생겼어요. 더 편한 반납 방법을 찾았다는 결과는 없어요.",
+      "caution": "무료 대여 여부와 함께 반납 장소·마감·접이식 크기를 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "나 이제 집가요",
+      "published_display": "2026.10.13",
+      "published_sort": "2026-10-13",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q200",
+        "Q201",
+        "Q202"
+      ],
+      "keywords": [
+        "상하이",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S113",
+    "kind": "guide",
+    "title": "짧은 환승에서 사람은 탔지만 짐은 함께 못 왔어요",
+    "summary": "첫 비행기 지연으로 환승 여유가 약 20분밖에 남지 않았어요.",
+    "source_url": "https://blog.naver.com/susan987/224446119201",
+    "source_path": "naver-research-20261104/S113",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "리장·광저우 환승",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S113",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "리장·광저우 환승",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "직원 도움으로 탑승했지만 짐은 도착하지 않았어요. 수하물 창구에 색상·브랜드 등을 신고한 뒤 나중에 돌려받았어요.",
+      "caution": "20분을 가능한 환승 기준으로 삼으면 안 돼요. 이 사례는 직원의 개별 협조였어요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "중국남방항공 탑승 솔직후기 ㅣ연착되서 캐리어 잃어버렸어요",
+      "published_display": "2026.10.19",
+      "published_sort": "2026-10-19",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q213",
+        "Q214",
+        "Q215"
+      ],
+      "keywords": [
+        "리장·광저우 환승",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S114",
+    "kind": "guide",
+    "title": "환승호텔은 찾았지만 공항으로 돌아오는 차는 별도였어요",
+    "summary": "샤먼공항 환승호텔 안내대를 찾는 데 시간이 걸렸어요.",
+    "source_url": "https://blog.naver.com/onlywonand/224461810846",
+    "source_path": "naver-research-20261104/S114",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "샤먼공항 환승",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S114",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "샤먼공항 환승",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "호텔은 배정받았지만 돌아오는 교통편을 미리 확인하지 않아 따로 차를 불렀어요.",
+      "caution": "호텔까지 태워 주는 것과 다음 날 공항행 예약은 별개예요. 본인 항공권의 호텔 자격도 확인하세요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "샤먼항공 환승호텔 충칭 - 인천 환승호텔 솔직 후기 MF8424",
+      "published_display": "2026.11.02",
+      "published_sort": "2026-11-02",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q216",
+        "Q217",
+        "Q218"
+      ],
+      "keywords": [
+        "샤먼공항 환승",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S116",
+    "kind": "guide",
+    "title": "보안검색 소형 가위와 선반 위 가방을 놓칠 뻔했어요",
+    "summary": "소형 가위 규격에 대한 현장 확인을 받았고, 이동 뒤에는 선반 위 배낭을 두고 갈 뻔했어요.",
+    "source_url": "https://blog.naver.com/mjl0924/224436830890",
+    "source_path": "naver-research-20261104/S116",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사·난창",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S116",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사·난창",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "가위는 직원과 확인 후 통과했고 배낭은 동행인이 제때 챙겼어요.",
+      "caution": "개별 통과가 다른 구간의 반입 허용을 뜻하지 않아요. 내릴 때 선반과 좌석을 함께 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "중국 난창행 고속철도, 가위는 걸리고 백팩은 놓칠 뻔하고… 중국 기차여행 제대로 사고쳤다.",
+      "published_display": "2026.10.10",
+      "published_sort": "2026-10-10",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q220",
+        "Q221"
+      ],
+      "keywords": [
+        "창사·난창",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S122",
+    "kind": "guide",
+    "title": "공항 디디 승차장의 구역 번호와 층을 다시 확인했어요",
+    "summary": "공항에서 앱 안내와 현장 차량 호출 표지판을 따라 번호가 있는 승차장으로 갔어요.",
+    "source_url": "https://blog.naver.com/goe152/224447313670",
+    "source_path": "naver-research-20261104/S122",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "충칭공항",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S122",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "충칭공항",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "번호 표지로 위치를 찾았지만 글 제목과 본문의 층 표기가 서로 달랐어요.",
+      "caution": "이 글만으로 고정 층을 안내하지 않아요. 현재 앱 핀·승차 구역·현장 표지판을 맞춰 보세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "[중국/충칭] 충칭공항 디디 타는곳 총정리｜장베이공항 T3 지하 1층 디디 타러 가는법 후기",
+      "published_display": "2026.10.20",
+      "published_sort": "2026-10-20",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q228",
+        "Q229",
+        "Q230"
+      ],
+      "keywords": [
+        "충칭공항",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S124",
+    "kind": "guide",
+    "title": "현지 번호 때문에 공식 예약이 막혀 다른 판매처를 썼어요",
+    "summary": "중국 번호 없이 시안 병마용·진시황릉 공식 예약을 진행하지 못했어요.",
+    "source_url": "https://blog.naver.com/uni800506/224051570074",
+    "source_path": "naver-research-20261104/S124",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "시안 병마용·진시황릉",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S124",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "시안 병마용·진시황릉",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "Trip.com에서 다음 날 표를 사고 여권으로 입장했어요. 큰 구역의 셔틀과 내부 소형차는 별도였고 많이 걸어 뒤 일정을 줄였어요.",
+      "caution": "현재 판매 가능 여부와 포함 교통은 직접 확인하세요. 입장권 하나가 모든 차량을 포함하지 않아요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "[시안 4박 5일] 택시 타고 병마용+진시황릉 다녀온 후기",
+      "published_display": "2025.10.23",
+      "published_sort": "2025-10-23",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q232",
+        "Q233",
+        "Q234",
+        "Q235"
+      ],
+      "keywords": [
+        "시안 병마용·진시황릉",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S128",
+    "kind": "guide",
+    "title": "결제 재시도 뒤 중복 청구를 발견했지만 환급은 미확인이에요",
+    "summary": "결제 오류 때 여러 번 다시 시도했고 나중에 중복 결제를 발견했다고 해요.",
+    "source_url": "https://blog.naver.com/eueueueu-/224385646216",
+    "source_path": "naver-research-20261104/S128",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "중국 여행",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S128",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "중국 여행",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "고객센터와 소통이 어려웠으며 한 달 넘게 환급이 끝나지 않았다고 기록했어요.",
+      "caution": "포켓 Wi-Fi나 로밍이 원인이라는 설명은 확인되지 않았어요. 재결제 전 거래 내역을 먼저 확인하세요.",
+      "outcome": "미해결",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "알리페이 앱 쓰지 말고 카카오페이로 하세요! ｜ 결제 오류, 이중결제, 고객센터 문의, 중국 결제",
+      "published_display": "2026.08.22",
+      "published_sort": "2026-08-22",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q239",
+        "Q240",
+        "Q241"
+      ],
+      "keywords": [
+        "중국 여행",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S132",
+    "kind": "guide",
+    "title": "자율주행 호출에서 차량 번호와 서비스 구역을 확인했어요",
+    "summary": "알리페이에서 자율주행 차량을 호출하며 서비스 가능 구역과 차량 식별 정보를 확인했어요.",
+    "source_url": "https://blog.naver.com/0703647/224449478077",
+    "source_path": "naver-research-20261104/S132",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "선전",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S132",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "선전",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "호출·탑승을 경험했지만 일반 디디보다 항상 저렴하지는 않았다고 해요.",
+      "caution": "운영 차량 번호와 자동차 번호판은 다를 수 있어요. 지금 앱이 표시하는 구역과 승차 지시를 따르세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "중국 선전 무인택시 샤오마즈싱 알리페이 앱으로 타는법 요금 디디 비교 중국어 복사",
+      "published_display": "2026.10.21",
+      "published_sort": "2026-10-21",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q245",
+        "Q246",
+        "Q247"
+      ],
+      "keywords": [
+        "선전",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S133",
+    "kind": "guide",
+    "title": "추운 야외에서 휴대폰 배터리와 체험 예약이 걸림돌이었어요",
+    "summary": "혹한의 야외 관광에서 휴대폰 전원과 앱에만 의존하는 일정의 한계를 기록했어요.",
+    "source_url": "https://blog.naver.com/nyulog/224136183604",
+    "source_path": "naver-research-20261104/S133",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "하얼빈",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S133",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "하얼빈",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "종이 지도와 휴식 공간을 활용했지만 위챗으로 예약하는 인기 활동은 잡기 어려웠어요.",
+      "caution": "입장권과 개별 체험 예약은 다를 수 있어요. 날짜별 운영과 휴식 공간을 따로 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "[하얼빈] 빙등제 영하 26도 옷차림, 스마트폰 방전/액티비티 예약 팁, 화장실/캐비넷 정보 모든 것",
+      "published_display": "2026.01.06",
+      "published_sort": "2026-01-06",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q248",
+        "Q249",
+        "Q250",
+        "Q251"
+      ],
+      "keywords": [
+        "하얼빈",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S136",
+    "kind": "guide",
+    "title": "비 안개와 패키지 추가금 문제를 함께 겪었어요",
+    "summary": "장가계 일정에서 계속되는 비·안개로 풍경을 보기 어려웠고, 예상하지 못한 현장 비용 문제도 겪었다고 해요.",
+    "source_url": "https://blog.naver.com/yoonh0813/224459468857",
+    "source_path": "naver-research-20261104/S136",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S136",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "일정은 진행했지만 추가금 분쟁이나 보상이 해결됐다는 기록은 없어요.",
+      "caution": "판매 설명·계약서·실제 요청 금액을 나란히 보관하세요. 여행사의 위법 여부를 판단한 자료는 아니에요.",
+      "outcome": "결과 미확인",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "#3 [장가계 여행]_비 오고 안개 낀 천문산 날씨, 선택관광 강요하는 가이드",
+      "published_display": "2026.10.30",
+      "published_sort": "2026-10-30",
+      "event_display": "2026.10.20",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q254",
+        "Q255",
+        "Q256"
+      ],
+      "keywords": [
+        "장가계",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S139",
+    "kind": "guide",
+    "title": "옛 글의 짐 보관소는 거절했고, 다른 층 보관함은 됐어요",
+    "summary": "예전 안내를 보고 안내데스크에 갔지만 짐을 맡기지 못했어요.",
+    "source_url": "https://blog.naver.com/guinguin0717/224450745105",
+    "source_path": "naver-research-20261104/S139",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "칭다오",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S139",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "칭다오",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "LG층의 보관함을 찾아 중국 번호 없이 알리페이로 이용했다고 해요.",
+      "caution": "당시 2시간 6위안은 현재 가격이 아니에요. 보관 규격·시간과 실제 결제 화면을 확인하세요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "인포데스크 짐보관 거절? 칭다오 믹스몰 1,200원에 캐리어 보관하는 찐 위치",
+      "published_display": "2026.10.23",
+      "published_sort": "2026-10-23",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q259",
+        "Q260",
+        "Q261"
+      ],
+      "keywords": [
+        "칭다오",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S142",
+    "kind": "guide",
+    "title": "호텔 이름으로 주문했는데 택배가 근처 보관점에 갔어요",
+    "summary": "호텔이 받는 택배업체와 다른 업체의 물건이 인근 수령점으로 배송됐어요.",
+    "source_url": "https://blog.naver.com/nzkimtravel/224385423902",
+    "source_path": "naver-research-20261104/S142",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "호텔 택배 수령",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S142",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "호텔 택배 수령",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "수령 코드를 이용해 보관점을 찾아 물건을 받았다고 해요.",
+      "caution": "모든 호텔이 같은 업체를 받는 것은 아니에요. 주문 전에 수령 가능 업체와 연락처를 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "중국 여행 가서 타오바오 샀다가 날릴 뻔했습니다 (타오바오 호텔 배송의 함정)",
+      "published_display": "2026.08.21",
+      "published_sort": "2026-08-21",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q265",
+        "Q266",
+        "Q267",
+        "Q268"
+      ],
+      "keywords": [
+        "호텔 택배 수령",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S149",
+    "kind": "guide",
+    "title": "지하에서 결제가 막혀 잠시 Wi-Fi를 사용했어요",
+    "summary": "지하 등 신호가 약한 곳에서 결제가 어려워 주변 Wi-Fi로 바꿨어요.",
+    "source_url": "https://blog.naver.com/eggtta/224420371880",
+    "source_path": "naver-research-20261104/S149",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이·우전",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S149",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이·우전",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "network",
+        "payment"
+      ],
+      "result": "작성자는 결제가 안 될 때 잠시 Wi-Fi를 쓰는 방법을 소개했어요. 특정 QR 결제가 실제로 복구된 과정을 보여 주지는 않았어요.",
+      "caution": "은행 통합 QR이나 해외 IP가 원인이라고 입증한 사례는 아니에요. 결제 후 필요한 데이터 연결로 돌아가세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "이미 승인된 결제가 없는지 먼저 확인한 뒤, 허락받은 가게 Wi-Fi와 여행 데이터를 한 번씩 바꿔 보세요.",
+        "거래 내역을 확인해 중복 결제를 피하고, 끝나면 필요한 해외 앱이 열리는 연결로 돌아가세요."
+      ],
+      "phrase": "请问可以连接店里的Wi-Fi试一下吗？",
+      "phrase_ko": "가게 Wi-Fi에 연결해 확인해 봐도 될까요?",
+      "source_title": "중국 상해 이심 로밍도깨비 :: 여행 eSIM 몇기가 충전",
+      "published_display": "2026.09.23",
+      "published_sort": "2026-09-23",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q277",
+        "Q278"
+      ],
+      "keywords": [
+        "상하이·우전",
+        "로밍 이심 eSIM 와이파이 wifi 인증 문자 카카오톡 구글"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S152",
+    "kind": "guide",
+    "title": "호텔 Wi-Fi를 믿고 데이터 양을 잡았다가 부족할 뻔했어요",
+    "summary": "도착 뒤 알리페이 안의 배달 기능에서 오류·로그아웃이 생겼고, 호텔 Wi-Fi로 일부 서비스를 쓸 수 없었어요.",
+    "source_url": "https://blog.naver.com/ju_yeons_22/224419839046",
+    "source_path": "naver-research-20261104/S152",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S152",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "food"
+      ],
+      "result": "각자 쓰는 일일 3GB 데이터에 의존하게 됐고 마지막 날 데이터가 부족할까 걱정하며 공항으로 갔어요.",
+      "caution": "모든 앱이 복구됐다는 결과는 없어요. 데이터 용량과 한국 번호의 문자 수신은 따로 준비하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "상하이여행 꼭 보고가야할 주의사항: 데이터 로밍, 유심, 배달앱 메이투안 오류 해결, 헌저우이치....",
+      "published_display": "2026.09.22",
+      "published_sort": "2026-09-22",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q282",
+        "Q283",
+        "Q284"
+      ],
+      "keywords": [
+        "상하이",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S153",
+    "kind": "guide",
+    "title": "삼림공원 재입장 예약에 가족이 빠졌어요",
+    "summary": "첫날 표는 정상 사용했지만 재입장 예약에서 작성자 한 명만 선택돼 가족이 입구에서 막혔어요.",
+    "source_url": "https://blog.naver.com/loveflys/224307062097",
+    "source_path": "naver-research-20261104/S153",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 삼림공원",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S153",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 삼림공원",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "현장 창구에서 가족 예약을 보완해 모두 들어갔어요. SKT 로밍으로 안 열리던 예약 페이지는 호텔 Wi-Fi로 열렸다고 해요.",
+      "caution": "다음 날 예약 명단은 사람별로 확인하세요. Wi-Fi 사례는 예약 페이지 경험이며 결제 QR 원인 검증은 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "장가계 자유여행 : 삼림공원 재입장 예약",
+      "published_display": "2026.06.05",
+      "published_sort": "2026-06-05",
+      "event_display": "2026.05.28–06.02",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q285",
+        "Q286",
+        "Q287"
+      ],
+      "keywords": [
+        "장가계 삼림공원",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S154",
+    "kind": "guide",
+    "title": "공원은 열렸는데 일부 버스 길이 안 됐어요",
+    "summary": "홍수 뒤 장가계 공원이 다시 열렸지만 내부 도로 일부가 손상됐고, 인원 부족으로 현지 투어도 취소됐어요.",
+    "source_url": "https://blog.naver.com/bsk795/223926320362",
+    "source_path": "naver-research-20261104/S154",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 삼림공원·창사",
+      "zhangjiajie",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S154",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 삼림공원·창사",
+      "regions": [
+        "zhangjiajie",
+        "hunan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "숙소 도움으로 표·일정을 준비하고 가능한 구간을 물어 일부 관광했어요. 별도 디디 주차비 분쟁은 다른 과거 주문으로 상담원에 연결해 30위안을 취소받았어요.",
+      "caution": "개원과 모든 접속도로 운행은 달라요. 요금 분쟁은 실제 주문번호와 내역을 제시하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "장가계 자유여행 후기2 / 장가계국가삼림공원 당일치기 / 아주 짧은 창사(长沙) 맛보기 / 창사 핫플....",
+      "published_display": "2025.07.08",
+      "published_sort": "2025-07-08",
+      "event_display": "2025년 6월 홍수 이후 · 정확한 여행일 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q288",
+        "Q289",
+        "Q290"
+      ],
+      "keywords": [
+        "장가계 삼림공원·창사",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S155",
+    "kind": "guide",
+    "title": "디디 앱 가입 실패는 우회했지만 추가요금 결말은 없어요",
+    "summary": "디디 단독 앱 가입이 계속 실패해 알리페이 안의 디디로 이동했어요.",
+    "source_url": "https://blog.naver.com/ley2310/224396204139",
+    "source_path": "naver-research-20261104/S155",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계·부용진",
+      "zhangjiajie",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S155",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계·부용진",
+      "regions": [
+        "zhangjiajie",
+        "hunan"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "차량 호출은 됐지만 한 주문의 종료·추가요금 문제로 고객센터에 문의했고 최종 감면액은 쓰지 않았어요.",
+      "caution": "요금 다툼이 모두 사기라는 뜻은 아니에요. 예상가·종료 시각·추가금 항목을 보관하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "장가계를 자유여행 하는 방법",
+      "published_display": "2026.08.31",
+      "published_sort": "2026-08-31",
+      "event_display": "2026년 8월 말 · 부용진 일정 08.26 언급",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q291",
+        "Q292"
+      ],
+      "keywords": [
+        "장가계·부용진",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S156",
+    "kind": "guide",
+    "title": "천문산 표에 맞는 케이블카 출발역이 달랐어요",
+    "summary": "이미 한 탑승장에 도착한 뒤 표의 노선이 다른 출발역에 해당한다는 것을 알았어요.",
+    "source_url": "https://blog.naver.com/dlrtn0002/224353557949",
+    "source_path": "naver-research-20261104/S156",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 천문산",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S156",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 천문산",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "버스로 표에 맞는 탑승장으로 옮겨 관광을 계속했어요.",
+      "caution": "표를 누가 잘못 샀는지는 작성자의 설명이에요. 산 이름뿐 아니라 노선·출발역·상행 방식을 함께 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 장가계여행 하나투어장가계패키지 5박6일 2일차 천문사 천문동 후기",
+      "published_display": "2026.07.21",
+      "published_sort": "2026-07-21",
+      "event_display": "2026년 6월 마지막 주",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q293"
+      ],
+      "keywords": [
+        "장가계 천문산",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S157",
+    "kind": "guide",
+    "title": "오후 하산 대기와 다음 날 폭우 예보로 일정을 바꿨어요",
+    "summary": "백룡엘리베이터에서 약 40분 기다렸고, 오후 셔틀은 아침보다 붐볐어요.",
+    "source_url": "https://blog.naver.com/rushine81/224447083289",
+    "source_path": "naver-research-20261104/S157",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 삼림공원·천문산",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S157",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 삼림공원·천문산",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "이동 여유를 두고 나왔으며 다음 날 폭우 예보에 천문산 관련 예약을 취소하고 쉬었어요. 실제 환급 내역은 없어요.",
+      "caution": "예약 취소와 돈이 돌아온 것은 달라요. 산 위 이동과 하산 대기를 모두 일정에 넣으세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "장가계, 부모님 모시고 자유여행 다녀온 후기 (AI 딸깍 구라포스팅 아님)",
+      "published_display": "2026.10.19",
+      "published_sort": "2026-10-19",
+      "event_display": "2026년 10월 중순 평일 · 3박 4일",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q294",
+        "Q295"
+      ],
+      "keywords": [
+        "장가계 삼림공원·천문산",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S158",
+    "kind": "guide",
+    "title": "노쇼핑 설명과 다른 일정에 증빙을 모아 일부 환급받았어요",
+    "summary": "작성자는 노쇼핑 상품과 실제 쇼핑·현장 비용 안내가 달랐다고 적었어요.",
+    "source_url": "https://blog.naver.com/dksdndls8/224016449926",
+    "source_path": "naver-research-20261104/S158",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S158",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "판매 내용, 결제와 일정 증빙 및 상품 차이를 정리한 뒤 142,000원을 일부 돌려받았다고 해요.",
+      "caution": "이 금액은 일반 보상 기준이 아니며 책임이 공식 판단된 자료도 아니에요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "온라인 투어 장가계 3박4일 패키지 환불받은 썰+해외여행불편신고하는 3가지 방법+온라인투어 후....",
+      "published_display": "2025.09.21",
+      "published_sort": "2025-09-21",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q296"
+      ],
+      "keywords": [
+        "장가계",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S159",
+    "kind": "guide",
+    "title": "부용진역에서 차를 못 찾고, 부모님이 일찍 지쳤어요",
+    "summary": "역에서 택시를 찾지 못해 역 옆 서비스센터에 문의했고, 관광 뒤에는 원래 귀환 시각보다 일찍 돌아가고 싶어졌어요.",
+    "source_url": "https://blog.naver.com/lovely1006/224252156725",
+    "source_path": "naver-research-20261104/S159",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "후난 부용진",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S159",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "후난 부용진",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "표와 연계된 셔틀로 고성에 갔고 결국 장가계로 돌아왔어요. 식당이 연결한 귀환 차량의 자격과 열차 변경 비용은 명확하지 않아요. 안마의자 두 사람 요금 차이도 설명이 없어요.",
+      "caution": "미확인 차량을 추천 경로로 쓰지 않아요. 역행 교통과 조기 종료 계획을 따로 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "부모님과 장가계 자유여행 DAY 4(2). 부용진(푸롱전) 당일치기",
+      "published_display": "2026.04.14",
+      "published_sort": "2026-04-14",
+      "event_display": "2025.10.18–23 여행 중 10.21 일정",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q297",
+        "Q298",
+        "Q299"
+      ],
+      "keywords": [
+        "후난 부용진",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S160",
+    "kind": "guide",
+    "title": "봉황고성 픽업은 숙소 문 앞까지 차가 가는 뜻이 아니었어요",
+    "summary": "고성 안쪽 숙소는 차량이 문 앞까지 못 가고 돌길에서 짐을 끌어야 했어요.",
+    "source_url": "https://blog.naver.com/leefifa2000/224167033408",
+    "source_path": "naver-research-20261104/S160",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "후난 봉황고성",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S160",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "후난 봉황고성",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "위챗으로 미리 연락해 역 픽업과 마지막 짐 이동 도움을 받았어요. 강변 음악은 약 23시 30분까지 들렸고 소음 해결 기록은 없어요.",
+      "caution": "픽업·하차점·도보·짐 도움을 나눠 확인하세요. 무료 제공 여부는 이 숙소의 당시 약속이에요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "중국 봉황고성 숙소 호텔 추천│뷰 좋고, 무료픽업│Tuo Shui people's boutique art accommodation 凤凰沱水人....",
+      "published_display": "2026.03.07",
+      "published_sort": "2026-03-07",
+      "event_display": "2025.05.28–29",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q300",
+        "Q301"
+      ],
+      "keywords": [
+        "후난 봉황고성",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S161",
+    "kind": "guide",
+    "title": "창사남역으로 잘못 갔다가 열차를 놓쳤어요",
+    "summary": "차표의 창사역 대신 창사남역에 갔고, 옮긴 뒤에도 출발을 놓쳤어요.",
+    "source_url": "https://blog.naver.com/kkamddic12/223787578314",
+    "source_path": "naver-research-20261104/S161",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사·장가계",
+      "zhangjiajie",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S161",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사·장가계",
+      "regions": [
+        "zhangjiajie",
+        "hunan"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "현장에서 약 한 시간 뒤 열차로 바꿔 타며 별도 수수료를 내지 않았다고 해요.",
+      "caution": "모든 장가계행이 창사역에서 출발하거나 모든 오승차가 무료 변경되는 것은 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "[중국-장가계] 자유여행 효도관광 / 창사 기차역 주의사항‼️ / 우링위안 숙소 / 충격적인 자유여....",
+      "published_display": "2025.03.07",
+      "published_sort": "2025-03-07",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q302"
+      ],
+      "keywords": [
+        "창사·장가계",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S162",
+    "kind": "guide",
+    "title": "후난박물원은 못 들어갔고, 돌아갈 때는 열차도 잘못 탔어요",
+    "summary": "노동절 예약을 못 한 후난박물원에서 외국인 현장 입장을 문의했지만 여유 표가 없었어요. 악록서원 길도 잘못 들었어요.",
+    "source_url": "https://blog.naver.com/mushugas/224281966509",
+    "source_path": "naver-research-20261104/S162",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S162",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "박물원은 포기하고 공원을 갔어요. 서원은 물어 되돌아가 방문했어요. 18시 04분 대신 18시 02분 열차에 탄 뒤 승무원에게 말해 좌석 도움을 받아 우한에 갔어요.",
+      "caution": "오승차 때의 무추가금 도움은 개별 처리이며 무료 이동을 약속하는 규칙이 아니에요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "[우한어학연수13] 생애 첫 혼여, 우당탕탕 창사 여행기 2편",
+      "published_display": "2026.05.11",
+      "published_sort": "2026-05-11",
+      "event_display": "2026년 노동절 연휴 · 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q303",
+        "Q304",
+        "Q305"
+      ],
+      "keywords": [
+        "창사",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S163",
+    "kind": "guide",
+    "title": "택시비는 결제됐는데 기사는 안 받았다고 했어요",
+    "summary": "승객 화면은 결제 완료였지만 기사가 미수령이라며 다시 결제를 요구했어요.",
+    "source_url": "https://blog.naver.com/zxcv249595/224393110282",
+    "source_path": "naver-research-20261104/S163",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S163",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "동행인이 기사 수령 내역을 함께 확인해 입금을 찾았고 재결제 없이 마무리됐어요.",
+      "caution": "승객 주문과 기사 입금 내역을 맞춰 본 뒤 처리하세요. 재결제부터 하는 흐름을 피하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "버킷 여행 1부 - 창사편",
+      "published_display": "2026.08.28",
+      "published_sort": "2026-08-28",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q306"
+      ],
+      "keywords": [
+        "창사",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S164",
+    "kind": "guide",
+    "title": "공항 호텔이 가까운데 입구를 못 찾아 40분 헤맸어요",
+    "summary": "새벽 2시쯤 싼야공항에 도착해 가까운 호텔까지 걸어갔지만 입구가 지도와 달랐어요.",
+    "source_url": "https://blog.naver.com/getblind42/224187536419",
+    "source_path": "naver-research-20261104/S164",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야공항",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S164",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야공항",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "주차장 안의 엘리베이터 통로를 찾아 로비로 올라가 체크인했다고 해요.",
+      "caution": "현재도 같은 통로가 열려 있는지는 확인이 필요해요. 호텔 주소와 야간 보행 입구는 따로 보관하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "하이난 싼야 여행 | 공항에 있는 싼야 피닉스 에어포트 호텔 가는 방법 및 숙소 후기",
+      "published_display": "2026.02.27",
+      "published_sort": "2026-02-27",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q307"
+      ],
+      "keywords": [
+        "싼야공항",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S165",
+    "kind": "guide",
+    "title": "대동해 샤워장은 찾았지만 보관함 금액 차이는 미확인이에요",
+    "summary": "해변 샤워 시설을 찾다가 공원 맞은편의 유료 온수 샤워를 이용했어요. 수건·세면용품은 없었어요.",
+    "source_url": "https://blog.naver.com/419_jmj/224437873154",
+    "source_path": "naver-research-20261104/S165",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 대동해",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S165",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 대동해",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "샤워는 했지만 안내판의 20위안과 실제 작은 보관함 40위안 결제 차이에 대한 이유·환급은 쓰지 않았어요.",
+      "caution": "현재 위치·가격 안내가 아니에요. 결제 전에 시간 단위·보관함 크기·금액을 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "[중국/하이난] 싼야 대동해 해수욕장 분위기부터 온수 샤워시설·암튜브 가격까지 총정리",
+      "published_display": "2026.10.11",
+      "published_sort": "2026-10-11",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q308",
+        "Q309",
+        "Q310"
+      ],
+      "keywords": [
+        "싼야 대동해",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S166",
+    "kind": "guide",
+    "title": "바다 앞 호텔인데 해변에서 수영할 수 없었어요",
+    "summary": "링수이 블루베이 호텔 앞 해변은 수영이 금지돼 기대한 바다 물놀이를 하지 못했어요.",
+    "source_url": "https://blog.naver.com/annerheekim/223903930465",
+    "source_path": "naver-research-20261104/S166",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "링수이 블루베이",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S166",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "링수이 블루베이",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "호텔 수영장으로 바꿨어요. 슬라이드까지 바닥이 뜨거워 문의한 뒤 그 시설에서는 슬리퍼 착용을 허용받았어요.",
+      "caution": "모든 하이난 해변이나 슬라이드에 같은 조건을 적용하면 안 돼요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "[2025 중국 하이난 여행] 바다는 별로였지만 수영장이 좋았던 링수이 블루베이 웨스틴",
+      "published_display": "2025.06.18",
+      "published_sort": "2025-06-18",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q311",
+        "Q312"
+      ],
+      "keywords": [
+        "링수이 블루베이",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S167",
+    "kind": "guide",
+    "title": "겨울 수영장 물은 차고, 리조트에서 건물 이름은 안 나왔어요",
+    "summary": "2024년 12월 25일 경험이에요. 날씨는 따뜻했지만 수영장 물은 차가웠고, 넓은 리조트에서 객실 건물을 말로 설명하기 어려웠어요.",
+    "source_url": "https://blog.naver.com/lovems82/224235073763",
+    "source_path": "naver-research-20261104/S167",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 맹그로브",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S167",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 맹그로브",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "건물 사진을 보여 줘 셔틀로 돌아왔어요. 워터파크는 체크인 손목밴드를 썼지만 물 온도 문제는 해결되지 않았어요.",
+      "caution": "2026년에 올라온 글을 2026년 수온 측정으로 읽으면 안 돼요. 포함 이용권과 온수풀을 각각 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "아이와 단둘이 떠난 하이난 자유여행- 맹그로브 리조트 워터파크",
+      "published_display": "2026.03.31",
+      "published_sort": "2026-03-31",
+      "event_display": "2024.12.25 · 2026년 발행 글과 구분",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q313",
+        "Q314",
+        "Q315"
+      ],
+      "keywords": [
+        "싼야 맹그로브",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S168",
+    "kind": "guide",
+    "title": "워터파크에서 아이가 코피를 흘렸는데 설명이 안 통했어요",
+    "summary": "함께 통역하던 사람이 없는 사이 아이가 물놀이 중 코피를 흘려 현장 직원과 의사소통이 어려웠어요.",
+    "source_url": "https://blog.naver.com/myoung_hee/224435984917",
+    "source_path": "naver-research-20261104/S168",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 아틀란티스",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S168",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 아틀란티스",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "직원이 휴지를 줬다는 내용은 있지만 의료진의 평가나 출혈의 최종 처치는 쓰지 않았어요.",
+      "caution": "진단·응급처치 방법을 추정하지 않아요. 증상과 발생 상황을 설명하고 현장 의무실 도움을 요청하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "孩子在水上活动时流鼻血了，请帮我联系现场医务人员。",
+      "phrase_ko": "아이가 물놀이 중 코피를 흘렸어요. 현장 의료진에게 연락해 주세요.",
+      "source_title": "하이난 자유여행 4박 5일｜아이와 함께한 중국 하이난 가족여행 일정",
+      "published_display": "2026.10.09",
+      "published_sort": "2026-10-09",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q316"
+      ],
+      "keywords": [
+        "싼야 아틀란티스",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S169",
+    "kind": "guide",
+    "title": "무료 차량 업그레이드가 낯선 운전 조작으로 이어졌어요",
+    "summary": "전날 예약 차량 고장으로 테슬라로 바뀌었고, 공항에서 렌터카 지점까지 짐 카트도 통과하지 못했어요.",
+    "source_url": "https://blog.naver.com/annerheekim/223863425025",
+    "source_path": "naver-research-20261104/S169",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야·링수이",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S169",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야·링수이",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "직원 도움과 조작 학습 뒤 출발했으며 짐은 나눠 옮겼어요. 운전자는 이미 중국에서 렌터카를 이용해 본 사람이에요.",
+      "caution": "한국 면허만으로 관광객 누구나 운전할 수 있다는 근거가 아니에요. 실제 차종과 적재·인수 경로를 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "[2025 중국 하이난 여행] 중국에서 오랜만에 차량을 렌트했는데 하필 테슬라, 폭우를 뚫고 링수이 ....",
+      "published_display": "2025.05.12",
+      "published_sort": "2025-05-12",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q317",
+        "Q318"
+      ],
+      "keywords": [
+        "싼야·링수이",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S171",
+    "kind": "guide",
+    "title": "루이싱 배달은 실패했지만 다른 가게 주문은 됐어요",
+    "summary": "싼야에서 루이싱 커피를 배달하려 여러 번 시도했지만 처음 주문이 안 됐어요.",
+    "source_url": "https://blog.naver.com/qlcslfl/224330623090",
+    "source_path": "naver-research-20261104/S171",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S171",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "food"
+      ],
+      "result": "구밍 커피로 바꿔 주문했고 음료를 받았다고 해요. 이후 루이싱을 마신 일도 적었어요.",
+      "caution": "처음 실패 원인은 쓰지 않았어요. 번호나 네트워크 문제로 단정하지 않아요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "태양보다 뜨거웠던 정열의 하이난 싼야 1",
+      "published_display": "2026.06.29",
+      "published_sort": "2026-06-29",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q320"
+      ],
+      "keywords": [
+        "싼야",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S176",
+    "kind": "guide",
+    "title": "식당 원격 대기번호를 놓친 뒤 기존 번호를 보여 줬어요",
+    "summary": "다른 곳을 둘러보고 돌아오니 원격으로 받은 대기번호가 지나 있었어요.",
+    "source_url": "https://blog.naver.com/just_well_/224405103114",
+    "source_path": "naver-research-20261104/S176",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S176",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "food"
+      ],
+      "result": "직원에게 기존 번호를 보여 준 뒤 약 다섯 번째로 다시 배정받아 식사했어요.",
+      "caution": "지각한 번호를 언제나 같은 순번으로 돌려주는 정책이라는 뜻은 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "[상하이 4박5일] 웨이팅 극악 헌치우이치엔 제일백화점 원격 줄서기 꿀팁 & 웨이팅 늦어서 순서 지....",
+      "published_display": "2026.09.08",
+      "published_sort": "2026-09-08",
+      "event_display": "2026년 5월",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q325"
+      ],
+      "keywords": [
+        "상하이",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S177",
+    "kind": "guide",
+    "title": "식당은 영업 중인데 쇼핑몰 정문이 닫혔어요",
+    "summary": "저녁 식당을 찾아갔지만 쇼핑몰 정문이 닫혀 있어 들어가는 길을 다시 찾아야 했어요.",
+    "source_url": "https://blog.naver.com/nahyuuuni/224439357504",
+    "source_path": "naver-research-20261104/S177",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "상하이",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S177",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "상하이",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "옆문과 엘리베이터를 찾아 식당에 들어갔다고 해요.",
+      "caution": "현재 옆문 위치와 야간 개방 시간은 별도 확인이 필요해요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "[상하이 양꼬치 헌지우이치엔 제일백화점] 웨이팅 꿀팁, QR코드 대방출!!",
+      "published_display": "2026.10.12",
+      "published_sort": "2026-10-12",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q326"
+      ],
+      "keywords": [
+        "상하이",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S178",
+    "kind": "guide",
+    "title": "세탁은 끝났는데 건조기가 더 오래 걸렸어요",
+    "summary": "호텔 공동 세탁실에서 세탁보다 건조가 느려 대기가 생겼어요. 객실 미니냉장고도 냉동칸이 없고 냉각이 약했어요.",
+    "source_url": "https://blog.naver.com/judy201210/224393539047",
+    "source_path": "naver-research-20261104/S178",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "샤먼",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S178",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "샤먼",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "직원에게 완료된 세탁물 처리 도움을 요청해 사용했어요. 냉장 성능이 개선됐다는 내용은 없어요.",
+      "caution": "다른 손님의 물건은 직접 치우지 말고 직원에게 요청하세요. 의약품 보관 가능성을 이 냉장고 경험으로 판단하지 않아요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "[중국/하문] 중국 샤먼 자유여행 호텔 추천 '비샨 가든 부티크 호텔' : 세탁실, 와이마이 및 타오바....",
+      "published_display": "2026.08.28",
+      "published_sort": "2026-08-28",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q327",
+        "Q328"
+      ],
+      "keywords": [
+        "샤먼",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S179",
+    "kind": "guide",
+    "title": "객실키를 계속 재설정했는데 실제로는 방을 바꿔야 했어요",
+    "summary": "키가 여러 번 작동하지 않아 프런트에서 재설정만 반복했어요. 방 변경 연락은 받지 못했어요.",
+    "source_url": "https://blog.naver.com/dogking100/224403870672",
+    "source_path": "naver-research-20261104/S179",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "다롄",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S179",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "다롄",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "밤에 처음 접수한 직원을 만나 방을 옮겼어요. 새 방의 담배 냄새는 여전히 불편했다고 해요.",
+      "caution": "키 오류와 객실 변경 안내가 섞일 수 있어요. 현재 배정 객실과 새 키를 함께 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "대련 호텔 이비스 스타일 다롄역 이그제큐티브 스위트,패밀리 로프트 사용후기.",
+      "published_display": "2026.09.07",
+      "published_sort": "2026-09-07",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q329"
+      ],
+      "keywords": [
+        "다롄",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S180",
+    "kind": "guide",
+    "title": "차를 탔는데 알리페이 안의 디디 주문 화면이 사라졌어요",
+    "summary": "진행 중인 호출 화면이 보이지 않아 메시지와 동행인의 전화로도 복구하지 못했어요.",
+    "source_url": "https://blog.naver.com/globyoul/224090298194",
+    "source_path": "naver-research-20261104/S180",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "충칭",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S180",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "충칭",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "나중에 새 차를 부를 때 미결제 내역이 나타나 지불했다고 해요.",
+      "caution": "화면이 없어진 것이 무료 처리나 자동 정산을 뜻하지 않아요. 같은 계정의 주문 내역을 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "[충칭 여행 #3] 충칭 장베이 공항에서 시내(해방비) 가는 법(알리페이 디디 경로 사라짐 해결)",
+      "published_display": "2025.11.27",
+      "published_sort": "2025-11-27",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q330"
+      ],
+      "keywords": [
+        "충칭",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S181",
+    "kind": "guide",
+    "title": "지하철은 나왔는데 다음 날 미결제 알림이 왔어요",
+    "summary": "출구에서는 결제가 된 것으로 보였지만 다음 날 결제 실패 안내가 왔어요.",
+    "source_url": "https://blog.naver.com/sandao21510/223912618747",
+    "source_path": "naver-research-20261104/S181",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "시안·칭다오",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S181",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "시안·칭다오",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "등록 카드를 바꿔 미결제 금액을 내고 마무리했다고 해요.",
+      "caution": "몇 주 쓰면 신용이 좋아진다는 작성자의 설명은 확인되지 않았어요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "중국에서 알리페이·위챗페이로 버스와 지하철 타기: 실사용 꿀팁 총정리!",
+      "published_display": "2025.06.26",
+      "published_sort": "2025-06-26",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q331"
+      ],
+      "keywords": [
+        "시안·칭다오",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S183",
+    "kind": "guide",
+    "title": "렌즈 세척액을 편의점에서 못 사고 안경점에서 샀어요",
+    "summary": "월간 렌즈를 쓰는데 세척액을 두고 와 여러 편의점·마트를 찾아다녔어요.",
+    "source_url": "https://blog.naver.com/tjdgml4190/224456724015",
+    "source_path": "naver-research-20261104/S183",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "다롄",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S183",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "다롄",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "결국 안경점에서 샀다고 해요.",
+      "caution": "방문한 점포의 경험이에요. 중국 편의점 전체에 없다는 뜻은 아니며, 물이나 임의의 액체로 대체하지 마세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "4박5일 대련여행♡ -1일차",
+      "published_display": "2026.10.28",
+      "published_sort": "2026-10-28",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q333"
+      ],
+      "keywords": [
+        "다롄",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S184",
+    "kind": "guide",
+    "title": "안경을 잃어버린 뒤 현지 안경점에서 새로 맞췄어요",
+    "summary": "주 안경을 잃어버려 보조 콘택트렌즈로 버티다가 중국 안경점에서 시력 검사를 받았어요.",
+    "source_url": "https://blog.naver.com/shinsy0513/223859550310",
+    "source_path": "naver-research-20261104/S184",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "중국 현지 거주 경험",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S184",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "중국 현지 거주 경험",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "방향을 말하는 E 시력표로 검사를 받고 안경을 맞췄다고 해요. 현지 거주자의 경험이에요.",
+      "caution": "여행자에게 같은 제작 시간과 제품 조건이 보장되는 것은 아니에요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "[250505] 중국에서 안경 맞추기",
+      "published_display": "2025.05.08",
+      "published_sort": "2025-05-08",
+      "event_display": "2025.05.05",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q334"
+      ],
+      "keywords": [
+        "중국 현지 거주 경험",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S185",
+    "kind": "guide",
+    "title": "급하게 생리대가 필요했는데 제품 설명이 어려웠어요",
+    "summary": "여행 중 익숙하지 않은 브랜드와 중국어 포장 때문에 필요한 제품을 고르기 어려웠어요.",
+    "source_url": "https://blog.naver.com/kaiya8843/224199671295",
+    "source_path": "naver-research-20261104/S185",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "다롄",
+      "other"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S185",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "다롄",
+      "regions": [
+        "other"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "작성자는 현지에서 제품을 구입해 사용했다고 해요.",
+      "caution": "특정 브랜드의 순면·위생·안전성이 검사로 확인된 자료는 아니에요. 길이와 용도 등 필요한 규격을 설명하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "중국 대련 여행 중 생리대 구매 후기",
+      "published_display": "2026.03.01",
+      "published_sort": "2026-03-01",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q335"
+      ],
+      "keywords": [
+        "다롄",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S187",
+    "kind": "guide",
+    "title": "삼림공원 예약을 조회하거나 시간을 바꾸다 오류가 났어요",
+    "summary": "호텔에서 표를 샀지만 위챗의 여권번호·얼굴 확인으로 주문 조회가 안 됐어요. 오후 예약을 취소하고 오전으로 바꿀 때도 오류가 났어요.",
+    "source_url": "https://blog.naver.com/surper_/224101205440",
+    "source_path": "naver-research-20261104/S187",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 삼림공원",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S187",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 삼림공원",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "첫 입장 때 여권과 현재 얼굴을 등록한 뒤 조회가 됐고, 시간 변경은 매표소 직원이 처리했어요.",
+      "caution": "얼굴이 여권 사진과 달라서라는 원인 설명은 작성자의 추정이에요. 원래 표를 반복 취소하지 말고 확인받으세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "[장가계 자유여행] 산림공원 표 구매, 입장시간 예약",
+      "published_display": "2025.12.07",
+      "published_sort": "2025-12-07",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q337",
+        "Q338"
+      ],
+      "keywords": [
+        "장가계 삼림공원",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S188",
+    "kind": "guide",
+    "title": "천문산에서 여권으로 안 된다며 돌려보냈어요",
+    "summary": "케이블카 검표 직원이 여권으로 입장할 수 없다며 줄에서 나가게 했다고 해요.",
+    "source_url": "https://blog.naver.com/o0oo_ob/224301105190",
+    "source_path": "naver-research-20261104/S188",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 천문산",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S188",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 천문산",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "호텔에 연락하고 동행인이 다른 직원에게 설명한 뒤 들어갔어요.",
+      "caution": "첫 직원의 의도는 알 수 없어요. 표·여권을 함께 보여 주고 다른 담당자의 확인을 요청한 사례예요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 장가계 여행 장가계 자유여행_3 (천문산/충칭)",
+      "published_display": "2026.05.30",
+      "published_sort": "2026-05-30",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q339"
+      ],
+      "keywords": [
+        "장가계 천문산",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S189",
+    "kind": "guide",
+    "title": "호텔이 방을 옮겨 준 뒤 신발 두 켤레가 없어졌어요",
+    "summary": "호텔의 방 변경과 짐 이동 뒤 새 객실에 신발 두 켤레가 없었어요.",
+    "source_url": "https://blog.naver.com/goak9111/224080120651",
+    "source_path": "naver-research-20261104/S189",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S189",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "다음 날 신발을 찾았고, 가이드 도움으로 매니저에게 경위를 설명해 사과와 과일을 받았다고 해요.",
+      "caution": "도난으로 확인된 사건은 아니에요. 옛 객실·새 객실·이동 담당자의 인계부터 확인하세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "중국 장가계 여행",
+      "published_display": "2025.11.18",
+      "published_sort": "2025-11-18",
+      "event_display": "2025년 11월 · 11.04 새벽 장가계 도착, 신발 분실일 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q340"
+      ],
+      "keywords": [
+        "장가계",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S190",
+    "kind": "guide",
+    "title": "봉황에서 돌아오니 장가계 호텔이 단수로 취소됐어요",
+    "summary": "봉황고성 1박 뒤 장가계로 돌아왔더니 주변 수도관 파손으로 원래 호텔에서 묵을 수 없었어요.",
+    "source_url": "https://blog.naver.com/leeyodo/224125560782",
+    "source_path": "naver-research-20261104/S190",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계·봉황·부용",
+      "zhangjiajie",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S190",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계·봉황·부용",
+      "regions": [
+        "zhangjiajie",
+        "hunan"
+      ],
+      "categories": [
+        "hotel"
+      ],
+      "result": "가이드 도움으로 더 비싼 다른 호텔을 예약해 묵었어요. 원래 방의 환급 입금 결과는 쓰지 않았어요. 고성 관광 때 큰 짐은 같은 이틀 투어 차량에 두고 작은 짐만 들었어요.",
+      "caution": "단수 영향 지역과 원래 예약 취소·환급을 따로 확인하세요. 차량 짐 보관은 사전 합의가 필요해요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "예약번호·객실 또는 숙박동·물건의 마지막 위치를 정리해 프런트에 보여 주세요.",
+        "담당 직원·처리 시각·비용과 환급 안내를 문자나 화면으로 남겨 두세요."
+      ],
+      "phrase": "请帮我核对预订信息，并告诉我现在可以怎样处理。",
+      "phrase_ko": "예약 정보를 확인하고 지금 어떻게 처리할 수 있는지 알려 주세요.",
+      "source_title": "2025년 10월 장가계 자유여행",
+      "published_display": "2025.12.28",
+      "published_sort": "2025-12-28",
+      "event_display": "2025년 10월 · 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q341",
+        "Q342"
+      ],
+      "keywords": [
+        "장가계·봉황·부용",
+        "숙소 호텔 객실 짐 택배 단수"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S191",
+    "kind": "guide",
+    "title": "배탈 난 가족의 죽 배달을 직접 주문하지 못했어요",
+    "summary": "아버지가 객실에서 쉬는 동안 죽을 주문하려 했지만 직원이 도와줘도 미단 앱 주문이 안 됐어요.",
+    "source_url": "https://blog.naver.com/fullofenjoy_/224359797767",
+    "source_path": "naver-research-20261104/S191",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 시내",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S191",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 시내",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "food"
+      ],
+      "result": "직원이 대신 주문해 로봇으로 방까지 받았고 직원에게 비용을 지불했어요. 호텔은 그날 14시까지 늦은 체크아웃을 허용했어요.",
+      "caution": "개인 위챗 송금은 모든 해외 계정에서 되는 기능이 아니에요. 식사·휴식 지원과 의학적 회복 결과는 구분해요.",
+      "outcome": "대안 이용",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "260530-0604 가보았다 말할 수 있어요 장가계, 5일차 - 장가계쇼핑/장가계many마트/장가계배달/장가계발마사지/장가계차지/장가계친다마/장가계현지음식점/장가계허화공항/",
+      "published_display": "2026.07.27",
+      "published_sort": "2026-07-27",
+      "event_display": "2026.06.03 · 전체 여행 05.30–06.04",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q343",
+        "Q344"
+      ],
+      "keywords": [
+        "장가계 시내",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S192",
+    "kind": "guide",
+    "title": "장가계 도착 수하물의 바퀴가 빠져 있었어요",
+    "summary": "공항에서 찾은 남편 캐리어의 바퀴 하나가 빠져 있었고 다른 일행의 짐도 늦게 나왔어요.",
+    "source_url": "https://blog.naver.com/tidyline/224072799552",
+    "source_path": "naver-research-20261104/S192",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계공항",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S192",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계공항",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "이상 상태는 기록했지만 파손 접수·수리·보상을 받았는지는 쓰지 않았어요.",
+      "caution": "짐표와 손상 사진을 남기고 도착장 항공사 수하물 창구에서 처리 방법을 확인하세요.",
+      "outcome": "결과 미확인",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "장가계 공항/장자제 허화국제공항/다융(DYG)공항/캐리어 바퀴빠짐을 곁들인",
+      "published_display": "2025.11.11",
+      "published_sort": "2025-11-11",
+      "event_display": "2025년 9월 · 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q345"
+      ],
+      "keywords": [
+        "장가계공항",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S193",
+    "kind": "guide",
+    "title": "얼굴 인식과 황석채 이후 환승을 현장에서 다시 확인했어요",
+    "summary": "얼굴 인식이 잘 안 될 때 모자를 벗는 경험을 적었어요. 황석채 이후에는 남문으로 나가는 길만 있는 줄 알았어요.",
+    "source_url": "https://blog.naver.com/vital516/224235786413",
+    "source_path": "naver-research-20261104/S193",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "장가계 황석채·금편계",
+      "zhangjiajie"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S193",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "장가계 황석채·금편계",
+      "regions": [
+        "zhangjiajie"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "숙소에 문의해 여러 버스·도보·케이블카를 잇는 길을 알게 됐지만 오래 걸리고 오르막도 있었다고 해요.",
+      "caution": "현재 노선과 막차를 검증한 안내가 아니에요. 얼굴 인식만 믿고 여권을 두고 가지 마세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 자유여행 너도 할 수 있어!(천저우, 장가계) 무릉원 금편계곡, 황석채",
+      "published_display": "2026.03.31",
+      "published_sort": "2026-03-31",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q346",
+        "Q347"
+      ],
+      "keywords": [
+        "장가계 황석채·금편계",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S194",
+    "kind": "guide",
+    "title": "귤섬 현장 보완 예약 뒤, 충전기 접촉부까지 부러졌어요",
+    "summary": "노동절에 예약 없이 귤섬 입구에서 거절됐고, 이후 일체형 충전기 접촉부가 삼성폰 안에 부러졌어요.",
+    "source_url": "https://blog.naver.com/mushugas/224275753746",
+    "source_path": "naver-research-20261104/S194",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사 귤섬·오일광장",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S194",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사 귤섬·오일광장",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "tickets",
+        "daily"
+      ],
+      "result": "서비스센터에서 그날 추가 표를 기다려 직원 도움으로 예약했어요. 첫 매장은 수리를 돕지 못했고 두 번째 매장이 부품을 빼 줘 새 배터리를 샀어요.",
+      "caution": "매일 같은 시각에 추가 표가 나온다는 뜻은 아니에요. 부러진 접촉부를 직접 도구로 빼는 방법을 권하지 않아요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "[우한어학연수12] 생애 첫 혼여, 우당탕탕 창사 여행기 1편",
+      "published_display": "2026.05.05",
+      "published_sort": "2026-05-05",
+      "event_display": "2026년 노동절 연휴 · 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q348",
+        "Q349"
+      ],
+      "keywords": [
+        "창사 귤섬·오일광장",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S195",
+    "kind": "guide",
+    "title": "창사행 여권번호 오류와 돌아올 역 착오를 겪었어요",
+    "summary": "동행인의 차표 여권번호가 틀려 역에서 조회되지 않았어요. 돌아올 때는 창사남역 대신 창사역에 갔어요.",
+    "source_url": "https://blog.naver.com/ding_rui_/223894032728",
+    "source_path": "naver-research-20261104/S195",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사·창사남역",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S195",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사·창사남역",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "transport"
+      ],
+      "result": "동행인은 표를 새로 사 따로 이동해 합류했어요. 귀환은 올바른 역으로 이동했는데 열차가 늦어져 탔어요. 잘못 산 표 환급은 쓰지 않았어요.",
+      "caution": "번호 오류가 OCR 때문인지는 불명확해요. 지연 덕에 탄 것이 무료 변경 규정은 아니에요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "차표나 호출 주문의 출발역·시각·승차 위치를 앱과 현장 표지로 맞춰 보세요.",
+        "문제가 생긴 실제 주문번호와 여권·거래 내역을 준비하고 담당 직원에게 확인을 요청하세요."
+      ],
+      "phrase": "请帮我确认订单里的出发站、时间和上车地点。",
+      "phrase_ko": "주문의 출발역·시각·승차 지점을 확인해 주세요.",
+      "source_title": "창사 여행!",
+      "published_display": "2025.06.10",
+      "published_sort": "2025-06-10",
+      "event_display": "2025.06.06–07",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q222",
+        "Q302"
+      ],
+      "keywords": [
+        "창사·창사남역",
+        "디디 택시 기차 열차 차표 승차장"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S196",
+    "kind": "guide",
+    "title": "개복사 입구 QR로는 안 되고 매표소에서 종이표를 받았어요",
+    "summary": "창사 개복사 입구에서 안내받은 QR 구매가 진행되지 않았어요.",
+    "source_url": "https://blog.naver.com/chrisstory_/224436392128",
+    "source_path": "naver-research-20261104/S196",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사 개복사",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S196",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사 개복사",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "매표소의 QR로 구매하고 직원 확인을 거쳐 종이표를 받아 들어갔다고 해요.",
+      "caution": "이후 방문한 마왕퇴 한묘 3호분은 별도 장소예요. 두 장소의 예약·발권을 혼동하지 마세요.",
+      "outcome": "해결 경험",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 창사(2026.10.9.~10.12)",
+      "published_display": "2026.10.09",
+      "published_sort": "2026-10-09",
+      "event_display": "2026.10.09–12 여행 중 10.10 일정",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q350"
+      ],
+      "keywords": [
+        "창사 개복사",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S197",
+    "kind": "guide",
+    "title": "전화로는 안 된다던 창사 환승호텔을 현장에서 받았어요",
+    "summary": "출발 전 항공사 전화에서는 호텔 제공이 안 된다고 들었지만 도착 뒤 환승호텔 창구에 다시 물었어요.",
+    "source_url": "https://blog.naver.com/bts235728/224346699138",
+    "source_path": "naver-research-20261104/S197",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "창사공항 환승",
+      "hunan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S197",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "창사공항 환승",
+      "regions": [
+        "hunan"
+      ],
+      "categories": [
+        "airport"
+      ],
+      "result": "본인 항공권으로 호텔과 이동 버스를 배정받아 묵었어요. 1인 150위안 보증금은 냈지만 최종 환급 입금은 기록하지 않았어요.",
+      "caution": "무료 숙박과 보증금·조식·복귀 교통은 각각 확인할 조건이에요. 모든 항공권에 적용되지 않아요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "항공편·환승 구간·예약번호와 여권 또는 수하물표를 준비하세요.",
+        "현장 항공사·공항 창구에 필요한 확인과 증빙 발급을 요청하고 답변을 남겨 두세요."
+      ],
+      "phrase": "这是我的预订信息，请告诉我应该去哪个柜台办理。",
+      "phrase_ko": "예약 정보예요. 어느 창구에서 처리해야 하는지 알려 주세요.",
+      "source_title": "[중국] 중국남방항공 창사 경유 쿤밍도착 + 환승호텔 정보 (CZ3066/CZ5973)",
+      "published_display": "2026.07.14",
+      "published_sort": "2026-07-14",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q351",
+        "Q352",
+        "Q216"
+      ],
+      "keywords": [
+        "창사공항 환승",
+        "공항 비행기 항공 수하물 환승 여권"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S198",
+    "kind": "guide",
+    "title": "아틀란티스 물놀이 때 안경과 모자를 보관해야 했어요",
+    "summary": "기구를 탈 때 안경을 벗고, 일부 기구에서는 모자도 벗어야 했어요.",
+    "source_url": "https://blog.naver.com/k-daejang/224147000984",
+    "source_path": "naver-research-20261104/S198",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 아틀란티스",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S198",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 아틀란티스",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily"
+      ],
+      "result": "작성자는 열린 보관 칸에 물건을 두고 놀았으며 분실은 없었다고 해요.",
+      "caution": "개인의 무분실 경험이 열린 보관 칸의 안전을 보장하지 않아요. 귀중품은 현장 잠금 보관을 확인하세요.",
+      "outcome": "이용 경험",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "하이난 싼야 넷째날 12/1 : 아틀란티스 아쿠아리움, 아틀란티스 워터파크, 프라이빗 수영장, 아레나 몰",
+      "published_display": "2026.01.15",
+      "published_sort": "2026-01-15",
+      "event_display": "본문에 12월 1일 · 연도 미확인, 글 발행 2026.01.15",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q353"
+      ],
+      "keywords": [
+        "싼야 아틀란티스",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S199",
+    "kind": "guide",
+    "title": "천애해각 차표만 원했는데 보트까지 포함된 표를 샀어요",
+    "summary": "한 시간만 둘러보려 왔지만 넓고 더워 차표를 샀고, 잘 이해하지 못한 묶음 설명에 동의했어요.",
+    "source_url": "https://blog.naver.com/aa099/223783908021",
+    "source_path": "naver-research-20261104/S199",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 천애해각·남산사",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S199",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 천애해각·남산사",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "보트 포함 115위안 표를 샀는데 시간 부족으로 배를 못 탔어요. 환급은 쓰지 않았어요. 남산사도 차에서 내려 관음상까지 더 걸어야 했어요.",
+      "caution": "당시 금액이에요. 셔틀·보트 등 포함 항목과 남은 시간을 결제 전에 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "하이난(싼야) 여행 3편 | 천애해각, 맛집, 남산사, 해산물시장",
+      "published_display": "2025.03.05",
+      "published_sort": "2025-03-05",
+      "event_display": "실제 여행일 미확인 · 발행일로 대체하지 않음",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q354",
+        "Q355",
+        "Q356"
+      ],
+      "keywords": [
+        "싼야 천애해각·남산사",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S200",
+    "kind": "guide",
+    "title": "오지주도 자동 매표기 대신 창구로 갔어요",
+    "summary": "선착장 자동 매표기는 중국 신분증이 필요해 같은 방식으로 살 수 없었어요.",
+    "source_url": "https://blog.naver.com/jjimumu/223987157956",
+    "source_path": "naver-research-20261104/S200",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 오지주도",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S200",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 오지주도",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "tickets"
+      ],
+      "result": "직원이 있는 창구에서 표를 사 배를 탔어요. 섬 안 물놀이 대기가 길어 원래 원했던 섬 구경은 못 했어요.",
+      "caution": "기구별 체중 수치나 막배 시간을 이 글만으로 고정 안내하지 않아요. 당일 직원에게 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "주문번호·여권·방문일과 선택한 인원·노선·탑승장을 함께 확인하세요.",
+        "현장 직원이나 발권처에 기존 예약을 보여 주고 보완 가능 여부를 물어보세요. 취소 전에는 대체 표부터 확인하세요."
+      ],
+      "phrase": "这是我的护照和订单，请帮我核对预约人数、日期和入场方式。",
+      "phrase_ko": "여권과 주문이에요. 예약 인원·날짜·입장 방식을 확인해 주세요.",
+      "source_title": "중국 하이난 싼야 여행 오지주도 가는방법 액티비티 꿀팁  蜈支洲岛",
+      "published_display": "2025.08.29",
+      "published_sort": "2025-08-29",
+      "event_display": "여름 여행 · 연도와 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q357",
+        "Q358"
+      ],
+      "keywords": [
+        "싼야 오지주도",
+        "예약 표 티켓 여권 재입장 케이블카 동선"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S201",
+    "kind": "guide",
+    "title": "배달함·숙박동 혜택·공항 길을 현장에서 다시 확인했어요",
+    "summary": "맹그로브 반대편 배달함은 편도 약 15분이었고, 커피 주문에는 열기 버튼이 없었어요. 카폭타워 워터파크도 별도 요금이었어요.",
+    "source_url": "https://blog.naver.com/sherry147/224221255526",
+    "source_path": "naver-research-20261104/S201",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 맹그로브·공항",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S201",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 맹그로브·공항",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "food",
+        "hotel",
+        "tickets",
+        "network",
+        "airport"
+      ],
+      "result": "커피는 직원 도움으로 꺼냈고 워터파크는 포기했어요. 천애해각 음료 포함 표는 요청 후 환급받았어요. 귀환 때 eSIM 만료와 잘못 간 터미널은 경찰 도움으로 해결해 귀국했어요. 3월 수영장 물은 차갑다고 했어요. 공항 픽업 때는 서로 움직여 엇갈리다가 약 30분 뒤 만났다고 해요.",
+      "caution": "호텔 이름만으로 배달함·무료 혜택을 판단하지 마세요. 열기 버튼을 찾은 구체적 방법과 최종 배달함 수령 과정은 일부 생략돼 있어요.",
+      "outcome": "여러 결과",
+      "steps": [
+        "도착 날짜·배달 주소·호텔동·연락처와 실제 수령 위치를 확인하세요.",
+        "호텔 번호나 직원 대리 주문은 먼저 허락을 구하고, 결제·전달 방식을 확인하세요."
+      ],
+      "phrase": "请帮我确认送达时间和具体取餐地点。",
+      "phrase_ko": "도착 예정 시각과 정확한 음식 수령 장소를 확인해 주세요.",
+      "source_title": "싼야 하이난.. 한국인이 아무도 없는 여행 (정보성글 아님)",
+      "published_display": "2026.03.18",
+      "published_sort": "2026-03-18",
+      "event_display": "2026년 3월 · 정확한 날짜 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q359",
+        "Q360",
+        "Q361",
+        "Q362",
+        "Q363",
+        "Q364",
+        "Q313",
+        "Q047"
+      ],
+      "keywords": [
+        "싼야 맹그로브·공항",
+        "음식 식사 배달 메이투안 미단 미단앱"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S202",
+    "kind": "guide",
+    "title": "아이 무료 입장은 좌석 무료와 달랐어요",
+    "summary": "공연에서 작은 아이는 무료로 들어갔지만 별도 좌석이 없었고, 다른 아이 표를 나중에 사자 일행과 떨어졌어요.",
+    "source_url": "https://blog.naver.com/k-daejang/224112107096",
+    "source_path": "naver-research-20261104/S202",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야 송성·천고정",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S202",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야 송성·천고정",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "daily",
+        "tickets",
+        "transport",
+        "payment"
+      ],
+      "result": "작은 아이는 무릎에 앉혀 봤고 일행 좌석은 떨어진 채 관람했어요. 잘못 찍은 디디 승차점 주문의 환급도 계좌에 바로 들어오지 않았다고 해요.",
+      "caution": "키 기준·가격은 당시 조건이에요. 좌석 필요 인원을 함께 예매하고, 환급 처리와 은행 입금을 나눠 확인하세요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "장소·증상이나 필요한 물품·발생 시각을 짧게 적거나 사진으로 보여 주세요.",
+        "현장 직원에게 가능한 도움과 이용 조건을 확인하세요. 몸이 아프거나 다쳤다면 의료진에게 설명하세요."
+      ],
+      "phrase": "我遇到了一些困难，请帮我联系现场工作人员。",
+      "phrase_ko": "도움이 필요해요. 현장 담당자에게 연락해 주세요.",
+      "source_title": "하이난 싼야 둘째날 : 하이투 면세 백화점/ 로맨스파크/ 송성가무쇼/ 이헝 야시장/ 디디택시/ 알리페이환불/ 취두부",
+      "published_display": "2025.12.16",
+      "published_sort": "2025-12-16",
+      "event_display": "본문에 여행 둘째 날 · 실제 출발일 미확인",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q365",
+        "Q366",
+        "Q367"
+      ],
+      "keywords": [
+        "싼야 송성·천고정",
+        "물놀이 아이 부모님 건강 생활 생필품 휠체어"
+      ]
+    }
+  },
+  {
+    "id": "travel-case:S203",
+    "kind": "guide",
+    "title": "카드는 연결했는데 여권 정보를 안 넣어 자판기 결제가 안 됐어요",
+    "summary": "싼야행 환승 중 자판기에서 알리페이가 안 돼 한두 시간 헤맸어요. 카드는 등록했지만 여권 정보는 빠져 있었어요.",
+    "source_url": "https://blog.naver.com/6oweast/223779311306",
+    "source_path": "naver-research-20261104/S203",
+    "tags": [
+      "travel-help",
+      "한국어",
+      "원문 확인",
+      "싼야행 환승",
+      "hainan"
+    ],
+    "rights": "metadata_link",
+    "status": "needs_review",
+    "data": {
+      "module": "travel_help",
+      "schema_version": 1,
+      "language": "ko",
+      "source_id": "S203",
+      "original_read": true,
+      "review_scope": "개인 경험 원문과 요약의 일치 여부 · 현행 정책·기술 원인 실증 아님",
+      "place": "싼야행 환승",
+      "regions": [
+        "hainan"
+      ],
+      "categories": [
+        "payment"
+      ],
+      "result": "여권 정보를 보완한 뒤 컵라면 결제에 성공했어요. 이후 다른 자판기·택시에서는 다시 안 돼 현금과 호텔 도움도 썼어요.",
+      "caution": "2024년 9월 여행이에요. 한 번 본인 확인을 마쳤다고 모든 가맹점 결제가 보장되지는 않아요.",
+      "outcome": "일부 해결",
+      "steps": [
+        "다시 결제하기 전에 주문번호·결제 시각·금액과 실제 승인 내역을 확인하세요.",
+        "직원에게 주문 화면을 보여 주고 수령·취소·환급 중 어느 단계인지 함께 확인하세요."
+      ],
+      "phrase": "我这边显示付款成功，请帮我核对订单和收款记录。",
+      "phrase_ko": "제 화면에는 결제 완료예요. 주문과 수령 내역을 확인해 주세요.",
+      "source_title": "싼야에서 🐒🐒 밀착 취재",
+      "published_display": "2025.03.01",
+      "published_sort": "2025-03-01",
+      "event_display": "2024.09.12–15 · 2025년 글 발행과 구분",
+      "reviewed_display": "2026.11.04",
+      "research_issue_ids": [
+        "Q368"
+      ],
+      "keywords": [
+        "싼야행 환승",
+        "알리페이 위챗 네이버페이 카카오페이 결제 오류 환불 취소 보증금"
+      ]
+    }
+  }
+]

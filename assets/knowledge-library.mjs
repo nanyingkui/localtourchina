@@ -13,6 +13,7 @@ function render(){
  for(const r of rows){
   const article=document.createElement('article'),small=document.createElement('small'),h=document.createElement('h2'),p=document.createElement('p');
   small.textContent=(words.names[r.kind]||'')+' · '+words.checked+' '+String(r.verified_at).slice(0,10);h.textContent=r.title;p.textContent=r.summary;article.append(small,h,p);
+  if((r.tags||[]).includes('travel-help')){const link=document.createElement('a');link.className='source';link.href='/travel-help.html?case='+encodeURIComponent(r.id.replace('travel-case:',''));link.textContent=lang==='ko'?'처리 결과와 현장 확인 사항 보기 →':lang==='zh'?'查看韩语案例与处理结果 →':'View case and outcome (Korean) →';article.append(link)}
   if(r.source_url){try{const u=new URL(r.source_url);if(u.protocol==='https:'&&!u.username&&!u.password){const link=document.createElement('a');link.className='source';link.href=u.href;link.target='_blank';link.rel='noopener noreferrer';link.textContent=words.open;article.append(link)}}catch{}}
   host.append(article);
  }
