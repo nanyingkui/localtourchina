@@ -30,11 +30,6 @@
     "sha256": "1a1fd3d6a2c0db1e82a5228bb8e3d9fcbc2e3c05eb553b54422a2a7b5a05777f"
   },
   {
-    "name": "airport-calculation",
-    "pattern": "const route=val\\('#vehicleRoute'\\).*?total=p\\[route\\]\\*count\\+furongFee;",
-    "sha256": "969b5bf3c5dc77aed61d38d1157db2453bbb60390004381f88a6fd5f81220f72"
-  },
-  {
     "name": "rental-calculation",
     "pattern": "const hours=Math.max\\(1,\\+val\\('#vehicleHours'\\).*?total=p.price\\+Math.max\\(0,hours-8\\)\\*20000\\+meal;",
     "sha256": "c8a91df4fdb603014c5362d5a5825078affa999df2058cb31b76bed1e060219d"
