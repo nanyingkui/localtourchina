@@ -29,3 +29,10 @@
 - PWA worker scope is /app/ only. Cache allowlisted static shell assets only; NEVER cache Auth/RPC/customer responses, tokens, callback URLs or admin pages. Do not queue offline bookings. Retain the same idempotency key across ambiguous submission retries; never manufacture a successful receipt.
 - Mobile navigation, one expanded card with peers visible but smaller, minimum46px controls, 16px inputs, reduced motion, Chinese-time arrival scheduling. Logout clears visible private data and temporary pickup drafts.
 - Supabase SDK is pinned to2.118.0; keep package-lock.json synchronized. Production files must not contain QA/mock login paths. SQL integration tests roll back synthetic users/orders; never seed real customer tables with demo bookings.
+
+# My selections release (2026-11-05)
+- Owner approved the operated local preview for production. Preserve original product screens/calculators and the stacked My selections add/edit/save/remove/undo/reload flow.
+- Canonical source: redesign/src/selections, integrated by scripts/apply-my-selections.mjs with content-versioned assets. Preview guards, test-service portal/data and fixture selections must never ship.
+- Customer inquiries from My selections are copied and manually sent in the existing KakaoTalk Channel. No automatic send, fake reception ID, database write, booking or payment from the selection layer.
+- Existing admin, inquiry/order/status, payments, traveler Auth and database boundaries stay intact. Browser-local selections use their own key; never erase original product drafts or order records.
+- Fourteen-seat Furong availability and price require manual confirmation. Airport/daily-hire products remain separate from standalone Furong shared/private transfers.
