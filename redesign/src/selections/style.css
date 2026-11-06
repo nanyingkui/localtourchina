@@ -56,3 +56,6 @@ body.ms-selections .selection-review-link,body.ms-selections aside.selection-led
 .ms-dialog :is(select):focus-visible{outline:3px solid #267369!important;outline-offset:3px!important}
 @media(max-width:480px){.ms-custom-entry{padding:17px 18px}.ms-custom-entry h3{font-size:19px!important}.ms-custom-start{width:100%;font-size:13px}.ms-custom-grid{grid-template-columns:1fr;gap:18px}.ms-custom-grid .ms-custom-field:last-child{grid-column:auto}}
 .ms-channel-manual{display:block;color:#285c4b;text-align:center;font-size:12px;padding:9px 0 3px;min-height:32px;text-underline-offset:3px}
+
+/* One floating action at a time: the selection tray must not intercept form review. */
+@media(max-width:760px){body.ms-selections .recommended-flow-action{position:static!important}body.ms-selections .recommendation-flow :is(input,select,textarea,button){scroll-margin-bottom:110px}}
