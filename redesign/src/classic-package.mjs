@@ -1,3 +1,4 @@
+import matrix from './data/products.json' with { type: 'json' };
 // Owner-confirmed classic package scope, 2026-11-04. Trekking products retain their original terms.
 export const classicTerms={
   "zh": {
@@ -10,12 +11,12 @@ export const classicTerms={
     "itineraryNote": "以中国当地时间为准。13:00前抵达可安排当天下午天门山；13:00后抵达次日开始游览。13:00整由客服核对，未确认时按次日安排。早到版的市区超市与咖啡可移至后续自由时段。演出、按摩全程各一次，时段由客服确认。"
   },
   "ko": {
-    "basis": "머큐어·오렌지 호텔 기준 · 비성수기 · 홀수 인원 중 1명 객실 단독 사용 포함",
+    "basis": matrix.ui_ko.season_basis.regular,
     "included": "호텔 · 인원에 맞춘 차량 · 현지 가이드 · 표시된 관광 일정 · 일정 내 모든 식사 · 공연 1회 · 80분 마사지 1회",
-    "inclusionNote": "홀수 인원 요금에는 1명의 객실 단독 사용이 포함됩니다. 나머지 성인은 2인 1실이며 해당 객실의 추가요금을 다시 부과하지 않습니다. 호텔 지점·침대 구성·입장권·공연 회차는 예약 시 확인합니다.",
-    "hotels": "머큐어(Mercure) 또는 오렌지(Orange) 호텔 기준입니다. 지점·침대 구성·예약 가능 여부는 예약 시 확인합니다. 홀수 인원 중 1명은 객실을 단독 사용합니다.",
+    "inclusionNote": matrix.odd_pax_rule_ko,
+    "hotels": matrix.products[0].included_ko.join(" · "),
     "meals": "일정 내 모든 식사는 패키지 참고가에 포함됩니다. 식사 횟수는 확정된 서비스 시작·종료 시간에 맞춰 안내합니다.",
-    "special": "아동·성수기·객실 업그레이드·코스 변경은 별도 확인합니다. 홀수 인원 중 1명의 객실 단독 사용에 대한 추가요금은 다시 부과하지 않습니다.",
+    "special": matrix.ui_ko.special + " " + matrix.odd_pax_rule_ko,
     "itineraryNote": "중국 현지 시간 기준입니다. 13:00 전 도착 시 당일 오후 천문산을 배정할 수 있으며, 13:00 후 도착 시 다음 날부터 관광합니다. 13:00 정각 도착은 담당자 확인 전까지 다음 날 관광으로 안내합니다. 이른 도착형의 마트·카페는 다른 자유시간으로 옮길 수 있습니다. 공연·마사지는 전체 여행 중 각각 1회이며 시간은 담당자가 확인합니다."
   },
   "en": {

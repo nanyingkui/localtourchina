@@ -1,3 +1,4 @@
+import matrix from './data/products.json' with { type: 'json' };
 import {classicTerms,classicItineraries,classicWalking} from './classic-package.mjs';
 import { formatEnglishPrice, englishPricingNote } from './english-pricing.mjs';
 /**
@@ -25,14 +26,14 @@ export const catalogCopy = {
     trekkingIntro: '장거리 도보와 계단이 포함된 고강도 트레킹 코스입니다. 일행 모두의 체력과 보행 가능 여부를 먼저 확인하세요.',
     regularBadge: '대표 명소', trekkingBadge: '고강도 트레킹',
     party: '함께 여행하는 성인 인원', pax: n => `${n}명`, custom: '다른 인원', customLabel: '실제 여행 인원',
-    customHelp: '1–30명까지 입력할 수 있습니다. 기본 코스의 홀수 인원은 바로 아래 짝수 인원과 같은 1인 참고가입니다. 1인·12인 이상·아동 및 트레킹 홀수 인원은 별도 견적입니다.',
+    customHelp: matrix.odd_pax_rule_ko,
     reference: '조건부 참고가', unit: '성인 1인 · 전체 일정', quote: '별도 견적',
-    basis: '성인 2인 1실 · 비성수기 기준',
+    basis: matrix.ui_ko.season_basis.regular,
     priceNote: '확정 판매가가 아닙니다. 날짜·호텔·객실·예약 가능 여부 확인 후 최종 견적을 안내합니다.',
     includedLabel: '견적에 구성하는 항목',
     included: '호텔 숙박 · 인원에 맞춘 차량 · 현지 가이드 · 표시된 관광 일정',
     excludedLabel: '불포함', excluded: '항공권 · 비자 · 여행자보험',
-    inclusionNote: '입장권·체험·식사별 포함 범위는 최종 견적서에서 확인해 주세요.',
+    inclusionNote: matrix.guide_hours_rule_ko,
     details: '일별 일정 보기', day: n => `${n}일차`,
     itineraryNote: '일정 예시입니다. 항공편·계절·날씨·입장권·교통 상황에 따라 순서와 진행 여부가 달라질 수 있습니다.',
     action: '이 코스로 견적 문의',
@@ -43,8 +44,8 @@ export const catalogCopy = {
     vehicle: '차량은 실제 인원과 수하물에 맞춰 배정하며 특정 브랜드나 차종을 확약하지 않습니다.',
     meals: '식사 횟수와 구성은 항공편·동선에 따라 달라집니다. 점심은 간편식으로 진행될 수 있습니다.',
     quoteTitle: '별도 확인이 필요한 조건',
-    seasons: '춘절, 5월 1–5일, 7–8월, 10월 1–7일 등 성수기는 별도 견적입니다.',
-    special: '아동 동반, 1인실과 일정 변경은 별도 문의해 주세요. 기본 코스 홀수 인원은 바로 아래 짝수 인원의 1인 참고가를 적용합니다. 참고가만으로 예약이 확정되지 않습니다.',
+    seasons: matrix.holiday_definition_ko,
+    special: matrix.odd_pax_rule_ko,
     selection: '선택 코스', partyLine: '여행 인원', itineraryLabel: '일정 예시', walkingLabel: '도보 안내',
   },
   zh: {
@@ -122,7 +123,7 @@ const prices = values => values.map((priceKRW, i) => ({ pax: PARTY_TIERS[i], pri
 export const tripCatalog = [
   {
     id: 'regular34', kind: 'regular', nights: 3, days: 4,
-    names: { ko: '장가계 핵심 3박 4일', zh: '张家界精华 · 4天3晚', en: 'Zhangjiajie Essentials · 4 days, 3 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P1').name_ko, zh: '张家界精华 · 4天3晚', en: 'Zhangjiajie Essentials · 4 days, 3 nights' },
     prices: prices([970000, 870000, 840000, 820000, 800000]),
     image: photo('tianmen-cliff', 960, 1280, '천문산 절벽을 따라 이어지는 길', '沿天门山峭壁延伸的栈道', 'A walkway along the cliffs of Tianmen Mountain'),
     copy: {
@@ -133,7 +134,7 @@ export const tripCatalog = [
   },
   {
     id: 'regular45', kind: 'regular', nights: 4, days: 5,
-    names: { ko: '장가계 산과 호수 4박 5일', zh: '张家界山水 · 5天4晚', en: 'Zhangjiajie Peaks & Water · 5 days, 4 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P2').name_ko, zh: '张家界山水 · 5天4晚', en: 'Zhangjiajie Peaks & Water · 5 days, 4 nights' },
     prices: prices([1130000, 970000, 950000, 930000, 910000]),
     image: photo('golden-whip', 960, 720, '숲을 따라 흐르는 금편계곡', '林间的金鞭溪', 'Golden Whip Stream beneath the forest'),
     copy: {
@@ -144,7 +145,7 @@ export const tripCatalog = [
   },
   {
     id: 'regular56', kind: 'regular', nights: 5, days: 6,
-    names: { ko: '장가계와 부용진 5박 6일', zh: '张家界与芙蓉镇 · 6天5晚', en: 'Zhangjiajie & Furong Town · 6 days, 5 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P3').name_ko, zh: '张家界与芙蓉镇 · 6天5晚', en: 'Zhangjiajie & Furong Town · 6 days, 5 nights' },
     prices: prices([1360000, 1130000, 1110000, 1090000, 1060000]),
     image: photo('furong-town', 960, 720, '폭포 위에 자리한 부용진', '瀑布之上的芙蓉镇', 'Furong Town above its waterfall'),
     copy: {
@@ -155,33 +156,33 @@ export const tripCatalog = [
   },
   {
     id: 'trek34', kind: 'trekking', nights: 3, days: 4,
-    names: { ko: '장가계 트레킹 3박 4일', zh: '张家界徒步 · 4天3晚', en: 'Zhangjiajie Trek · 4 days, 3 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P4').name_ko, zh: '张家界徒步 · 4天3晚', en: 'Zhangjiajie Trek · 4 days, 3 nights' },
     prices: prices([1070000, 970000, 940000, 920000, 900000]),
     image: photo('forest-east', 960, 798, '장가계의 숲과 바위 봉우리', '张家界的森林与石峰', 'Forested sandstone peaks in Zhangjiajie'),
     copy: {
-      ko: content('짧지만 밀도 높은, 걷는 사람을 위한 코스.', ['황석채 도보 하산', '금편계곡 7.5km', '천문산 999계단'], '고강도 도보 코스입니다. 대협곡 3.5km, 십리화랑 2.5km, 금편계곡 7.5km와 천문산 999계단이 포함됩니다.', ['공항에서 만나 대협곡에서 약 3.5km 걷는 구간을 둘러봅니다.', '백룡엘리베이터, 원가계, 천자산을 방문하고 십리화랑에서 편도 모노레일과 2.5km 도보를 진행합니다. 마사지와 72기루 방문이 이어집니다.', '황석채는 케이블카로 올라 걸어서 내려옵니다. 금편계곡 7.5km와 천문산 999계단, 지역 공연을 진행하는 일정입니다.', '황룡동굴을 방문한 뒤 항공 시간에 맞춰 공항으로 이동합니다.']),
+      ko: content('짧지만 밀도 높은, 걷는 사람을 위한 코스.', ['황석채 도보 하산', '금편계곡 7.5km', `${matrix.ui_ko.stairs}`], `고강도 도보 코스입니다. 대협곡 3.5km, 십리화랑 2.5km, 금편계곡 7.5km와 ${matrix.ui_ko.stairs}.`, ['공항에서 만나 대협곡에서 약 3.5km 걷는 구간을 둘러봅니다.', '백룡엘리베이터, 원가계, 천자산을 방문하고 십리화랑에서 편도 모노레일과 2.5km 도보를 진행합니다. 마사지와 72기루 방문이 이어집니다.', `황석채는 케이블카로 올라 걸어서 내려옵니다. 금편계곡 7.5km와 ${matrix.ui_ko.stairs}, 지역 공연을 진행하는 일정입니다.`, '황룡동굴을 방문한 뒤 항공 시간에 맞춰 공항으로 이동합니다.']),
       zh: content('节奏紧凑，适合愿意深入行走的旅人。', ['黄石寨步行下山', '金鞭溪7.5公里', '天门山999级台阶'], '高强度徒步，包含大峡谷3.5公里、十里画廊2.5公里、金鞭溪7.5公里及天门山999级台阶。', ['机场会合，游览大峡谷，包含约3.5公里步行。', '乘百龙天梯，游览袁家界、天子山；十里画廊安排单程小火车与2.5公里步行，随后按摩并游览七十二奇楼。', '黄石寨乘索道上山、步行下山；安排金鞭溪7.5公里步行、天门山999级台阶及当地演出。', '游览黄龙洞，按航班时间送往机场。']),
       en: content('A compact, demanding route for keen walkers.', ['Walk down Huangshizhai', 'Golden Whip Stream: 7.5 km', 'Tianmen’s 999 steps'], 'Strenuous walking: 3.5 km in the Grand Canyon, 2.5 km at Ten-Mile Gallery, 7.5 km at Golden Whip Stream and Tianmen’s 999 steps.', ['Meet at the airport and explore the Grand Canyon, including about 3.5 km on foot.', 'Take the Bailong Elevator, visit Yuanjiajie and Tianzi Mountain, then combine a one-way sightseeing train and 2.5 km walk at Ten-Mile Gallery. Continue with a massage and the 72 Wonder Tower.', 'Take the cable car up Huangshizhai and walk down. The sample day also includes 7.5 km at Golden Whip Stream, Tianmen’s 999 steps and a local performance.', 'Visit Huanglong Cave, then transfer to the airport for your flight.']),
     },
   },
   {
     id: 'trek45', kind: 'trekking', nights: 4, days: 5,
-    names: { ko: '장가계 능선 트레킹 4박 5일', zh: '张家界山径徒步 · 5天4晚', en: 'Zhangjiajie Mountain Trails · 5 days, 4 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P5').name_ko, zh: '张家界山径徒步 · 5天4晚', en: 'Zhangjiajie Mountain Trails · 5 days, 4 nights' },
     prices: prices([1230000, 1070000, 1050000, 1030000, 1010000]),
     image: photo('tianmen-cave', 960, 1707, '천문산 천문동으로 이어지는 계단', '通往天门洞的阶梯', 'The steps leading up to Tianmen Cave'),
     copy: {
-      ko: content('요자채 산길을 더해 장가계를 깊이 걸어요.', ['요자채 왕복 트레킹', '황석채·공중전원', '천문산 999계단'], '고강도 도보 코스입니다. 요자채 왕복 약 5시간 트레킹, 황석채 도보 하산과 천문산 999계단이 포함됩니다.', ['공항에서 만나 대협곡을 둘러봅니다.', '칠성산과 요자채 왕복 약 5시간 트레킹을 진행한 뒤 마사지와 지역 공연을 즐깁니다.', '황석채는 케이블카로 올라 걸어서 내려옵니다. 백룡엘리베이터, 원가계, 공중전원과 천자산을 방문합니다.', '황룡동굴, 천문산 999계단과 72기루를 둘러봅니다.', '항공 시간에 맞춰 자유시간 후 공항으로 이동합니다.']),
+      ko: content('요자채 산길을 더해 장가계를 깊이 걸어요.', ['요자채 왕복 트레킹', '황석채·공중전원', `${matrix.ui_ko.stairs}`], `고강도 도보 코스입니다. 요자채 왕복 약 5시간 트레킹, 황석채 도보 하산과 ${matrix.ui_ko.stairs}.`, ['공항에서 만나 대협곡을 둘러봅니다.', '칠성산과 요자채 왕복 약 5시간 트레킹을 진행한 뒤 마사지와 지역 공연을 즐깁니다.', '황석채는 케이블카로 올라 걸어서 내려옵니다. 백룡엘리베이터, 원가계, 공중전원과 천자산을 방문합니다.', `황룡동굴, 72기루를 둘러봅니다. ${matrix.ui_ko.stairs}.`, '항공 시간에 맞춰 자유시간 후 공항으로 이동합니다.']),
       zh: content('加入鹞子寨山径，深入张家界的山林。', ['鹞子寨往返徒步', '黄石寨·空中田园', '天门山999级台阶'], '高强度徒步，包含鹞子寨往返约5小时徒步、黄石寨步行下山及天门山999级台阶。', ['机场会合，游览大峡谷。', '游览七星山，安排鹞子寨往返约5小时徒步，随后按摩并观看当地演出。', '黄石寨乘索道上山、步行下山，再乘百龙天梯游览袁家界、空中田园和天子山。', '游览黄龙洞、天门山999级台阶及七十二奇楼。', '按航班时间安排自由活动后送往机场。']),
       en: content('Go deeper into the mountains on Yaozizhai’s trails.', ['Yaozizhai round-trip hike', 'Huangshizhai & Sky Garden', 'Tianmen’s 999 steps'], 'Strenuous: a roughly 5-hour round-trip hike at Yaozizhai, the walk down Huangshizhai and Tianmen’s 999 steps.', ['Meet at the airport and visit the Grand Canyon.', 'Visit Qixing Mountain and hike the roughly 5-hour round trip at Yaozizhai, followed by a massage and local performance.', 'Take the cable car up Huangshizhai and walk down. Continue via the Bailong Elevator to Yuanjiajie, the Sky Garden and Tianzi Mountain.', 'Visit Huanglong Cave, Tianmen’s 999 steps and the 72 Wonder Tower.', 'Free time as flight timings allow, followed by an airport transfer.']),
     },
   },
   {
     id: 'trek56', kind: 'trekking', nights: 5, days: 6,
-    names: { ko: '장가계 트레킹과 부용진 5박 6일', zh: '张家界徒步与芙蓉镇 · 6天5晚', en: 'Zhangjiajie Trails & Furong · 6 days, 5 nights' },
+    names: { ko: matrix.products.find(p=>p.id==='P6').name_ko, zh: '张家界徒步与芙蓉镇 · 6天5晚', en: 'Zhangjiajie Trails & Furong · 6 days, 5 nights' },
     prices: prices([1460000, 1230000, 1210000, 1190000, 1160000]),
     image: photo('golden-whip', 960, 720, '금편계곡 숲길과 계곡', '金鞭溪林间步道与溪谷', 'The wooded trail beside Golden Whip Stream'),
     copy: {
-      ko: content('긴 산길과 계곡, 고진의 밤을 한 여행에.', ['요자채·양가계', '금편계곡 7.5km', '부용진 야경'], '고강도 도보 코스입니다. 요자채 왕복 약 5시간, 금편계곡 7.5km, 십리화랑 2.5km와 천문산 999계단이 포함됩니다.', ['공항에서 만나 대협곡을 방문하고 지역 공연을 관람합니다.', '칠성산과 요자채 왕복 약 5시간 트레킹을 진행한 뒤 마사지를 즐깁니다.', '황석채는 케이블카로 올라 걸어서 내려옵니다. 금편계곡 7.5km 도보 후 부용진 야경을 감상합니다.', '황룡동굴, 천문산 999계단과 72기루를 둘러봅니다.', '백룡엘리베이터, 원가계, 양가계와 천자산을 방문합니다. 십리화랑 편도 모노레일과 2.5km 도보, 마사지가 이어집니다.', '항공 시간에 맞춰 자유시간 후 공항으로 이동합니다.']),
+      ko: content('긴 산길과 계곡, 고진의 밤을 한 여행에.', ['요자채·양가계', '금편계곡 7.5km', '부용진 야경'], `고강도 도보 코스입니다. 요자채 왕복 약 5시간, 금편계곡 7.5km, 십리화랑 2.5km와 ${matrix.ui_ko.stairs}.`, ['공항에서 만나 대협곡을 방문하고 지역 공연을 관람합니다.', '칠성산과 요자채 왕복 약 5시간 트레킹을 진행한 뒤 마사지를 즐깁니다.', '황석채는 케이블카로 올라 걸어서 내려옵니다. 금편계곡 7.5km 도보 후 부용진 야경을 감상합니다.', `황룡동굴, 72기루를 둘러봅니다. ${matrix.ui_ko.stairs}.`, '백룡엘리베이터, 원가계, 양가계와 천자산을 방문합니다. 십리화랑 편도 모노레일과 2.5km 도보, 마사지가 이어집니다.', '항공 시간에 맞춰 자유시간 후 공항으로 이동합니다.']),
       zh: content('把山径、溪谷与古镇夜色串成一次旅行。', ['鹞子寨·杨家界', '金鞭溪7.5公里', '芙蓉镇夜景'], '高强度徒步，包含鹞子寨往返约5小时、金鞭溪7.5公里、十里画廊2.5公里及天门山999级台阶。', ['机场会合，游览大峡谷并观看当地演出。', '游览七星山，安排鹞子寨往返约5小时徒步，随后按摩。', '黄石寨乘索道上山、步行下山，沿金鞭溪步行7.5公里后欣赏芙蓉镇夜景。', '游览黄龙洞、天门山999级台阶及七十二奇楼。', '乘百龙天梯，游览袁家界、杨家界、天子山；十里画廊安排单程小火车与2.5公里步行，随后按摩。', '按航班时间安排自由活动后送往机场。']),
       en: content('Mountain trails, valley walks and an evening in the old town.', ['Yaozizhai & Yangjiajie', 'Golden Whip Stream: 7.5 km', 'Furong Town at night'], 'Strenuous: roughly 5 hours at Yaozizhai, 7.5 km at Golden Whip Stream, 2.5 km at Ten-Mile Gallery and Tianmen’s 999 steps.', ['Meet at the airport, visit the Grand Canyon and watch a local performance.', 'Visit Qixing Mountain and hike the roughly 5-hour Yaozizhai round trip, followed by a massage.', 'Take the cable car up Huangshizhai and walk down. Walk 7.5 km at Golden Whip Stream, then see Furong Town’s evening lights.', 'Visit Huanglong Cave, Tianmen’s 999 steps and the 72 Wonder Tower.', 'Take the Bailong Elevator and visit Yuanjiajie, Yangjiajie and Tianzi Mountain. Combine a one-way sightseeing train with a 2.5 km walk at Ten-Mile Gallery, followed by a massage.', 'Free time as flight timings allow, followed by an airport transfer.']),
     },
@@ -193,7 +194,13 @@ for (const product of tripCatalog.filter(item => item.kind === 'regular')) {
     product.copy[lang] = {...product.copy[lang], itinerary:classicItineraries[product.id][lang], walking:classicWalking[lang], highlights: lang==='zh'?['天门山','森林公园','黄龙洞＋大峡谷',...(product.id==='regular56'?['芙蓉镇夜景']:[])]:lang==='ko'?['천문산','국가삼림공원','황룡동·대협곡',...(product.id==='regular56'?['부용진 야경']:[])]:['Tianmen','Forest Park','Huanglong Cave & Grand Canyon',...(product.id==='regular56'?['Furong evening lights']:[])]};
   }
 }
-export function catalogTerms(product,lang='ko') {const language=catalogLanguage(lang);return resolveTrip(product)?.kind==='regular'?{...catalogCopy[language],...classicTerms[language]}:catalogCopy[language];}
+export function catalogTerms(product,lang='ko') {
+  const language=catalogLanguage(lang), trip=resolveTrip(product);
+  const terms=trip?.kind==='regular'?{...catalogCopy[language],...classicTerms[language]}:catalogCopy[language];
+  if(language!=='ko')return terms;
+  const item=matrix.products.find(p=>p.id===({regular34:'P1',regular45:'P2',regular56:'P3',trek34:'P4',trek45:'P5',trek56:'P6'}[trip?.id]));
+  return item?{...terms,included:item.included_ko.join(' · '),excluded:item.excluded_ko.join(' · '),inclusionNote:item.guide_note_ko}:terms;
+}
 export const catalog = tripCatalog;
 export const findTrip = id => tripCatalog.find(product => product.id === id) ?? null;
 const resolveTrip = product => typeof product === 'string' ? findTrip(product) : product;

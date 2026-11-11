@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {assertProductMatrix} from './helpers/product-matrix-assertions.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {mkdtempSync,rmSync,readFileSync} from 'node:fs';
@@ -14,8 +15,9 @@ for(const lang of ['ko','zh','en']) test(`${lang}: editorial hierarchy keeps all
  const html=render(lang);
  assert.equal((html.match(/class="intent-card"/g)||[]).length,6);
  assert.equal((html.match(/class="video-guide-open"/g)||[]).length,6);
- assert.equal((html.match(/class="trip-configuration"/g)||[]).length,6);
+ if(lang!=='ko') assert.equal((html.match(/class="trip-configuration"/g)||[]).length,6);
  assert.doesNotMatch(html,/class="brand-greeting"|class="brand-halo"/);
+ if(lang==='ko'){assertProductMatrix(html);return;}
  const articles=html.match(/<article[^>]+class="trip-catalog-card"[\s\S]*?<\/article>/g);
  assert.equal(articles.length,6);
  for(const card of articles){const pos=card.indexOf('class="trip-configuration"');assert.ok(card.indexOf('class="trip-catalog-price"')<pos);assert.ok(card.indexOf('trip-catalog-walking')<pos);assert.ok(card.indexOf('trip-catalog-price-note')<pos);assert.ok(card.lastIndexOf('</details>')<card.indexOf('class="trip-catalog-action'));assert.doesNotMatch(card,/<details class="trip-configuration" open/);}
