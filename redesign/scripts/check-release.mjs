@@ -1,3 +1,4 @@
+import './validate-products.mjs';
 import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {fileURLToPath} from 'node:url';
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),base=path.join(project,'dist/client');async function walk(dir){return(await Promise.all((await fs.readdir(dir,{withFileTypes:true})).map(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]))).flat();}const pages=(await walk(base)).filter(x=>x.endsWith('.html'));const missing=[];let inlineScripts=0;
 for(const file of pages){const s=await fs.readFile(file,'utf8');for(const match of s.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)){if(/type="application\/.*json"/.test(match[1]))continue;if(match[2].trim()){try{new Function(match[2]);}catch(e){throw Error(path.relative(base,file)+' inline JavaScript: '+e.message);}inlineScripts++;}}

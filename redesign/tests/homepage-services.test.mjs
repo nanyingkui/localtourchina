@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {assertProductMatrix} from './helpers/product-matrix-assertions.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {mkdtempSync,rmSync,readFileSync} from 'node:fs';
@@ -37,8 +38,15 @@ for (const lang of ['ko','zh','en']) {
   assert.equal((service.match(/class="intent-card"/g)||[]).length,6);
   const prefix=lang==='ko'?'':'/'+lang;
   for(const page of ['multi-booking.html?category=ticket','multi-booking.html?category=vehicle','multi-booking.html?category=guide','multi-booking.html?category=daytour','private-tour.html?mode=custom','online-guide.html']) assert.ok(service.includes(`href="${prefix}/${page}"`),page);
-  assert.ok(html.indexOf('id="service-entry"')>html.indexOf('class="trip-catalog'));
-  assert.equal((html.match(/class="trip-catalog-card"/g)||[]).length,6);
+  if(lang==='ko'){
+   assertProductMatrix(html);
+   const matrixStart=html.indexOf('class="product-matrix"');
+   const lastCardEnd=html.indexOf('</article>',html.lastIndexOf('class="pm-card"'));
+   assert.ok(matrixStart>=0 && lastCardEnd>matrixStart && html.indexOf('id="service-entry"')>lastCardEnd);
+  }else{
+   assert.ok(html.indexOf('id="service-entry"')>html.indexOf('class="trip-catalog'));
+   assert.equal((html.match(/class="trip-catalog-card"/g)||[]).length,6);
+  }
   assert.ok(service.includes('multi-booking.html'));
  });
  test(`${lang}: Hainan distinguishes inquiry-only services and keeps destination context`,()=>{

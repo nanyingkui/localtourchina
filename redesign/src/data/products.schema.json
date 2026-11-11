@@ -1,0 +1,685 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LocalTourChina Zhangjiajie package product matrix (public data)",
+  "type": "object",
+  "required": [
+    "version",
+    "currency",
+    "status",
+    "tiers",
+    "styles",
+    "pax_tiers",
+    "products",
+    "add_ons",
+    "contact",
+    "ui_ko"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "currency": {
+      "const": "KRW"
+    },
+    "status": {
+      "type": "string",
+      "description": "draft_pending_owner_approval = draft, must not go live without owner approval"
+    },
+    "tiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name_ko",
+          "desc_ko"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "entry",
+              "classic",
+              "trekking",
+              "guide_car"
+            ]
+          },
+          "name_ko": {
+            "type": "string"
+          },
+          "desc_ko": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "styles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name_ko"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "sightseeing",
+              "trekking",
+              "senior"
+            ]
+          },
+          "name_ko": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pax_tiers": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/product"
+      }
+    },
+    "add_ons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/addon"
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "propertyNames": {
+        "not": {
+          "pattern": "^internal_|_zh$|^pending$"
+        }
+      }
+    },
+    "compare_keys_ko": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "holiday_definition_ko": {
+      "type": "string"
+    },
+    "odd_pax_rule_ko": {
+      "type": "string"
+    },
+    "peak_definition_ko": {
+      "type": "string"
+    },
+    "guide_hours_rule_ko": {
+      "type": "string"
+    },
+    "pricing_scheme": {
+      "type": "string"
+    },
+    "solo_pax_supported": {
+      "type": "boolean"
+    },
+    "solo_rule_ko": {
+      "type": "string"
+    },
+    "booking_notice_ko": {
+      "type": "object",
+      "required": [
+        "schedule_ko",
+        "cancel_ko",
+        "confirmation_ko"
+      ],
+      "properties": {
+        "title_schedule_ko": {
+          "type": "string"
+        },
+        "title_cancel_ko": {
+          "type": "string"
+        },
+        "confirmation_ko": {
+          "type": "string"
+        },
+        "schedule_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cancel_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "propertyNames": {
+        "not": {
+          "pattern": "^internal_|_zh$|^pending$"
+        }
+      }
+    },
+    "service_notes_ko": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ui_ko": {
+      "type": "object",
+      "required": [
+        "title",
+        "subtitle",
+        "party",
+        "season",
+        "seasons",
+        "season_basis",
+        "person",
+        "night",
+        "day",
+        "per_person",
+        "from",
+        "details",
+        "walking",
+        "audience",
+        "itinerary",
+        "included",
+        "excluded",
+        "changes",
+        "before",
+        "supplement",
+        "standard",
+        "five_star",
+        "addons",
+        "consult",
+        "copy",
+        "manual",
+        "copied",
+        "copy_failed",
+        "brief",
+        "compare",
+        "tier",
+        "style",
+        "duration",
+        "price",
+        "price_notes",
+        "booking",
+        "ask",
+        "zero",
+        "base_variant",
+        "variant_addition",
+        "disclaimer",
+        "special",
+        "stairs"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "party": {
+          "type": "string"
+        },
+        "season": {
+          "type": "string"
+        },
+        "seasons": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "season_basis": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "person": {
+          "type": "string"
+        },
+        "night": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "per_person": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "walking": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "string"
+        },
+        "itinerary": {
+          "type": "string"
+        },
+        "included": {
+          "type": "string"
+        },
+        "excluded": {
+          "type": "string"
+        },
+        "changes": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        },
+        "supplement": {
+          "type": "string"
+        },
+        "standard": {
+          "type": "string"
+        },
+        "five_star": {
+          "type": "string"
+        },
+        "addons": {
+          "type": "string"
+        },
+        "consult": {
+          "type": "string"
+        },
+        "copy": {
+          "type": "string"
+        },
+        "manual": {
+          "type": "string"
+        },
+        "copied": {
+          "type": "string"
+        },
+        "copy_failed": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "compare": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "price_notes": {
+          "type": "string"
+        },
+        "booking": {
+          "type": "string"
+        },
+        "ask": {
+          "type": "string"
+        },
+        "zero": {
+          "type": "string"
+        },
+        "base_variant": {
+          "type": "string"
+        },
+        "variant_addition": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "special": {
+          "type": "string"
+        },
+        "stairs": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "priceMap": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "product": {
+      "type": "object",
+      "required": [
+        "id",
+        "name_ko",
+        "tier",
+        "tier_ko",
+        "style",
+        "style_ko",
+        "nights",
+        "days",
+        "tagline_ko",
+        "for_whom_ko",
+        "highlights_ko",
+        "walking_ko",
+        "itinerary_ko",
+        "price_status",
+        "price_per_person_krw",
+        "price_from_krw",
+        "price_note_ko",
+        "other_pax_rule_ko",
+        "single_supplement_krw",
+        "included_ko",
+        "excluded_ko",
+        "add_on_ids",
+        "compare"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(P|S|H)[0-9]+$"
+        },
+        "name_ko": {
+          "type": "string"
+        },
+        "tier": {
+          "enum": [
+            "entry",
+            "classic",
+            "trekking",
+            "guide_car"
+          ]
+        },
+        "tier_ko": {
+          "type": "string"
+        },
+        "style": {
+          "enum": [
+            "sightseeing",
+            "trekking",
+            "senior"
+          ]
+        },
+        "style_ko": {
+          "type": "string"
+        },
+        "nights": {
+          "type": "integer"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "tagline_ko": {
+          "type": "string"
+        },
+        "for_whom_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "highlights_ko": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "walking_ko": {
+          "type": "string"
+        },
+        "itinerary_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price_status": {
+          "type": "string"
+        },
+        "price_per_person_krw": {
+          "type": "object",
+          "required": [
+            "regular",
+            "holiday"
+          ],
+          "properties": {
+            "regular": {
+              "$ref": "#/$defs/priceMap"
+            },
+            "holiday": {
+              "$ref": "#/$defs/priceMap"
+            }
+          }
+        },
+        "price_from_krw": {
+          "type": "integer"
+        },
+        "price_note_ko": {
+          "type": "string"
+        },
+        "other_pax_rule_ko": {
+          "type": "string"
+        },
+        "single_supplement_krw": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "standard_hotel": {
+                  "type": "object"
+                },
+                "five_star_upgrade": {
+                  "type": "object"
+                },
+                "note_ko": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "included_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "add_on_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "compare": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "transport_note_ko": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "guide_note_ko": {
+          "type": "string"
+        },
+        "solo_price_krw": {
+          "type": "object",
+          "required": [
+            "regular",
+            "holiday"
+          ],
+          "properties": {
+            "regular": {
+              "type": "integer"
+            },
+            "holiday": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        },
+        "solo_note_ko": {
+          "type": "string"
+        },
+        "notes_ko": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name_ko",
+              "itinerary_ko"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name_ko": {
+                "type": "string"
+              },
+              "itinerary_ko": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "included_change_ko": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "propertyNames": {
+        "not": {
+          "pattern": "^internal_|_zh$|^pending$"
+        }
+      }
+    },
+    "addon": {
+      "type": "object",
+      "required": [
+        "id",
+        "name_ko",
+        "unit_ko",
+        "price_krw",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name_ko": {
+          "type": "string"
+        },
+        "unit_ko": {
+          "type": "string"
+        },
+        "price_krw": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "confirmed_by_owner",
+            "draft_pending_approval",
+            "pending"
+          ]
+        },
+        "note_ko": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "price_by_pax_krw": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/priceMap"
+          }
+        },
+        "price_by_season_krw": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "price_by_pax_season_krw": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/priceMap"
+          }
+        },
+        "season_note_ko": {
+          "type": "string"
+        }
+      },
+      "propertyNames": {
+        "not": {
+          "pattern": "^internal_|_zh$|^pending$"
+        }
+      }
+    }
+  },
+  "description": "Single public data source for the homepage product matrix. Customer-facing fields only (Korean *_ko). Internal fields (internal_*, *_zh, pending) are rejected by propertyNames. Prices are KRW per adult, draft reference prices.",
+  "propertyNames": {
+    "not": {
+      "pattern": "^internal_|_zh$|^pending$"
+    }
+  }
+}
