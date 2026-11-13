@@ -351,6 +351,10 @@ for(const page of zhPages){
 }
 
 const productPages = ['day-forest.html', 'day-tianmen.html', 'day-canyon.html', 'day-furong.html', 'day-fenghuang.html', 'zhangjiajie-4n5d.html'];
+const koreanDayTours = path.join(root, 'day-tours.html');
+const koreanDayTourHtml = await readFile(koreanDayTours, 'utf8');
+await writeFile(koreanDayTours, koreanDayTourHtml.replace('</head>', `<script data-ltc-day-route>(function(){var q=new URLSearchParams(location.search),tour=q.get('tour');if(['forest','tianmen','canyon'].includes(tour)){location.replace('/day-'+tour+'.html');}else if(!tour&&q.get('destination')!=='sanya'){location.replace('/#zhangjiajie-products');}})();</script></head>`));
+
 const sitemapUrls = [...productPages.map(file=>({file,prefix:''})),...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'})),{file:'reviews.html',service:'reviews',prefix:'en/'},{file:'travel-help.html',service:'help',prefix:''}].map(page => {
   const url = `https://localtourchina.com/${page.prefix}${page.file === 'index.html' ? '' : page.file}`;
   const priority = page.service === 'home' ? '1.0' : '0.8';
