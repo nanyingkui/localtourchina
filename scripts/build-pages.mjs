@@ -16,6 +16,7 @@ function withImageDimensions(html) {
   });
 }
 const template = await readFile(path.join(root, 'src/site-template.html'), 'utf8');
+const withoutSanyaPrivate = html => html.replace(/<!-- sanya-private:start -->[\s\S]*?<!-- sanya-private:end -->/, '');
 const winterFlights = JSON.parse(await readFile(path.join(root, 'src/winter-flights.json'), 'utf8'));
 await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WINTER_FLIGHTS = '+JSON.stringify(winterFlights)+';\n');
 const englishTemplate = await readFile(path.join(root, 'src/english-template.html'), 'utf8');
@@ -268,6 +269,7 @@ for (const page of pages) {
     .replace('<body data-initial-service="home">', `<body data-initial-service="${page.service}">`)
     .replace(/service-tab active/g, 'service-tab');
 
+  if(page.service!=='daytour')html=withoutSanyaPrivate(html);
   const activePattern = new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html = html.replace(activePattern, '$1 active$2');
   html = html.replace('href="en/index.html" data-en-link', `href="en/${page.service==='booking'?'multi-booking.html':page.service==='food'?'travel-info.html':page.service==='reviews'?'reviews.html':page.file}" data-en-link`);
@@ -316,7 +318,7 @@ for(const page of zhPages){
   html=html.replace(/<div class="service-nav" id="main-navigation"[\s\S]*?<\/div><span class="language-switch"/,`<div class="service-nav" id="main-navigation" aria-label="主要菜单"><a class="service-tab online-nav${page.service==='onlineguide'?' active':''}" data-service="onlineguide" href="online-guide.html">在线支持</a><a class="service-tab${page.service==='booking'?' active':''}" data-service="booking" href="booking.html">旅行预订</a><a class="service-tab${page.service==='info'?' active':''}" data-service="info" href="travel-info.html">旅行准备</a><a class="service-tab${page.service==='food'?' active':''}" data-service="food" href="food-map.html">美食·地图</a><a class="service-tab${page.service==='reviews'?' active':''}" data-service="reviews" href="reviews.html">旅行评价</a><a class="nav-contact" href="#business-info">微信咨询 ↗</a></div><span class="language-switch"`);
   html=html.replaceAll('assets/','../assets/');
   html=html.replace(/<section class="service-panel" id="service-info"[\s\S]*?(?=<section class="service-panel" id="service-food")/,zhTravelInfo+'\n');
-  html=zhTranslate(html).replaceAll('咨询内容이 복사되었습니다.','咨询内容已复制。');
+  html=zhTranslate(withoutSanyaPrivate(html)).replaceAll('咨询内容이 복사되었습니다.','咨询内容已复制。');
   if(page.service==='home')html=html.replace('</head>','<style>.review-preview{display:none}</style></head>');
   if(page.service==='reviews')html=html.replace('</head>','<style>.youtube-reviews{display:none}</style></head>');
   html=html.replace('</head>',`  <link rel="alternate" hreflang="ko" href="https://localtourchina.com/${page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="en" href="https://localtourchina.com/en/${['reviews','booking','food'].includes(page.service)||page.file==='index.html'?'':page.file}">\n  <link rel="alternate" hreflang="zh-CN" href="https://localtourchina.com/zh/${page.file==='index.html'?'':page.file}">\n</head>`);

@@ -419,6 +419,7 @@
     <div class="grid"><div class="main">
       <section class="card"><div class="section-head"><span class="step">1</span><div><h2>어느 지역으로 여행하세요?</h2><p>지역을 고르면 예약 가능한 데이투어만 보여 드립니다.</p></div></div><nav class="day-regions" aria-label="데이투어 지역 선택"><button class="day-region" type="button" data-day-destination="forest" aria-pressed="true"><span class="day-region-icon">⛰</span><span class="day-region-copy"><strong>장가계</strong><small>후난성 湖南省 · 산과 협곡</small></span><span class="day-region-check" aria-hidden="true"></span></button><button class="day-region" type="button" data-day-destination="sanya-monkey" aria-pressed="false"><span class="day-region-icon">☀</span><span class="day-region-copy"><strong>싼야 · 삼아(三亚)</strong><small>하이난성 海南省 · 섬과 바다</small></span><span class="day-region-check" aria-hidden="true"></span></button></nav><h3 id="dayRegionTitle"></h3><div class="product-picker" id="dayProducts"></div><div class="day-visuals" id="dayVisuals" aria-live="polite"></div></section>
       <section class="card" id="dayDetail"></section>
+
       <section class="card"><div class="section-head"><span class="step">2</span><div><h2>예약 정보를 입력해 주세요</h2><p>여행일과 인원, 상품별 집결 정보를 알려 주세요.</p></div></div><div class="form-stack"><div class="field"><label for="dayDate">여행 날짜 <span class="required">*</span></label><input class="input" id="dayDate" type="date"></div><div class="age-grid" id="dayAgeRows"></div><div class="field" id="dayMeetingField" hidden><label for="dayMeeting">집결 장소</label><select class="input" id="dayMeeting"></select></div><div class="field" id="dayPickupField" hidden><label id="dayPickupLabel" for="dayPickup"></label><select class="input" id="dayPickup"></select></div><div class="fields two"><div class="field"><label for="dayPickupPlace">픽업 장소 <span class="required">*</span></label><input class="input" id="dayPickupPlace" placeholder="호텔명 또는 정확한 장소"></div><div class="field"><label for="dayDropoffPlace">샌딩 장소 <span class="required">*</span></label><input class="input" id="dayDropoffPlace" placeholder="호텔명 또는 정확한 장소"></div></div><p class="form-hint" id="dayFormHint" aria-live="polite"></p></div></section>
     </div><aside class="card summary"><h2>데이투어 예상 내역</h2><p class="summary-intro">선택 내용에 따라 자동 계산됩니다.</p><div id="daySummary" class="quote-box"></div><div class="divider"></div><div class="field"><label for="dayInquiry">예약 문의 내용</label><textarea class="inquiry" id="dayInquiry" readonly></textarea></div><div class="order-steps" aria-label="문의 순서"><span class="order-step"><b>1</b>필수 정보 확인</span><span class="order-step"><b>2</b>문의 복사</span><span class="order-step"><b>3</b>KakaoTalk 전송</span></div><p class="order-note"><strong>복사 후</strong> KakaoTalk 상담창에 붙여넣어 주세요.</p><div class="module-actions"><button class="btn btn-outline" id="dayCopy" type="button">① 필수 정보 확인하기</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">② KakaoTalk 열기</a></div><p class="fine">※ 예약 가능 여부, 집결 시간, 취소·변경·환불 규정은 결제 전 최종 확인이 필요합니다.</p></aside></div>
   </section>
@@ -829,6 +830,14 @@
     $('#dayRegionTitle').textContent=sanya?'싼야 · 삼아(三亚) 데이투어':'장가계 데이투어';
     $$('[data-day-destination]').forEach(b=>b.setAttribute('aria-pressed',String(!!tours[b.dataset.dayDestination].sanya===sanya)));
     $('#service-daytour .service-media-strip').hidden=sanya;
+    const privateProducts=$('#sanyaPrivateProducts');
+    if(privateProducts)privateProducts.hidden=!sanya;
+    if(sanya&&!privateProducts?.dataset.linkReady&&/^#sanya(?:-|PrivateProducts)/.test(location.hash)){
+      if(privateProducts)privateProducts.dataset.linkReady='true';
+      const scrollToProduct=()=>document.getElementById(location.hash.slice(1))?.scrollIntoView({behavior:'instant'});
+      requestAnimationFrame(scrollToProduct);
+      if(document.readyState!=='complete')window.addEventListener('load',scrollToProduct,{once:true});
+    }
 
     $('#dayProducts').innerHTML=Object.entries(tours).filter(([,t])=>!!t.sanya===sanya).map(([id,t])=>`<label class="product-option ${id===tourId?'selected':''}"><input type="radio" name="dayProduct" value="${id}" ${id===tourId?'checked':''}><b>${t.name}</b><small>${t.tag}<br><span class="inline-price">${t.sanya?`성인 ${won(t.prices[0][2])} · 소아 ${won(t.prices[1][2])}<br>유아 문의`:won(Math.min(...t.prices.map(x=>x[2])))+'부터'}</span></small></label>`).join('');
     $('#dayVisuals').innerHTML=(dayTourImages[tourId]||[]).map(([src,label])=>`<figure><img src="${src}" ${window.LTCInterface.imageDimensions(src)} alt="${label}" loading="lazy" decoding="async"><figcaption>${label}</figcaption></figure>`).join('');
@@ -862,6 +871,10 @@
     $('#dayInquiry').value=customerMessage(ko,zh);
   }
   $$('[data-day-destination]').forEach(b=>b.addEventListener('click',()=>{tourId=b.dataset.dayDestination;renderTourPicker();renderTourForm();$('#dayProducts').scrollIntoView({block:'start',behavior:window.LTCInterface.scrollBehavior()});}));
+  $('#sanyaPrivateProducts')?.addEventListener('click',event=>{
+    const button=event.target.closest('[data-sanya-inquiry]');
+    if(button)copyText(button.dataset.sanyaInquiry,button);
+  });
   $('#dayProducts').addEventListener('change',e=>{tourId=e.target.value;renderTourPicker();renderTourForm();});
   $('#service-daytour').addEventListener('input',renderDayQuote);$('#service-daytour').addEventListener('change',e=>{if(!e.target.matches('[name="dayProduct"]'))renderDayQuote()});
 
