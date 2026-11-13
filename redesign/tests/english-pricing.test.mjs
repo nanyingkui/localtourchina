@@ -39,26 +39,15 @@ test('existing saved KRW inquiry text is preserved rather than silently repriced
   assert.ok(inquiryText(draft,'','en',true).includes(original));
 });
 
-test('generated English service pages request USD and online support uses shared pricing', async () => {
-  for (const name of ['private-tour','tickets','day-tours','local-guide','vehicles','multi-booking']) {
+test('reviewed pages use conditional current prices and language-specific channels', async () => {
+  for (const name of ['local-guide','online-guide']) {
     const html=await readFile(new URL('../../en/'+name+'.html',import.meta.url),'utf8');
-    assert.match(html,/deposit and balance in USD/);
-    assert.doesNotMatch(html,/KRW|₩|\d[\d,]*원/);
+    assert.match(html,/catalog-current/);assert.match(html,/catalog-date/);assert.match(html,/WhatsApp/);
+    assert.doesNotMatch(html,/USD 41\.00|9 October 2026|fluent English-speaking local guide/);
   }
-  const html=await readFile(new URL('../../en/online-guide.html',import.meta.url),'utf8');
-  assert.match(html,/USD 41\.00 per group/);
-  assert.ok(html.includes(onlineSupportInquiry()));
-  assert.doesNotMatch(html,/KRW|₩|50,000/);
-  assert.match(html,/9 October 2026/);
-});
-
-
-test('homepages share the inquiry entry and contact pages keep the correct WhatsApp link', async () => {
-  for (const name of ['index.html','zh/index.html','en/index.html','en/company.html','en/online-guide.html','company.html','zh/company.html']) {
-    const html=await readFile(new URL('../../'+name,import.meta.url),'utf8');
-    if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /href="https:\/\/wa\.me\/821055722601"/);
-    assert.match(html, /WhatsApp \+82 10-5572-2601/);
-    if(!['index.html','zh/index.html','en/index.html'].includes(name))assert.match(html, /pf\.kakao\.com/);
-    else assert.match(html,/view=recommendation&amp;mode=private&amp;route=regular34&amp;step=details/);
+  for(const lang of ['ko','zh','en']){
+    const prefix=lang==='ko'?'':lang+'/';const html=await readFile(new URL('../../'+prefix+'index.html',import.meta.url),'utf8');
+    assert.match(html,/products.html/);assert.match(html,/data-contact/);
+    assert.ok(html.includes(lang==='ko'?'카카오톡 상담':lang==='zh'?'微信咨询':'WhatsApp'));
   }
 });

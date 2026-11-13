@@ -12,7 +12,7 @@
   {
     "name": "guide-rates",
     "pattern": "  const guides=.*?;\\n",
-    "sha256": "30a1482e263988d746682fdb02ddf9d5315f5bbbaeee646d55ac3e651c23834f"
+    "sha256": "19e25b8ebedcb56b6f0e67e4e447b5c9472d44a43bde832149d127ed6451a337"
   },
   {
     "name": "vehicle-rates",
@@ -27,7 +27,7 @@
   {
     "name": "guide-calculation",
     "pattern": "const people=Math.max\\(1,parseInt\\(\\$\\(\\'#guidePeople\\'\\).*?roleKo=",
-    "sha256": "1a1fd3d6a2c0db1e82a5228bb8e3d9fcbc2e3c05eb553b54422a2a7b5a05777f"
+    "sha256": "141a6a34122991dce84e8017714018acdf37dbb77491cf1fb8f4c9a48690d096"
   },
   {
     "name": "rental-calculation",

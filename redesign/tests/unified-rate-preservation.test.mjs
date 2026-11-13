@@ -14,3 +14,9 @@ test('six package catalogues retain their original published even-party rates',(
  ['trek56',[[2,1460000],[4,1230000],[6,1210000],[8,1190000],[10,1160000]]]]);
  for(const trip of tripCatalog.filter(trip=>trip.kind==='trekking'))assert.equal(getTripPrice(trip,3),null);
 });
+
+test('approved guide baseline is 220000 for 6 hours; overtime is paid directly to guide',()=>{
+ const rates=source.match(/const guides=(.*?);/s)[1];assert.equal((rates.match(/price:220000/g)||[]).length,4);
+ assert.match(source,/extraHours=translation\?0:Math.max\(0,hours-6\)\*20000/);
+ assert.match(source,/dailyTotal=base\+extraPeople\+meal/);
+});

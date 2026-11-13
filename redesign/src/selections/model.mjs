@@ -1,4 +1,5 @@
 import {reviewWarnings} from './custom-trip.mjs';
+export function selectionIdentity(productId,kind){return 'product:'+productId+(kind==='furong'?':furong-transfer':'');}
 export const KEY='ltc-selections-v1';
 export class SelectionError extends Error { constructor(code){super(code);this.code=code;} }
 const copy=x=>JSON.parse(JSON.stringify(x));
@@ -62,7 +63,7 @@ export function requestText(items,lang='ko',allItems=items){
  const selected=items.filter(x=>x.included),sum=totals(items);
  return [w('[로투차 · 선택 항목 상담]','【罗途查 · 所选项目咨询】','[LocalTourChina · selection inquiry]'),
  w('실제 문의·예약은 전송되지 않았습니다.','尚未发送真实咨询或预订。','No real inquiry or booking has been sent.'),
- ...selected.flatMap((item,i)=>['',`${i+1}. ${item.title}`,item.summary,item.kind==='question'?'':item.amountKRW===null?w('요금: 별도 문의','价格：待报价','Fare: quote required'):`KRW ${item.amountKRW.toLocaleString('en-US')}`,item.missing?.length?w('확인 필요: ','待补充：','Needs details: ')+item.missing.join(', '):'',item.details]),
+ ...selected.flatMap((item,i)=>['',`${i+1}. ${item.title}`,item.summary,item.kind==='question'?'':item.displayAmountText||item.quote?.priceLabel||(item.amountKRW===null?w('요금: 별도 문의','价格：待报价','Fare: quote required'):`KRW ${item.amountKRW.toLocaleString('en-US')}`),item.missing?.length?w('확인 필요: ','待补充：','Needs details: ')+item.missing.join(', '):'',item.details]),
  '',w('개별 항목 참고 소계','单项参考小计','Individual-item reference subtotal')+': '+(sum.priced?`KRW ${sum.amount.toLocaleString('en-US')}`:sum.quoted?w('별도 견적','待报价','Quote required'):w('금액 항목 없음','尚无计价项目','No priced items')),
  ...reviewWarnings(items,lang,allItems).map(x=>w('확인 필요: ','需核对：','To check: ')+x.message),
  w('별도 견적 항목','待报价项目','Quote-required items')+`: ${sum.quoted}`,

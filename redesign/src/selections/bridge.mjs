@@ -39,7 +39,7 @@ export function captureProduct(lang='ko'){
   if(roundtrip&&(!dates[1]?.value||!times[1]?.value||!addresses[1]?.value.trim()))missing.push(w('돌아오는 이동','返程安排','Return leg'));
   if(!quote)missing.push(w('인원·차량 별도 확인','人数、车辆须单独确认','Confirm party and vehicle'));
   missing.push(...transferTimingIssues({direction:/부용진 →|芙蓉镇→|Furong →/.test(direction)?'inbound':'outbound',date:dates[0]?.value,time:times[0]?.value,returnDate:dates[1]?.value,returnTime:times[1]?.value,roundtrip,earliest:earliestTransferDate()},lang));
-  details=[scope.querySelector('.furong-service-note')?.textContent,formText(scope),w('통행료·주차료 포함 / 입장권 제외. 14인승 차량 배정·요금 별도 문의.','含高速费及停车费，不含门票。十四座车辆安排及报价请咨询客服。','Tolls and parking included; admission excluded. Ask about 14-seat availability and pricing.'),w('운행·픽업 시간은 담당자 확인 후 확정합니다.','班次与接客时间须客服确认。','Departures and pickup times require staff confirmation.')].filter(Boolean).join('\n');
+  details=[scope.querySelector('.furong-service-note')?.textContent,formText(scope),w('통행료·주차료 포함 / 입장권 제외. 9명 이상 차량 배정·요금 별도 문의.','含高速费及停车费，不含门票。9人以上车辆安排及报价请咨询客服。','Tolls and parking included; admission excluded. Ask about vehicle arrangements and pricing for 9+ guests.'),w('운행·픽업 시간은 담당자 확인 후 확정합니다.','班次与接客时间须客服确认。','Departures and pickup times require staff confirmation.')].filter(Boolean).join('\n');
  }else if(kind==='recommendation'){
   let draft={};try{draft=JSON.parse(localStorage.getItem('ltc-redesign-draft-v1')||'{}');}catch{}
   const preferences=draft.recommendation||{},review=!!scope.querySelector('.recommended-review');
@@ -65,7 +65,8 @@ export function captureProduct(lang='ko'){
   const people=prefix?value(prefix+'People')||value('people'):kind==='ticket'?String(Math.max(0,...[...scope.querySelectorAll('.config.active')].map(panel=>[...panel.querySelectorAll('.age-count:not(:disabled)')].reduce((n,input)=>n+Number(input.value||0),0)))):'';
   const displayDate=kind==='guide'?[...scope.querySelectorAll('.guide-date')].map(x=>x.value).filter(Boolean).join(', '):date;
   summary=[displayDate||w('날짜 미정','日期未定','Date undecided'),people?people+w('명','人',' travellers'):'',kind==='vehicle'?document.getElementById('vehicleRoute')?.selectedOptions[0]?.textContent:''].filter(Boolean).join(' · ');
-  amountKRW=amountSelector?price(document.querySelector(amountSelector)?.textContent):null;
+  const amountNode=amountSelector?document.querySelector(amountSelector):null;
+  amountKRW=amountNode&&globalThis.window?.LTCPriceFX?.rates?.CNY>=0.0049897&&amountNode.dataset.referenceKrw!==undefined&&!/待|문의|재확인/.test(amountNode.textContent)?Number(amountNode.dataset.referenceKrw):amountSelector?price(amountNode?.textContent):null;
   if(kind==='guide'){
    const dates=[...scope.querySelectorAll('.guide-date')];
    if(!dates.length||dates.some(input=>!input.value||!input.checkValidity())||new Set(dates.map(input=>input.value)).size!==dates.length){
@@ -83,6 +84,7 @@ export function captureProduct(lang='ko'){
  const invalid=[...scope.querySelectorAll('input[type=number]')].filter(x=>shown(x)&&!x.checkValidity());
  if(invalid.length){amountKRW=null;missing.push(w('인원·수량 확인','核对人数及数量','Check counts'));}
  const fields=fieldsOverride||snapshot(scope);
+ if(kind==='furong'&&!(globalThis.window?.LTCPriceFX?.rates?.CNY>=.0049897))amountKRW=null;
  if(kind==='furong')for(const [index,group]of [...scope.querySelectorAll('.furong-options')].entries())fields.push({type:'choice',index,value:String([...group.querySelectorAll('button')].findIndex(x=>x.getAttribute('aria-pressed')==='true'))});
  let sourcePath=currentPath(kind);if(kind==='recommendation'){const url=new URL(sourcePath,location.origin);url.searchParams.set('step','details');sourcePath=url.pathname+url.search;}
  details=details.split('\n').filter(line=>!/^\s*(?:연락처|고객|이름|联系方式|姓名|客人|Contact|Name)\s*[:：]/i.test(line)).join('\n');

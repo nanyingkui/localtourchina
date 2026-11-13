@@ -1,13 +1,32 @@
-import {KEY,readState,commit,totals} from './model.mjs';
+import {KEY,readState,commit,totals,selectionIdentity} from './model.mjs';
 import {activeProduct,captureProduct,restoreProduct} from './bridge.mjs';
 import {makeCustomItem,reviewWarnings,SERVICE_OPTIONS,serviceLabel} from './custom-trip.mjs';
 import {draftKey,readDraft,writeDraft,clearDraft,activeDraft} from './drafts.mjs';
-import {CUSTOMER_CHAT_URL,copyInquiryAndOpenChat} from './chat-handoff.mjs';
+import {copyChannelBrief} from './chat-handoff.mjs';
+import {contactChannel} from './contact-channels.mjs';
+import {canonicalItem,conditionText,referenceQuote,formatReferenceQuote,latestExchangeRates} from './catalog-config.mjs';
 import {channelBrief} from './channel-brief.mjs';
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';
 const w=(ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko;
+const channel=contactChannel(lang);
+let catalog={};try{const response=await fetch('/customer-catalog.json');if(response.ok)catalog=await response.json();}catch{}
+function readCatalogState(){
+ const current=readState(localStorage);
+ const clear=item=>{const record=catalog[item.productId||item.id?.replace(/^product:/,'')];if(!record?.pricing?.requires_manual_review&&!(['vehicles','tickets','local-guide'].includes(record?.id)&&item.catalogRevision!==record.revision))return item;return {...item,quote:null,amountKRW:null,details:item.kind==='catalog'?canonicalItem(record,lang,item.conditions||{},null).details:item.details.split('\n').filter(line=>!/(예상.*금액|예상.*비용|预计金额|預計金額|Estimated.*(?:price|total)|KRW|₩)/i.test(line)).join('\n')+'\n'+w('요금: 변경된 조건으로 다시 확인','价格：须按最新条件重新确认','Price: recheck against the current conditions')};};
+ current.items=current.items.map(clear);if(current.undo?.item)current.undo.item=clear(current.undo.item);return current;
+}
+const localize=item=>{
+ const record=catalog[item.productId||item.id?.replace(/^product:/,'')];if(!record)return item;
+ const raw=item.kind==='catalog'?referenceQuote(record,item.conditions||{}):item.quote;
+ const quote=raw?formatReferenceQuote(raw,lang,marketFx||(item.quote?.fx?.rates?item.quote.fx:null)):null;
+ const localized=item.kind==='catalog'?canonicalItem(record,lang,item.conditions||{},quote):null;
+ return {...item,quote,amountKRW:item.kind==='catalog'?(quote?.totalKRW??null):item.amountKRW,title:item.kind==='furong'?w('부용진 이동','芙蓉镇接送','Furong transfer'):record.locales[lang].title,sourcePath:item.kind==='furong'?'/?view=furong&lang='+lang:record.paths[lang],...(localized?{summary:localized.summary,missing:localized.missing,details:localized.details}:item.conditions?{summary:conditionText(item.conditions,lang).replaceAll('\n',' · ')||item.summary}:{}),displayAmountText:quote?.priceLabel|| (item.kind!=='catalog'&&item.amountKRW!==null?itemMoney(item):labels.quote)};
+};
 const prefix=lang==='ko'?'/':`/${lang}/`;
-const money=n=>'₩'+n.toLocaleString('en-US');
+let marketFx=null,displayFx=null;
+
+const money=n=>displayFx?new Intl.NumberFormat(lang==='zh'?'zh-CN':'en-US',{style:'currency',currency:displayFx.currency}).format(n*displayFx.rate):'₩'+n.toLocaleString('en-US');
+const itemMoney=item=>{if(displayFx)return money(item.amountKRW);const fx=item.quote?.fx;return fx&&fx.currency===(lang==='zh'?'CNY':lang==='en'?'USD':'KRW')?new Intl.NumberFormat(lang==='zh'?'zh-CN':'en-US',{style:'currency',currency:fx.currency}).format(item.amountKRW*fx.rate)+' · '+w('참고 금액','参考价','reference'):money(item.amountKRW);};
 const $=s=>document.querySelector(s);
 function el(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x;}
 function button(text,fn,cls=''){const b=el('button',cls,text);b.type='button';b.addEventListener('click',fn);return b;}
@@ -19,9 +38,9 @@ const workingKey=id=>'ltc-ms-edit-working-v1:'+id;
 function clearWorking(id){try{sessionStorage.removeItem(workingKey(id));}catch{}}
 function persistWorking(){if(!editItem||restoring)return;const product=captureProduct(lang);if(!product)return;editDirty=true;try{const serialized=JSON.stringify({expectedRevision:editItem.revision,product});sessionStorage.setItem(workingKey(editItem.id),serialized);workingStored=sessionStorage.getItem(workingKey(editItem.id))===serialized;}catch{workingStored=false;}}
 window.addEventListener('beforeunload',event=>{if(editDirty&&!workingStored||volatileDrafts.size){event.preventDefault();event.returnValue='';}});
-try{state=readState(localStorage);}catch(error){state={version:1,revision:0,items:[],undo:null};storageError=true;}
+try{state=readCatalogState();}catch(error){state={version:1,revision:0,items:[],undo:null};storageError=true;}
 document.body.classList.add('ms-selections');
-const entry=button('',()=>openList(),'ms-entry');entry.dataset.msUi='';entry.setAttribute('aria-haspopup','dialog');document.body.append(entry);
+const entry=button('',()=>openList(),'ms-entry');entry.dataset.msUi='';entry.setAttribute('aria-haspopup','dialog');(document.querySelector('[data-selection-slot]')||document.body).append(entry);
 const toast=el('div','ms-toast');toast.dataset.msUi='';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');document.body.append(toast);let toastTimer;
 function announce(text,error=false){clearTimeout(toastTimer);toast.replaceChildren(el('span','',text));toast.classList.toggle('ms-error',error);toast.hidden=false;toastTimer=setTimeout(()=>{toast.hidden=true;},6500);}
 toast.hidden=true;
@@ -34,41 +53,50 @@ dialog.addEventListener('input',e=>e.stopPropagation());dialog.addEventListener(
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('click',event=>{if(event.target===dialog)closeDialog();});
 function closeDialog(){pauseInline();dialog.close();entry.setAttribute('aria-expanded','false');(returnFocus?.isConnected?returnFocus:entry).focus();reviewIds=null;questionEdit=null;}
-function refreshState(){try{state=readState(localStorage);storageError=false;}catch(error){storageError=true;announce(errors[error.code]||errors.STORAGE,true);}updateEntry();}
+function refreshState(){try{state=readCatalogState();storageError=false;}catch(error){storageError=true;announce(errors[error.code]||errors.STORAGE,true);}updateEntry();}
 function updateEntry(){entry.replaceChildren(el('span','ms-entry-icon',''),el('span','',labels.title),el('b','ms-entry-count',String(state.items.length)),el('small','',storageError?w('저장 확인 필요','保存异常','Check storage'):labels.saved));entry.setAttribute('aria-label',labels.title+' · '+state.items.length+w('개, 보기','项，查看',' items, view'));}
 async function mutate(action){
- const run=()=>{const current=readState(localStorage);return commit(localStorage,action,current.revision);};
+ const run=()=>{const current=readCatalogState();return commit(localStorage,action,current.revision);};
  const result=navigator.locks?await navigator.locks.request('ltc-selections-write-v1',run):run();
- state=result.state;storageError=false;updateEntry();return result;
+ state=readCatalogState();storageError=false;updateEntry();return result;
 }
 function showError(error){announce(errors[error.code]||w('저장하지 못했습니다. 입력을 유지한 채 다시 시도해 주세요.','未保存，请保留当前内容后重试。','Not saved. Your inputs are retained; retry.'),true);}
 function openDialog(){if(!dialog.open){returnFocus=document.activeElement;dialog.showModal();}entry.setAttribute('aria-expanded','true');heading.focus();}
+document.addEventListener('catalog:saved',event=>{refreshState();if(event.detail.inquire)review(['product:'+event.detail.productId]);else openList('product:'+event.detail.productId);});
 function openList(id=''){refreshState();reviewIds=null;questionEdit=null;if(id)activeId=id;renderList();openDialog();}
-function infoTotal(target,items){const sum=totals(items),row=el('div','ms-total');row.append(el('span','',w('개별 항목 참고 소계','单项参考小计','Individual-item reference subtotal')),el('strong','',sum.priced?money(sum.amount):sum.quoted?labels.quote:w('금액 항목 없음','尚无计价项目','No priced items')));target.append(row);target.append(el('p','ms-total-note',`${sum.count}${w('개 선택','项已勾选',' selected')}${sum.quoted?' · '+sum.quoted+w('개 별도 견적','项待报价',' quote required'):''}${sum.questions?' · '+sum.questions+w('개 질문','个问题',' questions'):''}${sum.incomplete?' · '+sum.incomplete+w('개 추가 입력 필요','项待补充',' need details'):''}`));}
+function infoTotal(target,items){const sum=totals(items),row=el('div','ms-total');row.append(el('span','',w('개별 항목 참고 소계','单项参考小计','Individual-item reference subtotal')),el('strong','',sum.priced?money(sum.amount):sum.quoted?labels.quote:w('금액 항목 없음','尚无计价项目','No priced items')));target.append(row);if(displayFx)target.append(el('small','ms-total-rate',w('환율 기준일: ','汇率日期：','Exchange rate dated: ')+displayFx.date));target.append(el('p','ms-total-note',`${sum.count}${w('개 선택','项已勾选',' selected')}${sum.quoted?' · '+sum.quoted+w('개 별도 견적','项待报价',' quote required'):''}${sum.questions?' · '+sum.questions+w('개 질문','个问题',' questions'):''}${sum.incomplete?' · '+sum.incomplete+w('개 추가 입력 필요','项待补充',' need details'):''}`));}
+
+latestExchangeRates().then(fx=>{
+ if(!fx?.date||!(fx.rates?.USD>0)||!(fx.rates?.CNY>0))return;
+ marketFx=fx;const currency=lang==='zh'?'CNY':'USD';if(lang!=='ko')displayFx={currency,rate:fx.rates[currency],date:fx.date};
+ if(dialog.open){if(reviewIds)review(reviewIds);else if(heading.textContent===labels.title)renderList();}
+});
+
 function showReviewWarnings(target,items){for(const warning of reviewWarnings(items,lang,state.items))target.append(el('p','ms-scope-warning',warning.message));}
 function renderList(){
  pauseInline();
  heading.textContent=labels.title;subtitle.textContent=w('카드를 열어 확인하고, 필요한 항목만 함께 문의하세요.','点开卡片查看详情，勾选本次想咨询的项目。','Open a card to review it. Include only what you want to ask about.');body.replaceChildren();foot.replaceChildren();
  const intro=el('div','ms-list-top');intro.append(el('strong','',state.items.length+w('개 담았어요','项已保存',' items saved')),el('span','',storageError?errors.CORRUPT:labels.saved));body.append(intro);
- const custom=el('section','ms-custom-entry');custom.append(el('p','ms-eyebrow',w('아직 일정이 정해지지 않았나요?','还没想好怎么选？','Still deciding on a trip?')),el('h3','',w('원하는 여행부터 알려 주세요','先告诉我，你想怎样旅行','Tell us what your trip should feel like')),el('p','',w('짧은 생각만 남겨도 괜찮아요. 날짜·예산은 나중에 확인할 수 있어요.','简单说说想法就行，日期和预算可以以后再确认。','A few words are enough. Dates and budget can follow later.')),button(w('내 취향대로 여행 상담','按我的想法定制行程','Plan a trip around me'),()=>customForm(),'ms-custom-start'));body.append(custom);
+ const custom=el('section','ms-custom-entry');custom.append(el('p','ms-eyebrow',w('아직 일정이 정해지지 않았나요?','还没想好怎么选？','Still deciding on a trip?')),el('h3','',w('원하는 여행부터 알려 주세요','先告诉我，你想怎样旅行','Tell us what your trip should feel like')),el('p','',w('짧은 생각만 남겨도 괜찮아요. 날짜·예산은 나중에 확인할 수 있어요.','简单说说想法就行，日期和预算可以以后再确认。','A few words are enough. Dates and budget can follow later.')),button(w('내 취향대로 여행 상담','按我的想法定制行程','Plan a trip around me'),()=>customForm(),'ms-custom-start'));if(!state.items.length)body.append(custom);
  showReviewWarnings(body,state.items);
  if(!state.items.length){const empty=el('div','ms-empty');empty.append(el('h3','',w('필요한 것부터 하나씩 담아 보세요','先把需要的内容，一项项放进来','Start with what you need')),el('p','',w('기존 상품 화면에서 날짜·인원·옵션을 고른 뒤 담아 주세요. 질문만 먼저 저장해도 괜찮아요.','按原来的方式选择产品、日期、人数和选项，再加入清单；也可以先存一个问题。','Use the existing product screens, then add your selections. You can save a question first.')));body.append(empty);}
  const stack=el('div','ms-stack');body.append(stack);
- for(const [index,item]of state.items.entries()){
+ for(const [index,item]of state.items.map(localize).entries()){
   const expanded=activeId===item.id,card=el('article','ms-card'+(expanded?' ms-active':'')+(item.included?'':' ms-not-included'));card.dataset.selectionId=item.id;card.style.setProperty('--card-index',index);
   const top=el('div','ms-card-top'),check=el('input');check.type='checkbox';check.checked=item.included;check.setAttribute('aria-label',w('문의에 포함: ','纳入本次咨询：','Include in inquiry: ')+item.title);
   check.addEventListener('change',async()=>{try{await mutate({type:'include',id:item.id,included:check.checked});renderList();}catch(error){check.checked=!check.checked;showError(error);}});
   const expand=button('',()=>{activeId=expanded?'':item.id;renderList();body.querySelector(`[data-selection-id="${item.id}"] .ms-card-expand`)?.focus();},'ms-card-expand');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-controls','ms-details-'+item.id);
   const text=el('span','ms-card-title');text.append(el('b','',item.title),el('small','',item.summary));
+  const picture=catalog[item.productId]?.discovery?.image;if(picture){const image=el('img','ms-item-photo');image.src=picture.startsWith('/')?picture:'/'+picture.replace(/^(\.\.\/)+/,'');image.alt='';image.loading='lazy';expand.append(image);}
   expand.append(text,el('span','ms-chevron',expanded?'−':'+'));top.append(check,expand);card.append(top);
-  const meta=el('div','ms-card-meta');meta.append(el('strong','',item.kind==='question'?w('상담 질문','咨询问题','Question'):item.amountKRW===null?labels.quote:money(item.amountKRW)),el('span',item.missing?.length?'ms-status ms-pending':'ms-status',item.missing?.length?labels.partial:item.briefVersion?w('요청 저장됨','需求已保存','Request saved'):w('조건 저장됨','条件已保存','Details saved')));card.append(meta);
+  const meta=el('div','ms-card-meta');meta.append(el('strong','',item.kind==='question'?w('상담 질문','咨询问题','Question'):item.quote?.priceLabel||(item.amountKRW===null?labels.quote:itemMoney(item))),el('span',item.missing?.length?'ms-status ms-pending':'ms-status',item.missing?.length?labels.partial:item.briefVersion?w('요청 저장됨','需求已保存','Request saved'):w('조건 저장됨','条件已保存','Details saved')));card.append(meta);
   if(expanded){const detail=el('div','ms-card-detail');detail.id='ms-details-'+item.id;if(item.missing?.length)detail.append(el('p','ms-missing',w('확인할 내용: ','待补充：','Still needed: ')+item.missing.join('、')));
    const full=el('details','ms-full'),label=el('summary','',w('세부 조건·포함 사항 보기','查看详细条件与包含项目','Details and inclusions'));full.append(label,el('pre','',item.details));detail.append(full);
    const actions=el('div','ms-card-actions');actions.append(button(labels.edit,()=>edit(item),'ms-action-main'),button(labels.remove,()=>remove(item),'ms-action-quiet'),button(w('이 항목만 문의','只咨询这一项','Ask about this item'),()=>review([item.id]),'ms-action-quiet'));detail.append(actions);card.append(detail);
   }
   stack.append(card);
  }
- const add=el('div','ms-add-actions');add.append(button(w('다른 서비스 추가','继续添加服务','Add another service'),()=>{closeDialog();location.href=prefix+'multi-booking.html?category=ticket';},'ms-add-service'),button(w('궁금한 점 추가','添加想问的问题','Add a question'),()=>questionForm(),'ms-add-question'));body.append(add);
+ const add=el('div','ms-add-actions');add.append(button(w('다른 여행·서비스 추가','继续挑选产品或服务','Add tours or services'),()=>{closeDialog();location.href=prefix+'products.html';},'ms-add-service'),button(w('궁금한 점 추가','添加想问的问题','Add a question'),()=>questionForm(),'ms-add-question'));body.append(add);if(state.items.length)body.append(custom);
  if(state.undo){const undo=el('div','ms-undo');undo.append(el('span','',w('제거한 항목: ','已移除：','Removed: ')+state.undo.item.title),button(w('되돌리기','撤销','Undo'),async()=>{try{const result=await mutate({type:'undo'});activeId=result.item.id;renderList();announce(w('다시 담았습니다.','已恢复到清单。','Restored to your list.'));}catch(error){showError(error);}}));body.append(undo);}
  infoTotal(foot,state.items);
  const ask=button(w('선택한 항목 문의하기','咨询已选项目','Ask about selected items'),()=>review(state.items.filter(x=>x.included).map(x=>x.id)),'ms-primary');ask.disabled=!totals(state.items).count||storageError;foot.append(ask,el('small','ms-local-note',w('현재 브라우저에 저장 · 실제 예약 확정 아님','保存在当前浏览器 · 尚未确认预订','Saved in this browser · not a confirmed booking')));
@@ -130,26 +158,36 @@ function customForm(item=null){
  foot.append(save,button(labels.cancel,()=>{finishInline(session);renderList();},'ms-secondary'));storeInline(session,gather(),notice);if(session.resumed)notice.textContent=w('저장 전 맞춤 요청을 복원했습니다. 원래 선택은 그대로입니다.','已恢复尚未保存的定制需求，原选择保持不变。','Unsaved custom request restored. Saved choices are unchanged.');openDialog();controls.wish.focus();
 }
 function review(ids){
- refreshState();reviewIds=ids;const items=state.items.filter(x=>ids.includes(x.id)).map(x=>({...x,included:true}));if(!items.length)return openList();
- heading.textContent=w('카카오톡 문의 전 확인','发往Kakao频道前核对','Review before Kakao inquiry');subtitle.textContent=w('선택한 내용과 질문을 함께 복사해 기존 카카오톡 채널에서 상담하세요.','把已选产品、定制需求和问题一起复制，到原来的Kakao频道咨询。','Copy your choices and questions for the existing Kakao channel.');body.replaceChildren();foot.replaceChildren();
+ refreshState();reviewIds=ids;const items=state.items.filter(x=>ids.includes(x.id)).map(x=>({...localize(x),included:true}));if(!items.length)return openList();
+ heading.textContent=w('카카오톡 문의 전 확인','微信咨询前核对','Review before WhatsApp inquiry');subtitle.textContent=w('선택한 상품과 조건을 확인한 뒤 카카오톡으로 보내 주세요.','核对产品和条件后，复制给微信客服。','Review your products and conditions, then share them on WhatsApp.');body.replaceChildren();foot.replaceChildren();
  body.append(button(w('선택 목록으로 돌아가기','返回选择清单','Back to selections'),()=>{reviewIds=null;renderList();},'ms-back'));showReviewWarnings(body,items);
- for(const item of items){const row=el('article','ms-review-row');row.append(el('h3','',item.title),el('p','',item.summary),el('strong','',item.kind==='question'?w('상담 질문','咨询问题','Question'):item.amountKRW===null?labels.quote:money(item.amountKRW)));if(item.missing?.length)row.append(el('p','ms-missing',w('상담 시 확인: ','咨询时补充：','To confirm: ')+item.missing.join('、')));const detail=el('details');detail.append(el('summary','',w('세부 내용','详细内容','Full details')),el('pre','',item.details));row.append(detail);body.append(row);}
- const area=el('textarea','ms-inquiry-text');area.readOnly=true;area.rows=9;area.setAttribute('aria-label',w('문의 내용 미리보기','咨询内容预览','Inquiry preview'));reviewText=channelBrief(items,lang,state.items);area.value=reviewText;
+ for(const item of items){const row=el('article','ms-review-row');row.append(el('h3','',item.title),el('p','',item.summary),el('strong','',item.kind==='question'?w('상담 질문','咨询问题','Question'):item.quote?.priceLabel||(item.amountKRW===null?labels.quote:itemMoney(item))));if(item.quote?.displayText)row.append(el('p','ms-quote-snapshot',item.quote.displayText));if(item.missing?.length)row.append(el('p','ms-missing',w('상담 시 확인: ','咨询时补充：','To confirm: ')+item.missing.join('、')));const detail=el('details');detail.append(el('summary','',w('세부 내용','详细内容','Full details')),el('pre','',item.details));row.append(detail);body.append(row);}
+ const area=el('textarea','ms-inquiry-text');area.readOnly=true;area.rows=9;area.setAttribute('aria-label',w('문의 내용 미리보기','咨询内容预览','Inquiry preview'));reviewText=channelBrief(items,lang,state.items);if(displayFx)reviewText=reviewText.replace(/KRW ([\d,]+)/g,(_,v)=>money(Number(v.replaceAll(',',''))));area.value=reviewText;
  const full=el('details','ms-full-text');full.append(el('summary','',w('전체 문의 내용 확인','查看完整咨询内容','Show full inquiry text')),area);body.append(full);
  infoTotal(foot,items);
- const handoffNote=el('p','ms-local-note',w('붙여넣고 직접 보내 주세요. 열기만 하면 전달되지 않아요. 지금 결제하거나 예약하지 않습니다.','进入频道后，请自行粘贴并发送。只打开窗口不会发送消息；不会付款或预订。','Paste and send in the channel. Opening it sends nothing; no payment or booking.'));handoffNote.setAttribute('role','status');
- const openChannel=button(w('내용 복사 · 카카오톡 채널 열기','复制需求并打开Kakao频道','Copy request · open Kakao channel'),async()=>{openChannel.disabled=true;const content=reviewText;try{const result=await copyInquiryAndOpenChat(content,{navigate:url=>{if(reviewIds!==ids)throw Error('REVIEW_CHANGED');location.assign(url);}});if(!result.copied){full.open=true;area.focus();area.select();handoffNote.textContent=w('자동 복사가 되지 않았습니다. 아래 내용을 직접 복사한 뒤 채널을 열어 주세요.','自动复制失败，请先手动复制完整内容，再打开频道。','Copy failed. Copy the full text manually before opening the channel.');}else handoffNote.textContent=result.opened?w('복사했습니다. 카카오톡에서 붙여넣고 직접 보내 주세요.','已复制，请在Kakao频道粘贴并自行发送。','Copied. Paste and send in Kakao.'):w('내용은 복사되었습니다. 목록을 다시 확인한 뒤 채널을 직접 열어 주세요.','内容已复制，请重新核对清单后手动打开频道。','Copied. Review the list and open the channel manually.');}finally{openChannel.disabled=false;}},'ms-primary');
- const copyOnly=button(w('복사만 하기 · 채널은 나중에 열기','仅复制需求，先不打开','Copy only · open channel later'),async()=>{try{await navigator.clipboard.writeText(reviewText);handoffNote.textContent=w('복사 완료 · 채널을 열거나 메시지를 전송하지 않았습니다.','已复制需求；未打开频道，也没有发送消息。','Copied only. No channel opened or message sent.');announce(handoffNote.textContent);}catch{full.open=true;area.focus();area.select();handoffNote.textContent=w('내용을 직접 복사해 주세요.','请手动复制完整内容。','Copy the text manually.');}},'ms-secondary');
- const manual=el('a','ms-channel-manual',w('기존 카카오톡 채널 직접 열기','手动打开原Kakao频道','Open the existing Kakao channel'));manual.href=CUSTOMER_CHAT_URL;manual.dataset.msChannelOpen='true';manual.target='_blank';manual.rel='noopener noreferrer';
- foot.append(openChannel,copyOnly,manual,handoffNote);
+ const handoffNote=el('p','ms-local-note',w('붙여넣고 직접 보내 주세요. 열기만 하면 전달되지 않아요. 지금 결제하거나 예약하지 않습니다.','请在微信中粘贴并自行发送。复制内容不会发送消息，也不会付款或预订。','Paste and send in the channel. Opening it sends nothing; no payment or booking.'));handoffNote.setAttribute('role','status');
+ const openChannel=button(w('내용 복사 · 카카오톡 열기','复制咨询内容','Copy request · open WhatsApp'),async()=>{
+  openChannel.disabled=true;
+  try{const copied=await copyChannelBrief(reviewText);if(!copied){full.open=true;area.focus();area.select();handoffNote.textContent=w('아래 내용을 직접 복사해 주세요.','请手动复制下方完整内容。','Please copy the full text below.');return;}
+   handoffNote.textContent=w('복사했습니다. 카카오톡에서 직접 붙여넣고 보내 주세요.','咨询内容已复制，请粘贴给微信客服 nanyingkui 并自行发送。','Copied. Paste and send in WhatsApp.');
+   if(channel.url){const url=lang==='en'?channel.url+'?text='+encodeURIComponent(reviewText):channel.url;window.open(url,'_blank','noopener,noreferrer');}
+  }finally{openChannel.disabled=false;}
+ },'ms-primary');
+ const copyOnly=button(w('내용만 복사','复制微信号 nanyingkui','Copy request only'),async()=>{const content=lang==='zh'?channel.id:reviewText;const copied=await copyChannelBrief(content);handoffNote.textContent=copied?w('복사했습니다. 메시지는 전송되지 않았습니다.','已复制；未发送消息。','Copied. No message sent.'):w('직접 복사해 주세요.','请手动复制。','Please copy manually.');if(!copied){full.open=true;area.focus();area.select();}},'ms-secondary');
+ foot.append(openChannel,copyOnly);
+ if(channel.url){const manual=el('a','ms-channel-manual',w('카카오톡 직접 열기','打开客服','Open WhatsApp'));manual.href=channel.url;manual.dataset.msChannelOpen='true';manual.target='_blank';manual.rel='noopener noreferrer';foot.append(manual);}
+ else foot.append(el('p','ms-channel-manual','微信：'+channel.id));
+ foot.append(handoffNote);
  openDialog();
 }
 async function saveProduct(){
  if(saveBusy)return;const product=captureProduct(lang);if(!product){openList();return;}
  saveBusy=true;document.querySelectorAll('.ms-save-product').forEach(x=>x.disabled=true);
- if(!addIntent)addIntent=editItem?.id||crypto.randomUUID();
+ let record;try{record=JSON.parse(document.querySelector('#catalog-current')?.textContent||'null');}catch{}
+ if(!addIntent)addIntent=record?selectionIdentity(record.id,product.kind):editItem?.id||crypto.randomUUID();
+ if(record){product.catalogRevision=record.revision;product.productId=record.id;if(product.kind!=='furong')product.title=record.locales[lang].title;product.sourcePath=product.kind==='furong'?'/?view=furong&lang='+lang:record.paths[lang];}
  try{
-  const result=await mutate({type:'save',item:{...product,id:addIntent},...(editItem?{expectedItemRevision:editItem.revision}:{})});
+  const result=await mutate({type:'save',item:{...product,id:addIntent},...((editItem||state.items.find(x=>x.id===addIntent))?{expectedItemRevision:(editItem||state.items.find(x=>x.id===addIntent)).revision}:{})});
   if(editItem)clearWorking(editItem.id);editItem=null;editDirty=false;addIntent=null;const url=new URL(location.href);url.searchParams.delete('msEdit');history.replaceState(history.state,'',url);
   activeId=result.item.id;renderSavebars();openList(result.item.id);
   announce(result.duplicate?w('같은 선택이 이미 저장되어 있어요. 기존 항목을 보여 드립니다.','相同选择已保存，已为你打开原项目。','This selection is already saved. Showing the existing item.'):product.missing.length?w('추가 입력이 필요한 항목으로 저장했습니다.','已保存，未填齐的内容已标为“待补充”。','Saved. Missing details are clearly marked.'):w('저장했습니다. 계속 고르거나 목록에서 수정할 수 있어요.','已保存，可以继续选择或在清单中修改。','Saved. Continue choosing or edit it in your list.'));
@@ -169,14 +207,14 @@ function renderSavebars(){
  if(!bar){bar=el('section','ms-savebar');bar.dataset.msUi='';const host=current.kind==='furong'?current.scope.querySelector('form'):current.scope.querySelector('aside.summary,.online-summary')||current.scope;host.append(bar);}
  const signature=(editItem?'edit:'+editItem.id:'add')+':'+current.kind;if(bar.dataset.mode===signature)return;bar.dataset.mode=signature;bar.replaceChildren();bar.hidden=false;
  const words=el('div','ms-savebar-copy');words.append(el('b','',editItem?w('저장한 항목을 수정 중이에요','正在修改已保存的项目','Editing your saved item'):w('선택한 조건을 보관하세요','把刚选好的条件保存下来','Keep the choices you just made')),el('small','',editItem?w('저장하기 전에는 원래 선택이 바뀌지 않습니다.','保存修改前，原项目不会改变。','Your saved item stays unchanged until you save.'):w('날짜가 미정이어도 먼저 담아 둘 수 있어요.','日期未定也可以先存为待补充。','You can save first and fill missing details later.')));bar.append(words,button(editItem?labels.save:labels.add,saveProduct,'ms-save-product ms-primary'));
- if(current.kind==='furong')bar.append(button(w('14인승 차량·요금 문의','十四座车辆安排及报价咨询','Ask about a 14-seat vehicle'),()=>{openDialog();questionForm(null,{kind:'manual',title:w('부용진 14인승 · 별도 견적','芙蓉镇十四座 · 单独询价','Furong 14-seat · request quote'),details:w('부용진 14인승 차량 가능 여부와 왕복 요금을 문의합니다. 희망 날짜, 인원, 출발 지역을 아래에 적어 주세요.','想咨询芙蓉镇十四座车辆能否安排及往返报价。请在下方补充希望日期、人数和出发区域。','Please confirm 14-seat availability and a Furong round-trip quote. Add dates, group size and departure area below.')});},'ms-secondary'));
+ if(current.kind==='furong')bar.append(button(w('9명 이상 차량·요금 문의','9人以上车辆安排及报价咨询','Ask about transport for 9+ guests'),()=>{openDialog();questionForm(null,{kind:'manual',title:w('부용진 9명 이상 · 별도 견적','芙蓉镇9人以上 · 单独询价','Furong 9+ guests · request quote'),details:w('부용진 9명 이상 차량 배정과 왕복 요금을 문의합니다. 희망 날짜, 인원, 출발 지역을 아래에 적어 주세요.','想咨询芙蓉镇9人以上车辆安排及往返报价。请在下方补充希望日期、人数和出发区域。','Please confirm vehicle arrangements for 9+ guests and a Furong round-trip quote. Add dates, group size and departure area below.')});},'ms-secondary'));
  if(editItem)bar.append(button(labels.cancel,async()=>{const original=editItem;try{restoring=true;await restoreProduct(original);clearWorking(original.id);editItem=null;editDirty=false;addIntent=null;const u=new URL(location.href);u.searchParams.delete('msEdit');history.replaceState(history.state,'',u);renderSavebars();openList(original.id);announce(w('수정을 취소했습니다. 원래 선택을 유지합니다.','已取消修改，保留原选择。','Edit cancelled. Original choice retained.'));}catch(error){showError(error);}finally{restoring=false;}},'ms-secondary'));
  // Save is beside the existing summary/action, rather than hidden below the whole page.
  const anchor=current.scope.querySelector('.redesign-submit');
  if(anchor&&anchor.parentElement===bar.parentElement)anchor.before(bar);
 }
 let scheduled=false;
-function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(async()=>{scheduled=false;renderSavebars();const id=new URLSearchParams(location.search).get('msEdit');if(id&&restoredId!==id){const item=state.items.find(x=>x.id===id);if(!item){restoredId=id;announce(errors.MISSING,true);return;}if(activeProduct()||document.querySelector('[data-shop-category]')){restoredId=id;editItem=JSON.parse(JSON.stringify(item));let working;try{const saved=JSON.parse(sessionStorage.getItem(workingKey(id))||'null');if(saved?.expectedRevision===item.revision)working=saved.product;}catch{}restoring=true;const restored=await restoreProduct(working||item);restoring=false;if(!restored){editItem=null;announce(w('원래 상품을 열지 못했습니다. 목록에서 다시 수정해 주세요.','未能打开原产品，请从清单重新修改。','Could not open the original product. Retry editing from your list.'),true);return;}editDirty=!!working;renderSavebars();$('.ms-savebar:not([hidden])')?.scrollIntoView({block:'center'});announce(working?w('저장 전 수정 내용을 복원했습니다. 원래 선택은 그대로입니다.','已恢复尚未保存的修改，原选择仍保持不变。','Unsaved edits restored. Your saved item remains unchanged.'):w('원래 선택을 불러왔습니다. 수정 후 저장해 주세요.','已带出原选择，修改后请保存。','Original choices loaded. Save when you finish editing.'));}}});}
+function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(async()=>{scheduled=false;renderSavebars();const id=new URLSearchParams(location.search).get('msEdit');if(id&&restoredId!==id&&!document.querySelector('[data-catalog-form]')){const item=state.items.find(x=>x.id===id);if(!item){restoredId=id;announce(errors.MISSING,true);return;}if(activeProduct()||document.querySelector('[data-shop-category]')){restoredId=id;editItem=JSON.parse(JSON.stringify(item));let working;try{const saved=JSON.parse(sessionStorage.getItem(workingKey(id))||'null');if(saved?.expectedRevision===item.revision)working=saved.product;}catch{}restoring=true;const restored=await restoreProduct(working||item);restoring=false;if(!restored){editItem=null;announce(w('원래 상품을 열지 못했습니다. 목록에서 다시 수정해 주세요.','未能打开原产品，请从清单重新修改。','Could not open the original product. Retry editing from your list.'),true);return;}editDirty=!!working;renderSavebars();$('.ms-savebar:not([hidden])')?.scrollIntoView({block:'center'});announce(working?w('저장 전 수정 내용을 복원했습니다. 원래 선택은 그대로입니다.','已恢复尚未保存的修改，原选择仍保持不变。','Unsaved edits restored. Your saved item remains unchanged.'):w('원래 선택을 불러왔습니다. 수정 후 저장해 주세요.','已带出原选择，修改后请保存。','Original choices loaded. Save when you finish editing.'));}}});}
 document.addEventListener('click',e=>{if(!e.target.closest('[data-ms-ui]')){schedule();if(editItem&&!restoring)requestAnimationFrame(persistWorking);}});document.addEventListener('change',e=>{if(!e.target.closest('[data-ms-ui]')){addIntent=null;schedule();if(editItem&&!restoring)requestAnimationFrame(persistWorking);}});
 document.addEventListener('input',e=>{if(!e.target.closest('[data-ms-ui]')&&editItem&&!restoring)requestAnimationFrame(persistWorking);});
 // Adapt only customer selection actions. No network, database or order interception.

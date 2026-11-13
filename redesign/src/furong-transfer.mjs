@@ -1,5 +1,6 @@
 export const TRANSFER_VERSION='furong-v4-20261101';
-export const RATES={city:{shared:12000,private:96000},wulingyuan:{shared:19500,private:156000}};
+import {RATES} from './catalog-transfer-rates.mjs';
+export {RATES};
 export function transferQuote({mode='shared',region='city',journey='oneway',people=1,returnRegion=region}){
  if(!['shared','private'].includes(mode)||!['oneway','roundtrip'].includes(journey)||!RATES[region]||!RATES[returnRegion]||!Number.isInteger(Number(people))||people<1||people>8)throw Error('INVALID_TRANSFER');
  const count=mode==='shared'?Number(people):1,legs=[{region,amount:RATES[region][mode]*count}];

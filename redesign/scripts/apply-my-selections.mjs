@@ -7,7 +7,7 @@ const publicDir=path.join(project,'public'),source=path.join(project,'src/select
 const files=new Map();
 for(const name of (await fs.readdir(source)).sort())if(/\.(mjs|css)$/.test(name))files.set(name,await fs.readFile(path.join(source,name)));
 // Shared pricing and the existing Kakao channel remain canonical.
-for(const name of ['furong-transfer.mjs','chat-handoff.mjs'])files.set(name,await fs.readFile(path.join(project,'src',name)));
+for(const name of ['furong-transfer.mjs','chat-handoff.mjs','catalog-transfer-rates.mjs'])files.set(name,await fs.readFile(path.join(project,'src',name)));
 files.set('start.js',Buffer.from("import(new URL('./ui.mjs',document.currentScript.src).href).catch(error=>console.error('My selections could not load',error));\n"));
 const hash=crypto.createHash('sha256');for(const [name,bytes]of files)hash.update(name).update(bytes);
 const version=hash.digest('hex').slice(0,12),base='/assets/my-selections/'+version;
