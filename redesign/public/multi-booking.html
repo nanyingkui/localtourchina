@@ -834,7 +834,11 @@
     if(privateProducts)privateProducts.hidden=!sanya;
     if(sanya&&!privateProducts?.dataset.linkReady&&/^#sanya(?:-|PrivateProducts)/.test(location.hash)){
       if(privateProducts)privateProducts.dataset.linkReady='true';
-      const scrollToProduct=()=>document.getElementById(location.hash.slice(1))?.scrollIntoView({behavior:'instant'});
+      const scrollToProduct=()=>{
+        const target=document.getElementById(location.hash.slice(1));
+        if(target?.matches('details'))target.open=true;
+        target?.scrollIntoView({behavior:'instant'});
+      };
       requestAnimationFrame(scrollToProduct);
       if(document.readyState!=='complete')window.addEventListener('load',scrollToProduct,{once:true});
     }
@@ -872,6 +876,9 @@
   }
   $$('[data-day-destination]').forEach(b=>b.addEventListener('click',()=>{tourId=b.dataset.dayDestination;renderTourPicker();renderTourForm();$('#dayProducts').scrollIntoView({block:'start',behavior:window.LTCInterface.scrollBehavior()});}));
   $('#sanyaPrivateProducts')?.addEventListener('click',event=>{
+    const link=event.target.closest('a[href^="#sanya-"]');
+    const target=link&&document.getElementById(link.hash.slice(1));
+    if(target?.matches('details'))target.open=true;
     const button=event.target.closest('[data-sanya-inquiry]');
     if(button)copyText(button.dataset.sanyaInquiry,button);
   });

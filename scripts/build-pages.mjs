@@ -164,6 +164,21 @@ const reviews = JSON.parse(await readFile(path.join(root, 'src/reviews.json'), '
 const restaurants = JSON.parse(await readFile(path.join(root, 'src/restaurants.json'), 'utf8')).filter(item => !['rejected', 'draft', 'needs_reverification'].includes(item.status));
 const youtubeReviews = JSON.parse(await readFile(path.join(root, 'src/youtube-reviews.json'), 'utf8'));
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const additionalSanyaProducts = JSON.parse(await readFile(path.join(root, 'src/sanya-additional-products.json'), 'utf8'));
+const sanyaAdditionalCards = additionalSanyaProducts.map(product => {
+  const { code, title, route, duration, price, unit, included, excluded, options, notes } = product;
+  const inquiry = ['[로투차 싼야 상품 문의]', `상품: ${title} (${code})`, '여행 날짜:', '인원:', '호텔 또는 항공편:', '희망 옵션:'].join('\n');
+  return `<details class="card sanya-catalog-product" id="sanya-${code.toLowerCase()}" style="scroll-margin-top:96px">
+    <summary><strong>${escapeHtml(title)}</strong><br><span>${escapeHtml(duration)} · ${price.toLocaleString('ko-KR')}원부터 · ${escapeHtml(unit)}</span></summary>
+    <div class="timeline"><div>${escapeHtml(route)}</div></div>
+    <div class="check-columns"><div><b>포함</b><p>${escapeHtml(included)}</p></div><div><b>불포함</b><p>${escapeHtml(excluded)}</p></div></div>
+    <p><b>옵션별 포함·별도 선택</b><br>${escapeHtml(options)}</p>
+    <p class="fine"><b>예약 전 확인</b><br>${escapeHtml(notes)} 표시 금액은 참고 시작가입니다.</p>
+    <div class="module-actions"><button type="button" class="btn btn-outline" data-sanya-inquiry="${escapeHtml(inquiry)}">① 문의 양식 복사</button><a class="btn btn-primary" href="https://pf.kakao.com/_hvrmn/chat" target="_blank" rel="noopener noreferrer">② KakaoTalk 열기</a></div>
+    <p class="fine">복사한 양식을 카카오톡에 붙여넣고 여행 정보를 입력해 주세요.</p>
+  </details>`;
+}).join('\n');
+
 const renderFoodExtra = item => {
   const photos=(item.images||[]).slice(1).filter(photo=>isVerifiedFoodImage(photo.src,photo.imageVerification));
   const gallery=photos.length?`<div class="food-gallery">${photos.map(photo=>`<figure><img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt)}" loading="lazy" referrerpolicy="no-referrer"><figcaption>${escapeHtml(photo.alt)}</figcaption></figure>`).join('')}</div><p class="food-image-note">${escapeHtml(item.galleryNote||'출처와 매장 일치를 확인한 사진입니다. 실제 메뉴와 구성은 달라질 수 있습니다.')}</p>`:'';
@@ -269,7 +284,7 @@ for (const page of pages) {
     .replace('<body data-initial-service="home">', `<body data-initial-service="${page.service}">`)
     .replace(/service-tab active/g, 'service-tab');
 
-  if(page.service!=='daytour')html=withoutSanyaPrivate(html);
+  html = page.service === 'daytour' ? html.replace('{{SANYA_ADDITIONAL_PRODUCTS}}', () => sanyaAdditionalCards) : withoutSanyaPrivate(html);
   const activePattern = new RegExp(`(<a class="service-tab)([^"]*" data-service="${page.service}")`);
   html = html.replace(activePattern, '$1 active$2');
   html = html.replace('href="en/index.html" data-en-link', `href="en/${page.service==='booking'?'multi-booking.html':page.service==='food'?'travel-info.html':page.service==='reviews'?'reviews.html':page.file}" data-en-link`);
