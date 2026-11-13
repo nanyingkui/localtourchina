@@ -168,9 +168,18 @@ const additionalSanyaProducts = JSON.parse(await readFile(path.join(root, 'src/s
 const sanyaAdditionalCards = additionalSanyaProducts.map(product => {
   const { code, title, route, duration, price, unit, included, excluded, options, notes } = product;
   const inquiry = ['[로투차 싼야 상품 문의]', `상품: ${title} (${code})`, '여행 날짜:', '인원:', '호텔 또는 항공편:', '희망 옵션:'].join('\n');
+  const photoMarkup = (photo, cover) => {
+    if (!photo) return '';
+    const { src, caption, width, height, source, author, license } = photo;
+    const credit = source ? ` · <a href="${escapeHtml(source)}">${escapeHtml(author)}</a> · <a href="${escapeHtml(license)}">이용 조건</a> · 보정` : '';
+    return `<figure class="sanya-product-photo${cover ? ' sanya-product-cover' : ''}"><img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}" width="${width}" height="${height}" loading="lazy" decoding="async"><figcaption>${escapeHtml(caption)}${credit}</figcaption></figure>`;
+  };
+  const [cover, ...details] = product.photos || [];
   return `<details class="card sanya-catalog-product" id="sanya-${code.toLowerCase()}" style="scroll-margin-top:96px">
     <summary><strong>${escapeHtml(title)}</strong><br><span>${escapeHtml(duration)} · ${price.toLocaleString('ko-KR')}원부터 · ${escapeHtml(unit)}</span></summary>
+    ${photoMarkup(cover, true)}
     <div class="timeline"><div>${escapeHtml(route)}</div></div>
+    ${details.map(photo => photoMarkup(photo, false)).join('')}
     <div class="check-columns"><div><b>포함</b><p>${escapeHtml(included)}</p></div><div><b>불포함</b><p>${escapeHtml(excluded)}</p></div></div>
     <p><b>옵션별 포함·별도 선택</b><br>${escapeHtml(options)}</p>
     <p class="fine"><b>예약 전 확인</b><br>${escapeHtml(notes)} 표시 금액은 참고 시작가입니다.</p>

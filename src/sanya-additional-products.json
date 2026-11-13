@@ -9,7 +9,27 @@
     "included": "시내 호텔 왕복 픽업, 가이드, 에어컨 전용 차량과 기사, 일정상 입장권, 현지 세금과 수수료, 생수",
     "excluded": "팁, 식사, 개인 경비, 공항·기차역 픽업 및 샌딩 별도",
     "options": "원문에 별도 명시 없음",
-    "notes": "공항·기차역 이동은 원문 기준 팀당 40,014~100,034원 (원문 200~500위안) 한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요."
+    "notes": "공항·기차역 이동은 원문 기준 팀당 40,014~100,034원 (원문 200~500위안) 한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요.",
+    "photos": [
+      {
+        "src": "/assets/media/sanya-private/3.jpg",
+        "caption": "싼야 남산사 · 현장 사진",
+        "width": 1700,
+        "height": 1129,
+        "source": "https://commons.wikimedia.org/wiki/File:Nanshan_Temple.JPG",
+        "author": "Jazon88 · CC BY-SA 3.0",
+        "license": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/assets/media/sanya-private/story-4-1.jpg",
+        "caption": "사찰 관람 참고 · AI 삽화",
+        "width": 750,
+        "height": 1000,
+        "source": null,
+        "author": null,
+        "license": null
+      }
+    ]
   },
   {
     "code": "201356P1",
@@ -21,7 +41,27 @@
     "included": "전용 차량, 가이드, 생수, 어선 30분, 해산물 점심, 시장 간식과 과일, 음료",
     "excluded": "팁, 개인 경비, 저녁, 숙박",
     "options": "원문에 별도 명시 없음",
-    "notes": "한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요."
+    "notes": "한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요.",
+    "photos": [
+      {
+        "src": "/assets/media/sanya-private/qingshui-bay.jpg",
+        "caption": "칭수이완 해변 · 앨범 미리보기 보정",
+        "width": 1500,
+        "height": 705,
+        "source": null,
+        "author": null,
+        "license": null
+      },
+      {
+        "src": "/assets/media/sanya-private/oysters.jpg",
+        "caption": "굴 요리 · 현지 음식 참고, 상품 점심 메뉴는 예약 전 확인",
+        "width": 1365,
+        "height": 885,
+        "source": null,
+        "author": null,
+        "license": null
+      }
+    ]
   },
   {
     "code": "10289P49",
@@ -33,7 +73,27 @@
     "included": "시내 호텔 왕복 픽업, 에어컨 전용 차량과 기사, 가이드, 일정상 입장권, 생수, 현지 세금과 수수료",
     "excluded": "팁, 개인 경비, 식사",
     "options": "원문에 별도 명시 없음",
-    "notes": "한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요."
+    "notes": "한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요.",
+    "photos": [
+      {
+        "src": "/assets/media/sanya-private/yanoda-forest.jpg",
+        "caption": "야노다 열대우림 · 현장 사진",
+        "width": 1500,
+        "height": 1125,
+        "source": "https://commons.wikimedia.org/wiki/File:Yanoda.jpg",
+        "author": "Hanno Böck · CC0",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "src": "/assets/media/sanya-private/yanoda-entrance.jpg",
+        "caption": "야노다 입구 · 현장 사진",
+        "width": 1500,
+        "height": 1125,
+        "source": "https://commons.wikimedia.org/wiki/File:Yanoda-entrance.jpg",
+        "author": "Hanno Böck · CC0",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ]
   },
   {
     "code": "10289P48",
@@ -45,7 +105,27 @@
     "included": "에어컨 전용 차량과 기사, 가이드, 현지식 뷔페 점심, 입장권",
     "excluded": "팁, 개인 경비",
     "options": "원문에 별도 명시 없음",
-    "notes": "소개와 상세 일정의 민속마을 명칭이 달라 정확한 방문지 확인 필요 한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요."
+    "notes": "소개와 상세 일정의 민속마을 명칭이 달라 정확한 방문지 확인 필요 한국어 안내 또는 지원 가능 여부는 예약 전 확인해 주세요.",
+    "photos": [
+      {
+        "src": "/assets/media/sanya-private/yanoda-forest.jpg",
+        "caption": "야노다 열대우림 · 현장 사진",
+        "width": 1500,
+        "height": 1125,
+        "source": "https://commons.wikimedia.org/wiki/File:Yanoda.jpg",
+        "author": "Hanno Böck · CC0",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "src": "/assets/media/sanya-private/binglang-album.jpg",
+        "caption": "빈랑구 · 민속문화 참고 사진. 실제 방문지는 예약 전 확인 · 앨범 미리보기 보정",
+        "width": 1495,
+        "height": 1125,
+        "source": null,
+        "author": null,
+        "license": null
+      }
+    ]
   },
   {
     "code": "55574P179",
@@ -57,7 +137,27 @@
     "included": "에어컨 전용 차량, 세금과 수수료",
     "excluded": "가이드",
     "options": "원문에 별도 명시 없음",
-    "notes": "여행일과 인원에 따른 이용 가능 여부를 예약 전 확인해 주세요."
+    "notes": "여행일과 인원에 따른 이용 가능 여부를 예약 전 확인해 주세요.",
+    "photos": [
+      {
+        "src": "/assets/media/sanya-private/4.jpg",
+        "caption": "싼야 펑황공항 · 현장 사진",
+        "width": 1700,
+        "height": 567,
+        "source": "https://commons.wikimedia.org/wiki/File:Wikivoyage_banner_of_Sanya_Phoenix_Airport.jpg",
+        "author": "lienyuan lee · CC BY 3.0",
+        "license": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "src": "/assets/media/sanya-private/story-3-2.jpg",
+        "caption": "공항 이동 참고 · AI 삽화. 실제 차량과 만나는 장소는 예약 전 확인",
+        "width": 750,
+        "height": 1000,
+        "source": null,
+        "author": null,
+        "license": null
+      }
+    ]
   },
   {
     "code": "201356P18",
