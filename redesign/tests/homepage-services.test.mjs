@@ -20,14 +20,19 @@ function render(lang,destination='zhangjiajie') {
  globalThis.location={search:'?destination='+destination};
  return renderToStaticMarkup(React.createElement(Storefront,{lang,onSelect:()=>{},onHelp:()=>{}}));
 }
-test('KakaoTalk is the first consultation entry; the package form remains a secondary link in every locale',()=>{
+test('Korean 3-night package leads with the quote form and keeps KakaoTalk',()=>{
  for(const lang of ['ko','zh','en']){
   const html=render(lang);
   assert.match(html,/<a class="home-channel-primary" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
-  assert.match(html,/<a class="hub-primary recommended-main-action recommended-channel-action" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
   assert.ok(html.indexOf('home-channel-primary')<html.indexOf('class="service-shortcut"'));
-  assert.ok(html.indexOf('recommended-channel-action')<html.indexOf('recommended-form-entry'));
-  assert.match(html,/class="recommended-form-entry" href="[^\"]*view=recommendation&amp;mode=private/);
+  if(lang==='ko'){
+   assert.match(html,/<a class="hub-primary recommended-main-action" href="[^"]*route=regular34[^"]*">이 일정 견적 받기/);
+   assert.match(html,/<a class="recommended-form-entry" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
+   assert.ok(html.indexOf('이 일정 견적 받기')<html.indexOf('카카오톡으로 이 일정 문의하기'));
+  }else{
+   assert.match(html,/<a class="hub-primary recommended-main-action recommended-channel-action" href="https:\/\/pf\.kakao\.com\/_hvrmn\/chat"/);
+   assert.match(html,/class="recommended-form-entry" href="[^"]*view=recommendation&amp;mode=private/);
+  }
  }
 });
 for (const lang of ['ko','zh','en']) {

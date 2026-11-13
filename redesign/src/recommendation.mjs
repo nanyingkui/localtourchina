@@ -3,6 +3,8 @@ import {assessPackage,packageParty,packageCopy,packagePartyLabel,validArrivalTim
 import {findTrip,formatTripPrice,packageTitle,tripDuration} from './trip-catalog.mjs';
 
 export const DEFAULT_ROUTE='regular34';
+export const isHomepageQuotePilot=(lang,routeId)=>lang==='ko'&&routeId===DEFAULT_ROUTE;
+export const isHomepageQuoteReceipt=(lang,record)=>record.configuration?.recommendationVersion===RECOMMENDATION_VERSION&&isHomepageQuotePilot(lang,record.configuration.productId);
 export const RECOMMENDED_ROUTES=['regular34','regular45','regular56','custom67'];
 export const RECOMMENDATION_VERSION='route-v1';
 export const recommendedRoute=id=>{
