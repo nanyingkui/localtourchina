@@ -1,0 +1,51 @@
+.phase{margin:0;background:#f5f5f7;color:#202520;font:16px/1.55 "Noto Sans KR",system-ui,sans-serif}
+.phase *{box-sizing:border-box}
+.phase-nav,.phase-main{width:min(1120px,calc(100% - 40px));margin:auto}
+.phase-nav{display:flex;justify-content:space-between;align-items:center;min-height:64px}
+.phase-nav a{color:#184f3f;text-decoration:none;font-weight:750}
+.phase-nav small{font-size:10px;letter-spacing:.1em;margin-left:5px}
+.phase-hero{min-height:440px;display:grid;grid-template-columns:1fr 1.05fr;overflow:hidden;border-radius:26px;background:#173e34;color:white;margin-bottom:24px;animation:phase-enter .45s ease-out both}
+.phase-hero div{padding:clamp(24px,5vw,64px);align-self:center}
+.phase-hero p:not(.phase-kicker){color:#e3ebe6;margin-bottom:25px}
+.phase-hero img{width:100%;height:100%;min-height:260px;object-fit:cover}
+.phase h1,.phase h2{line-height:1.15;margin:0 0 14px;letter-spacing:-.045em}
+.phase h1{font-size:clamp(38px,6vw,68px)}
+.phase h2{font-size:26px}
+.phase-kicker{font-size:14px;font-weight:700;margin:0 0 12px}
+.phase-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:20px;align-items:start}
+.phase-panel{background:white;padding:clamp(20px,3vw,34px);border-radius:24px;margin:0 0 20px}
+.phase-quote{scroll-margin-top:15px}
+.phase-price{background:#ebf3ed;border-radius:12px;padding:12px 14px;font-weight:700}
+.phase-days{padding-left:28px}
+.phase-days li{padding:12px 0 8px 10px;border-bottom:1px solid #e8ede8}
+.phase-days li::marker{color:#29634c;font-weight:800}
+.phase-days p,.phase-scope dd{margin:3px 0 10px;color:#48564e}
+.phase-scope dt{font-weight:750}
+.phase-button{box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;min-height:48px;padding:8px 14px;background:#1d654c;color:white;border:0;border-radius:12px;text-decoration:none;font:inherit;font-weight:750;cursor:pointer;margin-top:12px;transition:transform .15s}
+.phase-button:hover,.phase-home a:hover{transform:translateY(-2px)}
+.phase-button:disabled{opacity:.55}
+.phase-hero .phase-button{width:fit-content;background:white;color:#173e34}
+.phase-kakao{background:#fee500;color:#27220a}
+.phase-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.phase label{display:block;min-width:0;margin:0 0 12px;font-weight:650}
+.phase input:not([type=checkbox]),.phase textarea{display:block;min-height:46px;width:100%;min-width:0;box-sizing:border-box;border:1px solid #b9c6bc;border-radius:9px;padding:8px 10px;background:white;color:#202520;font:inherit;margin-top:4px}
+.phase small,.phase-muted{font-size:13px}
+.phase-muted{color:#45534b;margin:8px 0}
+.phase-copy{background:white;color:#184f3f;border:1px solid #b9c6bc;border-radius:9px;min-height:44px;font:inherit;padding:6px 12px;margin-top:8px;cursor:pointer}
+.phase-narrow{max-width:650px}
+.phase-narrow h1{font-size:clamp(36px,6vw,56px)}
+.phase-narrow pre{white-space:pre-wrap;font:inherit;background:#eef3ef;padding:14px;border-radius:12px}
+.phase-home{max-width:1080px;margin:16px auto 26px;padding:16px 20px;background:#edf4ef;border-radius:20px}
+.phase-home p{margin:0 0 8px;font-weight:750}
+.phase-home nav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phase-home a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px;min-height:48px;background:white;border-radius:12px;text-decoration:none;color:#194d3e;font-weight:750;transition:transform .15s}
+@keyframes phase-enter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media(max-width:720px){.phase-hero,.phase-grid{grid-template-columns:1fr}.phase-hero img{height:240px;min-height:0}.phase-quote{grid-row:1}.phase-home{margin-inline:12px}.phase-home a{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.phase *,.phase-home a{animation:none;transition:none}}
+.phase-hero .tour-hero-price{color:#fff;font-size:17px;margin:0 0 12px}
+.tour-hero-price strong{font-size:clamp(24px,4vw,34px)}
+.tour-rates{width:min(100%,560px);border-collapse:collapse;margin:0 0 22px}
+.tour-rates th,.tour-rates td{text-align:left;padding:10px 8px;border-bottom:1px solid #dce7df}
+.tour-rates thead{background:#edf4ef}
+
+.phase-hero .phase-kakao{background:#fee500;color:#25200a}
