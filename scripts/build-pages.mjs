@@ -350,7 +350,8 @@ for(const page of zhPages){
   await writeFile(path.join(zhDir,page.file),withImageDimensions(html.replace(/<(section|div)\b[^>]*class="[^"]*\bservice-panel\b[^"]*"[^>]*>/g, tag => { const id=tag.match(/id="service-([^"]+)"/)?.[1]; return tag.replace(/\s+hidden\b/g, "").replace(/>$/, id===page.service ? ">" : " hidden>"); })));
 }
 
-const sitemapUrls = [...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'})),{file:'reviews.html',service:'reviews',prefix:'en/'},{file:'travel-help.html',service:'help',prefix:''}].map(page => {
+const productPages = ['day-forest.html', 'day-tianmen.html', 'day-canyon.html', 'day-furong.html', 'day-fenghuang.html', 'zhangjiajie-4n5d.html'];
+const sitemapUrls = [...productPages.map(file=>({file,prefix:''})),...pages.map(page=>({...page,prefix:''})),...englishPages.map(page=>({...page,prefix:'en/'})),...zhPages.map(page=>({...page,prefix:'zh/'})),{file:'reviews.html',service:'reviews',prefix:'en/'},{file:'travel-help.html',service:'help',prefix:''}].map(page => {
   const url = `https://localtourchina.com/${page.prefix}${page.file === 'index.html' ? '' : page.file}`;
   const priority = page.service === 'home' ? '1.0' : '0.8';
   return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString().slice(0,10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
