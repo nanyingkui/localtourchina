@@ -7,12 +7,10 @@ const groups = [
     ['장가계 핵심 3박 4일', '천문산과 국가삼림공원 중심', '/?route=regular34#recommended-title', 'forest-east'],
     ['장가계 4박 5일', '늦게 도착하는 날은 호텔로, 다음 날부터 관광', '/zhangjiajie-4n5d.html', 'canyon-bridge-wide'],
   ]],
-  ['장가계 일일투어', [
+  ['장가계 및 주변 투어', [
     ['무릉원 국가삼림공원', '원가계·천자산 · 약 11시간 30분', '/day-forest.html', 'forest-east'],
     ['천문산', '전통시장·천문동 · 약 8시간 20분', '/day-tianmen.html', 'tianmen-cave'],
     ['황룡동·대협곡', '동굴·유리다리 · 약 8시간', '/day-canyon.html', 'canyon-bridge-wide'],
-  ]],
-  ['장가계 출발 · 샹시 고속철도 여행', [
     ['부용진 폭포·야경 일일투어', '2인 단독 240,000원 · 4인 합류 170,000원 / 1인', '/day-furong.html', 'furong-town'],
     ['봉황고성 야경 1박 2일', '2인 단독 560,000원 · 4인 합류 390,000원 / 1인', '/day-fenghuang.html', 'fenghuang'],
   ]],
@@ -28,7 +26,7 @@ export default function KoreanHomeProducts() {
     </section>
     <div id="zhangjiajie-products">
       {groups.map(([label, products]) => <section className="kr-products" key={label}>
-        <h2>{label}</h2><div className="kr-product-grid" data-size={products.length}>
+        <h2>{label}</h2><div className="kr-product-grid" data-size={products.length === 2 ? 2 : 3}>
         {products.map(([title, detail, url, image]) => <a href={url} key={url}>
           <img src={places + image + '-jpg-640.webp'} alt="" loading="lazy" />
           <div><h3>{title}</h3><p>{detail}</p><span>일정 보기 →</span></div>
