@@ -57,7 +57,7 @@ export function KoreanDestinationPhotos() {
         <img src={photos+'sun-bay.jpg'} alt="싼야 타이양완 해안" loading="lazy"/>
         <img src={photos+'li-weaving.jpg'} alt="하이난 리족 전통 직조" loading="lazy"/>
         <img src={photos+'tanka-boat.jpg'} alt="싼야 단자 어민의 어선" loading="lazy"/>
-      </div><a href="/day-tours.html?destination=sanya">싼야 여행 보기 →</a></section>
+      </div><a href="/sanya-catalog.html">싼야 여행 보기 →</a></section>
     </div>
     <details className="kr-photo-credits"><summary>사진 출처</summary><ul>{credits.map(([title,file,author,license])=>
       <li key={file}><a href={'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file)}>{title}</a> · {author} · Wikimedia Commons · <a href={'https://creativecommons.org/licenses/'+license+'/'}>CC {license.toUpperCase().replace('/',' ')}</a></li>

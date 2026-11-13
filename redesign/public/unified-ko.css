@@ -1,0 +1,35 @@
+.ltc-nav,.ltc-catalog{box-sizing:border-box;width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.ltc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:68px;color:#2a483e;font:700 14px/1.5 system-ui,sans-serif}
+.ltc-nav a,.ltc-jumps a,.ltc-products a{color:inherit;text-decoration:none}
+.ltc-nav nav,.ltc-jumps{display:flex;flex-wrap:wrap;gap:14px}
+.ltc-nav .ltc-brand{font-size:21px;white-space:nowrap}.ltc-brand small{font-size:10px;letter-spacing:.1em}
+.ltc-nav .ltc-chat{background:#fee500;color:#262626;border-radius:10px;padding:10px 12px;white-space:nowrap}
+.ltc-catalog-page{margin:0;background:#f9f8f6;color:#262626;font:16px/1.55 system-ui,sans-serif}
+.ltc-catalog{padding:30px 0 65px}.ltc-catalog h1{font-size:clamp(36px,6vw,60px);margin:0 0 16px}.ltc-catalog section{margin-top:42px}
+.ltc-jumps a{background:#f2efe9;padding:10px 12px;border-radius:9px}
+.ltc-products{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ltc-products a{display:flex;justify-content:space-between;gap:10px;background:#f2efe9;padding:14px;border-radius:10px}
+.ltc-products a:hover,.ltc-jumps a:hover{background:#e4e9e1}.ltc-products a:focus-visible,.ltc-nav a:focus-visible{outline:2px solid #2a483e;outline-offset:3px}
+.ltc-editorial{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 24px}.ltc-editorial figure{margin:0;min-width:0}.ltc-editorial img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover;border-radius:12px}.ltc-editorial figcaption{font-size:13px;padding:5px 0}
+.ltc-illustration{display:block;margin-top:14px;color:white}
+@media(max-width:640px){.ltc-nav{flex-wrap:wrap;padding-block:8px}.ltc-nav nav{order:3;flex-basis:100%}.ltc-brand small{display:none}.ltc-products{grid-template-columns:1fr}}
+body:has(>.ltc-nav){background:#f9f8f6;color:#262626}
+body:has(>.ltc-nav) :is(.service-panel,.phase-panel,.sanya-catalog-product){--brand:#2a483e;--brand2:#233d34;--soft:#f2efe9}
+body:has(>.ltc-nav) :is(.service-panel,.phase-panel) :is(button,a,input,select):focus-visible{outline:2px solid #a35641;outline-offset:3px}
+.ltc-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:640px){.ltc-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+body:has(>.ltc-nav) .topbar{display:none!important}
+body:has(>.ltc-nav) .phase-panel{border:1px solid #ebe4d8}
+body:has(>.ltc-nav) .phase-hero{background:#203e34}
+body:has(>.ltc-nav) .phase-hero h1{color:white}
+.ltc-return{width:min(1120px,calc(100% - 40px));margin:0 auto 12px}
+.ltc-return a{color:#2a483e;font-weight:700}
+.ltc-return a+a{display:none}
+body:has(>.ltc-nav) :is(.wrap,.phase-main){width:min(1120px,calc(100% - 40px));margin-inline:auto}
+body:has(>.ltc-nav) :is(.module-head,.service-illustration-hero,.prep-hero,.guide-intro){background-color:#f2efe9;border-radius:16px}
+body:has(>.ltc-nav) :is(.service-panel,.phase-panel,.ko-panel) :is(h1,h2,h3){letter-spacing:-.035em}
+body:has(>.ltc-nav) .service-panel :is(input,select,textarea){border-color:#c9c4b9}
+body:has(>.ltc-nav) .service-panel :is(.card,.product-option){border-radius:12px}
+body:has(>.ltc-nav) :is(.store-trips a,.ltc-products a,.ko-button){transition:transform .2s ease,background-color .2s ease}
+body:has(>.ltc-nav) :is(.store-trips a,.ltc-products a,.ko-button):hover{transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){body:has(>.ltc-nav) :is(.store-trips a,.ltc-products a,.ko-button){transition:none;transform:none}}

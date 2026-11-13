@@ -1,0 +1,30 @@
+.sanya-lead{display:grid;grid-template-columns:1fr 1fr;background:#203e34;color:#fff;border-radius:20px;overflow:hidden;margin:20px 0 24px}
+.sanya-lead div{padding:clamp(24px,5vw,60px);align-self:center}
+.sanya-lead a{color:#fff}
+.sanya-lead h1{margin:.6em 0 .25em}
+.sanya-lead img{width:100%;height:100%;min-height:220px;object-fit:cover}
+.sanya-categories{display:flex;gap:8px;flex-wrap:wrap;padding:0 0 18px;border-bottom:1px solid #d8ded7}
+.sanya-categories a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:9px;background:#edece4;color:#203e34;text-decoration:none;font-weight:700}
+.sanya-categories a[aria-current]{background:#203e34;color:#fff}
+.sanya-categories a:focus-visible{outline:2px solid #203e34;outline-offset:3px}
+.sanya-group h2{margin:24px 0 12px}
+@media(max-width:620px){.sanya-lead{grid-template-columns:1fr}.sanya-lead img{height:150px;min-height:0}}
+.ltc-destinations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ltc-destinations>a{display:grid;grid-template-rows:auto 1fr;overflow:hidden;border-radius:16px;background:#f2efe9;color:#203e34;text-decoration:none}
+.ltc-destinations img{width:100%;aspect-ratio:2.25;object-fit:cover;transition:transform .35s ease}
+.ltc-destinations>a:hover img{transform:scale(1.025)}
+.ltc-destinations>a>div{position:relative;padding:18px 20px;display:flex;align-items:flex-start;flex-direction:column}
+.ltc-destinations h3{margin:0;font-size:clamp(22px,4vw,34px)}
+.ltc-destinations small{margin-bottom:6px;font-weight:700}
+.ltc-destinations span{margin-top:auto;font-weight:700}
+@media(prefers-reduced-motion:reduce){.ltc-destinations img{transition:none}}
+.sanya-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:48px}
+.sanya-card{display:flex;flex-direction:column;overflow:hidden;border-radius:16px;background:#f2efe9;color:#203e34;text-decoration:none}
+.sanya-card img{width:100%;aspect-ratio:2/1;object-fit:cover;transition:transform .3s ease}
+.sanya-card:hover img{transform:scale(1.025)}
+.sanya-card div{position:relative;display:flex;flex-direction:column;flex:1;padding:18px 20px}
+.sanya-card p{margin:0;color:#555d54}
+.sanya-card h3{margin:5px 0 14px;word-break:keep-all}
+.sanya-card span{margin-top:auto;font-weight:700}
+@media(max-width:540px){.sanya-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.sanya-card img{transition:none}}
