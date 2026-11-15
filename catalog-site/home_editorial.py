@@ -40,7 +40,7 @@ def render_home(lang, catalog):
       <section class="home-hero home-container" aria-labelledby="home-title">
         <div class="home-hero-copy"><p class="home-intro">{t('후난과 하이난, 현지에서 만나는 중국','湖南与海南，从当地看中国','Hunan & Hainan, through local eyes')}</p>
         <h1 id="home-title">{heading}</h1>
-        <div class="home-hero-bottom"><p>{t('장가계의 산길에서 싼야의 해변까지.<br>보고 싶은 풍경과 머물고 싶은 순간을<br>당신의 속도로 만나세요.','从张家界的山间，到三亚的海岸。<br>去看向往的风景，<br>也为喜欢的日常停留。','From the peaks of Zhangjiajie to the shores of Sanya. Make room for the places, and the moments, you want to linger in.')}</p>
+        <div class="home-hero-bottom"><p>{t('장가계와 싼야의 현지 여행을 준비합니다.<br>여행 전에는 일정과 비용을 확인하고,<br>현지에서는 항공편과 일행에 맞춰 움직입니다.','从张家界的山间，到三亚的海岸。<br>去看向往的风景，<br>也为喜欢的日常停留。','From the peaks of Zhangjiajie to the shores of Sanya. Make room for the places, and the moments, you want to linger in.')}</p>
         <div class="home-hero-actions"><a class="store-button primary" href="#trips">{t('추천 여행 살펴보기','探索精选行程','Explore our journeys')}{arrow}</a><button class="home-link" type="button" data-contact>{t('여행 상담하기','聊聊我的旅行','Talk about your trip')}{arrow}</button></div></div></div>
         <figure class="home-hero-photo"><img src="/editorial/peaks.webp" width="1600" height="819" alt="{t('구름 사이로 솟은 장가계의 산봉우리','云雾间的张家界峰林','Zhangjiajie peaks rising through the clouds')}" fetchpriority="high"><figcaption><span>{t('장가계, 후난','张家界，湖南','Zhangjiajie, Hunan')}</span><a href="{browse}#packages">{t('이곳으로 떠나기','探索这里','Explore this place')}{arrow}</a></figcaption></figure>
       </section>
@@ -79,6 +79,10 @@ def render_home(lang, catalog):
     main=main.replace('<section class="home-story', '</div><section class="home-story',1)
     main=main.replace('aria-labelledby="story-title"><div class="home-container">','aria-labelledby="story-title"><div class="home-container">'+chapter('04',t('현지의 일상','在地生活','Local life')),1)
     main=re.sub(r'(<h2 id="promise-title">.*?</h2>)',lambda m:'<div>'+chapter('05',t('로투차의 약속','我们的承诺','Our promise'))+m[1]+'</div>',main,count=1,flags=re.S)
+    if lang == 'ko':
+        service = (BASE / 'ko-hosted-tours.html').read_text()
+        main = re.sub(r'<section class="home-promise home-container".*?</section>',
+                      lambda _: service, main, count=1, flags=re.S)
     review_url=('' if lang=='ko' else '/'+lang)+'/reviews.html'
     main=main.replace('<section class="home-contact', '<section class="home-container home-section review-browse"><h2>'+t('여행자들의 이야기','旅行者的分享','Stories from our travellers')+'</h2><p>'+t('네이버 카페와 YouTube에 남겨 주신 원문을 확인하세요.','查看 Naver Cafe 与 YouTube 上的完整原文和出处。','Read the original Naver Cafe and YouTube reviews, with their sources.')+'</p><a class="home-link" href="'+review_url+'">'+t('여행 후기 보기','查看旅行评价','Read traveller reviews')+' ↗</a></section><section class="home-contact',1)
     credits = re.search(r'<div class="phase-main store-credits">(.*?)</div>', ('<div class="phase-main store-credits">'+(BASE/'image-credits.html').read_text()+'</div>'), re.S)

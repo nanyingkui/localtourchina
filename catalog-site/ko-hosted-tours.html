@@ -1,0 +1,65 @@
+<section class="home-container home-section local-service" aria-labelledby="promise-title">
+<div class="home-section-head"><div><h2 id="promise-title">장가계 여행, 로투차가 현지에서 챙기는 일</h2><p>공항에서 만나는 장소부터 숙소와 식사, 관광 일정을 함께 확인합니다.</p></div></div>
+<div class="local-service-body">
+<figure class="ltc-tour-gallery" aria-label="로투차 현장 사진">
+<div class="ltc-tour-track" tabindex="0" aria-label="사진을 좌우로 넘겨 보세요"><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-01.jpg" alt="공항에서 로투차 안내판을 들고 여행객과 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-02.jpg" alt="장가계의 바위 봉우리 앞에서"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-03.jpg" alt="전용차 앞에서 로투차 안내판과 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-04.jpg" alt="현지 식당에서 함께한 식사"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-05.jpg" alt="푸른 숲길에서"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-06.jpg" alt="공항에서 여행객과 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-07.jpg" alt="이동 중 차량 안에서"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-08.jpg" alt="현지 식당에서 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-09.jpg" alt="이동 중 차 안에서 찍은 사진"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-10.jpg" alt="저녁에 로투차 안내판과 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-11.jpg" alt="저녁에 차량 옆에서"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-12.jpg" alt="차량 앞에서 여행객과 함께"></div><div class="ltc-slide"><img loading="lazy" decoding="async" src="/photos/hosted-tours/guest-13.jpg" alt="공항 대기 공간에서"></div></div>
+<div class="ltc-tour-controls"><button type="button" data-gallery-step="-1" aria-label="이전 사진">←</button><span aria-live="polite">1 / 13</span><button type="button" data-gallery-step="1" aria-label="다음 사진">→</button></div>
+</figure>
+<dl>
+<div><dt>항공편과 날씨에 맞춰 짜는 일정</dt><dd>도착 시간과 천문산의 시간대별 구름·습도·가시거리를 살핍니다. 이동과 입장 시간을 확인한 뒤, 일정을 조정할 수 있는지 안내합니다.</dd></div>
+<div><dt>일행의 걸음과 입맛에 맞는 선택</dt><dd>걷는 속도와 계단이 부담스러운 구간을 미리 확인합니다. 식사는 매운맛과 향신료에 대한 선호를 듣고, 현지 음식과 편하게 드실 메뉴를 함께 제안합니다.</dd></div>
+<div><dt>예약 전에 확인하는 여행비</dt><dd>호텔 지점과 객실, 포함된 식사와 입장권, 일행 총액과 별도 비용을 견적에서 확인할 수 있습니다. 일정에는 쇼핑 매장 방문이나 유료 선택관광이 없습니다.</dd></div>
+</dl></div></section>
+<style>
+.local-service .home-section-head{margin-bottom:24px}
+.local-service .home-section-head p{margin:8px 0 0}
+.local-service-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:clamp(24px,5vw,68px);align-items:center}
+.local-service-body figure,.local-service-body dl{margin:0}
+.local-service-body img{display:block;width:100%;height:auto;border-radius:8px}
+.local-service-body figcaption{font-size:.82rem;color:#52625b;margin-top:8px}
+.local-service-body dl>div{padding:14px 0;border-bottom:1px solid #cbd3ce}
+.local-service-body dl>div:first-child{border-top:1px solid #cbd3ce}
+.local-service-body dt{font-weight:750}
+.local-service-body dd{margin:5px 0 0;line-height:1.65}
+@media(max-width:700px){.local-service-body{grid-template-columns:1fr;gap:18px}.local-service-body figure{order:1}}
+
+.ltc-tour-gallery{min-width:0;position:relative}
+.ltc-tour-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;background:#25241f}
+.ltc-tour-track::-webkit-scrollbar{display:none}
+.ltc-tour-track:focus-visible,.ltc-tour-controls button:focus-visible{outline:2px solid #af572c;outline-offset:3px}
+.ltc-slide{flex:0 0 100%;min-width:0;aspect-ratio:4/3;scroll-snap-align:start;scroll-snap-stop:always}
+.local-service-body .ltc-slide img{width:100%;height:100%;object-fit:contain;border-radius:0}
+.ltc-tour-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:8px;color:#35423a;font-size:.85rem;font-variant-numeric:tabular-nums}
+.ltc-tour-controls button{width:44px;height:44px;border:1px solid #bdc6c0;border-radius:50%;background:white;color:inherit;font-size:19px;cursor:pointer}
+.ltc-tour-controls button:disabled{opacity:.4;cursor:default}
+</style>
+<script>
+{
+ const gallery=document.querySelector('.ltc-tour-gallery');
+ const track=gallery.querySelector('.ltc-tour-track');
+ const slides=[...track.children];
+ const [previous,next]=gallery.querySelectorAll('button');
+ const counter=gallery.querySelector('span');
+ let selected=0;
+ function update(){
+   selected=Math.min(slides.length-1,Math.max(0,Math.round(track.scrollLeft/track.clientWidth)));
+   counter.textContent=(selected+1)+' / '+slides.length;
+   previous.disabled=selected===0;
+   next.disabled=selected===slides.length-1;
+ }
+ function move(step){
+   const target=Math.min(slides.length-1,Math.max(0,selected+step));
+   const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+   track.scrollTo({left:target*track.clientWidth,behavior:reduceMotion?'instant':'smooth'});
+ }
+ previous.addEventListener('click',()=>move(-1));
+ next.addEventListener('click',()=>move(1));
+ track.addEventListener('scroll',update,{passive:true});
+ track.addEventListener('keydown',event=>{
+   if(event.key!=='ArrowLeft'&&event.key!=='ArrowRight')return;
+   event.preventDefault();
+   move(event.key==='ArrowLeft'?-1:1);
+ });
+ update();
+}
+</script>
