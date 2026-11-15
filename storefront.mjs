@@ -1,4 +1,4 @@
-import {contactChannel} from '/assets/my-selections/38568a60b57b/contact-channels.mjs';
+import {contactChannel} from '/assets/my-selections/3ae041a90e23/contact-channels.mjs';
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';
 const w=(ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko,channel=contactChannel(lang);
 const header=document.querySelector('[data-store-header]');
@@ -87,7 +87,7 @@ async function settleService(){
  }
  if(hero&&serviceRecord&&hero.contains(serviceRecord))hero.after(serviceRecord);
  const intro=scope.querySelector('.jd-service-intro');if(intro&&serviceRecord)intro.after(serviceRecord);
- if(!params.has('msEdit')&&!params.has('attraction')&&!params.has('service')){try{const [{readState},{restoreProduct,activeProduct}]=await Promise.all([import('/assets/my-selections/38568a60b57b/model.mjs'),import('/assets/my-selections/38568a60b57b/bridge.mjs')]);const saved=readState(localStorage).items.find(x=>x.id==='product:'+record.id);if(!serviceEdited&&saved?.fields?.length&&saved.kind===activeProduct()?.kind)await restoreProduct(saved);}catch{}}
+ if(!params.has('msEdit')&&!params.has('attraction')&&!params.has('service')){try{const [{readState},{restoreProduct,activeProduct}]=await Promise.all([import('/assets/my-selections/3ae041a90e23/model.mjs'),import('/assets/my-selections/3ae041a90e23/bridge.mjs')]);const saved=readState(localStorage).items.find(x=>x.id==='product:'+record.id);if(!serviceEdited&&saved?.fields?.length&&saved.kind===activeProduct()?.kind)await restoreProduct(saved);}catch{}}
  document.querySelectorAll('a[href^="https://pf.kakao.com/"]').forEach(a=>{if(lang==='en'){a.href=channel.url;a.textContent='Contact on WhatsApp';}else if(lang==='zh'){const b=document.createElement('button');b.type='button';b.className=a.className;b.dataset.contact='';b.textContent='微信咨询';a.replaceWith(b);}});
  document.body.dataset.serviceReady='true';document.dispatchEvent(new Event('service:ready'));
 }

@@ -9,7 +9,7 @@ def quote_form(record,lang,action):
     fields+=select('party',t('우리 일행 인원','同行人数','Party size'),[('',t('인원 선택','选择人数','Select guests'))]+[(str(n),str(n)+t('명','人',' guests')) for n in range(2,31)])
     hotels=record['pricing'].get('hotelOptions',[])
     fields+=select('hotel',t('숙박 호텔','住宿酒店','Your hotel'),[('',t('호텔 선택','选择酒店','Select a hotel'))]+[(escape(h['id']),escape(t('시내','市区','City') if h['area']=='city' else t('무릉원','武陵源','Wulingyuan'))+' · '+escape(h['names'][lang])) for h in hotels])
-    fields+=select('arrival',t('도착 시간','抵达方案','Arrival plan'),[('late',t('늦은 도착 · 첫날 호텔 이동','晚到：首日入住休息','Late arrival · hotel on day one')),('early',t('이른 도착 · 첫날 관광','早到：首日安排游览','Early arrival · sightseeing on day one'))])
+    fields+=select('arrival',t('도착 시간','抵达方案','Arrival plan'),[('late',t('오후·야간 도착 · 첫날 호텔 이동','下午或晚间抵达：首日入住休息','Afternoon/evening arrival · hotel on day one')),('early',t('정오 도착 · 오후 관광 가능 여부 확인','中午抵达：下午游览需确认','Midday arrival · afternoon sightseeing to confirm'))])
     fields+=select('departure',t('귀국 항공편','返程航班','Departure flight'),[('night',t('늦은 저녁 항공편','深夜航班','Late-night flight')),('afternoon',t('오후 항공편 · 시간 확인 필요','下午航班：需核实游览时间','Afternoon flight · timing to confirm'))])
     fields+=select('mode',t('출발 방식','出发方式','Departure type'),[('private',t('우리 일행 단독','独立出发','Private departure')),('shared',t('합류 가능 여부 상담','咨询拼团可能性','Ask about joining a group'))])
     fields+=select('room',t('객실 구성','房间安排','Room arrangement'),[('standard',t('2인 1실 · 홀수 1명 별도 객실','双人一间，奇数余下1人单独一间','Twin sharing; separate room for an unpaired guest')),('extra',t('추가 객실·가족 객실 상담','额外房间或家庭房咨询','Extra rooms or family rooms'))])

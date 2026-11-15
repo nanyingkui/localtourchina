@@ -100,7 +100,7 @@ def quote_form(record,lang):
  fields=select('mode',w3('출발 방식','出发方式','Departure type'),modes)
  fields+='<label for="catalog-party">'+w3('우리 일행 인원','我方同行人数','Guests in our party')+'<input id="catalog-party" name="party" type="number" min="1" max="99" step="1" inputmode="numeric" placeholder="'+w3('인원','人数','Guests')+'"></label>'
  fields+='<label for="catalog-date">'+w3('희망 날짜 (미정이면 비워 두세요)','意向日期（未定可留空）','Preferred date (leave blank if undecided)')+'<input id="catalog-date" name="date" type="date"></label>'
- if multi:fields+=select('arrival',w3('도착 시간','抵达方案','Arrival plan'),[choose,('early',w3('이른 도착','早到','Early arrival')),('late',w3('늦은 도착','晚到','Late arrival'))])
+ if multi:fields+=select('arrival',w3('도착 시간','抵达方案','Arrival plan'),[choose,('early',w3('정오 무렵 도착','中午抵达','Midday arrival')),('late',w3('늦은 도착','晚到','Late arrival'))])
  if multi:fields+=select('departure',w3('출발 항공편','返程航班时段','Departure flight'),[choose,('afternoon',w3('오후 항공편 · 일정 확인 필요','下午航班，需核实游览余量','Afternoon flight · timing check required')),('night',w3('늦은 저녁 항공편','深夜航班','Late-night flight'))])
  if multi or pid=='fenghuang':fields+=select('season',w3('여행 시기','价格适用日期','Travel period'),[choose,('regular',w3('일반 날짜','平日','Regular dates')),('holiday',w3('중국 공휴일·호텔 할증일','中国节假日及酒店加价日','Chinese holidays / hotel surcharge dates'))])
  if multi or pid=='fenghuang':fields+=select('room',w3('객실 구성','房间安排','Room arrangement'),[choose,('standard',w3('2인 1실 · 홀수 1명은 별도 객실','双人一间，奇数余下1人单独一间','Twin sharing; separate room for an unpaired guest')),('extra',w3('추가 객실 요청','需要额外房间','Extra rooms requested'))])

@@ -1,5 +1,5 @@
 import {resolveReferenceQuote,formatReferenceQuote,latestExchangeRates,conditionText,pick} from '/catalog-config.mjs';
-import {KEY,readState} from '/assets/my-selections/38568a60b57b/model.mjs';
+import {KEY,readState} from '/assets/my-selections/3ae041a90e23/model.mjs';
 import {loadCatalog} from '/assets/runtime-api.mjs';
 const originalRecord=JSON.parse(document.getElementById('catalog-current').textContent);
 let record=originalRecord;try{record=(await loadCatalog())[originalRecord.id]||{...originalRecord,archived:true};}catch{}
