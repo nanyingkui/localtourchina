@@ -1,4 +1,4 @@
-"""Korean booking guidance and photography for reviewed product pages."""
+"""Multilingual booking guidance and photography for reviewed product pages."""
 from functools import lru_cache
 from pathlib import Path
 import json
@@ -6,14 +6,15 @@ import re
 
 
 @lru_cache(maxsize=1)
-def _presentations():
-    return json.loads(Path(__file__).with_name('ko-product-presentation.json').read_text())
+def _presentations(lang):
+    filename = 'ko-product-presentation.json' if lang == 'ko' else 'localized-product-presentation.json'
+    return json.loads(Path(__file__).with_name(filename).read_text())
 
 
 def apply_product_presentation(path, html, lang):
-    if lang != 'ko' or path not in _presentations():
+    entry = _presentations(lang).get(path)
+    if entry is None:
         return html
-    entry = _presentations()[path]
     intro = re.search(r'<section class="jd-detail-intro".*?</section>', html, re.S)
     if intro:
         opening = intro[0].removesuffix('</section>')
