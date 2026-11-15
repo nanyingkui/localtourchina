@@ -6,6 +6,7 @@ ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT/'catalog-site'))
 from storefront_view import homepage,catalogue,detail,enhance_existing
 from catalog_registry import records
+from product_presentation import apply_product_presentation
 C=records();DEST=ROOT/'redesign/dist/client'
 manifest=json.loads((ROOT/'catalog-site/export-manifest.json').read_text())
 assert manifest['sha256']==hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()).hexdigest(), 'Re-export the canonical catalogue before building'
@@ -16,6 +17,7 @@ for r in C.values():
 VERSION=hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()+b''.join(p.read_bytes() for p in sorted((ROOT/'redesign/src/selections').glob('*')) if p.is_file())+b''.join((ROOT/'redesign/public'/p).read_bytes() for p in ['tour-config.mjs','catalog-choice.js'])).hexdigest()[:12]
 ASSET=f'/assets/my-selections/{VERSION}/'
 def publish(path,html,lang,alternates):
+    html=apply_product_presentation(path,html,lang)
     html=html.replace('20261113journey',VERSION)
     html=html.replace('<meta name="robots" content="noindex,nofollow">','')
     html=re.sub(r'<link[^>]+rel="(?:canonical|alternate)"[^>]*>','',html)

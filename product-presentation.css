@@ -1,0 +1,16 @@
+.ltc-buy{box-sizing:border-box;display:block;color:#202a3a;background:#f6f4ef;border:1px solid #ded8cc;border-radius:14px;width:100%;max-width:1080px;margin:18px auto 28px;padding:clamp(16px,4vw,36px);font:400 16px/1.65 system-ui,sans-serif;overflow-wrap:anywhere}
+.ltc-buy h2{font:750 clamp(23px,4vw,36px)/1.24 system-ui,sans-serif;margin:0 0 9px;color:#202a3a;letter-spacing:-.04em}.ltc-buy p{margin:0}.ltc-buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}.ltc-buy-grid div{border-top:1px solid #cfc7b8;padding-top:10px}.ltc-buy-grid strong{display:block;margin-bottom:4px}.ltc-buy details{padding:10px 0;border-top:1px solid #cfc7b8}.ltc-buy summary{cursor:pointer;font-weight:650}.ltc-buy details p{margin-top:8px}
+@media(max-width:650px){.ltc-buy-grid{grid-template-columns:1fr;gap:12px}.ltc-buy{font-size:15px;margin:12px auto 22px}}
+
+
+.ltc-cover{display:grid;gap:7px;grid-template-columns:minmax(0,1fr);padding:0;margin:0!important;min-width:0;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#e9e5dc;box-shadow:0 12px 30px rgb(27 28 41 / 9%)}
+.ltc-cover.ltc-pair{grid-template-columns:minmax(0,2.15fr) minmax(0,1fr)}
+.ltc-cover-frame{position:relative;overflow:hidden;min-width:0;min-height:0}
+.ltc-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 50%);transition:transform .55s ease}
+.ltc-pair .ltc-cover-frame:last-child::after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,rgb(0 0 0 / 62%));pointer-events:none}
+.ltc-cover-frame span{position:absolute;bottom:10px;left:10px;right:6px;color:#fff;font:600 13px/1.35 system-ui;z-index:1}
+.ltc-cover-note{position:absolute;right:8px;bottom:8px;padding:4px 7px;color:#fff;background:#263040de;border-radius:4px;font:600 12px/1.25 system-ui}
+.ltc-cover-standalone{width:min(100%,1080px);margin:18px auto!important;aspect-ratio:22/8}
+.ltc-cover-credit{padding:12px 20px;color:#596373;font:13px/1.4 system-ui}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.ltc-cover-frame:hover img{transform:scale(1.035)}}
+@media(max-width:650px){.ltc-cover,.ltc-cover-standalone{aspect-ratio:2/1;border-radius:10px}.ltc-cover-frame span{font-size:12px;left:6px;bottom:6px}.ltc-cover{gap:4px}}
