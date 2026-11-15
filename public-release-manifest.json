@@ -1357,5 +1357,7 @@
   "product-presentation.css",
   "en/travel-safety.html",
   "travel-safety.html",
-  "zh/travel-safety.html"
+  "zh/travel-safety.html",
+  "assets/contact-gate.js",
+  "assets/contact-safety-page.js"
 ]
