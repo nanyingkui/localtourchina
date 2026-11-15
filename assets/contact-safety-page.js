@@ -1,5 +1,7 @@
 (() => {
   const params = new URLSearchParams(location.search);
+  const embedded = params.get('dialog') === '1' && window.parent !== window;
+  if (embedded) document.querySelector('main > a')?.setAttribute('hidden','');
   const checkbox = document.querySelector('#agree');
   const button = document.querySelector('#continue');
   const confirm = document.querySelector('.confirm');
@@ -32,7 +34,7 @@
   button.addEventListener('click', () => {
     if (!checkbox.checked) return;
     if (channel !== 'wechat') {
-      location.assign(target.href);
+      (embedded ? window.top : window).location.assign(target.href);
       return;
     }
     const contact = document.querySelector('#wechat-contact');

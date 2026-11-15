@@ -170,13 +170,13 @@ function review(ids){
   openChannel.disabled=true;
   try{const copied=await copyChannelBrief(reviewText);if(!copied){full.open=true;area.focus();area.select();handoffNote.textContent=w('아래 내용을 직접 복사해 주세요.','请手动复制下方完整内容。','Please copy the full text below.');return;}
    handoffNote.textContent=w('복사했습니다. 카카오톡에서 직접 붙여넣고 보내 주세요.','咨询内容已复制，请在确认安全须知后粘贴至微信客服并自行发送。','Copied. Paste and send in WhatsApp.');
-   if(channel.url){const url=lang==='en'?channel.url+'?text='+encodeURIComponent(reviewText):channel.url;window.open(url,'_blank','noopener,noreferrer');}else if(lang==='zh'){location.assign(window.ltcContactSafetyUrl('wechat'));}
+   if(channel.url){const url=lang==='en'?channel.url+'?text='+encodeURIComponent(reviewText):channel.url;window.open(url,'_blank','noopener,noreferrer');}else if(lang==='zh'){window.ltcOpenContactSafety('wechat');}
   }finally{openChannel.disabled=false;}
  },'ms-primary');
- const copyOnly=button(w('내용만 복사','微信客服','Copy request only'),async()=>{if(lang==='zh'){location.assign(window.ltcContactSafetyUrl('wechat'));return;}const content=reviewText;const copied=await copyChannelBrief(content);handoffNote.textContent=copied?w('복사했습니다. 메시지는 전송되지 않았습니다.','已复制；未发送消息。','Copied. No message sent.'):w('직접 복사해 주세요.','请手动复制。','Please copy manually.');if(!copied){full.open=true;area.focus();area.select();}},'ms-secondary');
+ const copyOnly=button(w('내용만 복사','微信客服','Copy request only'),async()=>{if(lang==='zh'){window.ltcOpenContactSafety('wechat');return;}const content=reviewText;const copied=await copyChannelBrief(content);handoffNote.textContent=copied?w('복사했습니다. 메시지는 전송되지 않았습니다.','已复制；未发送消息。','Copied. No message sent.'):w('직접 복사해 주세요.','请手动复制。','Please copy manually.');if(!copied){full.open=true;area.focus();area.select();}},'ms-secondary');
  foot.append(openChannel,copyOnly);
  if(channel.url){const manual=el('a','ms-channel-manual',w('카카오톡 직접 열기','打开客服','Open WhatsApp'));manual.href=channel.url;manual.dataset.msChannelOpen='true';manual.target='_blank';manual.rel='noopener noreferrer';foot.append(manual);}
- else {const contact=button('打开微信客服',()=>location.assign(window.ltcContactSafetyUrl('wechat')),'ms-channel-manual');foot.append(contact);}
+ else {const contact=button('打开微信客服',()=>window.ltcOpenContactSafety('wechat'),'ms-channel-manual');foot.append(contact);}
  foot.append(handoffNote);
  openDialog();
 }

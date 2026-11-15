@@ -1359,5 +1359,6 @@
   "travel-safety.html",
   "zh/travel-safety.html",
   "assets/contact-gate.js",
-  "assets/contact-safety-page.js"
+  "assets/contact-safety-page.js",
+  "assets/contact-modal.css"
 ]

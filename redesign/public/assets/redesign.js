@@ -105,7 +105,7 @@
    const copied=await window.LTCInterface.copyText(text,null,control);
    if(!copied){popup?.close();handoffStatus(control,zh?'复制未成功，请手动复制下方内容，再打开客服。':en?'Copy failed. Copy the displayed plan manually, then open chat.':'복사하지 못했습니다. 표시된 내용을 직접 복사한 뒤 상담창을 열어 주세요.');return;}
    const status=handoffStatus(control,zh?'完整清单已复制。请在客服窗口粘贴并发送。':en?'Your full plan is copied. Paste and send it in customer chat.':'전체 내용이 복사되었습니다. 상담창에 붙여넣고 전송해 주세요.');
-   if(popup&&!popup.closed){popup.location.href=window.ltcContactSafetyUrl('kakao',chatUrl);}else{status.append(document.createElement('br'));const fallback=document.createElement('a');fallback.className='handoff-chat-fallback';fallback.href=chatUrl;fallback.target='_blank';fallback.rel='noopener noreferrer';fallback.textContent=zh?'浏览器阻止了弹窗：点击打开客服':en?'Popup blocked: open customer chat':'팝업이 차단되었습니다. 상담창 직접 열기';status.append(fallback);}
+   if(popup&&!popup.closed){popup.close();window.ltcOpenContactSafety('kakao',chatUrl);}else{status.append(document.createElement('br'));const fallback=document.createElement('a');fallback.className='handoff-chat-fallback';fallback.href=chatUrl;fallback.target='_blank';fallback.rel='noopener noreferrer';fallback.textContent=zh?'浏览器阻止了弹窗：点击打开客服':en?'Popup blocked: open customer chat':'팝업이 차단되었습니다. 상담창 직접 열기';status.append(fallback);}
   }catch{popup?.close();handoffStatus(control,zh?'操作未完成，请重试或使用下方复制和客服按钮。':en?'Could not finish. Retry or use the separate copy and chat buttons below.':'처리하지 못했습니다. 다시 누르거나 아래 복사·상담 버튼을 이용해 주세요.');}
   finally{delete control.dataset.copyBusy;control.removeAttribute('aria-busy');}
  }
