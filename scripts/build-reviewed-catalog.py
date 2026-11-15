@@ -7,7 +7,9 @@ sys.path.insert(0,str(ROOT/'catalog-site'))
 from storefront_view import homepage,catalogue,detail,enhance_existing
 from catalog_registry import records
 C=records();DEST=ROOT/'redesign/dist/client'
-assert len(C)==22 and all(set(r['locales'])=={'ko','zh','en'} for r in C.values())
+manifest=json.loads((ROOT/'catalog-site/export-manifest.json').read_text())
+assert manifest['sha256']==hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()).hexdigest(), 'Re-export the canonical catalogue before building'
+assert len(C)==manifest['productCount'] and all(set(r['locales'])=={'ko','zh','en'} for r in C.values())
 for r in C.values():
     assert set(r)<=set(['id','paths','locales','pricing','discovery','revision','plans','late_departure_plans','archived'])
     assert not any(x in json.dumps(r,ensure_ascii=False) for x in ['采购成本','整团利润','planning_cost','direct_cost'])
@@ -18,14 +20,17 @@ def publish(path,html,lang,alternates):
     html=html.replace('<meta name="robots" content="noindex,nofollow">','')
     html=re.sub(r'<link[^>]+rel="(?:canonical|alternate)"[^>]*>','',html)
     seo='<link rel="canonical" href="https://localtourchina.com'+path+'">'+''.join('<link rel="alternate" hreflang="'+k+'" href="https://localtourchina.com'+v+'">' for k,v in alternates.items())
-    html=html.replace('</head>',seo+'<script defer src="/catalog-entry.js"></script></head>',1)
+    html=html.replace('</head>',seo+'<script defer src="/catalog-entry.js"></script><script type="module" src="/assets/catalog-live.mjs"></script></head>',1)
     # Cached HTML may keep old assets; content-addressed selection files are retained.
     for base in [DEST,ROOT]:
         target=base/path.lstrip('/');target.parent.mkdir(parents=True,exist_ok=True);target.write_text(html)
 # Preserve the original receipts and the separate partner-transfer form.
 legacy=(DEST/'index.html').read_text()
-legacy=legacy.replace('</head>', '<script>if(!new URLSearchParams(location.search).has("reference")&&new URLSearchParams(location.search).get("view")!=="furong")location.replace("/products.html")</script></head>')
-legacy=legacy.replace('</body>', '<script type="application/json" id="catalog-current">'+json.dumps(C['vehicles'],ensure_ascii=False).replace('</','<\\/')+'</script></body>')
+if 'class="home-editorial"' in legacy:
+    legacy=(ROOT/'legacy-flow.html').read_text()
+else:
+    legacy=legacy.replace('</head>', '<script>if(!new URLSearchParams(location.search).has("reference")&&new URLSearchParams(location.search).get("view")!=="furong")location.replace("/products.html")</script></head>')
+    legacy=legacy.replace('</body>', '<script type="application/json" id="catalog-current">'+json.dumps(C['vehicles'],ensure_ascii=False).replace('</','<\\/')+'</script></body>')
 for base in [ROOT,DEST]:(base/'legacy-flow.html').write_text(legacy)
 public_pages=[]
 for lang in ['ko','zh','en']:
@@ -39,7 +44,10 @@ for lang in ['ko','zh','en']:
         path=record['paths'][lang]
         if record['pricing']['policy']=='existing_service_form':
             source=DEST/path.lstrip('/')
-            html=enhance_existing(source.read_text(),path.lstrip('/'),lang,C,record)
+            legacy_source=ROOT/'server/legacy-pages'/path.lstrip('/')
+            legacy_source.parent.mkdir(parents=True,exist_ok=True)
+            if 'id="catalog-current"' not in source.read_text():legacy_source.write_text(source.read_text())
+            html=enhance_existing(legacy_source.read_text(),path.lstrip('/'),lang,C,record)
         else:html=detail(record,lang,C)
         publish(path,html,lang,record['paths']);public_pages.append(path)
 for alias,anchor in [('sanya-catalog.html','sanya'),('day-tours.html','nearby')]:
@@ -72,4 +80,4 @@ for base in [ROOT,DEST]:
             url='https://localtourchina.com'+page
             if '<loc>'+url+'</loc>' not in text:text=text.replace('</urlset>','<url><loc>'+url+'</loc></url></urlset>')
         sitemap.write_text(text)
-print(json.dumps({'reviewed_catalog_version':VERSION,'products':22,'pages':len(public_pages),'private_costs_published':False}))
+print(json.dumps({'reviewed_catalog_version':VERSION,'products':len(C),'pages':len(public_pages),'private_costs_published':False}))

@@ -1,0 +1,17 @@
+"""Public form for the canonical four-day package. Contains no procurement data."""
+from html import escape
+
+def quote_form(record,lang,action):
+    def t(ko,zh,en):return {'ko':ko,'zh':zh,'en':en}[lang]
+    def select(name,label,values):
+        return '<label class="'+('field-wide' if name in ('arrival','room','hotel') else '')+'" for="catalog-'+name+'">'+label+'<select id="catalog-'+name+'" name="'+name+'">'+''.join('<option value="'+v+'">'+s+'</option>' for v,s in values)+'</select></label>'
+    fields='<label for="catalog-date">'+t('장가계 도착일','抵达张家界日期','Arrival date in Zhangjiajie')+'<input id="catalog-date" name="date" type="date"></label>'
+    fields+=select('party',t('우리 일행 인원','同行人数','Party size'),[('',t('인원 선택','选择人数','Select guests'))]+[(str(n),str(n)+t('명','人',' guests')) for n in range(2,31)])
+    hotels=record['pricing'].get('hotelOptions',[])
+    fields+=select('hotel',t('숙박 호텔','住宿酒店','Your hotel'),[('',t('호텔 선택','选择酒店','Select a hotel'))]+[(escape(h['id']),escape(t('시내','市区','City') if h['area']=='city' else t('무릉원','武陵源','Wulingyuan'))+' · '+escape(h['names'][lang])) for h in hotels])
+    fields+=select('arrival',t('도착 시간','抵达方案','Arrival plan'),[('late',t('늦은 도착 · 첫날 호텔 이동','晚到：首日入住休息','Late arrival · hotel on day one')),('early',t('이른 도착 · 첫날 관광','早到：首日安排游览','Early arrival · sightseeing on day one'))])
+    fields+=select('departure',t('귀국 항공편','返程航班','Departure flight'),[('night',t('늦은 저녁 항공편','深夜航班','Late-night flight')),('afternoon',t('오후 항공편 · 시간 확인 필요','下午航班：需核实游览时间','Afternoon flight · timing to confirm'))])
+    fields+=select('mode',t('출발 방식','出发方式','Departure type'),[('private',t('우리 일행 단독','独立出发','Private departure')),('shared',t('합류 가능 여부 상담','咨询拼团可能性','Ask about joining a group'))])
+    fields+=select('room',t('객실 구성','房间安排','Room arrangement'),[('standard',t('2인 1실 · 홀수 1명 별도 객실','双人一间，奇数余下1人单独一间','Twin sharing; separate room for an unpaired guest')),('extra',t('추가 객실·가족 객실 상담','额外房间或家庭房咨询','Extra rooms or family rooms'))])
+    fields+='<label class="field-wide" for="catalog-notes">'+t('어린이 동반·항공편·추가 요청','儿童同行、航班及其他要求','Children, flight details and other requests')+'<textarea id="catalog-notes" name="notes" rows="2" maxlength="1200"></textarea></label>'
+    return '<section id="quote" class="store-quote"><p class="store-eyebrow">YOUR JOURNEY</p><h2>'+t('날짜·인원·호텔에 맞춘 여행 요금','选择日期、人数和酒店查看报价','Your dates. Your party. Your hotel.')+'</h2><p>'+t('날짜·인원·호텔을 모두 선택하면 성인 기준 1인 요금과 일행 합계를 확인할 수 있어요. 숙박일별 호텔요금을 반영합니다.','选齐日期、人数和酒店后查看成人每人价格及整团总价，酒店按入住的每一晚核算。','Select your date, party size and hotel to see the per-adult price and group total. Hotel pricing is calculated for each night.')+'</p><form data-catalog-form data-product-id="34"><div class="store-fields">'+fields+'</div><button class="store-button primary" type="submit">'+t('선택 조건 요금 확인','查看所选条件价格','Check price')+'</button><div data-quote-status class="dated-quote-result" role="status" hidden></div><div class="store-quote-actions">'+action(record,lang)+action(record,lang,True)+'</div><p id="choice-status" data-choice-feedback role="status"></p></form><p class="store-fine">'+t('숙박 3박 중 하루라도 요금이 없으면 확인 필요로 안내하며, 가격은 표시하지 않습니다. 어린이·추가 객실·합류 여행은 별도 상담하며, 예약은 일정과 객실 확인 후 확정됩니다.','三晚中任何一晚房价缺失，均显示待确认，暂不显示金额。儿童、额外房间及拼团单独核价；行程与房态确认后再预订。','If any of the three nightly hotel rates is missing, the price stays pending confirmation. Children, extra rooms and shared departures need a separate quote. Booking follows itinerary and room-availability confirmation.')+'</p></section><script type="module" src="/tour-config.mjs"></script>'

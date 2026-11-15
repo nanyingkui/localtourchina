@@ -5,8 +5,10 @@ import {referenceQuote,formatReferenceQuote,canonicalItem} from '../src/selectio
 import {contactChannel} from '../src/selections/contact-channels.mjs';
 const catalogue=JSON.parse(fs.readFileSync(new URL('../../catalog-site/catalog.json',import.meta.url)));
 const fx={date:'2026-11-13',rates:{CNY:.0049897,USD:.00074787}};
-test('22 unique records produce matching public detail records in all three languages',()=>{
- assert.equal(Object.keys(catalogue).length,22);
+test('all canonical records produce matching public detail records in all three languages',()=>{
+ const manifest=JSON.parse(fs.readFileSync(new URL('../../catalog-site/export-manifest.json',import.meta.url)));
+ assert.equal(Object.keys(catalogue).length,manifest.productCount);
+ assert.equal(new Set(Object.values(catalogue).flatMap(r=>Object.values(r.paths))).size,manifest.productCount*3);
  for(const record of Object.values(catalogue))for(const lang of ['ko','zh','en']){
   const html=fs.readFileSync(new URL('../../'+record.paths[lang].slice(1),import.meta.url),'utf8');
   const matches=[...html.matchAll(/<script[^>]*id="catalog-current"[^>]*>([\s\S]*?)<\/script>/g)];
@@ -30,8 +32,8 @@ test('unknown conditions and weaker conversion cannot masquerade as verified pac
  assert.match(formatReferenceQuote(q,'zh',fx).displayText,/¥20,158\.39/);assert.match(formatReferenceQuote(q,'en',fx).displayText,/\$3,021\.39/);
 });
 test('shared savings remain conditional, with no payable group total or client-entered combined size',()=>{
- for(const id of ['forest','tianmen','canyon','furong','fenghuang']){
-  const q=referenceQuote(catalogue[id],{party:'2',mode:'shared',season:'regular',room:'standard'});
+ for(const id of ['furong','fenghuang']){
+  const q=referenceQuote(catalogue[id],{date:'2027-05-01',party:'2',mode:'shared',season:'regular',room:'standard'});
   assert.equal(q.exampleParty,4);assert.equal(q.totalKRW,null);assert.ok(q.savingPerPersonKRW>0);
   for(const lang of ['ko','zh','en'])assert.ok(formatReferenceQuote(q,lang,fx).displayText);
  }
@@ -41,7 +43,7 @@ test('guide base excludes direct overtime and uncosted extras; Hainan is a bench
  const guide=referenceQuote(catalogue['local-guide'],c);assert.equal(guide.totalKRW,220000);assert.equal(guide.overtimeHoursPerDay,2);assert.equal(guide.directGuideOvertimeKRW,20000);
  assert.equal(referenceQuote(catalogue['local-guide'],{...c,guideMeals:'quote'}),null);
  for(const id of ['sanya-44','sanya-45','sanya-48','sanya-49']){
-  const q=referenceQuote(catalogue[id],{mode:'private',party:'4'});for(const lang of ['ko','zh','en']){const out=formatReferenceQuote(q,lang,fx);assert.equal(out.totalKRW,null);assert.ok(out.displayAmount>0)}
+  const q=referenceQuote(catalogue[id],{date:'2027-05-01',mode:'private',party:'4'});for(const lang of ['ko','zh','en']){const out=formatReferenceQuote(q,lang,fx);assert.equal(out.totalKRW,null);assert.ok(out.displayAmount>0)}
  }
  assert.equal(contactChannel('zh').id,'nanyingkui');assert.match(contactChannel('en').url,/wa.me/);assert.match(contactChannel('ko').url,/kakao/);
 });

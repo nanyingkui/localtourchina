@@ -6,7 +6,7 @@ def apply_service_review(html,lang):
     catalog=records()
     direct=catalog['tickets']['pricing'].get('direct_prices')
     if direct:
-        html=html.replace('const directPrices={};','const directPrices='+json.dumps(direct)+';')
+        html=re.sub(r'const directPrices=\{[^;]*\};','const directPrices='+json.dumps(direct)+';',html,count=1)
         html=re.sub(r"const ticketCatalog=\{version:'[^']+',effective:'[^']+'\};","const ticketCatalog={version:'2026.11.13',effective:'2026-11-13'};",html,count=1)
     # A custom request is not an all-inclusive package until its quote is agreed.
     html=html.replace('포함: 고급형 호텔, 전용차량, 한국어 가이드, 일정상 입장권, 호텔 조식 및 매일 중·석식, 장가계 공항/서역 픽업·샌딩','포함: 선택한 객실·차량·가이드·입장권·식사·접송 중 최종 서면 견적에 명시한 항목만 포함합니다. 식사 횟수와 서비스 시간은 상담 후 확정합니다.')

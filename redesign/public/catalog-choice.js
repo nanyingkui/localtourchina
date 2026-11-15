@@ -4,7 +4,7 @@ const [{KEY,readState,commit},{canonicalItem,mergeSelection},{captureProduct}]=a
 if(document.querySelector('[data-catalog-form]'))await import('/tour-config.mjs');
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';
 let serviceTouched=new URLSearchParams(location.search).has('attraction')||new URLSearchParams(location.search).has('service');for(const type of ['input','change'])document.addEventListener(type,event=>{if(event.isTrusted&&!event.target.closest('[data-ms-ui], [data-store-header]'))serviceTouched=true;});
-let catalog;const getCatalog=()=>catalog?Promise.resolve(catalog):fetch('/customer-catalog.json').then(r=>{if(!r.ok)throw Error('catalog');return r.json();}).then(data=>catalog=data);
+const {loadCatalog:getCatalog}=await import('/assets/runtime-api.mjs');
 document.addEventListener('click',async event=>{
  const button=event.target.closest('[data-choice]');if(!button)return;
  event.preventDefault();button.disabled=true;
@@ -30,5 +30,7 @@ document.addEventListener('click',async event=>{
  }catch(error){if(feedback)feedback.textContent=lang==='ko'?'저장하지 못했습니다. 입력은 그대로입니다. 다시 시도해 주세요.':lang==='zh'?'保存失败，输入仍保留，请重试。':'Could not save. Your inputs are retained. Please retry.';console.error('Save selection',error);}
  finally{button.disabled=false;}
 });
-document.querySelectorAll('button[data-choice]').forEach(button=>button.disabled=false);
+const enableChoices=()=>document.querySelectorAll('button[data-choice]').forEach(button=>button.disabled=false);
+if(!document.body.hasAttribute('data-store-legacy')||document.body.dataset.serviceReady==='true')enableChoices();
+else document.addEventListener('service:ready',enableChoices,{once:true});
 })();

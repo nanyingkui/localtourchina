@@ -1,3 +1,4 @@
+import {runtimeFetch} from './runtime-api.mjs';
 import {KEY,readState,commit,totals,selectionIdentity} from './model.mjs';
 import {activeProduct,captureProduct,restoreProduct} from './bridge.mjs';
 import {makeCustomItem,reviewWarnings,SERVICE_OPTIONS,serviceLabel} from './custom-trip.mjs';
@@ -9,7 +10,7 @@ import {channelBrief} from './channel-brief.mjs';
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';
 const w=(ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko;
 const channel=contactChannel(lang);
-let catalog={};try{const response=await fetch('/customer-catalog.json');if(response.ok)catalog=await response.json();}catch{}
+let catalog={};try{const response=await runtimeFetch('/customer-catalog.json');if(response.ok)catalog=await response.json();}catch{}
 function readCatalogState(){
  const current=readState(localStorage);
  const clear=item=>{const record=catalog[item.productId||item.id?.replace(/^product:/,'')];if(!record?.pricing?.requires_manual_review&&!(['vehicles','tickets','local-guide'].includes(record?.id)&&item.catalogRevision!==record.revision))return item;return {...item,quote:null,amountKRW:null,details:item.kind==='catalog'?canonicalItem(record,lang,item.conditions||{},null).details:item.details.split('\n').filter(line=>!/(예상.*금액|예상.*비용|预计金额|預計金額|Estimated.*(?:price|total)|KRW|₩)/i.test(line)).join('\n')+'\n'+w('요금: 변경된 조건으로 다시 확인','价格：须按最新条件重新确认','Price: recheck against the current conditions')};};
@@ -17,8 +18,9 @@ function readCatalogState(){
 }
 const localize=item=>{
  const record=catalog[item.productId||item.id?.replace(/^product:/,'')];if(!record)return item;
- const raw=item.kind==='catalog'?referenceQuote(record,item.conditions||{}):item.quote;
- const quote=raw?formatReferenceQuote(raw,lang,marketFx||(item.quote?.fx?.rates?item.quote.fx:null)):null;
+ const dated=['dated_package','transport_server'].includes(record.pricing.policy);
+ const raw=dated?(item.quote?.pricingRevision===record.pricing.pricingRevision?item.quote:null):item.kind==='catalog'?referenceQuote(record,item.conditions||{}):item.quote;
+ const quote=raw?formatReferenceQuote(raw,lang,marketFx||item.quote?.quoteFx||(item.quote?.fx?.rates?item.quote.fx:null)):null;
  const localized=item.kind==='catalog'?canonicalItem(record,lang,item.conditions||{},quote):null;
  return {...item,quote,amountKRW:item.kind==='catalog'?(quote?.totalKRW??null):item.amountKRW,title:item.kind==='furong'?w('부용진 이동','芙蓉镇接送','Furong transfer'):record.locales[lang].title,sourcePath:item.kind==='furong'?'/?view=furong&lang='+lang:record.paths[lang],...(localized?{summary:localized.summary,missing:localized.missing,details:localized.details}:item.conditions?{summary:conditionText(item.conditions,lang).replaceAll('\n',' · ')||item.summary}:{}),displayAmountText:quote?.priceLabel|| (item.kind!=='catalog'&&item.amountKRW!==null?itemMoney(item):labels.quote)};
 };
@@ -63,8 +65,14 @@ async function mutate(action){
 function showError(error){announce(errors[error.code]||w('저장하지 못했습니다. 입력을 유지한 채 다시 시도해 주세요.','未保存，请保留当前内容后重试。','Not saved. Your inputs are retained; retry.'),true);}
 function openDialog(){if(!dialog.open){returnFocus=document.activeElement;dialog.showModal();}entry.setAttribute('aria-expanded','true');heading.focus();}
 document.addEventListener('catalog:saved',event=>{refreshState();if(event.detail.inquire)review(['product:'+event.detail.productId]);else openList('product:'+event.detail.productId);});
-function openList(id=''){refreshState();reviewIds=null;questionEdit=null;if(id)activeId=id;renderList();openDialog();}
-function infoTotal(target,items){const sum=totals(items),row=el('div','ms-total');row.append(el('span','',w('개별 항목 참고 소계','单项参考小计','Individual-item reference subtotal')),el('strong','',sum.priced?money(sum.amount):sum.quoted?labels.quote:w('금액 항목 없음','尚无计价项目','No priced items')));target.append(row);if(displayFx)target.append(el('small','ms-total-rate',w('환율 기준일: ','汇率日期：','Exchange rate dated: ')+displayFx.date));target.append(el('p','ms-total-note',`${sum.count}${w('개 선택','项已勾选',' selected')}${sum.quoted?' · '+sum.quoted+w('개 별도 견적','项待报价',' quote required'):''}${sum.questions?' · '+sum.questions+w('개 질문','个问题',' questions'):''}${sum.incomplete?' · '+sum.incomplete+w('개 추가 입력 필요','项待补充',' need details'):''}`));}
+async function refreshDatedCatalog(){
+ if(!state.items.some(item=>['dated_package','transport_server'].includes(catalog[item.productId||item.id?.replace(/^product:/,'')]?.pricing?.policy)))return;
+ try{const response=await runtimeFetch('/customer-catalog.json',{cache:'no-store',signal:AbortSignal.timeout(4000)});if(!response.ok)throw Error('catalog');catalog=await response.json();}
+ catch{for(const r of Object.values(catalog))if(['dated_package','transport_server'].includes(r.pricing?.policy))r.pricing.pricingRevision=null;}
+}
+async function openList(id=''){await refreshDatedCatalog();refreshState();reviewIds=null;questionEdit=null;if(id)activeId=id;renderList();openDialog();}
+function selectionTotal(items){const currency=lang==='zh'?'CNY':lang==='en'?'USD':'KRW';let total=0;for(const item of items){if(item.amountKRW==null)continue;const fixed=item.quote?.basis==='transport-server'?item.quote?.prices?.[currency]?.total:null;if(fixed!=null)total+=fixed;else if(currency==='KRW')total+=item.amountKRW;else if(displayFx)total+=item.amountKRW*displayFx.rate;else return money(totals(items).amount);}return new Intl.NumberFormat(lang==='zh'?'zh-CN':lang==='en'?'en-US':'ko-KR',{style:'currency',currency,maximumFractionDigits:currency==='KRW'?0:2}).format(total);}
+function infoTotal(target,items){const sum=totals(items),row=el('div','ms-total');row.append(el('span','',w('개별 항목 참고 소계','单项参考小计','Individual-item reference subtotal')),el('strong','',sum.priced?selectionTotal(items):sum.quoted?labels.quote:w('금액 항목 없음','尚无计价项目','No priced items')));target.append(row);if(displayFx)target.append(el('small','ms-total-rate',w('환율 기준일: ','汇率日期：','Exchange rate dated: ')+displayFx.date));target.append(el('p','ms-total-note',`${sum.count}${w('개 선택','项已勾选',' selected')}${sum.quoted?' · '+sum.quoted+w('개 별도 견적','项待报价',' quote required'):''}${sum.questions?' · '+sum.questions+w('개 질문','个问题',' questions'):''}${sum.incomplete?' · '+sum.incomplete+w('개 추가 입력 필요','项待补充',' need details'):''}`));}
 
 latestExchangeRates().then(fx=>{
  if(!fx?.date||!(fx.rates?.USD>0)||!(fx.rates?.CNY>0))return;
@@ -97,8 +105,8 @@ function renderList(){
   stack.append(card);
  }
  const add=el('div','ms-add-actions');add.append(button(w('다른 여행·서비스 추가','继续挑选产品或服务','Add tours or services'),()=>{closeDialog();location.href=prefix+'products.html';},'ms-add-service'),button(w('궁금한 점 추가','添加想问的问题','Add a question'),()=>questionForm(),'ms-add-question'));body.append(add);if(state.items.length)body.append(custom);
- if(state.undo){const undo=el('div','ms-undo');undo.append(el('span','',w('제거한 항목: ','已移除：','Removed: ')+state.undo.item.title),button(w('되돌리기','撤销','Undo'),async()=>{try{const result=await mutate({type:'undo'});activeId=result.item.id;renderList();announce(w('다시 담았습니다.','已恢复到清单。','Restored to your list.'));}catch(error){showError(error);}}));body.append(undo);}
- infoTotal(foot,state.items);
+ if(state.undo){const undo=el('div','ms-undo');undo.append(el('span','',w('제거한 항목: ','已移除：','Removed: ')+localize(state.undo.item).title),button(w('되돌리기','撤销','Undo'),async()=>{try{const result=await mutate({type:'undo'});activeId=result.item.id;renderList();announce(w('다시 담았습니다.','已恢复到清单。','Restored to your list.'));}catch(error){showError(error);}}));body.append(undo);}
+ infoTotal(foot,state.items.map(localize));
  const ask=button(w('선택한 항목 문의하기','咨询已选项目','Ask about selected items'),()=>review(state.items.filter(x=>x.included).map(x=>x.id)),'ms-primary');ask.disabled=!totals(state.items).count||storageError;foot.append(ask,el('small','ms-local-note',w('현재 브라우저에 저장 · 실제 예약 확정 아님','保存在当前浏览器 · 尚未确认预订','Saved in this browser · not a confirmed booking')));
 }
 async function remove(item){try{await mutate({type:'remove',id:item.id,expectedItemRevision:item.revision});if(activeId===item.id)activeId='';renderList();announce(w('제거했습니다. 목록에서 되돌릴 수 있어요.','已移除，可在清单中撤销。','Removed. You can undo this in the list.'));}catch(error){showError(error);}}
@@ -157,8 +165,8 @@ function customForm(item=null){
  const save=button(base?labels.save:w('맞춤 요청을 내 선택에 담기','把定制需求加入我的选择','Add custom request to my selections'),async()=>{status.textContent='';save.disabled=true;try{refreshState();const selection=makeCustomItem(gather(),session.draft.id,lang,state.items);const result=await mutate({type:'save',item:selection,...(base?{expectedItemRevision:base.revision}:{})});activeId=result.item.id;finishInline(session);renderList();announce(w('맞춤 요청을 저장했습니다. 아직 상담 접수·예약 확정은 아닙니다.','定制需求已保存，尚未提交咨询或确认预订。','Custom request saved. It is not yet submitted or booked.'));}catch(error){if(error.message==='EMPTY_CUSTOM_BRIEF'){status.textContent=w('원하는 여행이나 목적지 중 하나만 알려 주세요.','至少简单说说想怎样玩，或填写一个目的地。','Tell us a little about your trip or add a destination.');controls.wish.focus();}else if(error.message==='INVALID_CUSTOM_BRIEF')status.textContent=w('입력 내용을 확인해 주세요.','请核对填写内容。','Please check your inputs.');else showError(error);}finally{save.disabled=false;}},'ms-primary');
  foot.append(save,button(labels.cancel,()=>{finishInline(session);renderList();},'ms-secondary'));storeInline(session,gather(),notice);if(session.resumed)notice.textContent=w('저장 전 맞춤 요청을 복원했습니다. 원래 선택은 그대로입니다.','已恢复尚未保存的定制需求，原选择保持不变。','Unsaved custom request restored. Saved choices are unchanged.');openDialog();controls.wish.focus();
 }
-function review(ids){
- refreshState();reviewIds=ids;const items=state.items.filter(x=>ids.includes(x.id)).map(x=>({...localize(x),included:true}));if(!items.length)return openList();
+async function review(ids){
+ await refreshDatedCatalog();refreshState();reviewIds=ids;const items=state.items.filter(x=>ids.includes(x.id)).map(x=>({...localize(x),included:true}));if(!items.length)return openList();
  heading.textContent=w('카카오톡 문의 전 확인','微信咨询前核对','Review before WhatsApp inquiry');subtitle.textContent=w('선택한 상품과 조건을 확인한 뒤 카카오톡으로 보내 주세요.','核对产品和条件后，复制给微信客服。','Review your products and conditions, then share them on WhatsApp.');body.replaceChildren();foot.replaceChildren();
  body.append(button(w('선택 목록으로 돌아가기','返回选择清单','Back to selections'),()=>{reviewIds=null;renderList();},'ms-back'));showReviewWarnings(body,items);
  for(const item of items){const row=el('article','ms-review-row');row.append(el('h3','',item.title),el('p','',item.summary),el('strong','',item.kind==='question'?w('상담 질문','咨询问题','Question'):item.quote?.priceLabel||(item.amountKRW===null?labels.quote:itemMoney(item))));if(item.quote?.displayText)row.append(el('p','ms-quote-snapshot',item.quote.displayText));if(item.missing?.length)row.append(el('p','ms-missing',w('상담 시 확인: ','咨询时补充：','To confirm: ')+item.missing.join('、')));const detail=el('details');detail.append(el('summary','',w('세부 내용','详细内容','Full details')),el('pre','',item.details));row.append(detail);body.append(row);}

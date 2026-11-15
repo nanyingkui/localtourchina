@@ -1,0 +1,691 @@
+{
+  "forest": {
+    "request": {
+      "productId": "forest",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "forest",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "person",
+        "unitKRW": 254000,
+        "perPersonKRW": 254000,
+        "totalKRW": 1016000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 1,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 254000,
+            "total": 1016000
+          },
+          "CNY": {
+            "unit": 1268,
+            "total": 5072
+          },
+          "USD": {
+            "unit": 190,
+            "total": 760
+          }
+        }
+      }
+    }
+  },
+  "tianmen": {
+    "request": {
+      "productId": "tianmen",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "tianmen",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "person",
+        "unitKRW": 188000,
+        "perPersonKRW": 188000,
+        "totalKRW": 752000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 1,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 188000,
+            "total": 752000
+          },
+          "CNY": {
+            "unit": 939,
+            "total": 3756
+          },
+          "USD": {
+            "unit": 141,
+            "total": 564
+          }
+        }
+      }
+    }
+  },
+  "canyon": {
+    "request": {
+      "productId": "canyon",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "canyon",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "person",
+        "unitKRW": 214000,
+        "perPersonKRW": 214000,
+        "totalKRW": 856000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 1,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 214000,
+            "total": 856000
+          },
+          "CNY": {
+            "unit": 1068,
+            "total": 4272
+          },
+          "USD": {
+            "unit": 161,
+            "total": 644
+          }
+        }
+      }
+    }
+  },
+  "airport-pickup": {
+    "request": {
+      "productId": "airport-pickup",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "airport-pickup",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 17000,
+        "perPersonKRW": null,
+        "totalKRW": 17000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 17000,
+            "total": 17000
+          },
+          "CNY": {
+            "unit": 85,
+            "total": 85
+          },
+          "USD": {
+            "unit": 13,
+            "total": 13
+          }
+        }
+      }
+    }
+  },
+  "airport-dropoff": {
+    "request": {
+      "productId": "airport-dropoff",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "airport-dropoff",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 17000,
+        "perPersonKRW": null,
+        "totalKRW": 17000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 17000,
+            "total": 17000
+          },
+          "CNY": {
+            "unit": 85,
+            "total": 85
+          },
+          "USD": {
+            "unit": 13,
+            "total": 13
+          }
+        }
+      }
+    }
+  },
+  "station-transfer": {
+    "request": {
+      "productId": "station-transfer",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "station_pickup",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "station-transfer",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 17000,
+        "perPersonKRW": null,
+        "totalKRW": 17000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 17000,
+            "total": 17000
+          },
+          "CNY": {
+            "unit": 85,
+            "total": 85
+          },
+          "USD": {
+            "unit": 13,
+            "total": 13
+          }
+        }
+      }
+    }
+  },
+  "day-charter": {
+    "request": {
+      "productId": "day-charter",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "day-charter",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 130000,
+        "perPersonKRW": null,
+        "totalKRW": 130000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 130000,
+            "total": 130000
+          },
+          "CNY": {
+            "unit": 649,
+            "total": 649
+          },
+          "USD": {
+            "unit": 98,
+            "total": 98
+          }
+        }
+      }
+    }
+  },
+  "vehicles": {
+    "request": {
+      "productId": "vehicles",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "vehicles",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 130000,
+        "perPersonKRW": null,
+        "totalKRW": 130000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 130000,
+            "total": 130000
+          },
+          "CNY": {
+            "unit": 649,
+            "total": 649
+          },
+          "USD": {
+            "unit": 98,
+            "total": 98
+          }
+        }
+      }
+    }
+  },
+  "vehicles:furong-transfer": {
+    "request": {
+      "productId": "vehicles:furong-transfer",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "vehicles:furong-transfer",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 194000,
+        "perPersonKRW": null,
+        "totalKRW": 194000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 194000,
+            "total": 194000
+          },
+          "CNY": {
+            "unit": 969,
+            "total": 969
+          },
+          "USD": {
+            "unit": 146,
+            "total": 146
+          }
+        }
+      }
+    }
+  },
+  "vehicles:fenghuang-transfer": {
+    "request": {
+      "productId": "vehicles:fenghuang-transfer",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "vehicles:fenghuang-transfer",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 388000,
+        "perPersonKRW": null,
+        "totalKRW": 388000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 388000,
+            "total": 388000
+          },
+          "CNY": {
+            "unit": 1937,
+            "total": 1937
+          },
+          "USD": {
+            "unit": 291,
+            "total": 291
+          }
+        }
+      }
+    }
+  },
+  "vehicles:changsha-transfer": {
+    "request": {
+      "productId": "vehicles:changsha-transfer",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "4",
+        "mode": "private",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "tourRoute": "forest",
+        "direction": "outbound",
+        "changshaPoint": "airport"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "vehicles:changsha-transfer",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "fleet",
+        "unitKRW": 485000,
+        "perPersonKRW": null,
+        "totalKRW": 485000,
+        "party": 4,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 0,
+        "overnight": false,
+        "sharedExample": false,
+        "prices": {
+          "KRW": {
+            "unit": 485000,
+            "total": 485000
+          },
+          "CNY": {
+            "unit": 2421,
+            "total": 2421
+          },
+          "USD": {
+            "unit": 363,
+            "total": 363
+          }
+        }
+      }
+    }
+  },
+  "forest-shared": {
+    "request": {
+      "productId": "forest",
+      "conditions": {
+        "date": "2026-12-20",
+        "party": "2",
+        "mode": "shared",
+        "route": "city",
+        "endZone": "city",
+        "vehicleType": "car9",
+        "expectedParty": "99"
+      }
+    },
+    "response": {
+      "status": "ok",
+      "quote": {
+        "basis": "transport-server",
+        "productId": "forest",
+        "pricingRevision": 6,
+        "quoteFx": {
+          "date": "2026-11-13",
+          "rates": {
+            "CNY": 0.0049897,
+            "USD": 0.00074787
+          }
+        },
+        "expiresOn": "2026-11-16",
+        "unit": "person",
+        "unitKRW": 337000,
+        "perPersonKRW": 337000,
+        "totalKRW": null,
+        "party": 2,
+        "fleet": {
+          "car9": 1
+        },
+        "guideCount": 1,
+        "overnight": false,
+        "sharedExample": true,
+        "prices": {
+          "KRW": {
+            "unit": 337000,
+            "total": 674000,
+            "joinedUnit": 254000,
+            "saving": 83000
+          },
+          "CNY": {
+            "unit": 1682,
+            "total": 3364,
+            "joinedUnit": 1268,
+            "saving": 414
+          },
+          "USD": {
+            "unit": 253,
+            "total": 506,
+            "joinedUnit": 190,
+            "saving": 63
+          }
+        },
+        "exampleParty": 4
+      }
+    }
+  }
+}

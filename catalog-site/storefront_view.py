@@ -9,7 +9,7 @@ ASSET='/assets/my-selections/20261113journey/'
 def w(lang,ko,zh,en):return {'ko':ko,'zh':zh,'en':en}[lang]
 def public_catalog():
  catalog={k:v for k,v in records().items() if not v.get('archived')}
- order=['34','45','45furong','56','56fh','trek34','trek45','trek56','forest','tianmen','canyon','furong','fenghuang','sanya-45','sanya-44','sanya-49','sanya-48','tickets','vehicles','local-guide','online-guide','private-tour']
+ order=['34','45','45furong','56','56fh','trek34','trek45','trek56','forest','tianmen','canyon','furong','fenghuang','sanya-45','sanya-44','sanya-49','sanya-48','airport-pickup','airport-dropoff','station-transfer','day-charter','vehicles:furong-transfer','tickets','vehicles','local-guide','online-guide','private-tour']
  return dict(sorted(catalog.items(),key=lambda item:order.index(item[0]) if item[0] in order else 999))
 def cat_path(lang):return ('/'+lang if lang!='ko' else '')+'/products.html'
 def home_path(lang):return '/' if lang=='ko' else '/'+lang+'/index.html'
@@ -26,7 +26,8 @@ def action(record,lang,inquire=False):
  return f'<button class="store-button {"primary" if inquire else "secondary"}" type="button" disabled data-choice="{path}" data-product-id="{pid}" data-title="{title}" {"data-inquire" if inquire else ""}>'+w(lang,'선택 조건으로 문의' if inquire else '내 선택에 담기','按所选条件咨询' if inquire else '加入我的选择','Ask about these choices' if inquire else 'Add to my selections')+'</button>'
 def service_icon(key):
  paths={'tickets':'M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z M12 7v10','vehicles':'M4 16v-5l2-5h12l2 5v5z M4 11h16 M6 16v2 M18 16v2','local-guide':'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M5 21v-2a7 7 0 0 1 14 0v2','online-guide':'M4 13v-2a8 8 0 0 1 16 0v5a4 4 0 0 1-4 4h-3 M4 12h3v5H4z M17 12h3v5h-3z'}
- return '<svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="'+paths[key]+'"/></svg>'
+ paths.update({'airport-pickup':'M3 21h18 M4 3l4 11 11 4c2 1 3-2 1-3l-6-3-3-8-2-1 1 7-4-2-1-4z','airport-dropoff':'M3 21h18 M3 13l5 2 12-7c2-1 0-4-2-3l-6 3-7-3-2 1 6 5-4 2-2-2z','station-transfer':'M6 17V6q0-3 6-3t6 3v11H6z M6 10h12 M9 14h.01 M15 14h.01 M9 17l-3 4 M15 17l3 4 M8 20h8','day-charter':paths['vehicles'],'vehicles:furong-transfer':'M3 7h17l-4-4 M21 17H4l4 4'})
+ return '<svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="'+paths.get(key,paths['vehicles'])+'"/></svg>'
 def channel_button(lang):return '<button type="button" class="store-button contact" data-contact>'+w(lang,'카카오톡 상담','微信咨询','WhatsApp')+'</button>'
 def shell(lang,catalog,record=None,page="home"):
  from menu_hierarchy import render_menus
@@ -82,6 +83,15 @@ def catalogue(lang,catalog):
  from journey_design import catalogue as render_catalogue
  return render_catalogue(lang,catalog)
 def quote_form(record,lang):
+ if record["pricing"]["policy"]=="transport_server":
+  from transport_quote_view import quote_form as transport_form
+  return transport_form(record,lang,action)
+ if record['pricing']['policy']=='vehicle_service':
+  from vehicle_service_view import quote_form as vehicle_form
+  return vehicle_form(record,lang,action)
+ if record['id']=='34':
+  from package34_view import quote_form as dated_form
+  return dated_form(record,lang,action)
  group=record['discovery']['group'];multi=group=='packages';pid=record['id'];w3=lambda a,b,c:w(lang,a,b,c)
  def select(name,label,options):return '<label for="catalog-'+name+'">'+label+'<select id="catalog-'+name+'" name="'+name+'">'+''.join('<option value="'+value+'">'+text+'</option>' for value,text in options)+'</select></label>'
  choose=('',w3('선택해 주세요','请选择','Please choose'))

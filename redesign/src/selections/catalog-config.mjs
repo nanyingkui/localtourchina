@@ -1,8 +1,15 @@
+import {runtimeFetch} from './runtime-api.mjs';
+import {transportLines,transportMissing,transportDisplay} from './transport-quote.mjs';
+import {vehicleServiceQuote,vehicleConditionLines,vehicleMissing} from './vehicle-service.mjs';
 // Reference prices mirror the existing catalogue. No inferred price for larger/shared parties.
 export const pick=(lang,ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko;
 export function referenceQuote(record,conditions){
  const n=Number(conditions.party),p=record.pricing;
+ if(p.policy==='vehicle_service')return vehicleServiceQuote(record,conditions);
+ if(['dated_package','transport_server'].includes(p.policy))return null; // Private, date-specific costing is server-owned.
  if(!Number.isInteger(n)||n<1||n>99||!conditions.mode)return null;
+ const date=conditions.date;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'')||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)return null;
  // Route-specific manual quotes are distinct from supplier-independent benchmark prices.
  if(p.requires_manual_review)return null;
  if(p.policy==='competitor_usd_from'){
@@ -41,18 +48,36 @@ export function referenceQuote(record,conditions){
  if(!per)return null;
  return {perPersonKRW:per,totalKRW:per*n,basis:p.price?'from':'reference',currency:'KRW',fxCnyFloor:p.fx_cny_floor,validUntil:p.valid_until,nights:p.nights,scenario,conditions:{...conditions}};
 }
-export function conditionText(c,lang){
- const w=(...x)=>pick(lang,...x);
+export async function resolveReferenceQuote(record,conditions){
+ if(record.pricing.policy==='transport_server'){
+  if(!conditions.date||!conditions.party||!conditions.mode||transportMissing(record,conditions,'en').length)return {status:'missing',quote:null};
+  const response=await runtimeFetch('/api/transport/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({productId:record.id,conditions}),signal:AbortSignal.timeout(15000)});
+  if(!response.ok)throw Error('Quote temporarily unavailable');
+  const result=await response.json();if(result.quote)result.quote.conditions={...conditions};return result;
+ }
+ if(record.pricing.policy!=='dated_package')return {status:'ok',quote:referenceQuote(record,conditions)};
+ if(!conditions.date||!conditions.party||!conditions.hotel)return {status:'missing',quote:null};
+ const response=await runtimeFetch('/api/package34/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(conditions),signal:AbortSignal.timeout(10000)});
+ if(!response.ok)throw Error('Quote temporarily unavailable');
+ return response.json();
+}
+export function conditionText(c,lang,record=null){
+ const w=(...x)=>pick(lang,...x),transport=record?.pricing?.policy==='vehicle_service'||(record?.pricing?.policy==='transport_server'&&record.pricing.service_type!=='day_tour');
  const labels={endDate:['마지막 이용일','服务结束日','Last service date'],servicePlace:['미팅 장소·호텔·도시','集合地点、酒店与城市','Meeting place, hotel and city'],language:['안내 언어','服务语言','Service language'],startTime:['시작 시간','开始时间','Start time'],endTime:['종료 시간','结束时间','End time'],guideRole:['서비스 종류','服务类型','Service type'],guidePreference:['희망 가이드','意向导游','Preferred guide'],transport:['교통 준비','交通安排','Transport'],tickets:['입장권','门票安排','Tickets'],guideMeals:['가이드 식사','导游用餐','Guide meals'],serviceScope:['구체적인 요청','具体需求','Specific help']};
  const values={ko:['한국어','韩语','Korean'],zh:['중국어','中文','Chinese'],en:['영어 (가능 여부 확인)','英语（待确认）','English (subject to availability)'],tour:['여행 안내','旅行向导','Tour guiding'],daily:['일상 통역','生活翻译','Everyday interpreting'],business:['비즈니스 통역','商务翻译','Business interpreting'],own:['직접 준비','自行安排','Already arranged'],taxi:['택시·디디','出租车 / 网约车','Taxi / ride hail'],request:['견적 필요','需要报价','Quote needed'],provided:['일행과 함께 제공','随团提供','Provided with our group'],quote:['식대 포함 견적 요청','需含餐补报价','Include meal allowance']};
- const extra=Object.entries(labels).filter(([key])=>c[key]).map(([key,label])=>w(...label)+': '+(values[c[key]]?w(...values[c[key]]):c[key]));
+ const extra=Object.entries(labels).filter(([key])=>c[key]&&!(transport&&key==='startTime')).map(([key,label])=>w(...label)+': '+(values[c[key]]?w(...values[c[key]]):c[key]));
+ if(record?.pricing?.policy==='vehicle_service')extra.push(...vehicleConditionLines(c,lang));
+ if(record?.pricing?.policy==='transport_server')extra.push(...transportLines(c,lang));
+ const hotel=record?.pricing?.hotelOptions?.find(h=>h.id===c.hotel);
+ if(c.hotel)extra.push(w('호텔','酒店','Hotel')+': '+(hotel?.names?.[lang]||c.hotel));
  if(c.departure)extra.push(w('출발 항공편','返程航班时段','Departure flight')+': '+(c.departure==='night'?w('늦은 저녁','深夜','Late night'):w('오후','下午','Afternoon')));
  if(c.season)extra.push(w('여행 시기','价格适用日期','Travel period')+': '+(c.season==='holiday'?w('공휴일·호텔 할증','节假日及酒店加价日','Holiday / hotel surcharge'):w('일반 날짜','平日','Regular dates')));
- return [c.date&&`${w('날짜','日期','Date')}: ${c.date}`,c.party&&`${w('우리 일행','同行人数','Our party')}: ${c.party} ${w('명','人','guests')}`,c.mode&&w('출발 방식','出发方式','Departure')+': '+(c.mode==='shared'?w('합류 희망','申请拼团','Join a group'):w('우리 일행 단독','独立出发','Private departure')),c.arrival&&w('도착','抵达','Arrival')+': '+(c.arrival==='late'?w('늦은 도착','晚到','Late arrival'):w('이른 도착','早到','Early arrival')),c.room&&w('객실','房间','Rooms')+': '+(c.room==='extra'?w('추가 객실 요청','额外房间','Extra rooms requested'):w('2인 1실','双人一间','Twin sharing')),...extra,c.notes&&w('추가 요청','补充要求','Requests')+': '+c.notes].filter(Boolean).join('\n');
+ return [c.date&&`${w('날짜','日期','Date')}: ${c.date}`,c.party&&`${w('우리 일행','同行人数','Our party')}: ${c.party} ${w('명','人','guests')}`,c.mode&&(transport?w('차량 이용 방식','用车方式','Transfer type')+': '+(c.mode==='shared'?w('합승 좌석','拼车座位','Shared seats'):w('우리 일행 전용','本团专车','Private vehicle')):w('출발 방식','出发方式','Departure')+': '+(c.mode==='shared'?w('합류 희망','申请拼团','Join a group'):w('우리 일행 단독','独立出发','Private departure'))),c.arrival&&w('도착','抵达','Arrival')+': '+(c.arrival==='late'?w('늦은 도착','晚到','Late arrival'):w('이른 도착','早到','Early arrival')),c.room&&w('객실','房间','Rooms')+': '+(c.room==='extra'?w('추가 객실 요청','额外房间','Extra rooms requested'):w('2인 1실','双人一间','Twin sharing')),...extra,c.notes&&w('추가 요청','补充要求','Requests')+': '+c.notes].filter(Boolean).join('\n');
 }
 export function canonicalItem(record,lang,conditions={},quote=null){
- const w=(...x)=>pick(lang,...x),text=conditionText(conditions,lang);
- const missing=[];
+ const w=(...x)=>pick(lang,...x),text=conditionText(conditions,lang,record);
+ const missing=record.pricing.policy==='transport_server'?transportMissing(record,conditions,lang):record.pricing.policy==='vehicle_service'?vehicleMissing(record,conditions,lang):[];
+ if(record.pricing.policy==='dated_package'&&!conditions.hotel)missing.push(w('호텔','酒店','Hotel'));
  if(!conditions.date)missing.push(w('날짜','日期','Date'));
  if(!conditions.party)missing.push(w('인원','人数','Party size'));
  if(!conditions.mode)missing.push(w('출발 방식','出发方式','Departure type'));
@@ -69,6 +94,7 @@ export function mergeSelection(record,lang,incoming,existing,configured){
 // Benchmark starting prices never imply a party-size quote or a bookable total.
 export function formatReferenceQuote(input,lang,fx){
  if(!input)return null;
+ if(input.basis==='transport-server')return transportDisplay(input,lang);
  const q={...input},w=(...v)=>pick(lang,...v),currency=lang==='zh'?'CNY':lang==='en'?'USD':'KRW';
  if(q.validUntil&&new Date().toISOString().slice(0,10)>q.validUntil)return null;
  if(q.fxCnyFloor&&(!(fx?.rates?.CNY>=q.fxCnyFloor-1e-10)||!fx.date))return null;
@@ -96,15 +122,21 @@ export function formatReferenceQuote(input,lang,fx){
  }
  if(lang!=='ko'&&(!(fx?.rates?.[currency]>0)||!fx.date))return null;
  const rate=lang==='ko'?1:fx.rates[currency],unit=q.perUnitKRW??q.perPersonKRW;
- const label=q.unit==='guide-day'?w('가이드 1명·1일 6시간','每位导游每天6小时','Per guide, per 6-hour day'):q.unit==='group'?w('한 팀·한 여행','每团一次旅行','Per group, per trip'):w('성인 1인','每位成人','Per adult');
+ const label=q.unit==='vehicle'?w('차량 1대·이번 이동','每车／本次服务','Per vehicle, this service'):q.unit==='seat'?w('1인·이번 이동','每人／本次接送','Per person, this transfer'):q.unit==='guide-day'?w('가이드 1명·1일 6시간','每位导游每天6小时','Per guide, per 6-hour day'):q.unit==='group'?w('한 팀·한 여행','每团一次旅行','Per group, per trip'):w('성인 1인','每位成人','Per adult');
  q.displayLanguage=lang;q.priceLabel=fmt(q.totalKRW*rate);
  q.displayText=label+' '+fmt(unit*rate)+(q.basis==='from'?w('부터','起',' from'):'')+' · '+w('참고 합계','参考合计','Reference total')+' '+fmt(q.totalKRW*rate);
  if(lang!=='ko'){q.fx={date:fx.date,rate,currency};q.displayText+=' · '+w('환율 기준일: ','汇率日期：','Exchange rate dated: ')+fx.date;}
- if(q.nights){
+ if(q.nights&&q.basis!=='dated-package'){
   const [arrival,departure]=q.scenario.split('_');
-  const meals=2*(q.nights-1)+(arrival==='early'?2:0)+(departure==='night'?2:1);
+  const meals=q.mealCount??(2*(q.nights-1)+(arrival==='early'?2:0)+(departure==='night'?2:1));
   q.displayText+=' · '+w(`시내 기본 호텔 ${q.nights}박·조식 / 중·석식 ${meals}회. 실제 항공편·호텔·추가 요청에 따라 재견적합니다.`, `市区基础酒店${q.nights}晚含早／正餐${meals}次。实际航班、酒店或额外要求变化须重算。`, `${q.nights} city-hotel nights with breakfast / ${meals} lunches and dinners. Different flights, hotels or extra requests require a revised quote.`);
  }
+ if(q.basis==='dated-package'){
+  q.displayText+=' · '+(q.hotelNames?.[lang]||'')+' · '+w(`${q.nights}박·조식 포함 / 중·석식 ${q.mealCount}회`,`${q.nights}晚含早／正餐${q.mealCount}次`,`${q.nights} nights with breakfast / ${q.mealCount} lunches and dinners`);
+  q.displayText+=' · '+w(`${q.rooms}개 객실 · 숙박일 ${q.hotelDates.join(', ')}`,`${q.rooms}间客房 · 入住晚间日期 ${q.hotelDates.join('、')}`,`${q.rooms} rooms · hotel nights ${q.hotelDates.join(', ')}`);
+  q.displayText+=' · '+(q.hotelState==='confirmed'?w('해당 숙박일 요금 반영 · 객실 가능 여부 별도 확인','已按各晚已确认房价核算，房态另行确认','Rates for each night included; room availability to be confirmed'):w('날짜별 예상 숙박요금을 반영한 참고 견적입니다. 객실과 최종 금액은 상담 후 확정합니다.','已按逐晚住宿参考价测算；房态及最终价格经客服确认。','Includes estimated hotel rates for each night. Room availability and the final price are confirmed with our team.'));
+ }
+ if(q.basis==='vehicle-service')q.displayText+=' · '+w('차량·짐 적재·운행 시간과 별도 비용은 예약 전에 확인합니다.','车型、行李装载、服务时间与另付费用须预订前确认。','Confirm vehicle, luggage capacity, timing and separate expenses before booking.');
  if(q.unit==='guide-day')q.displayText+=' · '+w(`${q.days}일 기본 안내비. 하루 6시간 초과분은 시간당 ₩20,000을 가이드에게 별도 지급합니다. 1시간 미만 정산은 사전 확인합니다.`,`${q.days}天基础导游费。每天超过6小时的部分，按₩20,000／小时另付导游；不足1小时如何结算须事前确认。`,`${q.days} day(s) of base guiding. Beyond 6 hours per day, pay the guide ₩20,000 per hour separately; agree partial-hour billing in advance.`);
  q.displayText+=' · '+w('최종 확정 전 참고 금액','参考报价，尚未最终确认','Estimate, subject to confirmation');
  return q;

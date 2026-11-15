@@ -15,7 +15,12 @@ function withImageDimensions(html) {
     return tag.replace(/\s(?:width|height)="[^"]*"/g, '').replace(/>$/, ` width="${dimensions[0]}" height="${dimensions[1]}">`);
   });
 }
-const template = await readFile(path.join(root, 'src/site-template.html'), 'utf8');
+// Legacy editor input stays private. Customer HTML receives approved retail fares only.
+const publicTicketPrices = JSON.parse(await readFile(path.join(root, 'catalog-site/catalog.json'), 'utf8')).tickets.pricing.direct_prices;
+if (Object.keys(publicTicketPrices || {}).length !== 28) throw Error('Approved ticket fare table is incomplete');
+const template = (await readFile(path.join(root, 'src/site-template.html'), 'utf8'))
+  .replace(/const pricing=\{[\s\S]*?\n  \};/, block => block.replace(/,(?:adult|discount|senior|child|special|fixed):\d+(?:\.\d+)?/g, ''))
+  .replace(/  \/\/ 내부 가격 설정:[\s\S]*?(?=  const ticketCarePrice=)/, `  const directPrices=${JSON.stringify(publicTicketPrices)};\n  const salePrice=(id,productKey,age)=>directPrices[\`${'${id}.${productKey}.${age}'}\`]??NaN;\n`);
 const withoutSanyaPrivate = html => html.replace(/<!-- sanya-private:start -->[\s\S]*?<!-- sanya-private:end -->/, '');
 const winterFlights = JSON.parse(await readFile(path.join(root, 'src/winter-flights.json'), 'utf8'));
 await writeFile(path.join(root, 'assets/winter-flights-data.js'), 'window.LTC_WINTER_FLIGHTS = '+JSON.stringify(winterFlights)+';\n');

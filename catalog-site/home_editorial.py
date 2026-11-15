@@ -11,15 +11,19 @@ def render_home(lang, catalog):
     arrow = '<svg class="home-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>'
     heading = t('산과 바다 사이,<br>우리다운 여행.', '山海之间，<br>按自己的节奏。', 'Mountains. Sea.<br>Your own pace.')
     service_labels = {
+        'airport-pickup': t('공항 픽업', '机场接机', 'Airport pickup'),
+        'airport-dropoff': t('공항 샌딩', '机场送机', 'Airport drop-off'),
+        'station-transfer': t('역 픽업·샌딩', '车站接送', 'Station transfers'),
+        'day-charter': t('일일 전용차량', '单日包车', 'Day charter'),
+        'vehicles:furong-transfer': t('부용진 이동', '芙蓉镇接送', 'Furong transfers'),
         'tickets': t('입장권', '景区门票', 'Tickets'),
-        'vehicles': t('공항 픽업·차량', '接送与包车', 'Transfers & cars'),
         'local-guide': t('현지 가이드', '当地导游', 'Local guides'),
         'online-guide': t('온라인 여행지원', '线上旅行支持', 'Online support'),
-        'private-tour': t('맞춤 여행', '定制旅行', 'Tailor-made travel'),
     }
     services = ''
     for key, label in service_labels.items():
-        icon = service_icon(key) if key != 'private-tour' else '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6"/></svg>'
+        if key not in catalog:continue
+        icon = service_icon(key)
         services += f'<a href="{catalog[key]["paths"][lang]}">{icon}<span>{label}</span>{arrow}</a>'
     recommended = ''.join(card(catalog[key], lang, True) for key in ['34', '45', '45furong'])
 
@@ -41,7 +45,7 @@ def render_home(lang, catalog):
         <figure class="home-hero-photo"><img src="/editorial/peaks.webp" width="1600" height="819" alt="{t('구름 사이로 솟은 장가계의 산봉우리','云雾间的张家界峰林','Zhangjiajie peaks rising through the clouds')}" fetchpriority="high"><figcaption><span>{t('장가계, 후난','张家界，湖南','Zhangjiajie, Hunan')}</span><a href="{browse}#packages">{t('이곳으로 떠나기','探索这里','Explore this place')}{arrow}</a></figcaption></figure>
       </section>
 
-      <section id="services" class="home-services home-container" aria-labelledby="home-services-title"><h2 id="home-services-title">{t('필요한 서비스만,<br>바로 찾아보세요.','只选需要的服务，<br>从这里开始。','Just the service<br>you need.')}</h2><div>{services}</div></section>
+      <section id="services" class="home-services home-container home-service-shortcuts" aria-labelledby="home-services-title"><header><h2 id="home-services-title">{t('필요한 서비스만,<br>바로 찾아보세요.','只选需要的服务，<br>从这里开始。','Just the service<br>you need.')}</h2><a class="home-link" href="{browse}#services">{t('개별 서비스 전체','查看全部个别服务','All individual services')}{arrow}</a></header><div>{services}</div></section>
 
       <section id="destinations" class="home-destinations home-container home-section" aria-labelledby="destinations-title">
         <div class="home-section-head"><h2 id="destinations-title">{t('어떤 풍경에<br>머물고 싶으세요?','想在哪一种<br>风景里停留？','Where would you<br>like to linger?')}</h2><p>{t('산과 오래된 마을, 바다와 열대의 숲.<br>서로 다른 두 지역에서 여행을 시작해 보세요.','山峦与古镇，海岸与雨林。<br>从并列的两个目的地，找到你的旅行。','Mountains and old towns. Coastlines and rainforest.<br>Two regions, each with a different story.')}</p></div>

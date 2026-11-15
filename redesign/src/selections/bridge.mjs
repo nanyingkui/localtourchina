@@ -16,9 +16,18 @@ export function activeProduct(){
  return null;
 }
 const selectors={ticket:['inquiry','#total'],vehicle:['vehicleInquiry','#vehicleSummary .price'],guide:['guideInquiry','#guideSummary .price'],daytour:['dayInquiry','#daySummary .price'],private:['privateInquiry',null],onlineguide:[null,null]};
+function stableSelector(input){
+ const parts=[];let node=input;
+ while(node&&node!==document.body){
+  if(node.id){parts.unshift('#'+CSS.escape(node.id));return parts.join(' > ');}
+  const siblings=[...node.parentElement.children].filter(x=>x.tagName===node.tagName);
+  parts.unshift(node.tagName.toLowerCase()+':nth-of-type('+(siblings.indexOf(node)+1)+')');node=node.parentElement;
+ }
+ return '';
+}
 export function snapshot(scope){
  const fields=[...scope.querySelectorAll('input,select,textarea')].filter(x=>!x.readOnly&&!['password','file','submit','button'].includes(x.type)&&!/(?:contact|nickname|passport|^onlineName$|^name$)/i.test(x.id)&&!x.closest('[data-ms-ui]'));
- return fields.map((x,index)=>({id:x.id||'',name:x.name||'',index,type:x.type,value:x.value,checked:!!x.checked,...(x.classList.contains('guide-date')?{group:'guideDate',groupIndex:[...scope.querySelectorAll('.guide-date')].indexOf(x)}:{})}));
+ return fields.map((x,index)=>({id:x.id||'',name:x.name||'',selector:stableSelector(x),index,type:x.type,value:x.value,checked:!!x.checked,...(x.classList.contains('guide-date')?{group:'guideDate',groupIndex:[...scope.querySelectorAll('.guide-date')].indexOf(x)}:{})}));
 }
 function formText(scope){return [...scope.querySelectorAll('input,select,textarea')].filter(x=>shown(x)&&!x.readOnly&&!x.closest('[data-ms-ui]')&&!['checkbox','radio','hidden','password','file'].includes(x.type)&&x.value&&!/(?:contact|nickname|passport|^onlineName$|^name$)/i.test(x.id)).map(x=>`${(x.labels?.[0]?.textContent||x.name||x.id||'').split('\n')[0].trim().slice(0,90)}: ${x.tagName==='SELECT'?x.selectedOptions[0]?.textContent:x.value}`).join('\n');}
 function currentPath(kind){const url=new URL(location.href);url.searchParams.delete('msEdit');url.searchParams.delete('msOpen');if(kind==='furong'){url.searchParams.set('view','furong');url.hash='';}return url.pathname+url.search+url.hash;}
@@ -79,7 +88,10 @@ export function captureProduct(lang='ko'){
   for(const input of required)if(!input.value.trim())missing.push((input.labels?.[0]?.textContent||input.id).trim());
   if(!date&&kind!=='private')missing.push(w('이용 날짜','使用日期','Travel date'));
   if(kind==='vehicle'){for(const [id,label]of [['vehicleTime',w('픽업 시간','接客时间','Pickup time')],['vehiclePickup',w('픽업 장소','接客地点','Pickup place')],['vehicleDropoff',w('도착 장소','送达地点','Dropoff place')]])if(!value(id))missing.push(label);if(value('vehicleDirection')==='round'&&document.querySelector('#vehicleService input:checked')?.value==='airport'&&(!value('vehicleReturnDate')||!value('vehicleReturnTime')||!value('vehicleReturnPickup')||!value('vehicleReturnDropoff')))missing.push(w('복귀편 정보','返程信息','Return-leg details'));}
-  if(kind==='ticket'&&!scope.querySelector('#attractions input:checked'))missing.push(w('관광지 선택','选择景区','Choose attraction'));
+  if(kind==='ticket'){
+   if(!scope.querySelector('#attractions input:checked'))missing.push(w('관광지 선택','选择景区','Choose attraction'));
+   if(!date||!Number(people)||!scope.querySelector('#attractions input:checked')||!Number.isFinite(amountKRW))amountKRW=null;
+  }
  }
  const invalid=[...scope.querySelectorAll('input[type=number]')].filter(x=>shown(x)&&!x.checkValidity());
  if(invalid.length){amountKRW=null;missing.push(w('인원·수량 확인','核对人数及数量','Check counts'));}
@@ -122,7 +134,9 @@ export async function restoreProduct(item){
  for(let pass=0;pass<2;pass++){
   const all=[...scope.querySelectorAll('input,select,textarea')].filter(x=>!x.readOnly&&!['password','file','submit','button'].includes(x.type)&&!/(?:contact|nickname|passport|^onlineName$|^name$)/i.test(x.id)&&!x.closest('[data-ms-ui]'));
   for(const field of item.fields.filter(x=>x.type!=='choice')){
-   const input=field.group==='guideDate'?scope.querySelectorAll('.guide-date')[field.groupIndex]:field.id?document.getElementById(field.id):field.selector?scope.querySelector(field.selector):all[field.index];if(!input||!scope.contains(input)||input.type==='radio')continue;
+   const named=field.name?all.filter(x=>x.name===field.name&&x.type===field.type&&(!['checkbox','radio'].includes(field.type)||x.value===field.value)):[];
+   const input=field.group==='guideDate'?scope.querySelectorAll('.guide-date')[field.groupIndex]:field.id?document.getElementById(field.id):field.selector?scope.querySelector(field.selector):named.length===1?named[0]:all[field.index];
+   if(!input||!scope.contains(input)||input.type==='radio'||input.type!==field.type||field.type==='checkbox'&&input.value!==field.value)continue;
    if(field.type==='checkbox'){if(input.checked===field.checked)continue;Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'checked').set.call(input,field.checked);}
    else {if(input.value===field.value)continue;const prototype=input.tagName==='SELECT'?HTMLSelectElement.prototype:input.tagName==='TEXTAREA'?HTMLTextAreaElement.prototype:HTMLInputElement.prototype;Object.getOwnPropertyDescriptor(prototype,'value').set.call(input,field.value);}
    input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));

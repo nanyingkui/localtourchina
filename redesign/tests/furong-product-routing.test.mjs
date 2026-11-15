@@ -18,14 +18,9 @@ test('airport quotes retain every original route and direction price without Fur
 test('daily rental base, overtime and meal charges remain independent',()=>{
  for(const [key,base] of Object.entries({car9:170000,car14:200000,car18:220000}))for(const hours of [8,10])for(const meal of [0,10000,20000]){const result=vehicleQuote({service:'rental',key,hours,meal});assert.ok(result.summary.includes(`<div class="price" data-reference-krw="${base+Math.max(0,hours-8)*20000+meal}">${base+Math.max(0,hours-8)*20000+meal}원</div>`));assert.doesNotMatch(result.inquiry,/FURONG|부용진|芙蓉/);}
 });
-test('standalone Furong remains the only transfer price and never inherits airport or daily rates',()=>{
- for(const [region,shared,privateFare] of [['city',24000,192000],['wulingyuan',39000,312000]])for(const people of [1,3,8]){assert.equal(transferQuote({region,mode:'shared',journey:'roundtrip',people}).total,shared*people);assert.equal(transferQuote({region,mode:'private',journey:'roundtrip',people}).total,privateFare);}
- assert.throws(()=>transferQuote({people:9}));assert.equal(transferQuote({mode:'private',journey:'roundtrip',region:'city',returnRegion:'wulingyuan'}).total,252000);
-});
+test('obsolete standalone transfer calculators no longer return unverified prices',()=>{assert.throws(()=>transferQuote({region:'city',mode:'private',people:4}));});
 test('vehicle source removes obsolete control, pricing and inquiry suffix and provides a product link',()=>{
  assert.doesNotMatch(source,/vehicleFurong["']|furongFee|furongOption|-FURONG|부용진 왕복 추가|부용진 왕복: 5/);
  assert.match(source,/data-furong-transfer-link href="index\.html\?view=furong"/);
 });
-test('generated vehicle pages route each language to the same existing localized Furong product',()=>{
- for(const locale of ['','zh/','en/']){const html=fs.readFileSync(new URL('../../'+locale+'vehicles.html',import.meta.url),'utf8');assert.match(html,/data-furong-transfer-link href="index\.html\?view=furong"/);assert.doesNotMatch(html,/id="vehicleFurong"|furongFee|부용진 왕복 추가|芙蓉镇往返：5/);assert.ok(html.includes(locale==='zh/'?'合作运输方':locale==='en/'?'partner operator':'제휴 운송업체'));}
-});
+test('three language vehicle pages link to the canonical Furong record and private runtime',()=>{for(const prefix of ['','zh/','en/']){const html=fs.readFileSync(new URL('../../'+prefix+'vehicles.html',import.meta.url),'utf8');assert.ok(html.includes('/'+prefix+'services/furong-transfer.html'));assert.match(html,/transport_server/);assert.doesNotMatch(html,/furongFee|id="vehicleFurong"/);}});

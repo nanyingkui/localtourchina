@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+@import url('/assets/fonts/noto-sans-kr/font.css');
 :root{--store-paper:#f9f8f6;--store-sand:#f2efe9;--store-ink:#262626;--store-muted:#6b6862;--store-green:#2a483e;--store-line:#dedbd4;--store-font:'Noto Sans KR',Arial,sans-serif}
 .storefront{margin:0;background:var(--store-paper);color:var(--store-ink);font-family:var(--store-font);font-size:16px;line-height:1.7}
 .storefront *,[data-store-header] *,[data-store-legacy] .ms-dialog *{box-sizing:border-box}

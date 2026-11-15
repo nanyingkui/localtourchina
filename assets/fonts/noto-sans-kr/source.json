@@ -1,0 +1,12 @@
+{
+  "family": "Noto Sans KR",
+  "source": "https://github.com/google/fonts/tree/main/ofl/notosanskr",
+  "license": "SIL OFL 1.1; see OFL.txt",
+  "source_sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+  "subsets": {
+    "core": 284256,
+    "extended": 3730264
+  },
+  "coreCodepoints": 1495,
+  "totalCodepoints": 23174
+}

@@ -1,4 +1,4 @@
-import {contactChannel} from '/assets/my-selections/27a44e74dd55/contact-channels.mjs';
+import {contactChannel} from '/assets/my-selections/38568a60b57b/contact-channels.mjs';
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';
 const w=(ko,zh,en)=>lang==='zh'?zh:lang==='en'?en:ko,channel=contactChannel(lang);
 const header=document.querySelector('[data-store-header]');
@@ -63,6 +63,8 @@ if(['tianmen','forest','canyon'].includes(attraction)){
 if(params.get('service')==='airport'){
  const input=document.querySelector('#vehicleService input[value=airport]');if(input&&!input.checked)input.click();
 }
+let serviceEdited=false;
+for(const type of ['input','change'])document.addEventListener(type,event=>{if(event.isTrusted&&!event.target.closest('[data-ms-ui],[data-store-header]'))serviceEdited=true;});
 async function settleService(){
  const node=document.querySelector('#catalog-current');if(!node||!document.body.hasAttribute('data-store-legacy'))return;
  const record=JSON.parse(node.textContent);if(record.pricing.policy!=='existing_service_form')return;
@@ -85,8 +87,9 @@ async function settleService(){
  }
  if(hero&&serviceRecord&&hero.contains(serviceRecord))hero.after(serviceRecord);
  const intro=scope.querySelector('.jd-service-intro');if(intro&&serviceRecord)intro.after(serviceRecord);
- if(!params.has('msEdit')&&!params.has('attraction')&&!params.has('service')){try{const [{readState},{restoreProduct,activeProduct}]=await Promise.all([import('/assets/my-selections/27a44e74dd55/model.mjs'),import('/assets/my-selections/27a44e74dd55/bridge.mjs')]);const saved=readState(localStorage).items.find(x=>x.id==='product:'+record.id);if(saved?.fields?.length&&saved.kind===activeProduct()?.kind)await restoreProduct(saved);}catch{}}
+ if(!params.has('msEdit')&&!params.has('attraction')&&!params.has('service')){try{const [{readState},{restoreProduct,activeProduct}]=await Promise.all([import('/assets/my-selections/38568a60b57b/model.mjs'),import('/assets/my-selections/38568a60b57b/bridge.mjs')]);const saved=readState(localStorage).items.find(x=>x.id==='product:'+record.id);if(!serviceEdited&&saved?.fields?.length&&saved.kind===activeProduct()?.kind)await restoreProduct(saved);}catch{}}
  document.querySelectorAll('a[href^="https://pf.kakao.com/"]').forEach(a=>{if(lang==='en'){a.href=channel.url;a.textContent='Contact on WhatsApp';}else if(lang==='zh'){const b=document.createElement('button');b.type='button';b.className=a.className;b.dataset.contact='';b.textContent='微信咨询';a.replaceWith(b);}});
+ document.body.dataset.serviceReady='true';document.dispatchEvent(new Event('service:ready'));
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(settleService),{once:true});else requestAnimationFrame(settleService);
 const headerContact=document.querySelector('.store-tools [data-contact]');if(headerContact){headerContact.setAttribute('aria-label',w('카카오톡 상담','微信咨询','Contact on WhatsApp'));headerContact.textContent=channel.name;}

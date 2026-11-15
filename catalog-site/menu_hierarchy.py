@@ -22,11 +22,12 @@ def render_menus(lang, catalog):
       </div>
       <div class="menu-bottom"><span>{t('이름을 알고 있다면 더 빠르게','已有目标？直接搜索','Already have something in mind?')}</span><a href="{browse}#catalog-search">{t('여행·서비스 검색','搜索产品与服务','Search tours & services')} ↗</a></div>
     </div>'''
-    service_groups=[(t('예약이 필요한 것','单项预订','Book a service'),['tickets','vehicles']),(t('여행을 도와드려요','旅行协助','Travel assistance'),['local-guide','online-guide','private-tour'])]
+    service_groups=[(t('공항·역 이동','机场与车站接送','Airport & station transfers'),['airport-pickup','airport-dropoff','station-transfer']),(t('차량·구간 이동','包车与线路接送','Cars & regional transfers'),['day-charter','vehicles:furong-transfer','vehicles:fenghuang-transfer','vehicles:changsha-transfer','vehicles']),(t('입장권·여행 도움','门票与旅行协助','Tickets & travel assistance'),['tickets','local-guide','online-guide','private-tour'])]
     sections=''
     for index,(title,keys) in enumerate(service_groups):
         links=''
         for key in keys:
+            if key not in catalog:continue
             r=catalog[key]
             links+='<a class="menu-service-item" data-menu-product="'+key+'" href="'+escape(r['paths'][lang])+'"><span>'+escape(r['locales'][lang]['title'])+'</span><small>'+escape(r['discovery']['summary'][lang])+'</small><b aria-hidden="true">↗</b></a>'
         sections+='<section class="menu-service-group"><h2>'+title+'</h2>'+links+'</section>'

@@ -37,7 +37,8 @@
 .home-editorial .home-hero-photo figcaption svg {width:18px;height:18px;}
 .home-editorial .home-services {display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center;margin-top:58px;border-block:1px solid #d9d8d1;padding-block:24px;}
 .home-editorial .home-services h2 {font-size:18px;line-height:1.6;font-weight:500;letter-spacing:-.025em;}
-.home-editorial .home-services>div {display:grid;grid-template-columns:repeat(5,1fr);gap:24px;}
+.home-editorial .home-services>div {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 24px;}
+.home-editorial .home-service-shortcuts>header .home-link{font-size:14px;margin-top:8px;color:#006b5e;}
 .home-editorial .home-services a {display:flex;gap:10px;align-items:center;font-size:15px;min-height:48px;line-height:1.6;word-break:keep-all;}
 .home-editorial .home-services a>svg:first-child {width:23px;height:23px;flex-shrink:0;stroke-width:1.4;}
 .home-editorial .home-services a>svg:last-child {display:none;}
