@@ -7,6 +7,7 @@ sys.path.insert(0,str(ROOT/'catalog-site'))
 from storefront_view import homepage,catalogue,detail,enhance_existing
 from catalog_registry import records
 from product_presentation import apply_product_presentation
+from business_registration import apply_business_registration
 C=records();DEST=ROOT/'redesign/dist/client'
 manifest=json.loads((ROOT/'catalog-site/export-manifest.json').read_text())
 assert manifest['sha256']==hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()).hexdigest(), 'Re-export the canonical catalogue before building'
@@ -21,6 +22,7 @@ def publish(path,html,lang,alternates):
     html=html.replace('20261113journey',VERSION)
     html=html.replace('<meta name="robots" content="noindex,nofollow">','')
     html=re.sub(r'<link[^>]+rel="(?:canonical|alternate)"[^>]*>','',html)
+    html=apply_business_registration(path,html,lang,C)
     seo='<link rel="canonical" href="https://localtourchina.com'+path+'">'+''.join('<link rel="alternate" hreflang="'+k+'" href="https://localtourchina.com'+v+'">' for k,v in alternates.items())
     html=html.replace('</head>',seo+'<script defer src="/catalog-entry.js"></script><script type="module" src="/assets/catalog-live.mjs"></script></head>',1)
     # Cached HTML may keep old assets; content-addressed selection files are retained.
