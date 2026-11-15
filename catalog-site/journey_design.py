@@ -56,7 +56,8 @@ def contents(record,lang):
         if is_plan:
             anchor='itinerary' if not itinerary_done else 'itinerary-'+str(index);itinerary_done=True
             variants=re.split(r'<h3\b[^>]*>(.*?)</h3>',body,flags=re.S)
-            if len(variants)>=5 and all(re.search(r'도착|arrival|早到|晚到',variants[i],re.I) for i in range(1,len(variants),2)):
+            plans=record.get('plans',[])
+            if plans and len(variants)==1+2*len(plans) and all(variants[1+2*i]==escape(plan['title'][lang]) for i,plan in enumerate(plans)):
                 tabs='<div class="jd-arrival-tabs" role="tablist" aria-label="'+t('도착별 일정','抵达方案','Arrival plans')+'">'+''.join(f'<button type="button" role="tab" id="plan-tab-{key}" aria-controls="plan-{key}" aria-selected="{str(i==0).lower()}" tabindex="{0 if i==0 else -1}" data-plan="{key}">{variants[1+i*2]}</button>' for i,key in enumerate([p['key'] for p in record.get('plans',[])] or ['early','late']))+'</div>'
                 body=variants[0]+tabs+''.join(f'<div id="plan-{key}" role="tabpanel" aria-labelledby="plan-tab-{key}" {"hidden" if i else ""}>'+timeline(variants[2+i*2],multi,lang)+'</div>' for i,key in enumerate([p['key'] for p in record.get('plans',[])] or ['early','late']))
             else:body=timeline(body,multi,lang)
