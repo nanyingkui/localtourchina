@@ -1,6 +1,6 @@
 {
-  "sha256": "090b85fdb9ec3a6938400cde414097d939fba69a3283df5f7dee57d8836540c3",
-  "productCount": 29,
+  "sha256": "623fcec637bdcabc62f2e84c8bc139ad137421d7ba4e5593a4f1158ae45b1e82",
+  "productCount": 30,
   "pricingRevision34": 23,
   "hotelCount34": 6,
   "source": "https://znfcmancrhymrdnlowuh.supabase.co/functions/v1/ltc-runtime/customer-catalog.json"

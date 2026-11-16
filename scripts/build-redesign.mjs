@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { preservePublishedAssets, finalizePublicRelease } from './public-build.mjs';
+import { preservePublishedAssets, finalizePublicRelease, copyPublicTree } from './public-build.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const frontend = path.join(root, 'redesign');
@@ -28,20 +28,13 @@ run('scripts/apply-visual-system.mjs', frontend);
 run('scripts/apply-my-selections.mjs', frontend);
 run('scripts/build-traveler.mjs', frontend);
 run('node_modules/vite/bin/vite.js', frontend, ['build']);
-await copyTree(path.join(frontend, 'public'), dist);
+await copyPublicTree(path.join(frontend, 'public'), dist);
 run('scripts/prerender.mjs', frontend);
 run('scripts/prepare-sites-build.mjs', frontend);
 await preservePublishedAssets(root, dist);
-await copyTree(dist, root);
+await copyPublicTree(dist, root);
 python('scripts/build-reviewed-catalog.py');
+run('scripts/build-notebook.mjs', root);
 await finalizePublicRelease(root, dist);
 console.log('Public pages generated; quotes and protected administration use the existing runtime.');
 
-async function copyTree(from, to) {
-  await fs.mkdir(to, { recursive: true });
-  for (const item of await fs.readdir(from, { withFileTypes: true })) {
-    const source = path.join(from, item.name), target = path.join(to, item.name);
-    if (item.isDirectory()) await copyTree(source, target);
-    else await fs.copyFile(source, target);
-  }
-}

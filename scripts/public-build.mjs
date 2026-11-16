@@ -1,20 +1,25 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+async function atomicWrite(file,data){const tmp=file+'.notebook-tmp';await fs.writeFile(tmp,data);await fs.rename(tmp,file);}
+
 const selectionAsset = /^assets\/my-selections\/[a-f0-9]{12}\/[\w-]+\.(?:mjs|js|css)$/;
 const bundledAsset = /^assets\/index-[\w-]+\.(?:js|css)$/;
 const noContactGate = /^(?:404\.html|admin\.html|travel-planner\/index\.html|(?:zh\/|en\/)?travel-safety\.html)$/;
 
 export async function preservePublishedAssets(root, dist) {
   const files = JSON.parse(await fs.readFile(path.join(root, 'public-release-manifest.json'), 'utf8'));
-  for (const name of files) {
+  let next=0;
+  await Promise.all(Array.from({length:32},async()=>{while(next<files.length){const name=files[next++];await preserve(name);}}));
+  async function preserve(name){
     const source = path.join(root, name), target = path.join(dist, name);
     // Historical content-addressed URLs must keep the exact already-published bytes.
     if (!selectionAsset.test(name)) {
-      try { await fs.access(target); continue; } catch {}
+      try { await fs.access(target); return; } catch {}
     }
     await fs.mkdir(path.dirname(target), { recursive: true });
-    await fs.copyFile(source, target);
+    await atomicWrite(target, await fs.readFile(source));
+  
   }
 }
 
@@ -40,9 +45,17 @@ export async function finalizePublicRelease(root, dist) {
     if (!html.includes('/assets/contact-modal.css')) {
       html = html.replace('</head>', '<link rel="stylesheet" href="/assets/contact-modal.css"></head>');
     }
-    await fs.writeFile(path.join(dist, name), html);
-    await fs.writeFile(path.join(root, name), html);
+    await atomicWrite(path.join(dist, name), html);
+    await atomicWrite(path.join(root, name), html);
   }
   await fs.writeFile(manifestPath, JSON.stringify([...files].sort(), null, 2) + '\n');
   console.log(`Retained published assets and contact notices; ${files.size} allowlisted release files.`);
+}
+
+// Copy bytes without filesystem clone metadata; bound concurrent reads for large photo libraries.
+export async function copyPublicTree(from,to){
+ const files=[];
+ async function collect(a,b){await fs.mkdir(b,{recursive:true});for(const e of await fs.readdir(a,{withFileTypes:true})){const src=path.join(a,e.name),dest=path.join(b,e.name);if(e.isDirectory())await collect(src,dest);else files.push([src,dest]);}}
+ await collect(from,to);let next=0;
+ await Promise.all(Array.from({length:8},async()=>{while(next<files.length){const [src,dest]=files[next++];await atomicWrite(dest,await fs.readFile(src));}}));
 }

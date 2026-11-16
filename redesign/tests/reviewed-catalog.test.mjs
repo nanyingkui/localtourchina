@@ -20,7 +20,7 @@ test('all canonical records produce matching public detail records in all three 
 });
 test('all multi-day plans have the correct number of days and end with airport transfer',()=>{
  for(const record of Object.values(catalogue).filter(r=>r.discovery.group==='packages')){
-  assert.equal(record.plans.length,3);
+  if(record.id==='experience45'){assert.equal(record.pricing.policy,'quote_required');assert.equal(record.pricing.requires_manual_review,true);assert.deepEqual(record.plans.map(p=>p.key),['late_night']);}else assert.equal(record.plans.length,3);
   for(const plan of record.plans){assert.equal(plan.days.length,record.pricing.nights+1);assert.match(plan.days.at(-1).code,/airport$/);for(const day of plan.days)for(const lang of ['ko','zh','en'])assert.ok(day.title[lang]&&day.text[lang].length>25)}
  }
 });

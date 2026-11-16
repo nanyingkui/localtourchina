@@ -154,3 +154,11 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Show each route's actual sightseeing and travel differences on product cards and detail introductions.
 - Daily itineraries must be concise and scannable while retaining sights, transport, reference times and relevant constraints.
 - List included and excluded costs individually. Put timing changes, entry conditions, walking limits and extra-charge explanations next to the affected day or fee.
+
+# Travel notebook release (2026-11-17)
+- User approved publishing the completed Korean, Chinese and English notebook experience. This overrides older preview-only and Apple-style directions for this release.
+- Shared source: redesign/notebook. Preserve the accepted real-photo, handwriting and colored-pencil illustration style throughout homepage, selection, all three itineraries and inquiry. Use only the complete transparent no-outline orange-hat master; do not crop it or mix avatar variants.
+- Guest faces stay masked in thumbnails and lightboxes; only the two explicitly confirmed operator faces are exceptions. Keep source provenance; generated scenery cannot stand in for real travel photos.
+- 34 uses the original dated-hotel quote API; missing rates must stay pending. experience45 is distinct from old 45. 56 uses the current catalog scenario prices. Keep original calculators and My selections intact.
+- Korean contact is Kakao, Chinese WeChat, English WhatsApp, using the existing consultation safety notice. Never automatically send or create orders. Korean-speaking guide service does not change language when the page language changes.
+- Build via scripts/build-notebook.mjs in the normal release pipeline; maintain all three translations, manifest allowlist and full-flow mobile checks before publication.

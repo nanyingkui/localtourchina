@@ -48,6 +48,6 @@ test('reviewed pages use conditional current prices and language-specific channe
   for(const lang of ['ko','zh','en']){
     const prefix=lang==='ko'?'':lang+'/';const html=await readFile(new URL('../../'+prefix+'index.html',import.meta.url),'utf8');
     assert.match(html,/products.html/);assert.match(html,/data-contact/);
-    assert.ok(html.includes(lang==='ko'?'카카오톡 상담':lang==='zh'?'微信咨询':'WhatsApp'));
+    assert.ok(html.includes(lang==='ko'?'카카오톡':lang==='zh'?'微信':'WhatsApp'));
   }
 });

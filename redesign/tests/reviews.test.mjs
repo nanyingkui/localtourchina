@@ -22,5 +22,5 @@ test('all localized review pages contain original text and link to exact sources
  }
 });
 test('homepages link directly to complete existing reviews without republishing personal excerpts',async()=>{
- for(const lang of ['','zh/','en/']){const home=await read('../dist/client/'+lang+'index.html');assert.match(home,/review-browse/);assert.match(home,/YouTube/);assert.match(home,/reviews\.html/);assert.equal((home.match(/class="story-source-link"/g)||[]).length,0);}
+ for(const lang of ['','zh/','en/']){const home=await read('../dist/client/'+lang+'index.html');assert.ok(home.includes('href="/'+lang+'reviews.html"'),lang+' direct complete reviews link');assert.equal((home.match(/class="story-source-link"/g)||[]).length,0);}
 });

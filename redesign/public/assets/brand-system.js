@@ -27,7 +27,7 @@
       support:'<path d="M5 16v-2a11 11 0 0 1 22 0v6a6 6 0 0 1-6 6h-3"/><rect x="3" y="14" width="5" height="9" rx="2"/><rect x="24" y="14" width="5" height="9" rx="2"/><path class="brand-icon-accent" d="M13 14h6m-6 4h4M16 26h3"/>'
     };
     const icon=kind=>`<svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${iconPaths[kind]}</svg>`;
-    const mark=()=>`<span class="brand-avatar"><img src="/assets/brand/orange-hat-portrait.png" width="44" height="44" alt="" decoding="async"></span><span class="brand-wordmark"><strong>${copy.name}</strong><span>${lang==='en'?'LOCAL KNOWLEDGE · CHINA':'LOCALTOUR CHINA'}</span></span>`;
+    const mark=()=>`<span class="brand-avatar"><img src="/assets/brand/rotucha-orange-hat-master.png" width="44" height="44" alt="" decoding="async"></span><span class="brand-wordmark"><strong>${copy.name}</strong><span>${lang==='en'?'LOCAL KNOWLEDGE · CHINA':'LOCALTOUR CHINA'}</span></span>`;
     let header=document.querySelector('.topbar,.site-header');
     if(!header){
       header=document.querySelector('body>header:not(.hero),.status-head');
