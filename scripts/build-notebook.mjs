@@ -39,7 +39,7 @@ for(const lang of ['ko','zh','en']){
  for(const file of pages){let s=htmlTranslate(read(path.join(source,'ko',file)),lang,file).replace('<html lang="ko"','<html data-notebook-release="14" lang="'+(lang==='zh'?'zh-CN':lang)+'"');
  s=s.replace(/href="([\w-]+\.css)(?:\?[^"<>]*)?"/g,(_,f)=>'href="'+base+f+'"').replace(/src="([\w-]+\.js)(?:\?[^"<>]*)?"/g,(_,f)=>'src="'+base+lang+'/'+f+'"');
  s=s.replace(/<script\b/,`<script src="${base}data.js"></script><script src="${base}${lang}/translations.js"></script><script src="${base}notebook-runtime.js"></script><script src="${base}dated34.js"></script><script`);
- s=s.replace(/(<p class="preview-foot">)[^<]*(<\/p>)/,'$1'+({ko:'로투차 · 여행 선택',zh:'罗途查 · 选择旅行',en:'LocalTourChina · Choose your trip'}[lang])+'$2');
+ if(file==='trips.html')s=s.replace(/(<p class="preview-foot">)[^<]*(<\/p>)/,'$1'+({ko:'로투차 · 여행 선택',zh:'罗途查 · 选择旅行',en:'LocalTourChina · Choose your trip'}[lang])+'$2');
  const canonical='https://localtourchina.com/'+prefix+file;
  s=s.replace('</head>',`<link rel="canonical" href="${canonical}">${['ko','zh','en'].map(l=>`<link rel="alternate" hreflang="${l}" href="https://localtourchina.com/${l==='ko'?'':l+'/'}${file}">`).join('')}<link rel="stylesheet" href="${base}release.css">${ledgerCSS}${ledgerJS}<link rel="stylesheet" href="/assets/contact-modal.css"></head>`);
  const directTarget={ko:'https://pf.kakao.com/_hvrmn/chat',zh:'/zh/travel-safety.html?channel=wechat',en:'https://wa.me/821055722601'}[lang];
