@@ -2,3 +2,6 @@ redesign/node_modules
 redesign/dist/
 redesign/.prerender/
 redesign/.smoke/
+
+_site/
+server/legacy-pages/

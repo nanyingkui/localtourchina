@@ -25,7 +25,10 @@ test('all multi-day plans have the correct number of days and end with airport t
  }
 });
 test('unknown conditions and weaker conversion cannot masquerade as verified package prices',()=>{
- const record=catalogue['45furong'];const c={party:'4',mode:'private',date:'2026-12-08',arrival:'late',departure:'night',season:'regular',room:'standard'};
+ // Fixed rate isolates conversion rules from legitimate live catalogue price changes.
+ const record=structuredClone(catalogue['45furong']);
+ record.pricing.scenario_rates.regular.late_night['4']=1010000;
+ const c={party:'4',mode:'private',date:'2026-12-08',arrival:'late',departure:'night',season:'regular',room:'standard'};
  assert.equal(referenceQuote(record,{...c,room:'extra'}),null);assert.equal(referenceQuote(record,{...c,departure:''}),null);
  const q=referenceQuote(record,c);assert.equal(q.totalKRW,4040000);
  assert.equal(formatReferenceQuote(q,'ko',{...fx,rates:{...fx.rates,CNY:.004}}),null);

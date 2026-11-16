@@ -1,0 +1,38 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import { preservePublishedAssets, finalizePublicRelease } from '../../scripts/public-build.mjs';
+
+test('rebuilding retains published photos, historical selection behavior and contact notices', async t => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'ltc-release-'));
+  t.after(() => fs.rm(root, { recursive: true, force: true }));
+  const dist = path.join(root, 'dist');
+  const write = async (name, text) => { await fs.mkdir(path.dirname(name), { recursive: true }); await fs.writeFile(name, text); };
+  const historic = 'assets/my-selections/123456abcdef/ui.mjs';
+  const current = 'assets/my-selections/abcdef123456/ui.mjs';
+  const files = ['index.html', 'travel-safety.html', 'photos/guest.jpg', 'product-presentation.css', historic];
+  await write(path.join(root, 'public-release-manifest.json'), JSON.stringify(files));
+  for (const name of files) await write(path.join(root, name), 'published');
+  const html = '<html><head></head><body>new content</body></html>';
+  for (const name of ['index.html', 'travel-safety.html']) await write(path.join(dist, name), html);
+  await write(path.join(dist, historic), 'stale source copy');
+  await write(path.join(dist, current), 'current source');
+  await write(path.join(dist, 'assets/private.env'), 'must not be allowlisted');
+  await preservePublishedAssets(root, dist);
+  assert.equal(await fs.readFile(path.join(dist, historic), 'utf8'), 'published');
+  assert.equal(await fs.readFile(path.join(dist, 'photos/guest.jpg'), 'utf8'), 'published');
+  assert.equal(await fs.readFile(path.join(dist, 'product-presentation.css'), 'utf8'), 'published');
+  await finalizePublicRelease(root, dist);
+  await finalizePublicRelease(root, dist);
+  const home = await fs.readFile(path.join(dist, 'index.html'), 'utf8');
+  assert.match(home, /new content/);
+  assert.equal(home.match(/contact-gate\.js/g).length, 1);
+  assert.equal(home.match(/contact-modal\.css/g).length, 1);
+  assert.equal(home, await fs.readFile(path.join(root, 'index.html'), 'utf8'));
+  assert.equal(await fs.readFile(path.join(dist, 'travel-safety.html'), 'utf8'), html);
+  const manifest = JSON.parse(await fs.readFile(path.join(root, 'public-release-manifest.json'), 'utf8'));
+  assert.ok(manifest.includes(current));
+  assert.ok(!manifest.includes('assets/private.env'));
+});
