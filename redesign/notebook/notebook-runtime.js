@@ -9,7 +9,7 @@ const channel={ko:'kakao',zh:'wechat',en:'whatsapp'}[lang],target={ko:'https://p
 const safety=()=>{if(window.ltcOpenContactSafety)window.ltcOpenContactSafety(channel,target);else location.href=(lang==='ko'?'':'/'+lang)+'/travel-safety.html?channel='+channel;};
 window.Notebook={lang,pick,esc,data,currency,money,transportMoney,api,channel,target,openContact:safety,partyFromText:text=>{const m=String(text||'').trim().match(/^(?:(?:성인|成人|adults?|people|guests?)\s*)?([2-6])\s*(?:명|人|位|adults?|people|guests?)?$/i);return m?Number(m[1]):null;},translate:s=>window.NotebookTranslations?.[s]??s};
 const params=new URLSearchParams(location.search);
-if(params.get('view')==='full'){document.body.classList.add('full-view');document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('img').forEach(img=>img.loading='eager'));}
+if(params.get('view')==='full'){document.body.classList.add('full-view');document.addEventListener('DOMContentLoaded',async()=>{const images=[...document.querySelectorAll('img[src]')].filter(img=>img.getAttribute('src'));try{await Promise.all(images.map(img=>{img.loading='eager';img.decoding='sync';return img.decode();}));await document.fonts.ready;document.body.dataset.fullImagesReady='true';}catch{document.body.dataset.fullImagesReady='error';}});}
 document.querySelectorAll('a[href="https://pf.kakao.com/_hvrmn/chat"]').forEach(a=>{a.href=target||(lang==='ko'?'':'/'+lang)+'/travel-safety.html?channel='+channel;});
 const nav=document.createElement('nav');nav.className='notebook-languages';nav.setAttribute('aria-label',pick('언어 선택','切换语言','Choose language'));
 const file=location.pathname.split('/').pop()||'index.html';
