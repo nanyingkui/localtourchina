@@ -110,3 +110,22 @@ body .ms-dialog{width:100%;max-width:100vw!important}body .ms-dialog .ms-head{pa
 [data-transfer-return]{margin:0;padding:18px 0 0;border:0;border-top:1px solid #c7bbae}
 [data-transfer-return] legend{font-weight:600;padding-right:10px}
 @media(max-width:800px){.jd-detail-layout{grid-template-columns:minmax(0,1fr)}}
+
+/* Route differences and readable daily arrangements. */
+.route-highlights {margin:18px 0 22px;text-align:left;}
+.route-highlights .route-focus {font-size:18px;font-weight:700;line-height:1.5;color:#244e40;margin:0 0 10px;}
+.route-highlights ul {padding-left:19px;margin:0;display:grid;gap:8px;}
+.route-highlights li {font-size:15px;line-height:1.65;color:#34433c;}
+.day-note {margin:14px 0;padding:13px 16px;background:#fff6e8;border-left:3px solid #b87b28;border-radius:0 8px 8px 0;color:#604722;font-size:14px;line-height:1.65;}
+.day-note>strong {display:block;font-size:14px;margin-bottom:6px;}
+.day-conditions summary {cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:14px;text-decoration:underline;text-underline-offset:4px;}
+.cost-items {display:grid;gap:0;margin:8px 0 14px;padding-left:21px;}
+.cost-items>li {padding:9px 0 9px 3px;line-height:1.75;border-bottom:1px solid #dfe6df;}
+.cost-items>li:last-child {border-bottom:0;}
+.cost-items .cost-condition {background:#fff6e8;color:#604722;padding:12px;border-radius:6px;}
+.card-record .day-note {font-size:14px;}
+@media(max-width:600px){.route-highlights .route-focus{font-size:17px}.route-highlights li{font-size:15px}.day-note{padding:12px}.jd-step-copy{min-width:0}.cost-items>li{overflow-wrap:anywhere}}
+
+.jd-step-copy .day-route-row,.card-record .day-route-row{margin:8px 0;line-height:1.7}.jd-step-copy .day-note p,.card-record .day-note p{font-size:14px;line-height:1.65;margin:6px 0 0}
+
+.home-editorial .home-journey-grid{align-items:stretch}.home-editorial .home-journey-grid .store-card h3{min-height:0;margin-bottom:8px}.home-editorial .home-journey-grid .route-highlights{margin-top:12px}

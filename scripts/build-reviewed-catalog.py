@@ -9,6 +9,9 @@ from catalog_registry import records
 from product_presentation import apply_product_presentation
 from business_registration import apply_business_registration
 C=records();DEST=ROOT/'redesign/dist/client'
+# Presentation edits reuse the hash-verified public export and already built service forms.
+# Pricing/data changes still require export-catalog.py through the full build.
+PRESENTATION_ONLY='--presentation-only' in sys.argv
 manifest=json.loads((ROOT/'catalog-site/export-manifest.json').read_text())
 assert manifest['sha256']==hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()).hexdigest(), 'Re-export the canonical catalogue before building'
 assert len(C)==manifest['productCount'] and all(set(r['locales'])=={'ko','zh','en'} for r in C.values())
@@ -19,6 +22,10 @@ VERSION=hashlib.sha256((ROOT/'catalog-site/catalog.json').read_bytes()+b''.join(
 ASSET=f'/assets/my-selections/{VERSION}/'
 def publish(path,html,lang,alternates):
     html=apply_product_presentation(path,html,lang)
+    if '/assets/contact-gate.js' not in html:
+        html=html.replace('</body>','<script src="/assets/contact-gate.js"></script></body>',1)
+    if '/assets/contact-modal.css' not in html:
+        html=html.replace('</head>','<link rel="stylesheet" href="/assets/contact-modal.css"></head>',1)
     html=html.replace('20261113journey',VERSION)
     html=html.replace('<meta name="robots" content="noindex,nofollow">','')
     html=re.sub(r'<link[^>]+rel="(?:canonical|alternate)"[^>]*>','',html)
@@ -35,7 +42,8 @@ if 'class="home-editorial"' in legacy:
 else:
     legacy=legacy.replace('</head>', '<script>if(!new URLSearchParams(location.search).has("reference")&&new URLSearchParams(location.search).get("view")!=="furong")location.replace("/products.html")</script></head>')
     legacy=legacy.replace('</body>', '<script type="application/json" id="catalog-current">'+json.dumps(C['vehicles'],ensure_ascii=False).replace('</','<\\/')+'</script></body>')
-for base in [ROOT,DEST]:(base/'legacy-flow.html').write_text(legacy)
+if not PRESENTATION_ONLY:
+    for base in [ROOT,DEST]:(base/'legacy-flow.html').write_text(legacy)
 public_pages=[]
 for lang in ['ko','zh','en']:
     prefix='' if lang=='ko' else '/'+lang
@@ -47,6 +55,9 @@ for lang in ['ko','zh','en']:
     for record in C.values():
         path=record['paths'][lang]
         if record['pricing']['policy']=='existing_service_form':
+            if PRESENTATION_ONLY:
+                public_pages.append(path)
+                continue
             source=DEST/path.lstrip('/')
             legacy_source=ROOT/'server/legacy-pages'/path.lstrip('/')
             legacy_source.parent.mkdir(parents=True,exist_ok=True)

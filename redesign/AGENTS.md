@@ -149,3 +149,8 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - Canonical presentation lives in assets/visual-system.css and visual-system.js. Mountain photography, forest-green task controls and yellow Kakao contact actions retain their roles. Keep typography, spacing, surfaces, focus, pressed/disabled states, disclosures and dialogs consistent. No perpetual glow, gratuitous animations or extra steps.
 - Preserve all prices, product/inquiry fields, account boundaries and route-arrival behavior. Header/interaction improvements must not send messages or submit real customer data. Local-only preview guards stay in Vite's serve-only plugin and must never enter production assets.
 - sync-legacy must not overwrite the new canonical visual files from previously generated root assets. Every public document loads one shared presentation; app offline caching stays a static allowlist and the visual assets participate in its version hash.
+
+# Route clarity feedback (2026-11-16)
+- Show each route's actual sightseeing and travel differences on product cards and detail introductions.
+- Daily itineraries must be concise and scannable while retaining sights, transport, reference times and relevant constraints.
+- List included and excluded costs individually. Put timing changes, entry conditions, walking limits and extra-charge explanations next to the affected day or fee.

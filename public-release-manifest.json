@@ -1360,5 +1360,21 @@
   "zh/travel-safety.html",
   "assets/contact-gate.js",
   "assets/contact-safety-page.js",
-  "assets/contact-modal.css"
+  "assets/contact-modal.css",
+  "assets/my-selections/41501bc74a78/bridge.mjs",
+  "assets/my-selections/41501bc74a78/catalog-config.mjs",
+  "assets/my-selections/41501bc74a78/catalog-transfer-rates.mjs",
+  "assets/my-selections/41501bc74a78/channel-brief.mjs",
+  "assets/my-selections/41501bc74a78/chat-handoff.mjs",
+  "assets/my-selections/41501bc74a78/contact-channels.mjs",
+  "assets/my-selections/41501bc74a78/custom-trip.mjs",
+  "assets/my-selections/41501bc74a78/drafts.mjs",
+  "assets/my-selections/41501bc74a78/furong-transfer.mjs",
+  "assets/my-selections/41501bc74a78/model.mjs",
+  "assets/my-selections/41501bc74a78/runtime-api.mjs",
+  "assets/my-selections/41501bc74a78/start.js",
+  "assets/my-selections/41501bc74a78/style.css",
+  "assets/my-selections/41501bc74a78/transport-quote.mjs",
+  "assets/my-selections/41501bc74a78/ui.mjs",
+  "assets/my-selections/41501bc74a78/vehicle-service.mjs"
 ]

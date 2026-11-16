@@ -4,6 +4,7 @@ from html import escape,unescape
 import re,json
 from catalog_registry import records
 from product_view import itinerary,CATALOG
+from route_clarity import route_highlights, cost_list, package_fees
 BASE=Path(__file__).resolve().parent
 ASSET='/assets/my-selections/20261113journey/'
 def w(lang,ko,zh,en):return {'ko':ko,'zh':zh,'en':en}[lang]
@@ -55,7 +56,7 @@ def document(lang,title,main,catalog,record=None,page="home"):
  page_footer=footer(lang)
  if lang!='ko':
   page_footer=page_footer.replace('href="/company.html"','href="/'+lang+'/company.html"').replace('href="/privacy.html"','href="/'+lang+'/privacy.html"')
- return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>'+escape(title)+' | 로투차</title><link rel="stylesheet" href="'+ASSET+'style.css"><link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer data-ltc-selections src="'+ASSET+'start.js"></script><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261113-hierarchy"></script>'+home_assets+'<link rel="stylesheet" href="/journey.css?v=20261113-b"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script></head><body class="'+body_class+'">'+shell(lang,catalog,record,page)+data+main+page_footer+'</body></html>'
+ return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>'+escape(title)+' | 로투차</title><link rel="stylesheet" href="'+ASSET+'style.css"><link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer data-ltc-selections src="'+ASSET+'start.js"></script><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261113-hierarchy"></script>'+home_assets+'<link rel="stylesheet" href="/journey.css?v=20261116-clarity"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script></head><body class="'+body_class+'">'+shell(lang,catalog,record,page)+data+main+page_footer+'</body></html>'
 def product_content(record,lang):
  local=record['locales'][lang];html=local.get('sections','')
  if record['id'] in CATALOG:
@@ -63,7 +64,11 @@ def product_content(record,lang):
   plan=itinerary(record['id'],lang)
   if lang=='ko':plan=plan.replace('<h4>','<h3>').replace('</h4>','</h3>')
   else:plan=plan.replace('<h2>','<h3>').replace('</h2>','</h3>')
+  html=re.sub(r'<section><h2>[^<]*(?:포함|包含|Inclusions|Exclusions)[^<]*</h2>.*?</section>','',html,flags=re.S)
+  html=package_fees(record,lang)+html
   html='<section class="store-itinerary"><h2>'+w(lang,'일별 일정','逐日行程','Day by day')+'</h2>'+plan+'</section>'+html
+ if record['id'] not in CATALOG:
+  html=re.sub(r'(<h2[^>]*>[^<]*(?:포함|별도|包含|included|excluded|inclusions|exclusions)[^<]*</h2>)(.*?)(?=<h2|</section>|$)',lambda m:m[1]+cost_list(m[2]),html,flags=re.S|re.I)
  # Contact actions always hand over this product, never a borrowed legacy route.
  html=re.sub(r'<a\b[^>]*href="https://pf.kakao.com/[^\"]*"[^>]*>.*?</a>','',html,flags=re.S)
  return html
@@ -73,7 +78,7 @@ def card(record,lang,detail=False):
  picture=f'<a class="store-card-image" href="{path}" tabindex="-1" aria-hidden="true"><img src="{img}" alt="" loading="lazy"></a>' if img else ''
  more='<details class="card-details"><summary>'+w(lang,'일정·포함·불포함','行程、包含与不包含','Itinerary, inclusions & exclusions')+'</summary><div class="card-record">'+re.sub(r'<(/?)h([23])>',lambda m:'<'+m[1]+'h'+str(int(m[2])+1)+'>',product_content(record,lang))+'</div></details>' if detail else ''
  search=' '.join([record['id'],d.get('keywords','')]+[v['title'] for v in record['locales'].values()]+list(d['summary'].values()))
- return f'<article class="store-card" data-search="{escape(search)}" data-product-card="{record["id"]}">{picture}<div class="store-card-body"><p class="store-eyebrow">{escape(d["summary"][lang])}</p><h3><a href="{path}">{escape(local["title"])}</a></h3><div class="store-card-actions"><a href="{path}" class="store-text-link">'+w(lang,'상세 일정','查看详情','View details')+' <span aria-hidden="true">↗</span></a>'+action(record,lang)+'</div>'+more+'<p role="status" data-choice-feedback></p></div></article>'
+ return f'<article class="store-card" data-search="{escape(search)}" data-product-card="{record["id"]}">{picture}<div class="store-card-body"><p class="store-eyebrow">{escape(d["summary"][lang])}</p><h3><a href="{path}">{escape(local["title"])}</a></h3>{route_highlights(record,lang)}<div class="store-card-actions"><a href="{path}" class="store-text-link">'+w(lang,'상세 일정','查看详情','View details')+' <span aria-hidden="true">↗</span></a>'+action(record,lang)+'</div>'+more+'<p role="status" data-choice-feedback></p></div></article>'
 
 def homepage(lang,catalog):
  from home_editorial import render_home
@@ -149,7 +154,7 @@ def enhance_existing(html,name,lang,catalog,record=None):
  # The source selection modules are served directly by the local preview server.
  assets='<link rel="stylesheet" href="'+ASSET+'style.css"><script defer data-ltc-selections src="'+ASSET+'start.js"></script>' if ASSET+'start.js' not in html else ''
  assets+='<link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261113-hierarchy"></script>'
- assets+='<link rel="stylesheet" href="/journey.css?v=20261113-b"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script>'
+ assets+='<link rel="stylesheet" href="/journey.css?v=20261116-clarity"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script>'
  return html.replace('</head>',assets+'</head>',1)
 def storefront(html,name,lang,query=None):
  catalog=public_catalog();record=next((r for r in catalog.values() if r['paths'].get(lang)=='/'+name),None)

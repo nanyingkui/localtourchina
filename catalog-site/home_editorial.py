@@ -25,7 +25,7 @@ def render_home(lang, catalog):
         if key not in catalog:continue
         icon = service_icon(key)
         services += f'<a href="{catalog[key]["paths"][lang]}">{icon}<span>{label}</span>{arrow}</a>'
-    recommended = ''.join(card(catalog[key], lang, True) for key in ['34', '45', '45furong'])
+    recommended = ''.join(card(catalog[key], lang) for key in ['34', '45', '45furong'])
 
     def short_card(key, featured=False):
         r = catalog[key]
@@ -55,7 +55,7 @@ def render_home(lang, catalog):
         </div>
       </section>
 
-      <section id="trips" class="home-journeys home-container home-section" aria-labelledby="trips-title"><div class="home-section-head"><div><p class="home-section-note">{t('장가계에서 시작하는 여행','从张家界开始的旅行','Begin in Zhangjiajie')}</p><h2 id="trips-title">{t('며칠을 머물러도,<br>기억에 남을 장면들.','住上几天，<br>留下难忘的画面。','A few days away.<br>Much to remember.')}</h2></div><div><p>{t('일정과 포함 사항을 살펴보고,<br>인원과 출발 조건에 맞는 요금을 확인하세요.','先看行程与包含项，<br>选择人数和出发条件后查看价格。','Explore the itinerary and inclusions.<br>Select your party and travel conditions to see a price.')}</p><a class="home-link" href="{browse}#packages">{t('숙박 투어 전체 보기','查看全部多日游','All multi-day tours')}{arrow}</a></div></div><div class="store-grid home-journey-grid">{recommended}</div></section>
+      <section id="trips" class="home-journeys home-container home-section" aria-labelledby="trips-title"><div class="home-section-head"><div><p class="home-section-note">{t('장가계에서 시작하는 여행','从张家界开始的旅行','Begin in Zhangjiajie')}</p><h2 id="trips-title">{t('어떤 여행이<br>나에게 맞을까요?','哪条路线，<br>更适合你？','Which journey<br>fits your trip?')}</h2></div><div><p>{t('핵심 명소, 계곡 걷기, 폭포마을 야경.<br>보고 싶은 풍경으로 코스를 골라 보세요.','核心景点、山间溪谷、瀑布古镇夜景。<br>按想看的风景，选择合适的路线。','Core sights, stream walks or waterfall lights.<br>Choose the places you want to experience.')}</p><a class="home-link" href="{browse}#packages">{t('숙박 투어 전체 보기','查看全部多日游','All multi-day tours')}{arrow}</a></div></div><div class="store-grid home-journey-grid">{recommended}</div></section>
 
       <section id="day-trips" class="home-short home-container home-section" aria-labelledby="short-title"><div class="home-section-head"><h2 id="short-title">{t('하루, 혹은 하룻밤.<br>또 다른 풍경으로.','一天，或一夜。<br>换一种风景。','A day. An overnight stay.<br>A different scene.')}</h2><div><p>{t('장가계와 주변 지역의 다섯 가지 짧은 여행.','张家界及周边，五条短途行程。','Five short journeys in Zhangjiajie and beyond.')}</p><a class="home-link" href="{browse}#nearby">{t('짧은 여행 비교하기','比较短途路线','Compare short tours')}{arrow}</a></div></div><div class="home-short-grid">{short_card('furong',True)}<div class="home-short-tiles">{''.join(short_card(k) for k in ['forest','tianmen','canyon','fenghuang'])}</div></div></section>
 

@@ -1,0 +1,141 @@
+{
+  "34": {
+    "ko": [
+      "짧은 일정에 핵심 명소",
+      "천문산·원가계·천자산에 황룡동·대협곡까지",
+      "귀국일 관광은 항공편에 맞춰 조정"
+    ],
+    "zh": [
+      "短假期看核心景点",
+      "天门山、袁家界、天子山，加黄龙洞与大峡谷",
+      "返程日的游览按航班时间安排"
+    ],
+    "en": [
+      "Core sights in a short stay",
+      "Tianmen, Yuanjiajie and Tianzi, plus the cave and canyon",
+      "Departure-day sightseeing depends on your flight"
+    ]
+  },
+  "45": {
+    "ko": [
+      "산과 계곡을 더 걷는 여행",
+      "3박 4일 핵심 코스에 황석채·금편계 하루 추가",
+      "황석채 왕복 케이블카와 계곡길 걷기"
+    ],
+    "zh": [
+      "多一天走山间溪谷",
+      "在精华4天路线中增加黄石寨与金鞭溪一天",
+      "黄石寨往返索道，金鞭溪按体力确定步行长度"
+    ],
+    "en": [
+      "An extra day for peaks and trails",
+      "Adds Huangshizhai and Golden Whip Stream to the core four-day route",
+      "Return cableway and a stream walk adjusted to your fitness"
+    ]
+  },
+  "45furong": {
+    "ko": [
+      "산 풍경과 폭포마을 야경",
+      "원가계·천문산·황룡동·대협곡에 부용진 추가",
+      "부용진 오후 출발·야경 후 장가계 귀환",
+      "같은 4박 5일 산수 코스의 황석채·금편계 하루를 부용진으로 바꾼 구성"
+    ],
+    "zh": [
+      "山景加瀑布古镇夜景",
+      "袁家界、天门山、黄龙洞、大峡谷，加芙蓉镇",
+      "下午出发去芙蓉镇，看完夜景返回张家界",
+      "同为5天，将山水线的黄石寨、金鞭溪一天换为芙蓉镇"
+    ],
+    "en": [
+      "Mountain sights and waterfall lights",
+      "Yuanjiajie, Tianmen, cave and canyon, with Furong Town",
+      "Afternoon departure for Furong, returning after the night views",
+      "Uses the Huangshizhai and stream-walking day of the five-day mountain route for Furong instead"
+    ]
+  },
+  "56": {
+    "ko": [
+      "황석채와 부용진, 휴식도 함께",
+      "황석채 왕복 케이블카·전망길과 부용진 야경",
+      "황석채 관광 뒤 오후는 호텔에서 휴식"
+    ],
+    "zh": [
+      "黄石寨与芙蓉镇，留出休息时间",
+      "黄石寨索道与观景步道，加芙蓉镇瀑布夜景",
+      "黄石寨游览后，下午回酒店休息"
+    ],
+    "en": [
+      "Huangshizhai, Furong and time to rest",
+      "Huangshizhai cableway and viewpoints, plus Furong night views",
+      "An afternoon at the hotel after Huangshizhai"
+    ]
+  },
+  "56fh": {
+    "ko": [
+      "봉황고성에서 하룻밤",
+      "장가계 관광 후 고성 골목·강변 산책과 야간 유람선",
+      "마지막 밤은 봉황 숙박·다음 날 공항 직행"
+    ],
+    "zh": [
+      "在凤凰古城住一晚",
+      "张家界游览后，逛古城街巷、河岸，夜游沱江",
+      "最后一晚住凤凰，次日本团车辆直接送机场"
+    ],
+    "en": [
+      "A night in Fenghuang Old Town",
+      "Zhangjiajie sights followed by old-town lanes and a river night cruise",
+      "Final night in Fenghuang, then a direct airport transfer"
+    ]
+  },
+  "trek34": {
+    "ko": [
+      "짧은 일정의 계곡 트레킹",
+      "원가계·천자산과 황석채·금편계 걷기",
+      "늦게 도착하는 일정은 황룡동·대협곡 제외"
+    ],
+    "zh": [
+      "短假期的山间徒步",
+      "袁家界、天子山，加黄石寨与金鞭溪步行",
+      "晚到方案不含黄龙洞与大峡谷"
+    ],
+    "en": [
+      "A short mountain walking trip",
+      "Yuanjiajie and Tianzi, plus Huangshizhai and Golden Whip Stream",
+      "Late-arrival plans exclude the cave and canyon"
+    ]
+  },
+  "trek45": {
+    "ko": [
+      "칠성산까지 이어지는 트레킹",
+      "황석채·금편계에 칠성산 전망길 하루 추가",
+      "연속 걷기 일정·늦은 도착은 황룡동·대협곡 제외"
+    ],
+    "zh": [
+      "增加七星山的一天徒步",
+      "黄石寨、金鞭溪之外，再走七星山观景步道",
+      "连续步行日程，晚到方案不含黄龙洞与大峡谷"
+    ],
+    "en": [
+      "An extra walking day on Qixing Mountain",
+      "Huangshizhai and Golden Whip Stream, plus Qixing viewpoints",
+      "Consecutive walking days; late-arrival plans exclude cave and canyon"
+    ]
+  },
+  "trek56": {
+    "ko": [
+      "트레킹에 부용진 야경까지",
+      "황석채·금편계·칠성산과 폭포마을 야경",
+      "부용진은 오후 출발·야경 관람 후 장가계 귀환"
+    ],
+    "zh": [
+      "徒步加芙蓉镇夜景",
+      "黄石寨、金鞭溪、七星山，加瀑布古镇夜景",
+      "下午去芙蓉镇，夜景结束后返回张家界"
+    ],
+    "en": [
+      "Mountain walks and Furong by night",
+      "Huangshizhai, Golden Whip Stream and Qixing, plus waterfall lights",
+      "Visit Furong in the afternoon and return to Zhangjiajie after dark"
+    ]
+  }
+}
