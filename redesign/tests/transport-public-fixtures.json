@@ -19,7 +19,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "forest",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -76,7 +76,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "tianmen",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -133,7 +133,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "canyon",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -190,7 +190,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "airport-pickup",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -247,7 +247,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "airport-dropoff",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -304,7 +304,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "station-transfer",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -361,7 +361,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "day-charter",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -418,7 +418,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "vehicles",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -475,7 +475,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "vehicles:furong-transfer",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -532,7 +532,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "vehicles:fenghuang-transfer",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -589,7 +589,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "vehicles:changsha-transfer",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {
@@ -644,7 +644,7 @@
       "quote": {
         "basis": "transport-server",
         "productId": "forest",
-        "pricingRevision": 6,
+        "pricingRevision": 7,
         "quoteFx": {
           "date": "2026-11-13",
           "rates": {

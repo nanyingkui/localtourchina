@@ -18,5 +18,5 @@ form.addEventListener('submit',async e=>{e.preventDefault();saveFields();const r
  box.innerHTML='<div class="service-price"><b>선택한 날짜의 요금을 확인하고 있어요.</b><p>차량 전체 금액으로 안내합니다.</p></div>';controller=new AbortController();
  try{const response=await window.Notebook.api('/api/transport/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(S.conditions(state)),signal:controller.signal});const result=await response.json();if(epoch!==pending||requestKey!==S.key(state))return;if(!response.ok||result.status!=='ok'||!Number.isFinite(result.quote?.totalKRW))throw new Error('unavailable');state.quote={...result.quote,key:requestKey};S.save(state);if(!S.valid(state))throw new Error('expired');paint();}catch(error){if(error.name==='AbortError'||epoch!==pending)return;state.quote=null;S.save(state);box.innerHTML='<div class="service-price"><b>지금은 금액을 확인하지 못했어요.</b><p>다시 조회하거나, 선택한 조건 그대로 문의해 주세요. 이전 금액을 그대로 적용하지 않습니다.</p></div>';}
 });
-document.querySelectorAll('[data-service-consult]').forEach(a=>a.addEventListener('click',()=>saveFields(false)));paint();
+document.querySelectorAll('[data-service-consult]').forEach(a=>a.addEventListener('click',()=>saveFields(false)));const restoring=S.refresh(state);paint();restoring.then(paint);
 })();

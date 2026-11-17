@@ -4,6 +4,7 @@ const values={city:['장가계 시내','张家界市区','Zhangjiajie city'],wul
 export function transportLines(c,l){return Object.entries(transportFields).filter(([k])=>c[k]!==''&&c[k]!=null).map(([k,v])=>pick(l,...v)+': '+(values[c[k]]?pick(l,...values[c[k]]):c[k]));}
 export function transportMissing(record,c,l){const type=record.pricing.service_type;let keys=['route','vehicleType'];if(type==='day_tour'||type==='day_charter')keys.push('endZone');if(type==='day_charter')keys.push('tourRoute');if(type.endsWith('_transfer'))keys.push('direction');if(type==='changsha_transfer')keys.push('changshaPoint');if(c.direction==='round')keys.push('startTime','returnDate','returnTime','returnRoute');if(type==='furong_transfer'&&c.mode==='shared')keys=keys.filter(k=>k!=='vehicleType');return keys.filter(k=>!c[k]).map(k=>pick(l,...transportFields[k]));}
 export function transportDisplay(input,l){
+ if(!['forest','tianmen','canyon'].includes(input.productId)&&Number(input.pricingRevision||0)<7)return null;
  if(!input.expiresOn||new Date().toISOString().slice(0,10)>input.expiresOn)return null;
  const q={...input},w=(...v)=>pick(l,...v),currency=l==='zh'?'CNY':l==='en'?'USD':'KRW',p=q.prices?.[currency];if(!p)return null;
  const fmt=x=>new Intl.NumberFormat(l==='zh'?'zh-CN':l==='en'?'en-US':'ko-KR',{style:'currency',currency,maximumFractionDigits:0}).format(x);

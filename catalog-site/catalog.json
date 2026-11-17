@@ -1878,10 +1878,10 @@
       "service_type": "day_tour",
       "minimum_party": 2,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 8,
+    "revision": 9,
     "discovery": {
       "group": "nearby",
       "image": "/assets/media/attractions/canyon-bridge-wide-jpg-960.webp",
@@ -1928,10 +1928,10 @@
       "service_type": "day_tour",
       "minimum_party": 2,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 8,
+    "revision": 9,
     "discovery": {
       "group": "nearby",
       "image": "/assets/media/attractions/forest-east-jpg-960.webp",
@@ -3572,10 +3572,10 @@
       "service_type": "day_tour",
       "minimum_party": 2,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 8,
+    "revision": 9,
     "discovery": {
       "group": "nearby",
       "image": "/assets/media/attractions/tianmen-cave-jpg-960.webp",
@@ -4393,10 +4393,10 @@
       "service_type": "day_charter",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 6,
+    "revision": 7,
     "discovery": {
       "group": "services",
       "image": "",
@@ -4607,10 +4607,10 @@
       "service_type": "day_charter",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 7,
+    "revision": 8,
     "discovery": {
       "group": "services",
       "image": "/assets/media/vehicles/9-seat/exterior-jpg-960.webp",
@@ -4916,10 +4916,10 @@
       "service_type": "airport_pickup",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 7,
+    "revision": 8,
     "discovery": {
       "group": "services",
       "image": "/assets/services/airport-transfer-desktop-jpg-640.webp",
@@ -4960,10 +4960,10 @@
       "service_type": "airport_dropoff",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 7,
+    "revision": 8,
     "discovery": {
       "group": "services",
       "image": "/assets/services/airport-transfer-night-desktop-jpg-960.webp",
@@ -5004,10 +5004,10 @@
       "service_type": "station_transfer",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 7,
+    "revision": 8,
     "discovery": {
       "group": "services",
       "image": "/assets/media/vehicles/9-seat/exterior-jpg-960.webp",
@@ -5048,10 +5048,10 @@
       "service_type": "furong_transfer",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 7,
+    "revision": 8,
     "discovery": {
       "group": "services",
       "image": "/assets/media/attractions/furong-town-jpg-960.webp",
@@ -5092,10 +5092,10 @@
       "service_type": "changsha_transfer",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 6,
+    "revision": 7,
     "discovery": {
       "group": "services",
       "image": "/assets/services/airport-transfer-desktop-jpg-640.webp",
@@ -5136,10 +5136,10 @@
       "service_type": "fenghuang_transfer",
       "minimum_party": 1,
       "quoteEndpoint": "/api/transport/quote",
-      "pricingRevision": 6,
+      "pricingRevision": 7,
       "maximum_reference_party": 30
     },
-    "revision": 6,
+    "revision": 7,
     "discovery": {
       "group": "services",
       "image": "/assets/media/attractions/fenghuang-jpg-960.webp",

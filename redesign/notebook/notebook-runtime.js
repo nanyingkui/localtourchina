@@ -18,7 +18,7 @@ nav.innerHTML=links.map(([l,label,base])=>`<a lang="${l==='zh'?'zh-CN':l}" ${l==
 nav.addEventListener('click',event=>{const a=event.target.closest('a[data-language-base]');if(a)a.href=a.dataset.languageBase+file+location.search+location.hash;});
 const header=document.querySelector('body>header,main>header');if(header){const bar=document.createElement('div');bar.className='notebook-tools';bar.append(nav);const slot=document.createElement('span');slot.dataset.selectionSlot='';bar.append(slot);header.insertAdjacentElement('afterend',bar);}
 if(lang!=='ko'){
- const annotate=()=>document.querySelectorAll('.current-price45,.price-glance,.inquiry-rate45,.service-price').forEach(el=>{if(el.querySelector('.notebook-fx-note'))return;const p=document.createElement('small');p.className='notebook-fx-note';p.textContent=pick('','人民币换算日期：','USD conversion date: ')+data.fx.date;el.append(p);});
+ const annotate=()=>document.querySelectorAll('.current-price45,.price-glance,.inquiry-rate45,.service-price').forEach(el=>{if(el.querySelector('.notebook-fx-note'))return;const p=document.createElement('small');p.className='notebook-fx-note';p.textContent=pick('','人民币换算日期：','USD conversion date: ')+(el.dataset.fxDate||data.fx.date);el.append(p);});
  document.addEventListener('DOMContentLoaded',annotate);new MutationObserver(annotate).observe(document.body,{childList:true,subtree:true});
 }
 })();

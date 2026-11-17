@@ -1,0 +1,1 @@
+document.querySelectorAll('header .brand').forEach(a=>{a.classList.add('has-mark');const image=document.createElement('img');image.src='/assets/notebook/9d02b65ee233/brand/rotucha-orange-hat-master.png';image.className='brand-mark';image.alt="罗途查橙帽标志";image.width=51;image.height=51;a.prepend(image);});
