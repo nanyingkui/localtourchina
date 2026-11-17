@@ -1,0 +1,22 @@
+(()=>{
+const S=window.Services,id=document.body.dataset.service;let state=S.read(id),pending=0,controller;
+if(new URLSearchParams(location.search).get('view')==='full')document.body.classList.add('full-view');
+const direction=new URLSearchParams(location.search).get('direction');if(id==='airport'&&['pickup','dropoff'].includes(direction)&&state.fields.direction!==direction){state.fields.direction=direction;state.quote=null;S.save(state);}
+const select=(name,label,options)=>`<label>${label}<select name="${name}">${Object.entries(options).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label>`;
+const input=(name,label,type='text',extra='')=>`<label>${label}<input name="${name}" type="${type}" ${extra}></label>`;
+let fields='<div class="config-grid">'+input('date',"使用日期",'date','required')+input('party',"同行人数",'number','min="1" max="100" step="1" required')+'</div>';
+if(id==='airport')fields+=select('direction',"接送方向",{pickup:"机场到酒店 · 接机",dropoff:"酒店到机场 · 送机"})+select('route',"酒店所在区域",S.zones)+select('vehicleType',"希望的车辆",S.vehicles);
+if(id==='charter')fields+=select('tourRoute',"当天的行车路线",S.routes)+'<div class="config-grid">'+select('route',"出发酒店区域",S.zones)+select('endZone',"最终酒店区域",S.zones)+'</div>'+select('vehicleType',"希望的车辆",S.vehicles);
+if(id==='guide')fields+='<div class="config-grid">'+input('days',"连续使用天数",'number','min="1" max="31" step="1" required')+input('hours',"每天使用时长",'number','min="1" max="12" step="1" required')+'</div>'+input('startTime',"每天希望开始的时间",'time','required')+select('preference',"导游需求",{any:"普通韩语旅游导游",owner:"希望指定罗途查经营者 · 需确认日期"});
+document.querySelector('#service-quote').innerHTML=`<form id="service-config-form">${fields}<button type="submit" class="primary config-submit">${id==='guide'?"计算导游费用":"按所选条件查询车费"}</button></form><div id="service-price-box" aria-live="polite"></div><a class="primary" data-service-consult href="service-consultation.html?service=${id}">按所选条件咨询</a><p class="small">日期尚未确定，也可以不查价格直接咨询。更改条件后，会清除原价格并重新查询。</p>`;
+const form=document.querySelector('#service-config-form'),box=document.querySelector('#service-price-box');for(const el of form.elements)if(el.name)el.value=state.fields[el.name]||'';
+const paint=()=>{box.innerHTML=S.priceHTML(state);document.querySelector('#service-bottom-price').textContent=S.valid(state)?(id==='guide'?"导游基础费用 ":"整车 ")+(id==='guide'?S.won(state.quote.totalKRW):window.Notebook.transportMoney(state.quote)):"按日期与条件查看费用";};
+function saveFields(clear=true){for(const el of form.elements)if(el.name)state.fields[el.name]=el.value;if(clear){pending++;controller?.abort();state.quote=null;}S.save(state);paint();}
+form.addEventListener('input',()=>saveFields());form.addEventListener('change',()=>saveFields());
+form.addEventListener('submit',async e=>{e.preventDefault();saveFields();const requestKey=S.key(state),epoch=++pending;
+ if(id==='guide'){const n=Number(state.fields.party),days=Number(state.fields.days),hours=Number(state.fields.hours);if(n>12||!Number.isInteger(days)||!Number.isInteger(hours)){box.innerHTML="<div class=\"service-price\"><b>这个条件需要另行报价。</b><p>13人以上，或需要调整行程、时间时，会先了解实际需求再计算。</p></div>";return;}state.quote={key:requestKey,totalKRW:window.Notebook.data.catalog['local-guide'].pricing.standard_daily_krw*days,extraKRW:Math.max(0,hours-window.Notebook.data.catalog['local-guide'].pricing.included_hours)*window.Notebook.data.catalog['local-guide'].pricing.overtime_direct_krw*days};S.save(state);paint();return;}
+ box.innerHTML="<div class=\"service-price\"><b>正在查询所选日期的费用。</b><p>将显示整车总价。</p></div>";controller=new AbortController();
+ try{const response=await window.Notebook.api('/api/transport/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(S.conditions(state)),signal:controller.signal});const result=await response.json();if(epoch!==pending||requestKey!==S.key(state))return;if(!response.ok||result.status!=='ok'||!Number.isFinite(result.quote?.totalKRW))throw new Error('unavailable');state.quote={...result.quote,key:requestKey};S.save(state);if(!S.valid(state))throw new Error('expired');paint();}catch(error){if(error.name==='AbortError'||epoch!==pending)return;state.quote=null;S.save(state);box.innerHTML="<div class=\"service-price\"><b>暂时未能查到费用。</b><p>请重试，或带着已选条件直接咨询。不会沿用之前的价格。</p></div>";}
+});
+document.querySelectorAll('[data-service-consult]').forEach(a=>a.addEventListener('click',()=>saveFields(false)));const restoring=S.refresh(state);paint();restoring.then(paint);
+})();
