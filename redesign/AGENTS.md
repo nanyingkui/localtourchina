@@ -162,3 +162,14 @@ The user requested a fully launchable delivery and delegated all routine decisio
 - 34 uses the original dated-hotel quote API; missing rates must stay pending. experience45 is distinct from old 45. 56 uses the current catalog scenario prices. Keep original calculators and My selections intact.
 - Korean contact is Kakao, Chinese WeChat, English WhatsApp, using the existing consultation safety notice. Never automatically send or create orders. Korean-speaking guide service does not change language when the page language changes.
 - Build via scripts/build-notebook.mjs in the normal release pipeline; maintain all three translations, manifest allowlist and full-flow mobile checks before publication.
+
+# Photo actions and content variety (2026-11-17)
+- Distinct-looking actions need distinct, clearly labelled outcomes. Route-card photos open the route's photo stories; the itinerary action opens that route's complete itinerary and included costs. Do not make both silently navigate to the same destination.
+- Each route needs its own verified photo selection and concrete guest experience/preparation copy. Do not fill different routes with repeated photos or generic replacement text. Illustrations may explain a service; generated imagery must not be presented as real scenery or customer evidence.
+- Before release, click photo, itinerary and consultation actions for all three routes in ko/zh/en. Verify the visible result and selected route, dialog close/return, gallery boundaries and mobile text layout. A successful HTTP response alone is not interaction acceptance.
+
+# Real examples and service media (2026-11-17)
+- Food galleries must use varied, source-labelled photos. Route food sets must not share the same photo. Food features are inspiration, not a promise of fixed restaurants or every pictured dish.
+- Hotel photography must identify its partner brand and remain optional: exact branch, room, bedding, breakfast, availability and price difference are confirmed in the quote. Never map a city-hotel image to an unverified Wulingyuan branch. Hotel preferences must survive into consultation.
+- Historical guest cases must remain distinct from current product itineraries. Keep dates/source links and note material customisations. Never stitch separate guests into an invented trip.
+- Vehicles and guides need relevant real photos and concrete meeting, luggage, routing and service-boundary explanations. No generic snack collage as service evidence.

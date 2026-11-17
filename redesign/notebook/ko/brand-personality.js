@@ -68,6 +68,7 @@
       table:['오늘 제일 좋았던 장면은?','ink']
     };
     $$('figure').forEach(fig=>{
+      if(fig.closest('.hotel-choices')||fig.querySelector('[data-media-photo]'))return;
       const img=fig.querySelector('img');if(!img)return;
       const key=img.getAttribute('src')?.split('/').pop().split('.')[0].replace('-privacy','').replace('-clean','').replace('yuanjiajie-real-review-212','peaks').replace('golden-whip-owner-real','stream'),config=captions[key];
       if(config){fig.classList.add('annotated-photo');const cap=fig.querySelector('figcaption');if(cap)cap.insertAdjacentHTML('afterbegin',note(...config));}

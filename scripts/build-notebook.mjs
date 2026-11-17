@@ -53,6 +53,25 @@ for(const lang of ['ko','zh','en']){
  }
  const alias=lang==='ko'?'package-experience45.html':lang+'/tours/experience45.html';const target='/'+prefix+'zhangjiajie.html';const recordJSON=catalog.experience45?'<script type="application/json" id="catalog-current">'+JSON.stringify(catalog.experience45).replace(/</g,'\\u003c')+'</script>':'';emit(alias,`<!doctype html><html lang="${lang}"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="canonical" href="https://localtourchina.com${target}"><meta http-equiv="refresh" content="0;url=${target}"><title>LocalTourChina</title>${recordJSON}<a href="${target}">LocalTourChina · 4 nights / 5 days</a><script>location.replace(${JSON.stringify(target)}+location.search+location.hash)</script></html>`);
 }
+// Carry the approved notebook identity to the remaining catalog products without changing their quote controls.
+const catalogNote={
+ ko:{tour:'같은 풍경도, 우리 일행의 속도로.',service:'필요한 도움만, 여행에 더해요.',sub:'이용 날짜와 일행의 조건을 확인한 뒤, 실제 일정과 비용을 맞춥니다.',logo:'로투차 주황 모자 로고'},
+ zh:{tour:'同一片风景，也可以有自己的节奏。',service:'把需要的服务，加入这趟旅行。',sub:'按日期和同行人的需求，确认具体安排与费用。',logo:'罗途查橙帽品牌标志'},
+ en:{tour:'The same view. Your own pace.',service:'Add the support your trip needs.',sub:'Your dates and group needs shape the final arrangements and price.',logo:'LocalTourChina orange-hat logo'}
+};
+for(const lang of ['ko','zh','en']){
+ const extraPaths=new Set(Object.values(catalog).map(r=>r.paths?.[lang]).filter(Boolean));
+ extraPaths.add('/'+(lang==='ko'?'':lang+'/')+'products.html');
+ for(const url of extraPaths){const relative=url.replace(/^\//,'');const target=path.join(root,relative);if(!fs.existsSync(target))continue;let html=read(target);if(html.includes('data-notebook-release')||html.includes('http-equiv="refresh"'))continue;
+ html=html.replace(/<link[^>]*data-notebook-catalog[^>]*>/g,'').replace(/<aside class="notebook-product-note"[\s\S]*?<\/aside>/g,'').replace(/<img class="catalog-brand-mark"[^>]*>/g,'');
+ html=html.replace(/<body([^>]*)>/,(all,attrs)=>{if(/class="/.test(attrs))return '<body'+attrs.replace(/class="([^"]*)"/,(_,v)=>'class="'+[...new Set((v+' catalog-notebook').split(/\s+/))].join(' ')+'"')+'>';return '<body class="catalog-notebook"'+attrs+'>';});
+ html=html.replace('</head>',`<link data-notebook-catalog rel="stylesheet" href="${base}catalog-notebook.css"></head>`);
+ html=html.replace(/(<a class="store-brand"[^>]*>)/,`$1<img class="catalog-brand-mark" src="${base}brand/rotucha-orange-hat-master.png" alt="${catalogNote[lang].logo}" width="52" height="52">`);
+ const service=/jd-service|data-store-legacy/.test(html);const note=catalogNote[lang];
+ const strip=`<aside class="notebook-product-note"><span class="notebook-small-sketch" aria-hidden="true"></span><div><p>${service?note.service:note.tour}</p><small>${note.sub}</small></div></aside>`;
+ html=html.replace(/(<main\b[^>]*>)/,'$1'+strip);emit(relative,html);
+ }
+}
 const manifest=JSON.parse(read(path.join(root,'public-release-manifest.json')));if(!preview)write(path.join(root,'public-release-manifest.json'),JSON.stringify([...new Set([...manifest,...added])].sort(),null,2)+'\n');
 write(path.join(source,'missing-translations.json'),JSON.stringify([...missing.values()],null,2));
 console.log(`Notebook v14: ${pages.length} pages × 3 languages; ${added.size} public files; ${missing.size} translation segments need review; ${base}`);

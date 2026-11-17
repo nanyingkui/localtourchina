@@ -1,7 +1,7 @@
 (()=>{
 const source='https://cafe.naver.com/f-e/cafes/31682774/articles/212';
 const p=(file,title,hand,caption,url=source)=>({file:'photos/'+file+'.webp',title,hand,caption,url,credit:'기존 고객 여행 기록 · 실제 음식 사진 · 메뉴 참고'});
-const photos={
+const photos={oysters:{"file": "photos/food-oysters.webp", "title": "마늘을 올린 굴 요리", "hand": "한 입은, 새로운 맛으로.", "caption": "카페 해산물·바비큐 소개에 담긴 굴 요리입니다. 원하면 별도 주문 가능 여부와 가격을 먼저 확인해요.", "url": "https://cafe.naver.com/f-e/cafes/31682774/articles/87", "credit": "로투차 카페 맛집 자료 · 메뉴 참고 · 포함 식사 아님"},shrimp:{"file": "photos/food-shrimp.webp", "title": "고추와 함께 조리한 새우", "hand": "좋아하는 맛은, 먼저 말해 주세요.", "caption": "새우와 고추가 담긴 실물 사진. 해산물 알레르기와 매운맛을 먼저 확인하고, 희망 메뉴는 별도 비용으로 상담합니다.", "url": "https://cafe.naver.com/f-e/cafes/31682774/articles/87", "credit": "로투차 카페 맛집 자료 · 메뉴 참고 · 포함 식사 아님"},sanxiaguo:{"file": "photos/food-sanxiaguo.webp", "title": "삼하과, 함께 나누는 현지 요리", "hand": "가운데 놓고, 조금씩 나눠요.", "caption": "富正毅三下锅 소개에 담긴 요리입니다. 재료 조합은 식당마다 다르므로 내장 등 먹기 어려운 재료는 주문 전에 확인해요.", "url": "https://cafe.naver.com/f-e/cafes/31682774/articles/85", "credit": "로투차 카페 맛집 자료 · 메뉴 참고 · 포함 식사 아님"},ingredients:{"file": "photos/food-market-ingredients.webp", "title": "채소와 재료를 보고 고르는 시간", "hand": "이건 어떻게 먹어요?", "caption": "현지 식당의 재료 진열 사진입니다. 이름이 낯선 채소도 조리법과 맵기를 물어보며 고를 수 있어요. 특정 식당 방문을 고정하지 않습니다.", "url": "https://cafe.naver.com/f-e/cafes/31682774/articles/85", "credit": "로투차 카페 맛집 자료 · 메뉴 참고 · 포함 식사 아님"},dinner:{"file": "photos/food-local-dinner.webp", "title": "뜨거운 요리와 국, 함께 차린 한 상", "hand": "오늘 걸은 이야기, 식탁에서 이어가요.", "caption": "카페 맛집 기록의 한 상입니다. 사진 속 구성과 음료를 모두 제공하는 세트가 아니며, 식당과 주문 내용에 따라 따로 확인합니다.", "url": "https://cafe.naver.com/f-e/cafes/31682774/articles/85", "credit": "로투차 카페 맛집 자료 · 메뉴 참고 · 포함 식사 아님"},
 stirfry:p('food-stirfry','고기와 채소를 함께 담은 따뜻한 요리','산에서 내려와, 따뜻한 한 접시.','고기와 채소를 함께 나누는 현지 식사 참고. 매운맛과 먹기 어려운 재료를 미리 알려주세요.'),
 vegetable:p('food-vegetable-dish','채소와 재료를 담은 접시 요리','낯선 재료는, 같이 물어봐요.','재료가 궁금하면 가이드에게 확인해 보세요. 사진만으로 알레르기 성분을 판단하지 않습니다.'),
 lotus:p('food-lotus','얇게 썬 연근 요리','한 상 안에서도, 다른 식감.','얇게 썬 연근도 함께 나눠 먹던 식탁. 실제 주문 메뉴와 조리 방식은 일행에 맞춰 확인합니다.'),
@@ -9,5 +9,5 @@ table:p('food-shared-table','여러 접시를 함께 나누는 현지 식탁','�
 potato:p('food-potato-meat','감자와 고기가 담긴 따뜻한 요리','익숙한 재료에서 시작해도 좋아요.','감자와 고기를 함께 담은 현지 요리 참고. 매운맛과 음식 취향은 주문 전에 확인합니다.'),
 breakfast:p('food-dumpling-noodle','국수와 여러 만두를 놓은 아침 식탁','아침의 한 끼도, 여행의 한 장면.','기존 고객이 자유시간에 따로 먹은 아침입니다. 이번 상품의 호텔 조식 메뉴나 포함 식사로 약속하는 사진은 아니에요.','https://cafe.naver.com/f-e/cafes/31682774/articles/153')
 };
-window.TravelPhotoSets={photos,sets:{regular34:['stirfry','vegetable','lotus'],experience45:['table','lotus','breakfast','potato'],regular56:['potato','stirfry','vegetable','lotus'],home:['table','stirfry','lotus','breakfast','potato','vegetable']}};
+window.TravelPhotoSets={photos,sets:{regular34:['breakfast','stirfry','lotus','sanxiaguo'],experience45:['table','vegetable','oysters','ingredients'],regular56:['potato','shrimp','dinner'],home:['breakfast','sanxiaguo','vegetable','oysters','shrimp','lotus','dinner','ingredients']}};
 })();

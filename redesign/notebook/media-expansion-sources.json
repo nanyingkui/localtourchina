@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-17",
+  "food": [
+    {
+      "file": "photos/food-oysters.webp",
+      "source": "https://cafe.naver.com/f-e/cafes/31682774/articles/87",
+      "use": "Meal inspiration from existing Cafe article; not fixed included menu",
+      "editing": "format conversion only"
+    },
+    {
+      "file": "photos/food-shrimp.webp",
+      "source": "https://cafe.naver.com/f-e/cafes/31682774/articles/87",
+      "use": "Meal inspiration from existing Cafe article; not fixed included menu",
+      "editing": "format conversion only"
+    },
+    {
+      "file": "photos/food-sanxiaguo.webp",
+      "source": "https://cafe.naver.com/f-e/cafes/31682774/articles/85",
+      "use": "Meal inspiration from existing Cafe article; not fixed included menu",
+      "editing": "format conversion only"
+    },
+    {
+      "file": "photos/food-market-ingredients.webp",
+      "source": "https://cafe.naver.com/f-e/cafes/31682774/articles/85",
+      "use": "Meal inspiration from existing Cafe article; not fixed included menu",
+      "editing": "format conversion only"
+    },
+    {
+      "file": "photos/food-local-dinner.webp",
+      "source": "https://cafe.naver.com/f-e/cafes/31682774/articles/85",
+      "use": "Meal inspiration from existing Cafe article; not fixed included menu",
+      "editing": "format conversion only"
+    }
+  ],
+  "hotels": {
+    "source": "src/site-template.html: existing 3 partner hotels, 12 photos",
+    "originals": "assets/media/hotels/{mercure,orange,homeinn}/{twin,king,breakfast,exterior}.webp",
+    "editing": "Only small watermark removal / TV screen. Unedited source retained. No fictional amenities.",
+    "use": "Optional references; branch, room, view, meals, availability and price confirmed separately."
+  }
+}

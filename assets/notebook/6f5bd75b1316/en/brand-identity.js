@@ -1,0 +1,1 @@
+document.querySelectorAll('header .brand').forEach(a=>{a.classList.add('has-mark');const image=document.createElement('img');image.src='/assets/notebook/6f5bd75b1316/brand/rotucha-orange-hat-master.png';image.className='brand-mark';image.alt="LocalTourChina orange-hat logo";image.width=51;image.height=51;a.prepend(image);});
