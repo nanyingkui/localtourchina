@@ -8,3 +8,13 @@
 @media(max-width:360px){.brand.has-mark{padding-left:63px}.brand.has-mark .brand-mark{width:63px!important;height:63px!important;top:-4px}.logo img.brand-mark{width:66px;height:66px}}
 
 @media(max-width:360px){header .brand.has-mark{flex-shrink:0}header .brand.has-mark span{white-space:nowrap;font-size:9px}header>.brand+a{font-size:12px;line-height:1.5;text-align:right}}
+
+/* Keep translated captions and the host signature in separate flow rows.
+   Photo decorations are anchored to the photo, never to caption height. */
+.hero-photo-frame{position:relative}
+.hero-paper .hero-brand-portrait{bottom:0;right:7px}
+.hero-paper .ticket{bottom:22px;width:max-content;max-width:calc(100% - 166px);overflow-wrap:break-word}
+.hero-paper .hero-caption{display:grid;gap:24px;padding:32px 12px 22px;line-height:1.25}
+.hero-caption>.hand{display:block;font-size:inherit;line-height:1.25}
+.hero-paper .brand-host-sign{position:static;justify-self:end;max-width:100%;margin:0 3px 4px;padding:5px 10px;line-height:1.2;overflow-wrap:break-word}
+@media(max-width:800px){.hero-paper .hero-brand-portrait{bottom:0}.hero-paper .ticket{bottom:19px;left:-10px;max-width:calc(100% - 105px);font-size:22px;padding:10px 12px}.hero-paper .hero-caption{gap:22px;padding:25px 8px 18px}}
