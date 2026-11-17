@@ -1,5 +1,5 @@
 import {resolveReferenceQuote,formatReferenceQuote,latestExchangeRates,conditionText,pick} from '/catalog-config.mjs';
-import {KEY,readState} from '/assets/my-selections/d7fe27276497/model.mjs';
+import {KEY,readState} from '/assets/my-selections/a11972cd9c54/model.mjs';
 import {loadCatalog} from '/assets/runtime-api.mjs';
 const originalRecord=JSON.parse(document.getElementById('catalog-current').textContent);
 let record=originalRecord;try{record=(await loadCatalog())[originalRecord.id]||{...originalRecord,archived:true};}catch{}
@@ -45,9 +45,12 @@ async function calculate(){
  }
 }
 form.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);calculate();});
+form.querySelectorAll('[data-quote-initial]').forEach(el=>{el.disabled=false;el.removeAttribute('data-quote-initial');});
 let saved;try{saved=readState(localStorage).items.find(x=>x.id==='product:'+record.id);}catch{}
 if(saved?.conditions){for(const [name,value] of Object.entries(saved.conditions))if(form.elements[name])form.elements[name].value=value;if(saved.quote)calculate();}
 const arrival=new URLSearchParams(location.search).get('arrival');if(['early','late'].includes(arrival)&&form.elements.arrival){form.elements.arrival.value=arrival;form._catalogQuote=null;status.hidden=true;}
 syncTransportFields();
 form.catalogConditions=gather;form.calculateQuote=calculate;
 if(form.elements.arrival)form.elements.arrival.dispatchEvent(new Event('change',{bubbles:true}));
+
+form.setAttribute('aria-busy','false');
