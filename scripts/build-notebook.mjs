@@ -6,6 +6,7 @@ const preview=process.env.NOTEBOOK_PREVIEW_DIR;
 const root=process.cwd(),source=path.join(root,'redesign/notebook'),dist=path.join(root,'redesign/dist/client');
 const read=p=>fs.readFileSync(p,'utf8'),write=(p,s)=>{fs.mkdirSync(path.dirname(p),{recursive:true});const temp=p+'.notebook-tmp';fs.writeFileSync(temp,s);fs.renameSync(temp,p);};
 const catalog=JSON.parse(read(path.join(root,'catalog-site/catalog.json'))),fx=JSON.parse(read(path.join(source,'fx.json')));
+const businessRegistration=JSON.parse(read(path.join(root,'catalog-site/business-registration.json')));
 const dict={ko:{},zh:JSON.parse(read(path.join(source,'zh.json'))),en:JSON.parse(read(path.join(source,'en.json')))};
 const original={};for(const lang of ['zh','en'])for(const [k,v]of Object.entries(dict[lang]))original[v]=k;
 const css=fs.readdirSync(path.join(source,'assets')).filter(f=>f.endsWith('.css'));
@@ -32,7 +33,8 @@ if(!ledgerCSS||!ledgerJS)throw Error('Original My selections integration missing
 for(const lang of ['ko','zh','en']){
  const prefix=lang==='ko'?'':lang+'/';
  const current=path.join(root,prefix+'index.html');if(!read(current).includes('data-notebook-release'))emit(prefix+'configure.html',read(current));
- const savedHome=path.join(root,prefix+'configure.html');const legal=(fs.existsSync(savedHome)?read(savedHome):read(current)).match(/<section class="ltc-license"[\s\S]*?<\/section>/)?.[0]||'';
+ const legal=businessRegistration[lang].home;
+ if(!legal?.includes('696-34-01557'))throw Error('Website operator registration is missing: '+lang);
  const lookup={};for(const k of new Set([...Object.keys(dict.zh),...Object.keys(dict.en)])){const value=lang==='ko'?k:dict[lang][k]??k;lookup[k]=value;for(const prev of ['zh','en'])if(dict[prev][k])lookup[dict[prev][k]]=value;}
  emit(base.slice(1)+lang+'/translations.js','window.NotebookTranslations='+JSON.stringify(lookup).replace(/</g,'\\u003c')+';');
  for(const file of scripts){let s=jsTranslate(read(path.join(source,'ko',file)),lang,file);if(lang==='en'&&file==='journeys.js')s=s.replace('<li><b>${i+1}</b>','<li><b>Day ${i+1}</b>');parse(s,{ecmaVersion:'latest'});emit(base.slice(1)+lang+'/'+file,s);}
