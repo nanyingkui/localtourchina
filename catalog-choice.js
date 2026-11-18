@@ -1,5 +1,5 @@
 (async()=>{
-const root='/assets/my-selections/a11972cd9c54/';
+const root='/assets/my-selections/d4b0bce20044/';
 const [{KEY,readState,commit},{canonicalItem,mergeSelection},{captureProduct}]=await Promise.all([import(root+'model.mjs'),import('/catalog-config.mjs'),import(root+'bridge.mjs')]);
 if(document.querySelector('[data-catalog-form]'))await import('/tour-config.mjs');
 const lang=document.documentElement.lang.startsWith('zh')?'zh':document.documentElement.lang==='en'?'en':'ko';

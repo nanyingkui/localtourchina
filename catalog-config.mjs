@@ -1,1 +1,1 @@
-export * from '/assets/my-selections/a11972cd9c54/catalog-config.mjs';
+export * from '/assets/my-selections/d4b0bce20044/catalog-config.mjs';
