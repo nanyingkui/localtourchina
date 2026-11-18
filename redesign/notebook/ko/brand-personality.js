@@ -107,5 +107,5 @@
   }
   // Visible source notes keep illustrations distinct from actual guest photographs.
   const credits=$('#credits') || $('.footnote details');
-  if(credits)credits.insertAdjacentHTML('beforeend','<p class="illustration-credit">여행 장면을 잇는 그림은 이 페이지를 위해 만든 일러스트입니다. 실제 풍경·고객 사진과 구분해 사용했습니다. 사진 속 여행객의 얼굴은 가렸으며, 운영자가 본인이라고 확인한 두 사진의 가이드 얼굴은 그대로 사용했습니다.</p>');
+  if(credits)credits.insertAdjacentHTML('beforeend','<p class="illustration-credit">여행 장면을 잇는 그림은 이 페이지를 위해 만든 일러스트입니다. 실제 풍경·고객 사진과 구분해 사용했습니다. 사진 속 인물은 확인된 본인 사진 외에 손그림으로 얼굴을 가렸습니다.</p>');
 })();

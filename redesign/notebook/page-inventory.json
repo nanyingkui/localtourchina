@@ -1,0 +1,686 @@
+[
+  {
+    "path": "404.html",
+    "kind": "travel"
+  },
+  {
+    "path": "admin.html",
+    "kind": "operate"
+  },
+  {
+    "path": "airport-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "app/index.html",
+    "kind": "operate"
+  },
+  {
+    "path": "app/preview/handbook/index.html",
+    "kind": "operate"
+  },
+  {
+    "path": "booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "company.html",
+    "kind": "read"
+  },
+  {
+    "path": "configure.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "day-canyon.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-fenghuang.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-forest.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-furong.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-tianmen.html",
+    "kind": "travel"
+  },
+  {
+    "path": "day-tours.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/airport-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/company.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/configure.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/day-tours.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/index.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/inquiry-status.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/korean-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/local-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/multi-booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/online-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/privacy.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/private-tour.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/products.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/reviews.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/service-consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "en/services/airport-dropoff.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/airport-pickup.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/changsha-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/fenghuang-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/furong-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/services/station-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tickets.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/canyon.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/experience45.html",
+    "kind": "redirect"
+  },
+  {
+    "path": "en/tours/fenghuang.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/fenghuang56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/forest.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/furong.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/furong45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/regular34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/regular45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/regular56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/sanya-44.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/sanya-45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/sanya-48.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/sanya-49.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/tianmen.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/trek34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/trek45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/tours/trek56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/travel-care.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/travel-info.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/travel-library.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/travel-safety.html",
+    "kind": "read"
+  },
+  {
+    "path": "en/trips.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/vehicles.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/zhangjiajie-4days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/zhangjiajie-6days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/zhangjiajie.html",
+    "kind": "travel"
+  },
+  {
+    "path": "flights.html",
+    "kind": "travel"
+  },
+  {
+    "path": "food-map.html",
+    "kind": "read"
+  },
+  {
+    "path": "index.html",
+    "kind": "travel"
+  },
+  {
+    "path": "inquiry-status.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "korean-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "legacy-flow.html",
+    "kind": "travel"
+  },
+  {
+    "path": "local-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "multi-booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "online-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-experience45.html",
+    "kind": "redirect"
+  },
+  {
+    "path": "package-fenghuang56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-furong45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-regular34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-regular56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-trek34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-trek45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "package-trek56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "privacy.html",
+    "kind": "read"
+  },
+  {
+    "path": "private-tour.html",
+    "kind": "travel"
+  },
+  {
+    "path": "products.html",
+    "kind": "travel"
+  },
+  {
+    "path": "reviews.html",
+    "kind": "read"
+  },
+  {
+    "path": "sanya-10289p44.html",
+    "kind": "travel"
+  },
+  {
+    "path": "sanya-10289p45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "sanya-10289p48.html",
+    "kind": "travel"
+  },
+  {
+    "path": "sanya-10289p49.html",
+    "kind": "travel"
+  },
+  {
+    "path": "sanya-catalog.html",
+    "kind": "travel"
+  },
+  {
+    "path": "service-consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "services/airport-dropoff.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/airport-pickup.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/changsha-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/fenghuang-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/furong-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "services/station-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "tickets.html",
+    "kind": "travel"
+  },
+  {
+    "path": "travel-care.html",
+    "kind": "read"
+  },
+  {
+    "path": "travel-help.html",
+    "kind": "read"
+  },
+  {
+    "path": "travel-info.html",
+    "kind": "read"
+  },
+  {
+    "path": "travel-library.html",
+    "kind": "read"
+  },
+  {
+    "path": "travel-planner/index.html",
+    "kind": "read"
+  },
+  {
+    "path": "travel-safety.html",
+    "kind": "read"
+  },
+  {
+    "path": "trips.html",
+    "kind": "travel"
+  },
+  {
+    "path": "vehicles.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/airport-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/company.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/configure.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/day-tours.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/flights.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/food-map.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/index.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/inquiry-status.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/korean-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/local-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/multi-booking.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/online-guide.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/privacy.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/private-tour.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/products.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/reviews.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/service-consultation.html",
+    "kind": "inquiry"
+  },
+  {
+    "path": "zh/services/airport-dropoff.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/airport-pickup.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/changsha-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/day-charter.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/fenghuang-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/furong-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/services/station-transfer.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tickets.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/canyon.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/experience45.html",
+    "kind": "redirect"
+  },
+  {
+    "path": "zh/tours/fenghuang.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/fenghuang56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/forest.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/furong.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/furong45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/regular34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/regular45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/regular56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/sanya-44.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/sanya-45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/sanya-48.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/sanya-49.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/tianmen.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/trek34.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/trek45.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/tours/trek56.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/travel-care.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/travel-info.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/travel-library.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/travel-safety.html",
+    "kind": "read"
+  },
+  {
+    "path": "zh/trips.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/vehicles.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/zhangjiajie-4days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/zhangjiajie-6days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/zhangjiajie.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zhangjiajie-4days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zhangjiajie-4n5d.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zhangjiajie-6days.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zhangjiajie.html",
+    "kind": "travel"
+  }
+]

@@ -36,3 +36,15 @@
 - Customer inquiries from My selections are copied and manually sent in the existing KakaoTalk Channel. No automatic send, fake reception ID, database write, booking or payment from the selection layer.
 - Existing admin, inquiry/order/status, payments, traveler Auth and database boundaries stay intact. Browser-local selections use their own key; never erase original product drafts or order records.
 - Fourteen-seat Furong availability and price require manual confirmation. Airport/daily-hire products remain separate from standalone Furong shared/private transfers.
+
+# White travel notebook refinement (2026-11-18)
+- User selected the previously published notebook language. Change the large cream background to pure white; preserve fonts, orange-hat master, handwriting, colored-pencil art and photographic composition. Canonical brief: DESIGN.md.
+- Apply the shared presentation to every public page through the build, retaining calculators and account boundaries. Homepage stays concise; detailed situations belong on travel-care.html.
+- Only Nan Yingkui is exempt from opaque hand-drawn face covering. Review backgrounds, reflections and lightbox originals too.
+- Ages 14 and under do not count toward multi-day base-price party tiers. Consultation requires a separate child count (including 0), ages and bed needs; children still count for actual vehicle capacity. Do not reinterpret admission-ticket age policies.
+- Do not apply any proposed new prices before the owner reviews them. This work is a local full-site preview for review; production is unchanged.
+- Product cover feedback: scenery and the real visitor's viewpoint should lead. Do not make two-person portraits the repeated main image or imply a two-person-only departure. Guest photos are small secondary trip records with a separate enlargement action and accurate past-trip context.
+- Browser/bookmark icon: use rotucha-orange-hat-master.png, matching the owner's first supplied flat portrait (simple line mouth, level/half-lidded eyes, no outer contour). The older orange-hat-portrait.png with lips and outlined face is rejected.
+- Homepage refinement approved 2026-11-18: restore warm, playful notebook composition on white. Use meaningful photo/handwriting layers and one deep-green community section with warm-yellow paper; integrate lifestyle photos into the existing care section so the homepage stays concise. Product copy, services, prices and calculation rules remain unchanged. Deliver a local preview before publication.
+
+- Publication authorized 2026-11-18: the owner approved deploying the reviewed white notebook preview with the warmer homepage. Use the existing production release pipeline, keep the approved product catalogue/prices unchanged, and verify the live release after deployment.

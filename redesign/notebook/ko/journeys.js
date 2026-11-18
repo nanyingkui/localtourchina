@@ -62,6 +62,7 @@
     $('#quote-context').hidden = !catalog.get(r?.id);
     const form=$('#consult-form');
     for(const field of form.elements)if(field.name&&field.name!=='concerns'&&Object.hasOwn(state.fields,field.name))field.value=state.fields[field.name];
+    window.NotebookFamily.mount(form,state.fields);
     renderConcerns();
     const value=(name,fallback='')=>String(form.elements[name]?.value||'').trim()||fallback;
     function arrivalNote(){
@@ -73,11 +74,11 @@
       $('#arrival-note').textContent=text;$('#base-condition').textContent=text;
     }
     function renderMoments(){const moments=chosenMoments();$('#expectations').hidden=!moments.length;$('#consult-moments').innerHTML=moments.map((text,i)=>`<li><span>${esc(text)}</span><button type="button" data-remove="${i}" aria-label="${esc(text)} 선택 해제">빼기</button></li>`).join('');$('#back-detail').hidden=!r?.detail;if(r?.detail)$('#back-detail').href=r.detail+'#days';document.querySelectorAll('[data-remove]').forEach(button=>button.addEventListener('click',()=>{state.moments[state.route]=chosenMoments().filter((_,i)=>i!==Number(button.dataset.remove));put();renderMoments();}));}
-    function syncPrice(){if(catalog.get(r?.id))$('#quote-context').innerHTML=catalog.inquiryHTML(r.id,state.fields);}
+    function syncPrice(){if(catalog.get(r?.id))$('#quote-context').innerHTML=catalog.inquiryHTML(r.id,state.fields)+window.NotebookFamily.priceNote(state.fields);}
     function saveFields(){for(const field of form.elements)if(field.name&&field.name!=='concerns')state.fields[field.name]=field.value;const n=catalog.partyFromText(state.fields.party);if(r&&n){state.pricingParties={...state.pricingParties,[r.id]:n};if(r.id==='experience45')state.pricing45Party=n;}put();arrivalNote();syncPrice();}
     function message(){
       const arrivalLabels={early:'13:00 전 도착',late:'13:00 이후 도착',night:'늦은 밤 도착'};
-      const lines=[r?`${r.title} ${r.duration} 문의드려요.`:'우리 일행에게 맞는 장가계 코스를 추천받고 싶어요.',`날짜: ${value('dates','아직 미정')}`,`인원: ${value('party','아직 미정')}`];
+      const lines=[r?`${r.title} ${r.duration} 문의드려요.`:'우리 일행에게 맞는 장가계 코스를 추천받고 싶어요.',`날짜: ${value('dates','아직 미정')}`,window.NotebookFamily.message(state.fields)];
       if(r&&r.id!=='regular34')lines.push('ID: '+(r.id==='regular56'?'56':'experience45'));
       if(value('arrival'))lines.push('장가계 도착: '+arrivalLabels[value('arrival')]+' 예정 (중국 현지 시간)');
       for(const [name,label] of [['departure','귀국편'],['companions','동행인'],['pace','걷는 속도'],['room','희망 객실'],['budget','희망 예산 (항공권 제외)']])if(value(name))lines.push(label+': '+value(name));
@@ -90,9 +91,9 @@
       return lines.map((line,i)=>(i===1||line.startsWith('꼭 갖고')||line.startsWith('궁금한')||line.startsWith('추가 요청')||line.startsWith('확인한 ')||line.startsWith('기본요금 적용')||i===lines.length-1?'\n':'')+line).join('\n');
     }
     function fitMessage(){const field=$('#inquiry-message');field.style.height='auto';field.style.height=(field.scrollHeight+8)+'px';}
-    function showReview(scroll=true){saveFields();$('#inquiry-message').value=message();$('#copy-status').textContent='';$('#edit-step').hidden=true;$('#review-step').hidden=false;fitMessage();if(scroll){$('#review-heading').focus({preventScroll:true});$('#review-step').scrollIntoView({block:'start'});}}
+    function showReview(scroll=true){if(!form.reportValidity())return;saveFields();$('#inquiry-message').value=message();$('#copy-status').textContent='';$('#edit-step').hidden=true;$('#review-step').hidden=false;fitMessage();if(scroll){$('#review-heading').focus({preventScroll:true});$('#review-step').scrollIntoView({block:'start'});}}
     form.addEventListener('input',saveFields);form.addEventListener('change',saveFields);
-    form.addEventListener('submit',event=>{event.preventDefault();history.pushState({journeyReview:true},'',location.pathname+location.search+'#review');showReview();});
+    form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;history.pushState({journeyReview:true},'',location.pathname+location.search+'#review');showReview();});
     function edit(scroll=true){$('#review-step').hidden=true;$('#edit-step').hidden=false;if(scroll){form.elements.dates.focus({preventScroll:true});$('#top').scrollIntoView({block:'start'});}}
     function goEdit(){if(location.hash==='#review'&&history.state?.journeyReview){history.back();}else{history.replaceState(null,'',location.pathname+location.search);edit();}}
     $('#edit-message').addEventListener('click',goEdit);$('#edit-top').addEventListener('click',goEdit);

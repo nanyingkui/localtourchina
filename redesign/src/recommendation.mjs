@@ -31,7 +31,7 @@ export function validateRecommendationDetails(draft,now=new Date(),lang='ko'){
  const errors=validateDraft({...draft,services:['private'],consent:true},now),p=draft.recommendation||{},party=packageParty(draft),t=packageCopy(lang);
  if(p.arrivalTime&&!validArrivalTime(p.arrivalTime))errors.arrivalTime=t.arrivalError;
  if(!party.valid)errors.childrenCount=t.childrenError;
- else if(party.children>0&&(party.ages.length!==party.children||party.ages.some(age=>!/^(?:[0-9]|1[0-7])$/.test(String(age)))))errors.childrenAges=t.agesError;
+ else if(party.children>0&&(party.ages.length!==party.children||party.ages.some(age=>!/^(?:[0-9]|1[0-4])$/.test(String(age)))))errors.childrenAges=t.agesError;
  return errors;
 }
 export function recommendationEndDate(departure,routeId){if(!validRecommendationDate(departure))return '';const end=new Date(departure+'T00:00:00Z');end.setUTCDate(end.getUTCDate()+recommendedRoute(routeId).days-1);return end.toISOString().slice(0,10);}

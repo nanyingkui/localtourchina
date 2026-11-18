@@ -8,17 +8,19 @@ const root=path.resolve(import.meta.dirname,'../..');
 const source=path.join(root,'redesign/notebook');
 const routes={regular34:'zhangjiajie-4days.html',experience45:'zhangjiajie.html',regular56:'zhangjiajie-6days.html'};
 
-test('published home cards distinguish photo stories from the correct itinerary in every language',()=>{
+test('home audience cards link to their distinct services, with photo stories for multiday trips',()=>{
   for(const prefix of ['','zh/','en/']){
     const html=fs.readFileSync(path.join(root,prefix+'index.html'),'utf8');
     const cards=[...html.matchAll(/<article class="trip-card">([\s\S]*?)<\/article>/g)].map(m=>m[1]);
     assert.equal(cards.length,3,prefix+' route cards');
-    for(const card of cards){
+    for(const [index,card] of cards.entries()){
+      if(index===2){assert.match(card,/online-guide\.html/);assert.match(card,/data-online-price/);assert.doesNotMatch(card,/data-route-story/);continue;}
       const photo=card.match(/<button\b[^>]*data-route-story="([^"]+)"[^>]*>/);
       assert.ok(photo,prefix+' photo is a button, not a duplicate route link');
       assert.ok(photo[0].includes('aria-haspopup="dialog"'));
       const links=[...card.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(m=>m[1]);
-      assert.deepEqual(links,[routes[photo[1]]],prefix+' one correct itinerary action');
+      assert.equal(photo[1],index===0?'experience45':'regular56');
+      assert.ok(links.includes(routes[photo[1]]),prefix+' correct itinerary action');
     }
     assert.match(html,/src="[^"]+route-stories\.js"/);
   }

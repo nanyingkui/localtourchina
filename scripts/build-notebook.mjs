@@ -13,11 +13,15 @@ const css=fs.readdirSync(path.join(source,'assets')).filter(f=>f.endsWith('.css'
 const scripts=fs.readdirSync(path.join(source,'ko')).filter(f=>f.endsWith('.js'));
 const pages=fs.readdirSync(path.join(source,'ko')).filter(f=>f.endsWith('.html'));
 const sum=crypto.createHash('sha256');for(const f of [...scripts,...pages])sum.update(read(path.join(source,'ko',f)));for(const f of css)sum.update(read(path.join(source,'assets',f)));sum.update(JSON.stringify(dict));sum.update(JSON.stringify({catalog,fx}));for(const f of ['notebook-runtime.js','dated34.js'])sum.update(read(path.join(source,f)));
+function hashAssets(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){const p=path.join(dir,item.name);if(item.isDirectory())hashAssets(p);else sum.update(fs.readFileSync(p));}}
+hashAssets(path.join(source,'assets'));
 const base='/assets/notebook/'+sum.digest('hex').slice(0,12)+'/';const added=new Set(),missing=new Map();
 function emit(name,bytes){if(preview)write(path.join(preview,name),bytes);else{write(path.join(root,name),bytes);write(path.join(dist,name),bytes);}added.add(name);}
 function tree(from,rel){for(const e of fs.readdirSync(from,{withFileTypes:true})){const p=path.join(from,e.name),dest=rel+e.name;if(e.isDirectory())tree(p,dest+'/');else emit(dest,fs.readFileSync(p));}}
 tree(path.join(source,'assets'),base.slice(1));
-const shared=JSON.stringify({fx,catalog:{'34':catalog['34'],'56':catalog['56'],'local-guide':catalog['local-guide'],experience45:catalog.experience45||null}}).replace(/</g,'\\u003c');
+emit('favicon.ico',fs.readFileSync(path.join(source,'assets/icons/favicon.ico')));
+emit('apple-touch-icon.png',fs.readFileSync(path.join(source,'assets/icons/orange-hat-180.png')));
+const shared=JSON.stringify({fx,catalog:{'34':catalog['34'],'56':catalog['56'],'online-guide':catalog['online-guide'],'local-guide':catalog['local-guide'],experience45:catalog.experience45||null}}).replace(/</g,'\\u003c');
 emit(base.slice(1)+'data.js','window.NotebookData='+shared+';');
 for(const f of ['notebook-runtime.js','dated34.js'])emit(base.slice(1)+f,read(path.join(source,f)));
 const money=(n,lang)=>new Intl.NumberFormat({ko:'ko-KR',zh:'zh-CN',en:'en-US'}[lang],{style:'currency',currency:{ko:'KRW',zh:'CNY',en:'USD'}[lang],maximumFractionDigits:lang==='ko'?0:2}).format(Number(n)*(lang==='ko'?1:fx.rates[lang==='zh'?'CNY':'USD']));
@@ -33,14 +37,14 @@ if(!ledgerCSS||!ledgerJS)throw Error('Original My selections integration missing
 for(const lang of ['ko','zh','en']){
  const prefix=lang==='ko'?'':lang+'/';
  const current=path.join(root,prefix+'index.html');if(!read(current).includes('data-notebook-release'))emit(prefix+'configure.html',read(current));
- const legal=businessRegistration[lang].home;
+ const legal=businessRegistration[lang].home.replace(/(<h2\b)/,'<div class="nb-company-grid"><div class="nb-company-owner">$1').replace(/(<h3\b)/,'</div><div class="nb-company-provider">$1').replace('</section>','</div></div></section>');
  if(!legal?.includes('696-34-01557'))throw Error('Website operator registration is missing: '+lang);
  const lookup={};for(const k of new Set([...Object.keys(dict.zh),...Object.keys(dict.en)])){const value=lang==='ko'?k:dict[lang][k]??k;lookup[k]=value;for(const prev of ['zh','en'])if(dict[prev][k])lookup[dict[prev][k]]=value;}
  emit(base.slice(1)+lang+'/translations.js','window.NotebookTranslations='+JSON.stringify(lookup).replace(/</g,'\\u003c')+';');
  for(const file of scripts){let s=jsTranslate(read(path.join(source,'ko',file)),lang,file);if(lang==='en'&&file==='journeys.js')s=s.replace('<li><b>${i+1}</b>','<li><b>Day ${i+1}</b>');parse(s,{ecmaVersion:'latest'});emit(base.slice(1)+lang+'/'+file,s);}
  for(const file of pages){let s=htmlTranslate(read(path.join(source,'ko',file)),lang,file).replace('<html lang="ko"','<html data-notebook-release="14" lang="'+(lang==='zh'?'zh-CN':lang)+'"');
  s=s.replace(/href="([\w-]+\.css)(?:\?[^"<>]*)?"/g,(_,f)=>'href="'+base+f+'"').replace(/src="([\w-]+\.js)(?:\?[^"<>]*)?"/g,(_,f)=>'src="'+base+lang+'/'+f+'"');
- s=s.replace(/<script\b/,`<script src="${base}data.js"></script><script src="${base}${lang}/translations.js"></script><script src="${base}notebook-runtime.js"></script><script src="${base}dated34.js"></script><script`);
+ s=s.replace(/<script\b/,`<script src="${base}data.js"></script><script src="${base}${lang}/translations.js"></script><script src="${base}notebook-runtime.js"></script><script src="${base}dated34.js"></script><script src="${base}family-rule.js"></script><script`);
  if(file==='trips.html')s=s.replace(/(<p class="preview-foot">)[^<]*(<\/p>)/,'$1'+({ko:'로투차 · 여행 선택',zh:'罗途查 · 选择旅行',en:'LocalTourChina · Choose your trip'}[lang])+'$2');
  const canonical='https://localtourchina.com/'+prefix+file;
  s=s.replace('</head>',`<link rel="canonical" href="${canonical}">${['ko','zh','en'].map(l=>`<link rel="alternate" hreflang="${l}" href="https://localtourchina.com/${l==='ko'?'':l+'/'}${file}">`).join('')}<link rel="stylesheet" href="${base}release.css">${ledgerCSS}${ledgerJS}<link rel="stylesheet" href="/assets/contact-modal.css"></head>`);
@@ -74,6 +78,39 @@ for(const lang of ['ko','zh','en']){
  html=html.replace(/(<main\b[^>]*>)/,'$1'+strip);emit(relative,html);
  }
 }
-const manifest=JSON.parse(read(path.join(root,'public-release-manifest.json')));if(!preview)write(path.join(root,'public-release-manifest.json'),JSON.stringify([...new Set([...manifest,...added])].sort(),null,2)+'\n');
+const manifest=JSON.parse(read(path.join(root,'public-release-manifest.json')));
+// Apply the same white-paper identity to every released document, including informational and utility pages.
+const inventory=[];
+for(const name of new Set([...manifest,...added])){
+ if(!name.endsWith('.html'))continue;
+ const local=preview&&fs.existsSync(path.join(preview,name))?path.join(preview,name):path.join(root,name);
+ if(!fs.existsSync(local))throw Error('Missing public page: '+name);
+ let html=read(local);const redirect=/http-equiv=["']refresh/i.test(html);
+ inventory.push({path:name,kind:redirect?'redirect':/admin|app\//.test(name)?'operate':/consult|booking|status|configure/.test(name)?'inquiry':/travel-|privacy|company|reviews|food-map/.test(name)?'read':'travel'});
+ if(redirect)continue;
+ html=html.replace(/<link[^>]*data-notebook-white[^>]*>/g,'').replace(/<script[^>]*data-notebook-white[^>]*><\/script>/g,'');
+ html=html.replace(/<html\b([^>]*)>/i,(all,attrs)=>/class="/.test(attrs)?'<html'+attrs.replace(/class="([^"]*)"/,(_,v)=>'class="'+[...new Set((v+' notebook-white').split(/\s+/))].join(' ')+'"')+'>':'<html'+attrs+' class="notebook-white">');
+ html=html.replace(/(?:^[ \t]*)?<link\b[^>]*rel=["'](?:shortcut icon|icon|apple-touch-icon)["'][^>]*>/gim,'');
+ const resources=`<link data-notebook-white rel="stylesheet" href="${base}white-notebook.css"><link rel="icon" type="image/png" sizes="32x32" href="${base}icons/orange-hat-32.png"><link rel="icon" type="image/png" sizes="48x48" href="${base}icons/orange-hat-48.png"><link rel="shortcut icon" href="/favicon.ico?v=${base.split('/')[3]}"><link rel="apple-touch-icon" sizes="180x180" href="${base}icons/orange-hat-180.png">`;
+ if(html.includes('</head>'))html=html.replace('</head>',resources+'</head>');
+ else if(/<body\b/.test(html))html=html.replace(/<body\b/,resources+'<body');
+ else{const last=[...html.matchAll(/<\/style>|<\/title>|<link\b[^>]*>/g)].at(-1);if(!last)throw Error('No head insertion point: '+name);const at=last.index+last[0].length;html=html.slice(0,at)+resources+html.slice(at);}
+ html=html.replace('</body>',`<script data-notebook-white src="${base}sitewide.js" defer></script></body>`);
+ if(name==='app/preview/handbook/index.html')html=html.replace('</head>','<style>html:root{color-scheme:light;--background:#fff!important}html body{background:#fff!important}</style></head>');
+ html=html.replace(/(?:\/assets\/brand\/orange-hat-portrait\.png|\/assets\/home-20261013\/mascot-clean\.webp|\/assets\/notebook\/[a-f0-9]+\/brand\/rotucha-orange-hat-master\.png)/g,base+'brand/rotucha-orange-hat-master.png');
+ const lang=name.startsWith('zh/')?'zh':name.startsWith('en/')?'en':'ko',prefix=lang==='ko'?'/':'/'+lang+'/';
+ const words={ko:['여행 준비와 현장 도움','전체 상품','YouTube','네이버 카페'],zh:['行前准备与现场协助','全部产品','YouTube','Naver Cafe'],en:['Planning and local support','All products','YouTube','Naver Cafe']}[lang];
+ html=html.replace(/<nav class="nb-resource-links"[\s\S]*?<\/nav>/g,'');
+ if(!/admin|app\/|travel-planner/.test(name))html=html.replace('</footer>',`<nav class="nb-resource-links"><a href="${prefix}travel-care.html">${words[0]} ↗</a><a href="${prefix}products.html">${words[1]} ↗</a><a href="https://www.youtube.com/@Lctch/videos" target="_blank" rel="noopener">${words[2]} ↗</a><a href="https://cafe.naver.com/lotocha" target="_blank" rel="noopener">${words[3]} ↗</a></nav></footer>`);
+ emit(name,html);
+}
+write(path.join(source,'page-inventory.json'),JSON.stringify(inventory,null,2)+'\n');
+// Keep the PWA's offline style and icon assets on its explicit static allowlist.
+const workerFile=preview&&fs.existsSync(path.join(preview,'app/sw.js'))?path.join(preview,'app/sw.js'):path.join(root,'app/sw.js');
+let worker=read(workerFile).replace(/const CACHE='[^']+';/,`const CACHE='ltc-traveler-white-${base.split('/')[3]}';`);
+const shellExtras=['white-notebook.css','sitewide.js','fonts/Pretendard-Regular.woff2','fonts/Pretendard-Bold.woff2','fonts/NanumPenScript-Regular.ttf','fonts/LongCang-Regular.ttf','icons/orange-hat-32.png','icons/orange-hat-48.png','icons/orange-hat-180.png','brand/rotucha-orange-hat-master.png'].map(f=>base+f);
+worker=worker.replace(/const SHELL=(\[[^;]+\]);/,(_,json)=>'const SHELL='+JSON.stringify([...new Set([...JSON.parse(json.replaceAll("'",'"')).filter(p=>!p.startsWith('/assets/notebook/')),...shellExtras])])+';');
+emit('app/sw.js',worker);
+if(!preview)write(path.join(root,'public-release-manifest.json'),JSON.stringify([...new Set([...manifest,...added])].sort(),null,2)+'\n');
 write(path.join(source,'missing-translations.json'),JSON.stringify([...missing.values()],null,2));
 console.log(`Notebook v14: ${pages.length} pages × 3 languages; ${added.size} public files; ${missing.size} translation segments need review; ${base}`);

@@ -38,24 +38,28 @@
     status.hidden = false;
     status.textContent = '사진을 불러오고 있어요.';
     retry.hidden = true;
+    // Text is already known: render it now and reserve the photo area while it loads.
+    $('.story-day').textContent = scene.day;
+    $('h3').textContent = scene.title;
+    $('[data-experience]').textContent = scene.experience;
+    $('[data-preparation]').textContent = scene.preparation;
+    $('.story-photo-credit').textContent = scene.credit;
+    $('[data-source]').hidden = !scene.source;
+    if (scene.source) $('[data-source]').href = scene.source;
+    img.setAttribute('aria-busy','true');
     const incoming = new Image();
     incoming.onload = () => {
       if (currentRequest !== request) return;
       img.src = scene.file;
       img.alt = scene.title;
-      $('.story-day').textContent = scene.day;
-      $('h3').textContent = scene.title;
-      $('[data-experience]').textContent = scene.experience;
-      $('[data-preparation]').textContent = scene.preparation;
-      $('.story-photo-credit').textContent = scene.credit;
-      $('[data-source]').hidden = !scene.source;
-      if (scene.source) $('[data-source]').href = scene.source;
+      img.removeAttribute('aria-busy');
       status.hidden = true;
     };
     incoming.onerror = () => {
       if (currentRequest !== request) return;
       status.textContent = '사진을 불러오지 못했어요. 다시 눌러주세요.';
       retry.hidden = false;
+      img.removeAttribute('aria-busy');
     };
     incoming.src = scene.file;
   }

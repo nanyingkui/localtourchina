@@ -1,0 +1,23 @@
+.trip-photo-preview{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.trip-photo-preview .trip-cover{display:block}
+.photo-preview-label{display:block;padding:9px 0;text-align:right;color:#305e45;font:600 12px/1.5 Pretendard,sans-serif}
+.trip-photo-preview:focus-visible,.route-story-dialog button:focus-visible{outline:3px solid #d36535;outline-offset:4px}
+.route-story-dialog{width:min(94vw,860px);overscroll-behavior:contain}
+.route-story-dialog>header{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 16px;background:#fffdf5;border-bottom:1px solid #d8dfd0}
+.route-story-dialog>header h2{font-size:15px;margin:0}
+.route-story-dialog button{min-width:46px;min-height:46px;border:1px solid #c2cdbb;border-radius:3px;background:#fffdf5;color:#20382e;font:600 14px/1.3 Pretendard,sans-serif;cursor:pointer}
+.route-story-dialog [data-close]{border:0;white-space:nowrap}
+.route-story-dialog>img{width:100%;height:auto;max-height:60svh;object-fit:contain;background:#20382e}
+.route-story-dialog>.story-photo-controls{display:flex;justify-content:center;align-items:center;gap:26px;padding:8px 18px;border-bottom:1px solid #d8dfd0;background:#fffdf5}
+.route-story-dialog button:disabled{opacity:.3;cursor:default}
+.route-story-dialog>.story-photo-copy{padding:18px 24px 22px}
+.route-story-dialog .story-day{font-size:12px;color:#9d4b30;margin:0 0 6px;font-weight:700}
+.route-story-dialog h3{font:700 23px/1.4 Pretendard,sans-serif;margin:0 0 8px;letter-spacing:-.03em}
+.route-story-dialog [data-experience],.route-story-dialog [data-preparation]{font:15px/1.75 Pretendard,sans-serif;margin:0}
+.route-story-dialog aside{padding:13px 16px;background:#edf2e5;margin:15px 0 12px;border-left:3px solid #e7c33a}
+.route-story-dialog aside>b{display:block;font:25px/1.2 TravelPen,sans-serif;color:#285339;margin-bottom:7px}
+.route-story-dialog .story-photo-credit{color:#65725e;font-size:11px;line-height:1.6;margin:0}
+.route-story-dialog [data-source]{display:block;font-size:12px;margin:5px 0 0}
+.route-story-dialog [hidden]{display:none!important}
+body:has(.route-story-dialog[open]){overflow:hidden}
+@media(max-width:600px){.route-story-dialog>.story-photo-copy{padding:15px 18px 20px}.route-story-dialog h3{font-size:21px}.route-story-dialog [data-experience],.route-story-dialog [data-preparation]{font-size:14px}.route-story-dialog aside{margin-top:12px}}
