@@ -25,11 +25,11 @@
   },
   "/zh/local-guide.html": {
     "cover": "<figure class=\"ltc-cover\" aria-label=\"产品配图\"><div class=\"ltc-cover-frame\"><img src=\"/photos/hosted-tours/guest-02.jpg\" alt=\"张家界带团现场\" style=\"--focus:50% 52%\" decoding=\"async\" fetchpriority=\"high\"></div></figure>",
-    "detail": "<section class=\"ltc-buy\" aria-label=\"这款行程适合谁\"><h2>这款行程适合谁</h2><p><strong>车和门票自己安排，只需要韩语现场讲解。</strong></p><div class=\"ltc-buy-grid\"><div><strong>我们怎么安排</strong><p>确认见面时间、地点和讲解内容，基本时长为一天六小时。</p></div><div><strong>有变动联系谁</strong><p>时间或地点要改，请联系预订联系人。</p></div></div></section>"
+    "detail": "<section class=\"ltc-buy\" aria-label=\"这款行程适合谁\"><h2>这款行程适合谁</h2><p><strong>适合已安排车辆和门票、需要当地导游的游客。请先确认所需语言与档期。</strong></p><div class=\"ltc-buy-grid\"><div><strong>我们怎么安排</strong><p>确认见面时间、地点和讲解内容，基本时长为一天六小时。</p></div><div><strong>有变动联系谁</strong><p>时间或地点要改，请联系预订联系人。</p></div></div></section>"
   },
   "/en/local-guide.html": {
     "cover": "<figure class=\"ltc-cover\" aria-label=\"Product images\"><div class=\"ltc-cover-frame\"><img src=\"/photos/hosted-tours/guest-02.jpg\" alt=\"A guided visit in Zhangjiajie\" style=\"--focus:50% 52%\" decoding=\"async\" fetchpriority=\"high\"></div></figure>",
-    "detail": "<section class=\"ltc-buy\" aria-label=\"Trip highlights\"><h2>Trip highlights</h2><p><strong>Book a Korean-speaking guide if you’re arranging transport and tickets yourself.</strong></p><div class=\"ltc-buy-grid\"><div><strong>How we plan it</strong><p>Confirm where to meet and what you want covered. The base service is six hours per day.</p></div><div><strong>If plans change</strong><p>Contact your booking team if the meeting time or place changes.</p></div></div></section>"
+    "detail": "<section class=\"ltc-buy\" aria-label=\"Trip highlights\"><h2>Trip highlights</h2><p><strong>For travellers arranging their own transport and tickets. Confirm the guide language and availability before booking.</strong></p><div class=\"ltc-buy-grid\"><div><strong>How we plan it</strong><p>Confirm where to meet and what you want covered. The base service is six hours per day.</p></div><div><strong>If plans change</strong><p>Contact your booking team if the meeting time or place changes.</p></div></div></section>"
   },
   "/zh/online-guide.html": {
     "cover": "<figure class=\"ltc-cover\" aria-label=\"产品配图\"><div class=\"ltc-cover-frame\"><img src=\"/assets/designed/guide-planning-png-960.webp\" alt=\"在线旅行支持示意图\" style=\"--focus:50% 49%\" decoding=\"async\" fetchpriority=\"high\"><small class=\"ltc-cover-note\">服务示意图</small></div></figure>",

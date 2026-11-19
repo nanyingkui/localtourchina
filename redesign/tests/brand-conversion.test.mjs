@@ -14,7 +14,7 @@ const root=path.resolve(import.meta.dirname,'../..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const catalog=JSON.parse(read('catalog-site/catalog.json'));
 const ids=['34','45','56','56fh','45furong','experience45','trek34','trek45','trek56'];
-const assetBase='/assets/notebook/bfeacd45dd7d/';
+const assetBase=read('index.html').match(/\/assets\/notebook\/[a-f0-9]+\//)[0];
 const payload=html=>JSON.parse(html.match(/<script type="application\/json" data-trip-comparison-data>([\s\S]*?)<\/script>/)[1]);
 const scripts=html=>[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)].map(match=>match[0]);
 const withoutEd=html=>html.replace(/<!-- ed-inquiry:([\w-]+):start -->[\s\S]*?<!-- ed-inquiry:\1:end -->/g,'');
@@ -34,6 +34,8 @@ for(const lang of ['ko','zh','en']){
   for(const id of ['service-standards','people','real-stories','before-booking'])assert.equal([...html.matchAll(new RegExp(`id="${id}"`,'g'))].length,1,id+' appears once');
   const main=html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
   assert.doesNotMatch(main,/ratingValue|reviewCount|aggregateRating|countdown|data-fake/i,'no manufactured popularity or scarcity');
+  assert.doesNotMatch(html,/남영규|南英奎|Nan Yingkui|Namyongyu/i,'homepage routes questions through the brand');
+  assert.doesNotMatch(html,/s9mISSLq3T8|3Wweqoj_VnU|QLHuR3bpktc/,'withdrawn route guides stay off the homepage');
   assert.ok(main.includes('https://www.youtube.com/@Lctch/videos'));
   assert.ok(main.includes('https://cafe.naver.com/lotocha'));
  });
@@ -100,7 +102,7 @@ for(const lang of ['ko','zh','en']){
   assert.match(booking,/<details class="ed-confirmation-details">/);
   assert.doesNotMatch(booking,/(?:₩|\$)\s*[\d,]+/,'the illustrative checklist does not invent a quote');
   assert.ok(booking.includes(`/${prefix}consultation.html?trip=custom`));
-  assert.ok(renderTeam(lang,{assetBase}).includes(`/${prefix}korean-guide.html`));
+  assert.ok(renderTeam(lang,{assetBase}).includes(`/${prefix}${lang==='ko'?'korean-guide':'local-guide'}.html`));
   assert.equal((renderStandards(lang).match(/<li>/g)||[]).length,4);
  });
 }

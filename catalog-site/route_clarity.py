@@ -102,7 +102,7 @@ def package_fees(record, lang):
     included = [
         hotel,
         t('2인 1실 · 홀수 인원의 남는 1명은 별도 객실 포함', '双人一间；奇数人数余下1人的单独客房已计入', 'Twin sharing, with a separate room included for an unpaired guest'),
-        t('한국어 가이드', '韩语导游', 'Korean-speaking guide'),
+        t('한국어 가이드', '当地导游（服务语言与对应报价需确认）', 'Local guide (confirm your preferred language and the applicable quote)'),
         t('일행과 가이드 좌석을 확보한 차량 및 기사', '按游客和导游实际座位配置的车辆及司机', 'Vehicle and driver, with seats for guests and guide'),
         t('일정 내 주차비·도로비', '行程内停车费与道路通行费', 'Parking and road tolls on the itinerary'),
         t('장가계 공항 픽업·샌딩', '张家界机场接机与送机', 'Zhangjiajie airport pickup and drop-off'),

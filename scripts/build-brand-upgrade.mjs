@@ -46,7 +46,7 @@ for(const lang of languages){
  const old=sectionSpan(html,'all-trips');
  const compact=old?html.slice(old[0],old[1]):directory;
  html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,renderHome(lang,{assetBase,directory:compact}));
- const description=words(lang,'장가계의 풍경을 우리 일행의 속도로. 한국어 현지 안내, 모든 숙박여행 비교, 실제 여행 이야기와 비용 확인까지.','按同行人的节奏，认识张家界。韩语当地陪同、全部多日游比较、真实旅行记录与清楚的费用说明。','Experience Zhangjiajie at your own group’s pace. Korean-speaking local support, every multi-day itinerary, real traveller stories and clear costs.');
+ const description=words(lang,'장가계의 풍경을 우리 일행의 속도로. 한국어 현지 안내, 모든 숙박여행 비교, 실제 여행 이야기와 비용 확인까지.','比较张家界多日游、费用与包含项目，并咨询用车、门票和当地导游安排。','Compare Zhangjiajie multi-day itineraries, prices and inclusions, and ask about transport, tickets and local guides.');
  html=html.replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${esc(description)}">`);
  write(homePath,html);
 

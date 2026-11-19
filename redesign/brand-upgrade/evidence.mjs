@@ -18,7 +18,7 @@ const copy = {
         ['원하지 않는 소비를 권하지 않아요', '쇼핑이나 추가 관광을 강요하지 않습니다. 구매나 추가 항목을 거절해도 약속한 안내는 그대로 이어갑니다.'],
         ['추가 비용은, 선택하기 전에', '추가 방문이나 시간 연장 등 변경이 필요하면 가능 여부와 비용을 먼저 확인하고 결정합니다.'],
         ['걷는 양과 식사부터 들어요', '계단 부담, 쉬는 시간, 먹기 어려운 재료를 미리 듣습니다. 정한 일정을 바탕으로 현장 대안을 상의해요.'],
-        ['불편한 점은 운영자에게', '가이드의 안내나 태도에 불편을 느끼면 로투차 운영자에게 알려주세요. 상황을 확인하고 가능한 해결 방법을 함께 찾습니다.'],
+        ['불편한 점은 로투차에 알려주세요', '가이드의 안내나 태도에 불편을 느끼면 로투차 상담 채널로 알려주세요. 상황을 확인하고 가능한 해결 방법을 함께 찾습니다.'],
       ],
       note: '날씨·관광지 운영과 예약 변경은 현장 상황 및 실제 제공업체의 조건을 확인합니다.',
     },
@@ -57,17 +57,10 @@ const copy = {
       action: '우리 일정으로 상담하기',
     },
     team: {
-      eyebrow: '여행을 함께 준비하는 사람',
-      title: '누가 안내하고, 누가 함께할까요?',
-      name: '남영규',
-      role: '로투차 운영 · 한국어 일정 상담',
-      body: '중국에서 자란 현지 가이드이자 로투차 운영자입니다. 원하는 풍경과 걷는 정도를 듣고, 일행의 현지 일정을 함께 조율합니다.',
-      guideTitle: '현장 가이드는, 여행 조건에 맞춰 확인합니다.',
-      guideBody: '날짜·언어·동선과 요청 사항을 확인한 뒤 배정합니다. 운영자 본인 동행을 원하실 때도 해당 날짜의 가능 여부를 먼저 확인해요.',
-      valuesLabel: '안내에서 중요하게 보는 것',
-      values: ['일행과 속도를 맞추는 안내', '질문과 변경을 설명하는 태도', '비용과 시간 약속을 분명하게'],
-      imageAlt: '과거 가족여행에서 여행객들과 함께 선 로투차 가이드',
-      imageCaption: '기존 별도 가족여행의 동행 사진입니다. 사진 속 가이드가 배정된다는 뜻은 아닙니다.',
+      title: '한국어 상담부터 현지 가이드 배정까지',
+      body: '여행 날짜와 인원, 걷기 편한 정도를 알려주시면 동선과 쉬는 시간, 필요한 예약을 함께 확인합니다.',
+      guideBody: '가이드가 포함된 일정은 날짜, 안내 언어, 동선과 요청 사항을 확인한 뒤 담당 가이드를 배정합니다.',
+      imageAlt: '장가계 금편계 숲길과 계곡',
       action: '가이드 서비스와 배정 안내',
     },
   },
@@ -80,7 +73,7 @@ const copy = {
         ['不强迫不想要的消费', '不强迫购物或增加游览项目。拒绝购买、拒绝加项后，约定的服务照常继续。'],
         ['额外费用，先确认再选择', '增加停留地点、延长服务时间等变动，先核对能否安排和相应费用，再由您决定。'],
         ['先了解步行和饮食需求', '提前听取台阶负担、休息需要和难以接受的食材，在约定行程基础上商量现场替代方案。'],
-        ['遇到不适，联系运营者', '若对导游的讲解或态度感到不适，请告诉罗途查运营者。我们会了解情况，共同寻找可行的处理方式。'],
+        ['遇到问题，联系罗途查', '若对导游的讲解或态度感到不适，请通过罗途查的咨询渠道联系我们。我们会了解情况，共同寻找可行的处理方式。'],
       ],
       note: '天气、景区运营及预订变更，需要按现场情况和实际服务提供方的条件确认。',
     },
@@ -119,17 +112,10 @@ const copy = {
       action: '咨询我们的行程',
     },
     team: {
-      eyebrow: '一起准备旅行的人',
-      title: '谁为您规划，谁在现场同行？',
-      name: '南英奎',
-      role: '罗途查运营 · 韩语行程咨询',
-      body: '在中国长大的当地导游，也是罗途查的运营者。先了解您想看的风景和步行需求，再共同协调同行人的当地行程。',
-      guideTitle: '现场导游，按旅行条件确认。',
-      guideBody: '根据日期、语言、路线和需求确认安排。希望由运营者本人带团，也需要先核对相应日期是否可以接待。',
-      valuesLabel: '我们看重的带团方式',
-      values: ['配合同行人的节奏', '愿意解释问题与变动', '清楚说明费用与时间约定'],
-      imageAlt: '过往家庭旅行中与客人一起合影的罗途查导游',
-      imageCaption: '照片来自过往另一趟家庭旅行，不代表将由照片中的导游接待。',
+      title: '旅行咨询与当地导游安排',
+      body: '告诉我们出行日期、人数和步行需求，我们会一起确认游览路线、休息时间和需要预订的项目。',
+      guideBody: '告诉我们需要的导游语言。我们会按日期和行程确认能否安排及费用。',
+      imageAlt: '张家界金鞭溪的林间步道与溪流',
       action: '了解导游服务与安排',
     },
   },
@@ -142,7 +128,7 @@ const copy = {
         ['No pressure to buy or add activities', 'Shopping and extra visits are optional. Declining a purchase or an extra does not change the service we have agreed to provide.'],
         ['Extra costs, explained before you choose', 'For an additional stop, more guide time or another change, we check what is possible and the cost before you decide.'],
         ['Walking and food needs come first', 'Tell us about stairs, rest breaks and ingredients you find difficult. We discuss practical alternatives within the agreed itinerary.'],
-        ['A concern? Tell the operator', 'If the guiding or attitude makes you uncomfortable, contact the LocalTourChina operator. We will understand the situation and discuss workable next steps.'],
+        ['Contact us if something goes wrong', 'If the guiding or attitude makes you uncomfortable, contact LocalTourChina through the enquiry channel. We will understand the situation and discuss workable next steps.'],
       ],
       note: 'Weather, attraction operations and booking changes remain subject to actual conditions and the service provider’s terms.',
     },
@@ -181,17 +167,10 @@ const copy = {
       action: 'Discuss our trip',
     },
     team: {
-      eyebrow: 'The people behind your trip',
-      title: 'Who plans it, and who comes with you?',
-      name: 'Nan Yingkui',
-      role: 'LocalTourChina operator · Korean-language trip consultation',
-      body: 'Raised in China, Nan Yingkui is a local guide and the person behind LocalTourChina. He discusses your preferred scenery and walking needs, and helps coordinate your group’s local itinerary.',
-      guideTitle: 'Your local guide is confirmed for your trip.',
-      guideBody: 'Assignment depends on dates, language, route and your requests. If you would like the operator to guide personally, availability for those dates is checked first.',
-      valuesLabel: 'What matters in our guiding',
-      values: ['Keeping pace with the group', 'Explaining questions and changes', 'Clear agreements on costs and time'],
-      imageAlt: 'A LocalTourChina guide with travellers on an earlier family trip',
-      imageCaption: 'A photograph from a separate earlier family trip. It does not promise assignment of the guide pictured.',
+      title: 'Travel advice and local guide arrangements',
+      body: 'Tell us your travel dates, group size and walking needs. We’ll help work out the route, rest stops and what needs booking.',
+      guideBody: 'Tell us your preferred guide language. We’ll check availability and cost for your dates and itinerary.',
+      imageAlt: 'A forest path beside Golden Whip Stream in Zhangjiajie',
       action: 'Guide services and assignment',
     },
   },
@@ -226,5 +205,12 @@ export function renderBooking(lang = 'ko') {
 
 export function renderTeam(lang = 'ko', {assetBase} = {}) {
   const text = copy[locale(lang)].team;
-  return `<section class="ed-team ed-section" id="people" aria-labelledby="ed-team-title">${heading(text.eyebrow, text.title).replace('<h2>', '<h2 id="ed-team-title">')}<div class="ed-team-layout"><figure class="ed-team-photo"><img src="${esc(asset(assetBase, 'guest-guide-privacy.png'))}" alt="${esc(text.imageAlt)}" width="1600" height="1600" loading="lazy" decoding="async"><figcaption>${esc(text.imageCaption)}</figcaption></figure><div class="ed-team-copy"><p class="ed-person-role">${esc(text.role)}</p><h3 class="ed-person-name">${esc(text.name)}</h3><p>${esc(text.body)}</p><div class="ed-guide-assignment"><h3>${esc(text.guideTitle)}</h3><p>${esc(text.guideBody)}</p></div><p class="ed-values-label">${esc(text.valuesLabel)}</p><ul class="ed-guide-values">${text.values.map(value => `<li>${esc(value)}</li>`).join('')}</ul><a class="ed-text-link" href="${localPath(lang, 'korean-guide.html')}">${esc(text.action)}</a></div></div></section>`;
+  const guide = localPath(lang, lang === 'ko' ? 'korean-guide.html' : 'local-guide.html');
+  return `<section class="ed-team ed-section" id="people" aria-labelledby="ed-team-title">
+    <div class="ed-section-head"><h2 id="ed-team-title">${esc(text.title)}</h2></div>
+    <div class="ed-team-layout">
+      <div class="ed-team-copy"><p>${esc(text.body)}</p><p>${esc(text.guideBody)}</p><a class="ed-text-link" href="${guide}">${esc(text.action)}</a></div>
+      <figure class="ed-team-photo"><img src="${esc(asset(assetBase, 'golden-whip-owner-real.webp'))}" alt="${esc(text.imageAlt)}" width="1672" height="1115" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>`;
 }

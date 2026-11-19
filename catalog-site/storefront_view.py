@@ -63,6 +63,18 @@ def document(lang,title,main,catalog,record=None,page="home"):
  return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>'+escape(title)+' | 로투차</title><link rel="stylesheet" href="'+ASSET+'style.css"><link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer data-ltc-selections src="'+ASSET+'start.js"></script><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261119-discovery1"></script>'+home_assets+'<link rel="stylesheet" href="/journey.css?v=20261119-discovery1"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script></head><body class="'+body_class+'">'+shell(lang,catalog,record,page)+data+main+page_footer+'</body></html>'
 def product_content(record,lang):
  local=record['locales'][lang];html=local.get('sections','')
+ if record['discovery']['group']=='nearby':
+  guide_terms={'zh':('韩语导游','当地导游（服务语言与对应报价需确认）'),
+               'en':('Korean-speaking guide','local guide (confirm your preferred language and the applicable quote)')}
+  if lang in guide_terms:html=html.replace(*guide_terms[lang])
+ if record['id']=='local-guide':
+  guide_intro={
+   'zh':'按日期、起止时间、人数和所需语言确认导游安排。韩语导游的基础参考价按每天6小时计算，其他语言需确认档期并单独报价。',
+   'en':'Tell us your dates, hours, group size and preferred language. The base estimate covers up to six hours a day of Korean-language guiding. Other languages are subject to availability and a separate quote.',
+  }
+  if lang in guide_intro:
+   html=re.sub(r'(<h2>[^<]+</h2><p>)[^<]+(</p>)',
+               lambda match:match[1]+guide_intro[lang]+match[2],html,count=1)
  if record['id'] in CATALOG:
   html=re.sub(r'<section id="(?:early|late)">.*?</section>','',html,flags=re.S)
   plan=itinerary(record['id'],lang)

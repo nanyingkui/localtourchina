@@ -6,26 +6,89 @@ export function renderHome(lang,{assetBase,directory}){
  const u=file=>(lang==='ko'?'/':'/'+lang+'/')+file;
  const photo=(name,alt,extra='')=>`<img src="${assetBase}photos/${name}" alt="${esc(alt)}" ${extra}>`;
  const featured=[
-  {id:'regular34',image:'cliff-privacy.png',file:'zhangjiajie-4days.html',tag:t('짧은 휴가 · 핵심 풍경','短假期 · 精华风景','Short stay · Iconic views'),title:t('처음 만나는 장가계','初见张家界','Your first Zhangjiajie'),duration:t('3박 4일','3晚4天','3 nights / 4 days'),desc:t('천문산의 절벽길과 원가계의 봉우리. 꼭 보고 싶던 풍경을 관광하는 세 날에 담아요.','天门山的悬崖步道、袁家界的峰林，把向往的风景放进三个游览日。','Tianmen’s cliff paths and Yuanjiajie’s pillars, with three sightseeing days for the views you came for.'),note:t('늦은 도착·늦은 귀국 기준 · 도보와 계단 있음','晚到晚回基准 · 有步行与台阶','Late arrival and departure basis · Walking and steps')},
-  {id:'experience45',image:'golden-whip-owner-real.webp',file:'zhangjiajie.html',tag:t('산과 숲 · 다른 날에','山景与森林 · 分日体验','Mountains and forest · On different days'),title:t('봉우리 다음엔, 숲길의 여유','看过峰林，再慢慢走进森林','After the peaks, time for the forest'),duration:t('4박 5일','4晚5天','4 nights / 5 days'),desc:t('삼림공원에 이틀을 써요. 황석채의 전망과 금편계 물소리를 서로 다른 거리에서 만납니다.','给森林公园留出两天，在黄石寨看远山，再走近金鞭溪的水声。','Two days in the Forest Park: Huangshizhai’s distant views and the close-up sounds of Golden Whip Stream.'),note:t('같은 시내 호텔 4박 · 부용진·공연 미포함','同一市区酒店4晚 · 不含芙蓉镇及演出','Four nights in one city hotel · No Furong or show')},
-  {id:'regular56',image:'furong-riverside-evening.jpg',file:'zhangjiajie-6days.html',tag:t('산의 낮 · 부용진의 밤','白天看山 · 夜晚看芙蓉镇','Mountain days · Furong after dark'),title:t('불이 켜지면, 또 다른 장면','等灯亮起，走进另一种风景','A different scene when the lights come on'),duration:t('5박 6일','5晚6天','5 nights / 6 days'),desc:t('산 위에서 감탄한 다음엔 잠깐의 쉼. 부용진의 낮과 밤까지 이어지는 여섯 날입니다.','山景之间留出休息，再把芙蓉镇的白天和夜色串进六天的旅行。','Pause between mountain days, then see Furong Town in daylight and after dark over six days.'),note:t('황석채 뒤 호텔 휴식 · 부용진 야경 후 장가계 복귀','黄石寨后回酒店休息 · 芙蓉镇夜景后返回张家界','Hotel rest after Huangshizhai · Return after Furong’s night views')}
+  {
+   id:'regular34',image:'cliff-privacy.png',file:'zhangjiajie-4days.html',
+   title:t('천문산·원가계 핵심 코스','天门山与袁家界','Tianmen and Yuanjiajie'),
+   duration:t('3박 4일','3晚4天','3 nights / 4 days'),
+   note:t('늦은 도착·늦은 귀국 기준 · 도보와 계단 있음','按晚到晚返安排，含步行和台阶','For late flights in and out. Includes walking and steps.'),
+  },
+  {
+   id:'experience45',image:'golden-whip-owner-real.webp',file:'zhangjiajie.html',
+   title:t('황석채·금편계 숲길','黄石寨与金鞭溪','Huangshizhai and Golden Whip Stream'),
+   duration:t('4박 5일','4晚5天','4 nights / 5 days'),
+   note:t('삼림공원 이틀 · 같은 시내 호텔 4박 · 부용진·공연 미포함','森林公园玩两天，同一家市区酒店住4晚，不含芙蓉镇及演出','Two days in the Forest Park, four nights in one city hotel. No Furong or show.'),
+  },
+  {
+   id:'regular56',image:'furong-riverside-evening.jpg',file:'zhangjiajie-6days.html',
+   title:t('장가계·부용진 야경','张家界与芙蓉镇夜景','Zhangjiajie and Furong after dark'),
+   duration:t('5박 6일','5晚6天','5 nights / 6 days'),
+   note:t('황석채 뒤 호텔 휴식 · 부용진 야경 후 장가계 복귀','黄石寨游览后回酒店休息，游览芙蓉镇夜景后返回张家界','Hotel break after Huangshizhai. Return to Zhangjiajie after Furong’s night views.'),
+  },
  ];
- const cards=featured.map(r=>`<article class="trip-card ed-feature-card"><button class="trip-cover ed-feature-cover" type="button" data-route-story="${r.id}" aria-haspopup="dialog" aria-label="${esc(t('여행 사진 보기','查看旅行照片','View trip photographs'))}">${photo(r.image,r.title,'loading="lazy" width="900" height="680"')}<span class="ed-photo-tag">${r.tag}</span></button><div class="ed-feature-body"><p class="ed-duration">${r.duration}</p><h3>${r.title}</h3><p>${r.desc}</p><p class="ed-route-fact">${r.note}</p><div data-product-glance="${r.id}"></div><a class="ed-detail" data-ed-product="${r.id}" href="${u(r.file)}">${t('일정·포함 내역·요금 보기','查看行程、包含项目与价格','View itinerary, inclusions and price')}</a></div></article>`).join('');
+ const viewPhotos=t('사진 보기','看照片','View photos');
+ const cards=featured.map(r=>`<article class="trip-card ed-feature-card">
+  <button class="trip-cover ed-feature-cover" type="button" data-route-story="${r.id}" aria-haspopup="dialog" aria-label="${esc(`${viewPhotos} · ${r.title}`)}">
+   ${photo(r.image,r.title,'loading="lazy" width="900" height="680"')}
+   <span class="ed-photo-tag">${viewPhotos}</span>
+  </button>
+  <div class="ed-feature-body">
+   <p class="ed-duration">${r.duration}</p>
+   <h3>${r.title}</h3>
+   <p>${r.note}</p>
+   <div data-product-glance="${r.id}"></div>
+   <a class="ed-detail" data-ed-product="${r.id}" href="${u(r.file)}">${t('일정·포함 내역·요금 보기','查看行程、包含项目与价格','View itinerary, inclusions and price')}</a>
+  </div>
+ </article>`).join('');
  const services=[
-  ['products.html#nearby',t('하루만 함께','只陪你一天','Just one day together'),t('천문산·삼림공원·부용진 등 하루투어','天门山、森林公园、芙蓉镇等一日游','Day tours to Tianmen, the Forest Park, Furong and more')],
-  ['korean-guide.html',t('가이드만 필요한 날','只需要导游的日子','A guide when you need one'),t('내 일정에 한국어 현지 안내를 더해요','在自己的行程中加入韩语当地陪同','Add Korean-language local guidance to your own itinerary')],
-  ['airport-transfer.html',t('공항에서 호텔까지','从机场到酒店','From the airport to your hotel'),t('항공편·호텔·짐에 맞춰 이동을 확인해요','按航班、酒店及行李确认接送','Arrange transport around your flight, hotel and luggage')],
-  ['day-charter.html',t('우리 차로 이동하기','坐自己的车出发','Travel in your own vehicle'),t('하루 전용차량과 필요한 구간을 골라요','选择全天用车或需要的接送路段','Choose a day vehicle or the transfer legs you need')],
-  ['tickets.html',t('입장권 준비하기','准备景区门票','Prepare your attraction tickets'),t('날짜·연령·입장 시간부터 확인해요','先确认日期、年龄及入场时段','Start with dates, ages and entry times')],
-  ['online-guide.html',t('자유여행 중 한국어 도움','自由行途中的韩语协助','Korean-language help while travelling'),t('온라인 지원의 범위와 이용 시간을 확인해요','查看线上支持的范围与服务时间','Check the scope and hours of online support')]
- ].map(([href,title,desc])=>`<a class="ed-service" href="${u(href)}"><h3>${title}</h3><p>${desc}</p><span>${t('서비스 보기','查看服务','View service')}</span></a>`).join('');
+  ['products.html#nearby',t('하루투어','一日游','Day tours'),t('천문산·삼림공원·부용진 등','天门山、森林公园、芙蓉镇等','Tianmen, the Forest Park, Furong and more')],
+  [t('korean-guide.html','local-guide.html','local-guide.html'),t('현지 가이드','当地导游','Local guides'),t('우리 일정에 맞춰 동행','按日期确认语言与档期','Confirm language and availability')],
+  ['airport-transfer.html',t('공항 픽업·샌딩','机场接送','Airport transfers'),t('공항에서 숙소까지','机场与酒店之间','Between the airport and your hotel')],
+  ['day-charter.html',t('전용 차량','包车','Private vehicles'),t('하루 이용 또는 구간 이동','全天用车或单程接送','Whole-day hire or a point-to-point ride')],
+  ['tickets.html',t('입장권','景区门票','Attraction tickets'),t('날짜·연령·입장 시간 확인','核对日期、年龄与入场时段','Check dates, ages and entry times')],
+  ['online-guide.html',t('온라인 여행 도움','线上旅行协助','Online travel support'),t('자유여행 중 이용','自由行途中使用','Help during an independent trip')],
+ ].map(([href,title,desc])=>`<a class="ed-service" href="${u(href)}"><h3>${title} <span aria-hidden="true">↗</span></h3><p>${desc}</p></a>`).join('');
  return `<main class="ed-home">
- <section class="ed-shell ed-hero"><div class="ed-hero-copy"><p class="ed-kicker">${t('장가계 · 우리 일행만의 현지 여행','张家界 · 只属于同行人的当地旅行','ZHANGJIAJIE · PRIVATE LOCAL TRAVEL')}</p><h1>${t('장가계,<br>우리만의 속도로.','张家界，<br>按我们的节奏。','Zhangjiajie.<br>At your own pace.')}</h1><p class="ed-hero-intro">${t('보고 싶은 풍경과 쉬고 싶은 순간까지.<br>한국어 가이드와 함께, 우리 일행에게 맞는 중국 여행을 준비해요.','从想看的风景，到想停下来休息的时刻。<br>和韩语当地导游一起，准备一趟适合你们的中国旅行。','The views you want to see. The moments you want to pause.<br>Plan a China trip around your own group, with a Korean-speaking local guide.')}</p><div class="ed-actions"><a class="primary ed-primary" href="${u('consultation.html?trip=custom')}" data-ed-action="start_inquiry">${t('우리 여행 상담하기','聊聊我们的旅行','Plan our trip')}</a><a class="ed-text-link" href="${u('trips.html#all-trips')}">${t('9가지 숙박여행 전체 보기','查看全部9条多日游','Explore all 9 multi-day tours')}</a></div><p class="ed-hero-foot">${t('항공권 별도 · 일정·인원에 맞춘 현지 여행','机票另购 · 按日期与人数安排当地行程','Flights separate · Local travel shaped around your dates and group')}</p></div><figure class="ed-hero-picture">${photo('mist.webp',t('안개 사이로 겹겹이 솟은 장가계 봉우리','云雾中层层耸立的张家界峰林','Zhangjiajie’s stone pillars rising through mist'),'width="1280" height="1400" fetchpriority="high" loading="eager"')}<figcaption class="ed-hand-note">${t('가이드와 함께해도,<br>자유여행처럼.','有导游同行，<br>也有自由行的自在。','Local support.<br>Your own freedom.')}</figcaption><img class="ed-hero-mascot" src="${assetBase}brand/rotucha-orange-hat-master.png" alt="" aria-hidden="true" width="130" height="150"></figure></section>
- <section class="ed-shell ed-facts" aria-label="${esc(t('여행의 기본','旅行的基础','The essentials'))}"><div><b>${t('우리 일행끼리','只和自己的同行人','Your own group')}</b><span>${t('함께 가는 사람과 여행의 속도부터','先考虑同行的人和旅行节奏','Start with your companions and pace')}</span></div><div><b>${t('한국어로 구체적으로','用韩语说清楚','Clear Korean-language support')}</b><span>${t('동선·숙소·식사까지 함께 확인','一起确认路线、住宿与饮食','Routes, stays and meals discussed together')}</span></div><div><b>${t('비용은 미리 확인','费用提前确认','Costs explained ahead')}</b><span>${t('포함 항목과 별도 비용을 나눠 안내','区分包含项目和另付费用','Inclusions and extra costs set out clearly')}</span></div></section>
- <section class="ed-shell ed-section" id="journeys"><div class="ed-section-head"><div><p class="ed-eyebrow">${t('로투차의 여행 노트','罗途查的旅行手帐','THE LOCALTOURCHINA JOURNAL')}</p><h2>${t('누구와, 어떻게 여행하고 싶나요?','想和谁一起，怎样旅行？','Who are you travelling with, and how?')}</h2></div><p>${t('풍경은 같아도, 보내는 시간은 달라요.','同一片风景，也可以有不同的度过方式。','The same destination. A different way to spend your time.')}</p></div><nav class="ed-mood-nav" aria-label="${esc(t('여행 취향으로 고르기','按旅行偏好选择','Choose your travel style'))}"><a href="${u('trips.html?style=core#all-trips')}">${t('대표 풍경 중심','以精华风景为主','Focus on the highlights')}</a><a href="${u('trips.html?style=forest#all-trips')}">${t('산과 숲길 함께','山景与森林一起体验','Mountains and forest')}</a><a href="${u('trips.html?style=town#all-trips')}">${t('고성의 밤까지','也想看古城夜色','Add an ancient town at night')}</a><a href="${u('trips.html?style=trek#all-trips')}">${t('걷는 여행이 좋아요','喜欢多走走','I enjoy a walking adventure')}</a></nav><div class="nb-party ed-party"><span>${t('기본요금을 볼 인원 · 만 15세 이상','查看基础报价的人数 · 15岁及以上','Base-price group size · Ages 15+')}</span><div class="party-pills">${[2,3,4,5,6].map(n=>`<button type="button" data-home-party="${n}" aria-pressed="${n===4}">${n}</button>`).join('')}</div><small>${t('만 14세 이하 어린이는 별도 입력·추가 견적 · 항공권 별도','14岁及以下儿童单独填写、另行报价 · 机票另购','Children aged 14 and under are quoted separately · Flights excluded')}</small></div><div class="ed-feature-grid">${cards}</div>${directory}</section>
- ${renderTeam(lang,{assetBase})}${renderStandards(lang)}${renderEvidence(lang,{assetBase})}
- <section class="ed-section ed-services-band" id="services"><div class="ed-shell"><div class="ed-section-head"><div><p class="ed-eyebrow">${t('자유여행의 빈칸을 채워요','填补自由行中的空白','FILL THE GAPS IN YOUR OWN TRIP')}</p><h2>${t('필요한 만큼만,<br>함께 준비해도 좋아요.','只准备需要的部分，<br>也可以一起出发。','Just the help you need.<br>Still your own trip.')}</h2></div><p>${t('숙소와 항공편을 정했다면,<br>여행에 필요한 서비스만 골라보세요.','如果已经定好住宿和机票，<br>就选择这趟旅行需要的服务。','Already booked your stay and flight?<br>Choose only the services your trip needs.')}</p></div><div class="ed-services-grid">${services}</div></div></section>
- ${renderBooking(lang)}
- <section class="ed-community ed-section"><div class="ed-shell"><div><p class="ed-eyebrow">${t('영상으로 먼저 만나고, 이야기로 이어져요','先在视频里相遇，再用故事延续','WATCH FIRST. KEEP THE CONVERSATION GOING.')}</p><h2>${t('직접 다녀온 장면과,<br>여행자가 남긴 이야기.','亲自走过的风景，<br>和旅客留下的故事。','Places we have walked.<br>Stories travellers have shared.')}</h2><p>${t('준비하는 과정도 여행의 일부니까.<br>영상과 실제 후기로 우리 여행을 조금 더 구체적으로 그려보세요.','准备的过程，也是旅行的一部分。<br>用视频和真实旅行记录，把下一趟旅行想得更具体。','Planning is part of the journey.<br>Use our videos and real travel stories to picture your own trip.')}</p><div class="ed-actions"><a class="ed-light-button" href="https://www.youtube.com/@Lctch/videos" target="_blank" rel="noopener">YouTube</a><a class="ed-light-button" href="https://cafe.naver.com/lotocha" target="_blank" rel="noopener">Naver Cafe</a><a class="ed-community-link" href="${u('reviews.html')}">${t('사이트에서 후기 읽기','在网站内阅读旅行记录','Read traveller stories here')}</a></div></div><figure>${photo('furong-riverside-evening.jpg',t('불이 켜지기 시작한 부용진의 강변','灯光初亮的芙蓉镇河畔','Furong’s riverside as the lights come on'),'loading="lazy" width="1000" height="750"')}<figcaption class="ed-hand-note">${t('다음 이야기는,<br>우리 여행으로.','下一个故事，<br>写进我们的旅行。','The next story<br>could be yours.')}</figcaption></figure></div></section>
- <section class="ed-shell ed-closing"><p class="ed-eyebrow">${t('아직 미정이어도 괜찮아요','还没确定，也没关系','IT IS FINE IF YOU ARE STILL DECIDING')}</p><h2>${t('떠나고 싶은 마음부터,<br>편하게 들려주세요.','先说说，<br>你想怎样出发。','Tell us the trip<br>you have in mind.')}</h2><p>${t('날짜와 인원, 꼭 보고 싶은 풍경.<br>알고 있는 것부터 함께 맞춰봅니다.','日期、人数、一定想看的风景。<br>从已经知道的部分开始，一起慢慢安排。','Your dates, your group, the views you do not want to miss.<br>We will start with what you already know.')}</p><div class="ed-actions"><a class="primary ed-primary" href="${u('consultation.html?trip=custom')}" data-ed-action="start_inquiry">${t('우리 여행 상담하기','聊聊我们的旅行','Plan our trip')}</a><a class="ed-text-link" href="${u('trips.html#all-trips')}">${t('전체 여행 비교하기','比较全部线路','Compare every itinerary')}</a></div></section><aside class="ed-mobile-action" data-home-handoff hidden><p>${t('날짜가 미정이어도 괜찮아요','日期未定，也可以先聊聊','Dates still undecided? That is fine.')}</p><a class="primary ed-primary" href="${u('consultation.html?trip=custom')}">${t('우리 여행 상담','咨询我们的旅行','Discuss our trip')}</a></aside></main>`;
+  <section class="ed-shell ed-hero">
+   <div class="ed-hero-copy">
+    <h1>${t('장가계,<br>우리만의 속도로.','张家界，<br>按我们的节奏。','Zhangjiajie.<br>At your own pace.')}</h1>
+    <p class="ed-hero-intro">${t('우리 일행만의 장가계 여행. 일정과 숙소, 차량을 함께 맞추고 한국어로 안내해요.','安排适合你们的张家界私人行程，协助预订住宿、用车和当地导游。','Private trips in Zhangjiajie, with help arranging hotels, transport and local guides.')}</p>
+    <div class="ed-actions">
+     <a class="primary ed-primary" href="${u('consultation.html?trip=custom')}" data-ed-action="start_inquiry">${t('여행 상담하기','咨询行程','Discuss your trip')}</a>
+     <a class="ed-text-link" href="${u('trips.html#all-trips')}">${t('숙박여행 9개 비교','比较9条多日游','Compare 9 multi-day tours')}</a>
+    </div>
+    <p class="ed-hero-foot">${t('항공권 별도','机票另购','Flights are separate')}</p>
+   </div>
+   <figure class="ed-hero-picture">
+    ${photo('mist.webp',t('안개 사이로 겹겹이 솟은 장가계 봉우리','云雾中层层耸立的张家界峰林','Zhangjiajie’s stone pillars rising through mist'),'width="1280" height="1400" fetchpriority="high" loading="eager"')}
+    <img class="ed-hero-mascot" src="${assetBase}brand/rotucha-orange-hat-master.png" alt="" aria-hidden="true" width="130" height="150">
+   </figure>
+  </section>
+  <section class="ed-shell ed-section" id="journeys">
+   <div class="ed-section-head"><h2>${t('장가계 추천 일정','张家界推荐行程','Featured Zhangjiajie itineraries')}</h2></div>
+   <div class="nb-party ed-party">
+    <span>${t('요금을 볼 인원 · 만 15세 이상','查看报价人数（15岁及以上）','Group size for pricing (ages 15+)')}</span>
+    <div class="party-pills">${[2,3,4,5,6].map(n=>`<button type="button" data-home-party="${n}" aria-pressed="${n===4}">${n}</button>`).join('')}</div>
+    <small>${t('만 14세 이하 별도 견적','14岁及以下儿童另行报价','Separate quote for children aged 14 and under')}</small>
+   </div>
+   <div class="ed-feature-grid">${cards}</div>
+   ${directory}
+  </section>
+  <section class="ed-section ed-services-band" id="services">
+   <div class="ed-shell">
+    <div class="ed-section-head"><h2>${t('필요한 서비스만 예약하기','按需预订单项服务','Book individual services')}</h2></div>
+    <div class="ed-services-grid">${services}</div>
+   </div>
+  </section>
+  ${renderTeam(lang,{assetBase})}${renderStandards(lang)}${renderEvidence(lang,{assetBase})}${renderBooking(lang)}
+  <div class="ed-shell ed-closing">
+   <div class="ed-actions" role="navigation" aria-label="${t('영상과 여행 커뮤니티','视频与旅行社区','Videos and travel community')}">
+    <a class="ed-text-link" href="https://www.youtube.com/@Lctch/videos" target="_blank" rel="noopener">${t('여행 영상 · YouTube','旅行视频 · YouTube','Travel videos · YouTube')}</a>
+    <a class="ed-text-link" href="https://cafe.naver.com/lotocha" target="_blank" rel="noopener">${t('여행 커뮤니티 · Naver Cafe','旅行社区 · Naver Cafe','Travel community · Naver Cafe')}</a>
+   </div>
+  </div>
+  <aside class="ed-mobile-action" data-home-handoff hidden>
+   <p>${t('날짜가 미정이어도 괜찮아요','日期未定也可咨询','Dates still undecided?')}</p>
+   <a class="primary ed-primary" href="${u('consultation.html?trip=custom')}">${t('여행 상담하기','咨询行程','Discuss your trip')}</a>
+  </aside>
+ </main>`;
 }
