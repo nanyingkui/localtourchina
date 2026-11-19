@@ -1,34 +1,39 @@
 import {renderStandards,renderTeam,renderEvidence,renderBooking} from './evidence.mjs';
 
 export const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export function renderHome(lang,{assetBase,directory}){
+export function renderHome(lang,{assetBase,directory,archivePhotos={}}){
  const t=(ko,zh,en)=>({ko,zh,en})[lang];
  const u=file=>(lang==='ko'?'/':'/'+lang+'/')+file;
  const photo=(name,alt,extra='')=>`<img src="${assetBase}photos/${name}" alt="${esc(alt)}" ${extra}>`;
  const featured=[
   {
-   id:'regular34',image:'cliff-privacy.png',file:'zhangjiajie-4days.html',
+   id:'regular34',scene:'tianmen',image:'cliff-privacy.png',file:'zhangjiajie-4days.html',
    title:t('천문산·원가계 핵심 코스','天门山与袁家界','Tianmen and Yuanjiajie'),
    duration:t('3박 4일','3晚4天','3 nights / 4 days'),
    note:t('늦은 도착·늦은 귀국 기준 · 도보와 계단 있음','按晚到晚返安排，含步行和台阶','For late flights in and out. Includes walking and steps.'),
   },
   {
-   id:'experience45',image:'golden-whip-owner-real.webp',file:'zhangjiajie.html',
+   id:'experience45',scene:'huangshi',image:'golden-whip-owner-real.webp',file:'zhangjiajie.html',
    title:t('황석채·금편계 숲길','黄石寨与金鞭溪','Huangshizhai and Golden Whip Stream'),
    duration:t('4박 5일','4晚5天','4 nights / 5 days'),
    note:t('삼림공원 이틀 · 같은 시내 호텔 4박 · 부용진·공연 미포함','森林公园玩两天，同一家市区酒店住4晚，不含芙蓉镇及演出','Two days in the Forest Park, four nights in one city hotel. No Furong or show.'),
   },
   {
-   id:'regular56',image:'furong-riverside-evening.jpg',file:'zhangjiajie-6days.html',
+   id:'regular56',scene:'furong',image:'furong-riverside-evening.jpg',file:'zhangjiajie-6days.html',
    title:t('장가계·부용진 야경','张家界与芙蓉镇夜景','Zhangjiajie and Furong after dark'),
    duration:t('5박 6일','5晚6天','5 nights / 6 days'),
    note:t('황석채 뒤 호텔 휴식 · 부용진 야경 후 장가계 복귀','黄石寨游览后回酒店休息，游览芙蓉镇夜景后返回张家界','Hotel break after Huangshizhai. Return to Zhangjiajie after Furong’s night views.'),
   },
  ];
  const viewPhotos=t('사진 보기','看照片','View photos');
- const cards=featured.map(r=>`<article class="trip-card ed-feature-card">
+ const cards=featured.map(r=>{
+  const cover=archivePhotos[r.scene]?.[0];
+  const image=cover
+   ? `<img src="${esc(cover.src)}" alt="${esc(cover.alt[lang])}" width="${cover.width}" height="${cover.height}" loading="lazy" decoding="async">`
+   : photo(r.image,r.title,'loading="lazy" width="900" height="680"');
+  return `<article class="trip-card ed-feature-card">
   <button class="trip-cover ed-feature-cover" type="button" data-route-story="${r.id}" aria-haspopup="dialog" aria-label="${esc(`${viewPhotos} · ${r.title}`)}">
-   ${photo(r.image,r.title,'loading="lazy" width="900" height="680"')}
+   ${image}
    <span class="ed-photo-tag">${viewPhotos}</span>
   </button>
   <div class="ed-feature-body">
@@ -38,7 +43,8 @@ export function renderHome(lang,{assetBase,directory}){
    <div data-product-glance="${r.id}"></div>
    <a class="ed-detail" data-ed-product="${r.id}" href="${u(r.file)}">${t('일정·포함 내역·요금 보기','查看行程、包含项目与价格','View itinerary, inclusions and price')}</a>
   </div>
- </article>`).join('');
+ </article>`;
+ }).join('');
  const services=[
   ['products.html#nearby',t('하루투어','一日游','Day tours'),t('천문산·삼림공원·부용진 등','天门山、森林公园、芙蓉镇等','Tianmen, the Forest Park, Furong and more')],
   [t('korean-guide.html','local-guide.html','local-guide.html'),t('현지 가이드','当地导游','Local guides'),t('우리 일정에 맞춰 동행','按日期确认语言与档期','Confirm language and availability')],

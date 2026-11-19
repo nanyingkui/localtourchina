@@ -58,7 +58,7 @@
     if(requested!==null){state.route=routes[requested]?requested:'';put();if(!routes[requested]&&requested!=='custom')$('#route-status').textContent='선택한 코스를 찾지 못했어요. 추천 상담으로 시작하거나 여행을 다시 골라주세요.';}
     if(!routes[state.route])state.route='';
     const r=route();
-    $('#chosen-route').innerHTML=r?`<div class="chosen-top"><img src="${routeImage(r)}" alt="${esc(r.alt)}" loading="eager" decoding="sync"><div><p>관심 여행 · ${r.duration}</p><h2>${r.title}</h2><a href="trips.html#choose">다른 코스와 비교하기</a></div></div>`:`<div class="chosen-top"><div><p>코스가 아직 미정이에요</p><h2>우리 일행에게 맞는 여행 찾기</h2><a href="trips.html#choose">세 가지 여행 비교하기</a></div></div>`;
+    $('#chosen-route').innerHTML=r?`<div class="chosen-top"><img src="${routeImage(r)}" alt="${esc(r.alt)}" loading="eager" decoding="sync"><div><p>관심 여행 · ${r.duration}</p><h2>${r.title}</h2><a href="trips.html#all-trips">다른 코스와 비교하기</a></div></div>`:`<div class="chosen-top"><div><p>코스가 아직 미정이에요</p><h2>우리 일행에게 맞는 여행 찾기</h2><a href="trips.html#all-trips">숙박여행 9개 비교하기</a></div></div>`;
     $('#quote-context').hidden = !catalog.get(r?.id);
     const form=$('#consult-form');
     for(const field of form.elements)if(field.name&&field.name!=='concerns'&&Object.hasOwn(state.fields,field.name))field.value=state.fields[field.name];

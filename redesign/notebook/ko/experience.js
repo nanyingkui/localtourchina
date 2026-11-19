@@ -17,14 +17,17 @@ for (const button of document.querySelectorAll('[data-photo]')) {
   button.addEventListener('click', () => {
     const key = button.dataset.photo;
     const image = document.querySelector('#large-photo');
-    image.src = photos[key].src || 'photos/' + key + '.webp';
-    image.alt = photos[key].title;
+    const archive = button.hasAttribute('data-archive-scene') ? button.querySelector('img') : null;
+    const title = archive ? archive.alt : photos[key].title;
+    const source = archive ? '' : photos[key].url;
+    image.src = archive ? archive.src : photos[key].src || 'photos/' + key + '.webp';
+    image.alt = title;
     image.dataset.kind = key;
-    document.querySelector('#photo-title').textContent = photos[key].title;
-    document.querySelector('#photo-source').textContent = photos[key].credit;
+    document.querySelector('#photo-title').textContent = title;
+    document.querySelector('#photo-source').textContent = archive ? button.dataset.credit : photos[key].credit;
     const link = document.querySelector('#photo-link');
-    link.hidden = !photos[key].url;
-    link.href = photos[key].url || '#';
+    link.hidden = !source;
+    link.href = source || '#';
     dialog.showModal();
   });
 }

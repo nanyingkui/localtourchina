@@ -1,0 +1,512 @@
+{
+  "tianmen": [
+    {
+      "src": "/assets/archive-photos/tianmen-21-8b39e619.webp",
+      "alt": {
+        "ko": "멀리서 본 천문산의 천문동",
+        "zh": "远眺天门山天门洞",
+        "en": "Tianmen Cave seen from a distance"
+      },
+      "width": 787,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-23-2e246cbc.webp",
+      "alt": {
+        "ko": "천문산 산등성이를 잇는 현수교",
+        "zh": "连接天门山山脊的吊桥",
+        "en": "A suspension bridge between ridges at Tianmen Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-22-00f189db.webp",
+      "alt": {
+        "ko": "나뭇가지 너머로 본 천문산 산줄기",
+        "zh": "透过树枝望见的天门山山脉",
+        "en": "Tianmen Mountain ridges framed by branches"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-03-80f987d9.webp",
+      "alt": {
+        "ko": "천문산에서 내려다본 장가계 시내와 산줄기",
+        "zh": "从天门山俯瞰张家界城区与山岭",
+        "en": "Zhangjiajie city and its surrounding ridges from Tianmen Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-02-5ef2e738.webp",
+      "alt": {
+        "ko": "구름 아래 겹치는 천문산 산줄기",
+        "zh": "云层下层叠的天门山山岭",
+        "en": "Ridges beneath cloud at Tianmen Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-13-14962535.webp",
+      "alt": {
+        "ko": "절벽 옆으로 보이는 천문산 굽잇길",
+        "zh": "天门山绝壁旁的盘山公路",
+        "en": "The winding road below the cliffs of Tianmen Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianmen-11-795bc2fd.webp",
+      "alt": {
+        "ko": "구름 사이로 빛이 비치는 천문산 봉우리",
+        "zh": "光线穿过云层照向天门山山峰",
+        "en": "A shaft of light over peaks at Tianmen Mountain"
+      },
+      "width": 788,
+      "height": 1050
+    }
+  ],
+  "forest": [
+    {
+      "src": "/assets/archive-photos/forest-26-45e57c32.webp",
+      "alt": {
+        "ko": "삼림공원 바위 봉우리 아래 물길",
+        "zh": "森林公园石峰下的溪流",
+        "en": "A stream below the rock pillars in the Forest Park"
+      },
+      "width": 788,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/forest-31-f444dd2c.webp",
+      "alt": {
+        "ko": "흐린 날 올려다본 삼림공원 봉우리",
+        "zh": "阴天仰望森林公园的岩峰",
+        "en": "Forest Park rock pinnacles on an overcast day"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/forest-03-efc6d460.webp",
+      "alt": {
+        "ko": "장가계 국가삼림공원의 봉우리 전경",
+        "zh": "张家界国家森林公园峰林全景",
+        "en": "A panorama of Zhangjiajie National Forest Park’s pillars"
+      },
+      "width": 1050,
+      "height": 380
+    },
+    {
+      "src": "/assets/archive-photos/forest-11-fffcbbc7.webp",
+      "alt": {
+        "ko": "삼림공원 숲길과 절벽",
+        "zh": "森林公园的林间小径和岩壁",
+        "en": "A forest trail below cliffs in the Forest Park"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "qixing": [
+    {
+      "src": "/assets/archive-photos/qixing-21-2cd51b8d.webp",
+      "alt": {
+        "ko": "칠성산 절벽 아래 굽이치는 길",
+        "zh": "七星山绝壁下蜿蜒的步道",
+        "en": "Paths winding below the Qixing Mountain cliffs"
+      },
+      "width": 1050,
+      "height": 787
+    },
+    {
+      "src": "/assets/archive-photos/qixing-22-df564c9b.webp",
+      "alt": {
+        "ko": "칠성산 전망대에서 바라본 숲과 절벽",
+        "zh": "从七星山观景点望见的树林与绝壁",
+        "en": "Forested cliffs from a Qixing Mountain viewpoint"
+      },
+      "width": 1050,
+      "height": 787
+    }
+  ],
+  "lake": [
+    {
+      "src": "/assets/archive-photos/lake-22-7a32ea01.webp",
+      "alt": {
+        "ko": "보봉호 주변 산봉우리와 구름",
+        "zh": "宝峰湖附近的山峰和云层",
+        "en": "Peaks and clouds near Baofeng Lake"
+      },
+      "width": 1050,
+      "height": 787
+    }
+  ],
+  "yuanjiajie": [
+    {
+      "src": "/assets/archive-photos/yuanjiajie-01-82b0c47d.webp",
+      "alt": {
+        "ko": "원가계의 바위기둥과 깊은 골짜기",
+        "zh": "袁家界石柱与深谷",
+        "en": "Rock pillars and a deep ravine at Yuanjiajie"
+      },
+      "width": 663,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/yuanjiajie-04-b678dce6.webp",
+      "alt": {
+        "ko": "안개에 가려진 원가계의 봉우리",
+        "zh": "雾中的袁家界山峰",
+        "en": "Yuanjiajie peaks partly hidden by mist"
+      },
+      "width": 788,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/yuanjiajie-06-79b4c4c8.webp",
+      "alt": {
+        "ko": "원가계 숲속 바위에 앉은 원숭이",
+        "zh": "袁家界林中岩石上的猕猴",
+        "en": "Macaques on a rock in the Yuanjiajie forest"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "tianzi": [
+    {
+      "src": "/assets/archive-photos/tianzi-04-8fb8a382.webp",
+      "alt": {
+        "ko": "천자산 전망대 너머로 펼쳐진 석봉",
+        "zh": "天子山观景点外的峰林",
+        "en": "Stone pillars beyond a Tianzi Mountain viewpoint"
+      },
+      "width": 1050,
+      "height": 665
+    },
+    {
+      "src": "/assets/archive-photos/tianzi-09-b6769de7.webp",
+      "alt": {
+        "ko": "천자산 앞쪽의 나무와 멀리 펼쳐진 산",
+        "zh": "天子山近处的树木与远处的山岭",
+        "en": "Trees framing distant ridges on Tianzi Mountain"
+      },
+      "width": 1050,
+      "height": 421
+    },
+    {
+      "src": "/assets/archive-photos/tianzi-08-829ade93.webp",
+      "alt": {
+        "ko": "천자산 숲 가장자리의 난간 길",
+        "zh": "天子山树林边带护栏的步道",
+        "en": "A railed path beside the trees on Tianzi Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/tianzi-14-6cd2ab17.webp",
+      "alt": {
+        "ko": "뿌연 산 사이로 보이는 천자산 바위기둥",
+        "zh": "薄雾中的天子山石柱",
+        "en": "A stone pillar among misty peaks at Tianzi Mountain"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "huangshi": [
+    {
+      "src": "/assets/archive-photos/huangshi-10-5320ce88.webp",
+      "alt": {
+        "ko": "황석채 전망대에서 바라본 바위 봉우리",
+        "zh": "从黄石寨观景点望见的岩峰",
+        "en": "Rock pinnacles from a Huangshizhai viewpoint"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "canyon": [
+    {
+      "src": "/assets/archive-photos/canyon-05-67ea3ade.webp",
+      "alt": {
+        "ko": "장가계 대협곡을 가로지르는 유리다리",
+        "zh": "横跨张家界大峡谷的玻璃桥",
+        "en": "The glass bridge spanning Zhangjiajie Grand Canyon"
+      },
+      "width": 1050,
+      "height": 753
+    },
+    {
+      "src": "/assets/archive-photos/canyon-02-63c78b1d.webp",
+      "alt": {
+        "ko": "안개 아래로 내려다본 장가계 대협곡",
+        "zh": "从高处俯瞰薄雾中的张家界大峡谷",
+        "en": "Looking down into Zhangjiajie Grand Canyon in mist"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/canyon-03-e214006b.webp",
+      "alt": {
+        "ko": "숲과 물길 사이로 이어진 대협곡 산책로",
+        "zh": "张家界大峡谷贴着水边的步道",
+        "en": "A waterside trail through Zhangjiajie Grand Canyon"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/canyon-08-e9c72a2b.webp",
+      "alt": {
+        "ko": "바위 사이로 흐르는 대협곡 물",
+        "zh": "大峡谷岩石之间流过的溪水",
+        "en": "Water flowing between rocks in the Grand Canyon"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/canyon-11-f3b24191.webp",
+      "alt": {
+        "ko": "장가계 대협곡 아래의 숲과 계곡",
+        "zh": "张家界大峡谷谷底的林木和溪流",
+        "en": "Trees and a stream on the floor of Zhangjiajie Grand Canyon"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/canyon-12-441ac294.webp",
+      "alt": {
+        "ko": "대협곡 물길 위로 이동하는 작은 배",
+        "zh": "张家界大峡谷水面上行驶的小船",
+        "en": "A small boat on the water at Zhangjiajie Grand Canyon"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "cave": [
+    {
+      "src": "/assets/archive-photos/cave-08-82368d69.webp",
+      "alt": {
+        "ko": "황룡동 내부 조명이 비추는 통로",
+        "zh": "黄龙洞内灯光照亮的步道",
+        "en": "An illuminated walkway inside Yellow Dragon Cave"
+      },
+      "width": 788,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/cave-06-d2c6cd5a.webp",
+      "alt": {
+        "ko": "황룡동의 동굴 벽과 물빛",
+        "zh": "黄龙洞岩壁与水面灯光",
+        "en": "Cave walls and reflected light inside Yellow Dragon Cave"
+      },
+      "width": 788,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/cave-09-e924c03c.webp",
+      "alt": {
+        "ko": "황룡동 주변 나무가 비치는 연못",
+        "zh": "黄龙洞附近倒映树林的池塘",
+        "en": "Trees reflected in a pond near Yellow Dragon Cave"
+      },
+      "width": 788,
+      "height": 1050
+    },
+    {
+      "src": "/assets/archive-photos/cave-11-0f1f6fe8.webp",
+      "alt": {
+        "ko": "황룡동 주변 물길과 먼 산",
+        "zh": "黄龙洞周边的水景与远山",
+        "en": "Water and distant hills around Yellow Dragon Cave"
+      },
+      "width": 788,
+      "height": 1050
+    }
+  ],
+  "furong": [
+    {
+      "src": "/assets/archive-photos/furong-12-70315465.webp",
+      "alt": {
+        "ko": "밤에 불이 켜진 부용진 폭포와 지붕들",
+        "zh": "芙蓉镇夜晚亮起灯的瀑布和屋顶",
+        "en": "Furong’s waterfall and rooftops lit up at night"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/furong-07-d69f25ca.webp",
+      "alt": {
+        "ko": "낮에 바라본 부용진 물가와 건물",
+        "zh": "白天的芙蓉镇水岸与建筑",
+        "en": "Furong’s waterfront and buildings in daylight"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/furong-10-2898b823.webp",
+      "alt": {
+        "ko": "해질 무렵 부용진 강변의 불빛",
+        "zh": "傍晚芙蓉镇河边渐亮的灯",
+        "en": "Lights coming on along the riverbank in Furong at dusk"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/furong-11-ada3e83b.webp",
+      "alt": {
+        "ko": "건너편에서 바라본 부용진의 저녁 풍경",
+        "zh": "从对岸望向芙蓉镇的傍晚全景",
+        "en": "An evening panorama of Furong from across the water"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/furong-06-c2ae8301.webp",
+      "alt": {
+        "ko": "부용진 폭포의 야간 조명",
+        "zh": "芙蓉镇瀑布的夜间灯光",
+        "en": "Night lighting on the Furong waterfall"
+      },
+      "width": 1050,
+      "height": 595
+    }
+  ],
+  "fenghuang": [
+    {
+      "src": "/assets/archive-photos/fenghuang-03-dc4f3c8d.webp",
+      "alt": {
+        "ko": "봉황고성 타강 옆 목조 가옥",
+        "zh": "凤凰古城沱江边的木屋",
+        "en": "Wooden houses beside the Tuo River in Fenghuang"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/fenghuang-05-290d1e39.webp",
+      "alt": {
+        "ko": "봉황고성 강변의 홍등과 야경",
+        "zh": "凤凰古城沱江边的红灯笼与夜景",
+        "en": "A red lantern above Fenghuang’s riverfront at night"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/fenghuang-09-ad2ce863.webp",
+      "alt": {
+        "ko": "밤에 불을 밝힌 봉황고성 다리",
+        "zh": "凤凰古城夜晚亮灯的河桥",
+        "en": "Illuminated bridges across the river in Fenghuang"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/fenghuang-11-94b7c67d.webp",
+      "alt": {
+        "ko": "밤의 봉황고성 강변 목조 건물",
+        "zh": "夜色中的凤凰古城沿河木楼",
+        "en": "Wooden riverfront buildings at night in Fenghuang"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/fenghuang-12-0274aeaa.webp",
+      "alt": {
+        "ko": "봉황고성 물가의 나무와 쉼터",
+        "zh": "凤凰古城水边的树木和休息处",
+        "en": "Trees and seating beside the water in Fenghuang"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "vehicle": [
+    {
+      "src": "/assets/archive-photos/vehicle-11-c7983d10.webp",
+      "alt": {
+        "ko": "장가계 여행용 승합 차량 측면 예시",
+        "zh": "张家界旅行用车侧面参考",
+        "en": "Side view of an example touring van in Zhangjiajie"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "rooms": [
+    {
+      "src": "/assets/archive-photos/rooms-02-8eed5b08.webp",
+      "alt": {
+        "ko": "트윈 객실 예시",
+        "zh": "双床客房参考",
+        "en": "Example twin room"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/rooms-03-3276393f.webp",
+      "alt": {
+        "ko": "침대가 여러 곳에 놓인 객실 예시",
+        "zh": "有多处床位的客房参考",
+        "en": "Example room with beds in separate areas"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "breakfast": [
+    {
+      "src": "/assets/archive-photos/breakfast-05-e7fbc8e0.webp",
+      "alt": {
+        "ko": "호텔 아침 국수 코너와 곁들임 재료",
+        "zh": "酒店早餐米粉档与配料",
+        "en": "A hotel breakfast noodle station with toppings"
+      },
+      "width": 1050,
+      "height": 788
+    },
+    {
+      "src": "/assets/archive-photos/breakfast-02-96077343.webp",
+      "alt": {
+        "ko": "아침 뷔페의 간식 진열 예시",
+        "zh": "早餐自助餐点心展示参考",
+        "en": "Example pastry display at a breakfast buffet"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ],
+  "food": [
+    {
+      "src": "/assets/archive-photos/food-10-ff5806c6.webp",
+      "alt": {
+        "ko": "장가계 식당 외관",
+        "zh": "张家界一家餐厅的门面",
+        "en": "The front of a restaurant in Zhangjiajie"
+      },
+      "width": 1050,
+      "height": 788
+    }
+  ]
+}

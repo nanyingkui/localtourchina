@@ -1,0 +1,317 @@
+/* The published travel notebook, on white paper. Loaded last on every page. */
+@font-face{font-family:NotebookText;src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-display:swap;font-weight:400}
+@font-face{font-family:NotebookText;src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-display:swap;font-weight:700}
+@font-face{font-family:NotebookHand;src:url('fonts/NanumPenScript-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:NotebookCN;src:url('fonts/LongCang-Regular.ttf') format('truetype');font-display:swap}
+html.notebook-white{--paper:#fff;--brand-paper:#fff;--store-paper:#fff;--ltc-paper:#fff;--ltc-surface:#fff;--ink:#20382e;--ltc-ink:#20382e;--store-ink:#20382e;--green:#167247;--ltc-accent:#167247;--store-green:#167247;--blue:#234fc7;--ltc-font:NotebookText,'PingFang SC','Microsoft YaHei',sans-serif;--store-font:var(--ltc-font);--nb-line:#d9e2d8;--nb-wash:#f3f7ef;--nb-note:#f1f5fc;--nb-yellow:#fff3bd;--nb-ease:cubic-bezier(.2,.75,.25,1);color-scheme:light;scroll-padding-top:100px;accent-color:#167247}
+html.notebook-white:root{--ltc-paper:#fff;--paper:#fff;--bg:#fff;--store-paper:#fff;--ltc-font:NotebookText,'PingFang SC','Microsoft YaHei',sans-serif}
+html.notebook-white body,html.notebook-white.ltc-visual body{background:#fff!important;color:#20382e;font-family:var(--ltc-font);background-image:none!important}
+html.notebook-white body :is(.home-header,.store-header,.site-header,.rounded-page-header,.notebook-tools,.ltc-license){background:#fff!important;backdrop-filter:none}
+html.notebook-white :is(.travel-notebook,body[data-page]) main,html.notebook-white .travel-notebook header{background:#fff!important}
+html.notebook-white .catalog-notebook{--store-paper:#fff;background:#fff!important}
+html.notebook-white :is(.store-card,.store-card-body,.jd-service-card,.current-price45,.service-summary,.review-message,.brand-photo-dialog,.brand-photo-dialog>button){background:#fff!important}
+html.notebook-white :is(.hero-paper,.landscape,.ltc-cover,.current-price45,.review-message){box-shadow:0 8px 24px #20382e0c}
+html.notebook-white :is(.home-food,.places,.service-section,.question-section,.fit-check,.ltc-buy,.ribbon){background:var(--nb-wash)}
+html.notebook-white .service-page>.service-section,html.notebook-white .service-page main>.service-section{background:#fff}
+html.notebook-white :is(.home-ask,.expect-box,.chosen-route,.nb-care,.nb-community){background:var(--nb-note)}
+html.notebook-white :is(.booking,.stay,.travel-notebook footer:not(.footnote),.footer-hand){background:#f3f7ef}
+html.notebook-white :is(.ltc-buy-grid>div,.notebook-tools .ms-entry){background:#fff!important}
+html.notebook-white :is(.jd-catalog .store-card-image,.landscape,.ltc-cover){box-shadow:0 5px 16px #20382e10}
+html.notebook-white :is(.hand,.hand-note,.hero-ink,.brand-host-sign,.food-hand){color:var(--blue)}
+html.notebook-white :is(h1,h2,h3){letter-spacing:max(-.04em,-1.3px)}
+html.notebook-white :is(p,li,dd){overflow-wrap:break-word}
+html.notebook-white :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #234fc7!important;outline-offset:4px!important}
+html.notebook-white ::selection{background:#f4d24c;color:#20382e}
+html.notebook-white :is(input,textarea){caret-color:#234fc7}
+html.notebook-white :is(input,textarea)::placeholder{color:#647266;opacity:1}
+html.notebook-white :is(button,input,select,textarea){font-family:var(--ltc-font)}
+html.notebook-white :is(input:not([type=radio]):not([type=checkbox]),select,textarea){font-size:16px;max-width:100%}
+html.notebook-white :is(button,summary,.primary,.store-button,.secondary){min-height:44px}
+html.notebook-white summary{cursor:pointer;padding-block:14px;line-height:1.5}
+html.notebook-white a{text-underline-offset:4px}
+html.notebook-white :is(a,button,summary){touch-action:manipulation;-webkit-tap-highlight-color:#f4d24c66}
+html.notebook-white button:not(:disabled){cursor:pointer}
+html.notebook-white button:disabled{cursor:not-allowed;opacity:.48}
+html.notebook-white :is(.rate-amount,.rate-total,.store-price,[data-price]){font-variant-numeric:tabular-nums}
+html.notebook-white [hidden]{display:none!important}
+/* No unreviewed people or remote thumbnail faces flash before the image guard runs. */
+.notebook-white img:is([src*="/photos/hosted-tours/"],[src*="guide-reception-"],[src*="airport-transfer-desktop-"],[src*="airport-transfer-night-"],[src*="meili-xiangxi-"],[src*="local-market-mobile-"],[src*="night-market-jpg-"],[src*="cafe-212-002"],[src*="cafe-146-001"],[src*="cafe-70-009"],[src*="cafe-109-006"],[src*="i.ytimg.com"],[src*="yt3."]){display:none!important}
+.notebook-white img:is([src*="tianmen-cliff-"],[src*="canyon-jpg-"],[src*="/vehicles/9-seat/interior-"],[src*="vehicle-nine-interior.webp"],[src*="/hotels/mercure/twin-"]){visibility:hidden}
+html.notebook-white .section{padding-block:64px}
+html.notebook-white .section+.section.wrap{border-top:1px solid var(--nb-line)}
+html.notebook-white .home-hero{padding-block:30px 48px}
+html.notebook-white .home-hero h1{font-size:clamp(44px,6.2vw,84px)}
+html.notebook-white .hero-paper{background:#fff}
+html.notebook-white .ribbon .wrap{padding-block:20px}
+html.notebook-white .trip-card .trip-cover img{height:250px}
+html.notebook-white .trip-card h3{font-size:28px;margin:24px 0 10px;line-height:1.3}
+html.notebook-white .trip-card .price-glance{border-top:1px dashed #bdcdb7!important;margin-top:20px}
+html.notebook-white .trip-card .trip-cover{color:inherit;text-decoration:none}
+.nb-home button.trip-cover{display:block;width:100%;padding:0;border:0;text-align:left;background:transparent;cursor:zoom-in}
+.nb-home button.trip-cover:focus-visible{outline-offset:5px}
+.nb-home button.trip-cover .trip-ticket:after{content:' ↗'}
+.nb-guest-memory{display:flex;align-items:center;gap:12px;width:100%;padding:14px 0;margin:12px 0 0;border:0;background:none;color:#234fc7;text-align:left}
+.nb-guest-memory img{width:68px;height:54px;object-fit:cover;border:3px solid #fff;box-shadow:0 3px 10px #20382e18;transform:rotate(-3deg);flex:none}
+.nb-guest-memory>span{font:25px/1.1 NotebookHand,sans-serif}
+.nb-guest-memory small{display:block;font:12px/1.6 NotebookText,sans-serif;margin-top:4px;color:#52644f;text-decoration:underline;text-underline-offset:3px}
+html[lang^=zh] .nb-guest-memory>span{font-family:NotebookCN,cursive}
+.nb-memory-dialog>p{padding:16px 22px;font-size:14px;line-height:1.8}
+.nb-party{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
+.nb-party>span{font-size:14px;font-weight:700}
+.nb-party .party-pills{display:flex;gap:7px}
+.nb-party button{font:700 15px NotebookText;padding:10px 15px;border:1px solid #b9c8b6;background:white;color:#20382e;border-radius:5px}
+.nb-party button[aria-pressed=true]{background:#234fc7;color:#fff;border-color:#234fc7}
+.nb-party small{flex-basis:100%;font-size:12px;color:#53654f}
+.nb-price-note{font-size:12px;line-height:1.8;color:#52644f;margin-top:16px}
+.nb-care-layout{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.nb-care h2,.nb-community h2{font-size:clamp(28px,3.4vw,42px);line-height:1.3;margin:0 0 22px}
+.nb-care-art{width:108px;height:108px;display:block;background:url('brand/rotucha-travel-sketches-v2.png') 0 100%/400% 400%;margin-bottom:12px}
+.nb-care details{border-bottom:1px solid #cdd8e3}
+.nb-care details>p{margin:0;padding:0 0 18px;font-size:14px;line-height:1.85}
+.nb-care summary{font-weight:700;font-size:16px}
+.nb-care .text-link{display:inline-block;margin-top:18px}
+.nb-community-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:50px}
+.nb-community h3{font-size:26px;margin:0 0 14px}
+.nb-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.nb-videos a{display:block;color:inherit;font-size:14px;line-height:1.7;text-decoration:none}
+.nb-videos img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover;margin-bottom:12px}
+.nb-videos span{display:block;text-decoration:underline;text-decoration-color:#234fc7;text-underline-offset:4px}
+.nb-community .cafe-link{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--nb-line);color:#20382e;text-decoration:none;font-weight:700}
+.nb-community .hand{font-family:NotebookHand,sans-serif;font-size:29px;line-height:1.2;color:#234fc7;margin:24px 0}
+.nb-home .service-section .daystrip{margin-top:28px;padding-top:22px}
+.nb-home .service-card{padding:0;background:none;border:0;box-shadow:none}
+.nb-home .service-card>.sketch{width:70px;height:70px}
+.nb-home .service-section .section-head{margin-bottom:24px}
+.nb-home .service-section .section-head h2{font-size:34px}
+.nb-home .section-head{gap:24px;margin-bottom:24px}
+.nb-family{border:0;margin:20px 0;padding:22px 0;border-block:1px dashed #bac9b5;min-width:0}
+.nb-family legend{font-weight:700;font-size:18px;padding:0 0 14px}
+.nb-family label{display:grid;gap:8px;font-size:14px;margin:12px 0}
+.nb-family input,.nb-family select{width:100%;box-sizing:border-box;min-height:48px;border:1px solid #aebfae;border-radius:4px;padding:10px;color:#20382e;background:#fff}
+.nb-family .nb-child-row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;padding-top:12px;margin-top:12px;border-top:1px solid #d9e2d8}
+.nb-child-row label:last-child{grid-column:1/-1}
+.nb-family small,.nb-family p{font-size:12px;line-height:1.85;color:#52644f}
+.nb-family-total{font-weight:700;color:#20382e!important}
+.nb-family-note{padding:14px;background:#fff3bd;font-size:13px!important;line-height:1.8}
+.nb-resource-links{display:flex;gap:8px 22px;flex-wrap:wrap;border-top:1px solid #d9e2d8;padding:22px 0;margin-top:20px}
+.nb-resource-links a{color:#234fc7;font-size:13px;min-height:44px;display:inline-flex;align-items:center}
+.nb-reading{max-width:780px;margin:32px auto;padding:0 24px 60px}
+.nb-reading h1{font-size:clamp(32px,5vw,52px);line-height:1.25;margin:24px 0}
+.nb-reading>p{line-height:1.85}
+.nb-case-group{margin-block:38px;border-top:1px solid var(--nb-line);padding-top:24px}
+.nb-case-group h2{font-size:25px;margin:0 0 16px}
+.nb-case-group details{border-bottom:1px solid var(--nb-line)}
+.nb-case-group summary{font-weight:700}
+.nb-case-group details p{font-size:14px;line-height:1.85;margin:0 0 18px}
+.nb-case-group small{display:block;color:#59685b;font-size:13px}
+.nb-section-nav{display:flex;flex-wrap:wrap;gap:8px 18px;padding:16px 0;border-block:1px solid var(--nb-line)}
+.nb-section-nav a{min-height:44px;display:flex;align-items:center;color:#234fc7;font-size:14px}
+html[lang^=zh] .nb-community .hand{font-family:NotebookCN,cursive}
+@media(hover:hover){.notebook-white :is(.text-link,.card-link,.cafe-link):hover{text-decoration:underline;text-decoration-thickness:2px}.notebook-white :is(.primary,.store-button.primary):hover{background:#105a37!important}.nb-videos a:hover span{text-decoration-thickness:2px}}
+@media(prefers-reduced-motion:no-preference){.notebook-white :is(button,.primary,.store-button,summary){transition:background-color 160ms var(--nb-ease),color 160ms var(--nb-ease),border-color 160ms var(--nb-ease)}.notebook-white button:active:not(:disabled){transform:translateY(1px)}.nb-care details[open]>p{animation:nb-note-in 180ms var(--nb-ease)}@keyframes nb-note-in{from{opacity:.65}to{opacity:1}}}
+@media(prefers-reduced-motion:reduce){html.notebook-white{scroll-behavior:auto!important}.notebook-white *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:800px){html.notebook-white .section{padding-block:42px}.nb-care-layout,.nb-community-grid{grid-template-columns:1fr;gap:24px}.nb-care-art{width:80px;height:80px;float:right;margin-left:16px}.nb-home .section-head{display:block}.nb-home .section-head>p{margin-top:16px}.nb-home .trip-grid{gap:32px}.nb-home .trip-card h3{font-size:27px}.nb-home .trip-card .trip-cover img{height:240px}.nb-home .home-hero{padding-bottom:28px}.nb-home .service-section .section-head h2{font-size:29px}.nb-home .service-grid{gap:28px}.nb-home .service-card>.sketch{float:right}.nb-home .service-card p{max-width:75%}.nb-home .ribbon .wrap{gap:12px}.nb-home .ribbon .hand{display:none}.nb-home .daystrip{display:block}.nb-home .daylinks{margin-top:20px}}
+@media(max-width:380px){.nb-party button{padding-inline:12px}.nb-videos{grid-template-columns:1fr}.nb-reading{padding-inline:20px}}
+
+html.notebook-white .notebook-product-note{background:#f3f7ef;border-color:#d4dfce;margin-block:18px 24px;padding-block:14px}
+html.notebook-white .notebook-product-note p{font-size:28px}
+/* White pages, warm paper keepsakes. A photograph stays still while its shadow acknowledges touch. */
+html.notebook-white{--nb-shadow-paper:0 5px 9px #3946310d,0 15px 32px -14px #39463138;--nb-shadow-lift:0 9px 15px #39463114,0 22px 38px -14px #39463152;--nb-shadow-press:0 2px 5px #39463124;--nb-coral:#b5472e;--nb-peach:#fff0e4;scrollbar-color:#8a9e83 #f4f6ef}
+html.notebook-white :is(.hero-paper,.note-card,.service-reference,.annotated-photo,.story-photo,.hero-photo,.ltc-cover){box-shadow:var(--nb-shadow-paper)}
+html.notebook-white :is(.note-card,.compare-note,.hand-note.tape,.ticket,.hero-ticket){background:#fff1b8;color:#493b20;box-shadow:var(--nb-shadow-paper)}
+html.notebook-white :is(.hero-ink,.hero-top-note,.hero-side-note,.service-hero .hero-hand){background:#fffdf7;color:#234fc7;text-shadow:none;padding:12px 15px;box-shadow:var(--nb-shadow-paper);border-radius:2px}
+html.notebook-white .hero-ink{font-size:clamp(28px,2.7vw,38px);line-height:1.2;max-width:72%;left:22px;top:25px}
+html.notebook-white .hero-ink:after{position:absolute;top:100%;left:50%;margin:0;font-size:62px;text-shadow:0 1px 3px white;line-height:1}
+html.notebook-white .hero-paper .ticket{font-size:clamp(25px,2vw,30px);padding:14px 16px;line-height:1.25;bottom:20px;max-width:calc(100% - 122px);left:-8px}
+html.notebook-white .hero-ticket{font-size:13px;line-height:1.65;padding:12px 16px;border:0;max-width:65%}
+html.notebook-white .hero-ticket b{font-size:14px}
+html.notebook-white .round-note{width:92px;height:auto;min-height:92px;padding:10px;font-size:13px;line-height:1.6;box-shadow:var(--nb-shadow-paper);border:0}
+html.notebook-white :is(.hand-note,.food-hand,.photo-note){line-height:1.35}
+html.notebook-white :is(.hand-note.pencil,.trip-card>.hand,.daystrip .hand){color:var(--nb-coral)}
+html.notebook-white .hand-note.tape{clip-path:none;padding:10px 14px;font-size:27px}
+html.notebook-white .brand-host-sign{background:#fff1b8;color:#234fc7;padding:9px 12px!important;box-shadow:0 3px 9px #39463112;font-size:26px}
+html.notebook-white .trip-card .trip-cover{display:block;width:100%;overflow:visible;background:#fff;padding:8px 8px 0;box-shadow:var(--nb-shadow-paper)}
+html.notebook-white .trip-card .trip-cover img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#f4f6ef;transform:none!important}
+html.notebook-white .trip-cover:after{display:none}
+html.notebook-white .trip-ticket{position:relative;display:table;top:auto;left:auto;max-width:100%;margin:-4px 0 0 8px;padding:10px 14px;font-size:14px;line-height:1.5;transform:rotate(-3deg);box-shadow:0 4px 10px #3946311a;color:#20382e}
+html.notebook-white .trip-card:nth-child(2) .trip-ticket{background:#ffe3d5;transform:rotate(2deg)}
+html.notebook-white .trip-card:nth-child(3) .trip-ticket{background:#e4edff}
+html.notebook-white .trip-card h3{font-size:clamp(25px,2.1vw,29px);margin-top:28px}
+html.notebook-white .trip-card>p:not(.hand){font-size:15px;min-height:0;line-height:1.8}
+html.notebook-white .nb-guest-memory{margin:6px 0 14px;padding:8px 0}
+html.notebook-white .nb-guest-memory img{object-fit:contain;background:#fff}
+html.notebook-white .nb-guest-memory>span{font-size:28px;line-height:1.25}
+html.notebook-white .nb-guest-memory small{font-size:13px}
+html.notebook-white :is(.nb-party small,.nb-price-note,.nb-family small,.nb-family p,.notebook-fx-note){font-size:13px;line-height:1.8;color:#4d614e}
+html.notebook-white .nb-family-note{font-size:14px!important}
+html.notebook-white :is(.price-glance p,.price-glance small,.rate-condition,.service-price p){font-size:13px;line-height:1.8}
+html.notebook-white :is(.gallery-slide img,.service-reference img,.story-photo .photo img,.nb-videos img){object-fit:contain;height:auto;aspect-ratio:3/2;background:#f4f6ef}
+html.notebook-white :is(.gallery-slide>button,.media-rail .photo){background:#fff;padding:7px;box-shadow:var(--nb-shadow-paper);overflow:visible}
+html.notebook-white :is(.gallery-track,.media-rail){padding-block:18px 25px;scrollbar-color:#82967a #f3f7ef}
+html.notebook-white :is(.gallery-note,.gallery-slide .source-tag,.media-rail .photo-credit,.photo-privacy-note,.service-reference small){font-size:12px;line-height:1.85;color:#53654f}
+html.notebook-white :is(.nb-videos a,.service-card){position:relative}
+html.notebook-white .nb-videos img{padding:7px;background:#fff;box-shadow:var(--nb-shadow-paper)}
+html.notebook-white .nb-care{background:#f1f5fc}
+html.notebook-white .nb-community{background:#fff4e9}
+html.notebook-white .service-section .sketch{filter:drop-shadow(0 4px 3px #39463118)}
+html.notebook-white .compare-note{padding:22px 26px;background:#fff3c7}
+html.notebook-white .notebook-product-note{background:#fff3c7;border:0;box-shadow:var(--nb-shadow-paper);border-radius:3px;padding:18px 20px}
+html.notebook-white .notebook-product-note small{font-size:14px;line-height:1.7;color:#4d614e}
+html.notebook-white :is(.brand-photo-dialog,.review-message,.service-summary,.current-price45){box-shadow:var(--nb-shadow-paper)}
+html.notebook-white .brand-photo-dialog{box-shadow:0 20px 70px #071c2860}
+html.notebook-white .brand-photo-dialog::backdrop{background:#182c37cc}
+html.notebook-white .brand-photo-dialog>header{background:#fff3c7}
+html.notebook-white .brand-photo-dialog>img{background:#f4f6ef}
+html.notebook-white .brand-photo-dialog>img{height:min(60svh,600px);object-fit:contain}
+html.notebook-white .route-story-dialog{height:min(92svh,960px)}
+html.notebook-white .route-story-dialog>img{height:clamp(180px,45svh,520px)}
+html.notebook-white .route-story-dialog .story-photo-status{position:absolute;z-index:3;top:70px;left:20px;right:20px;width:fit-content;margin:auto;padding:10px 14px;background:#fff3bd;color:#20382e;box-shadow:var(--nb-shadow-paper);font-size:14px}
+html.notebook-white .home-hero>*{min-width:0}
+html[lang=en].notebook-white .home-hero h1{font-size:clamp(34px,6vw,84px);overflow-wrap:anywhere!important}
+html.notebook-white .route-story-dialog aside{border:0;background:#fff3c7;border-radius:3px}
+html.notebook-white .route-story-dialog aside>b{color:#234fc7}
+html.notebook-white .review>.hand-note{color:#fff3bd}
+/* Company facts use one aligned layout, not a trail of disconnected blocks. */
+html.notebook-white .home-footer{padding-block:40px 24px}
+html.notebook-white .home-footer .foot-top{gap:24px;align-items:start}
+html.notebook-white .foot-links{flex-wrap:wrap;gap:8px 24px;max-width:650px;align-items:center}
+html.notebook-white .foot-links a{min-height:44px;display:inline-flex;align-items:center;font-size:14px}
+html.notebook-white .home-footer>p{max-width:78ch;font-size:13px;color:#52644f;line-height:1.8;margin-top:20px}
+html.notebook-white .home-footer details{margin-top:12px;font-size:13px}
+html.notebook-white .nb-resource-links{margin-top:16px;padding:16px 0 0;gap:4px 24px}
+html.notebook-white .ltc-license{max-width:1180px;padding:30px 26px 56px;line-height:1.8;border-top:1px solid #d9e2d8;color:#4d614e}
+html.notebook-white .nb-company-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+html.notebook-white .ltc-license :is(h2,h3){font:700 18px/1.5 var(--ltc-font);letter-spacing:0;margin:0 0 16px;color:#20382e}
+html.notebook-white .ltc-license p{font-size:13px;margin:12px 0;max-width:68ch}
+html.notebook-white .ltc-license dl{display:grid;grid-template-columns:minmax(88px,30%) minmax(0,1fr);gap:8px 20px;margin:0 0 18px}
+html.notebook-white .ltc-license dt{font-size:13px;font-weight:400;margin:0;color:#52644f}
+html.notebook-white .ltc-license dd{font-size:14px;margin:0;min-width:0;color:#20382e}
+html.notebook-white .ltc-license samp{font:inherit;font-variant-numeric:tabular-nums}
+html.notebook-white .ltc-license a{color:#234fc7;text-decoration:underline}
+html.notebook-white .ltc-license details{border-top:1px dashed #c9d6c2;margin-top:16px}
+html.notebook-white .ltc-license summary{font-size:13px;font-weight:700;color:#20382e}
+html.notebook-white .ltc-license details dl{display:block}
+html.notebook-white .ltc-license details dt{font-weight:700;margin-top:14px}
+html.notebook-white .ltc-license details dd{font-size:13px;margin-top:5px}
+html.notebook-white .business-footer{background:#fff!important;border:0!important;border-top:1px solid #d9e2d8!important;color:#20382e!important}
+html.notebook-white .business-footer-head{padding:24px 0;align-items:start;gap:24px}
+html.notebook-white .business-footer-head .eyebrow{display:none}
+html.notebook-white .business-footer-head h2{font-size:26px;line-height:1.4;margin:0 0 12px}
+html.notebook-white .business-footer-head p{max-width:70ch;font-size:15px;line-height:1.8;color:#52644f}
+html.notebook-white .business-badge{background:#fff3c7;color:#493b20;box-shadow:var(--nb-shadow-paper);transform:rotate(2deg);border-radius:3px;padding:10px 14px}
+html.notebook-white .business-info{border-radius:4px;box-shadow:none}
+html.notebook-white .business-info dt{background:#f3f7ef;color:#52644f;font-size:14px;font-weight:400;line-height:1.7}
+html.notebook-white .business-info dd{font-size:15px;line-height:1.7;color:#20382e;font-weight:400}
+html.notebook-white .business-contacts{gap:12px}
+html.notebook-white .business-contacts :is(a,button){display:flex;justify-content:center;align-items:center;min-height:48px;line-height:1.5;padding:12px;border:1px solid #bbcdb7;border-radius:4px;text-align:center;font-size:14px}
+/* Actual interaction feedback; decorative pieces never pretend to be draggable. */
+html.notebook-white .nb-drag-ready{cursor:grab}
+html.notebook-white .nb-dragging{cursor:grabbing;scroll-snap-type:none!important;scroll-behavior:auto!important;user-select:none}
+html.notebook-white .nb-dragging :is(button,img){cursor:grabbing}
+html.notebook-white .nb-dragging :is(.photo,.gallery-slide>button){box-shadow:var(--nb-shadow-lift)}
+html.notebook-white .nb-pressing{box-shadow:var(--nb-shadow-press)!important}
+html.notebook-white .nb-holding{box-shadow:var(--nb-shadow-lift)!important}
+@media(hover:hover){html.notebook-white :is(.trip-cover,.nb-guest-memory,.gallery-slide>button,.media-rail .photo):hover{transform:none;box-shadow:var(--nb-shadow-lift)}html.notebook-white .nb-guest-memory:hover{box-shadow:none}html.notebook-white .nb-guest-memory:hover img{box-shadow:var(--nb-shadow-lift)}html.notebook-white :is(.primary,.store-button.primary):hover{box-shadow:0 6px 14px #16724729}}
+@media(prefers-reduced-motion:no-preference){html.notebook-white :is(.trip-cover,.nb-guest-memory img,.gallery-slide>button,.media-rail .photo,.primary,.store-button){transition:box-shadow 180ms cubic-bezier(.16,1,.3,1),background-color 150ms ease,color 150ms ease}html.notebook-white button:active:not(:disabled){transform:none}html.notebook-white .brand-photo-dialog[open]{animation:nb-photo-open 220ms cubic-bezier(.16,1,.3,1)}@keyframes nb-photo-open{from{transform:translateY(10px) scale(.985);box-shadow:0 8px 30px #071c2840}to{transform:none;box-shadow:0 20px 70px #071c2860}}}
+@media(max-width:800px){html.notebook-white .nb-company-grid{grid-template-columns:1fr;gap:28px}html.notebook-white .nb-company-provider{border-top:1px solid #d9e2d8;padding-top:24px}html.notebook-white .nb-home .trip-grid{gap:38px}html.notebook-white .hero-paper .ticket{font-size:25px;max-width:calc(100% - 105px)}html.notebook-white .hero-ink{font-size:30px;left:15px;top:20px}html.notebook-white .hero-side-note{right:14px;top:125px}html.notebook-white .hero-top-note{max-width:70%}html.notebook-white .trip-card .trip-cover img{height:auto}html.notebook-white .foot-links{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}html.notebook-white .ltc-license{padding-bottom:36px}html.notebook-white .nb-guest-memory>span{font-size:28px}html.notebook-white .nb-videos a{font-size:14px}}
+@media(max-width:380px){html.notebook-white .hero-paper .ticket{font-size:24px;padding:12px;max-width:calc(100% - 90px)}html.notebook-white .hero-ink{font-size:27px;max-width:75%}html.notebook-white .ltc-license dl{grid-template-columns:90px 1fr;gap:8px 12px}html.notebook-white .trip-ticket{font-size:13px}html.notebook-white .nb-guest-memory>span{font-size:25px}}
+@media(max-height:500px) and (orientation:landscape){html.notebook-white .brand-photo-dialog{max-height:94svh}html.notebook-white .brand-photo-dialog>img{max-height:52svh}html.notebook-white .notebook-tools{position:static}}
+
+html.notebook-white :is(.nb-company-owner,.nb-company-provider){min-width:0}
+
+html.notebook-white :is(.hero-top-note,.hero-side-note) .pen-mark{color:#b5472e}
+
+html.notebook-white .route-story-dialog>img[aria-busy=true]{visibility:hidden}
+html.notebook-white :is(.topbar,.topbar-inner){background:#fff!important}
+html.notebook-white .redesign-continue{background:#fff3c7!important;color:#20382e!important;border-radius:4px;box-shadow:var(--nb-shadow-paper)}
+html.notebook-white .redesign-continue :is(h2,p){color:#20382e!important}
+html.notebook-white .redesign-continue>a{background:#167247!important;color:#fff!important;border-radius:5px}
+/* Restore the visible handwriting and illustrated stickers of the original notebook. */
+html.notebook-white .nb-cover-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:88px;padding:4px 8px 2px}
+html.notebook-white .trip-card{min-width:0}
+html.notebook-white .trip-cover .trip-ticket{display:block;flex:0 1 auto;min-width:0;max-width:calc(100% - 102px);margin:0 0 0 -8px;padding:11px 17px;font:400 34px/1.1 NotebookHand,TravelPen,cursive;color:#20382e;letter-spacing:0;overflow-wrap:break-word}
+html.notebook-white .nb-home button.trip-cover .trip-ticket:after{content:none}
+html.notebook-white .nb-cover-sketch{width:96px;height:96px;margin:-10px -3px -3px 0;filter:drop-shadow(0 3px 2px #39463115)}
+html.notebook-white .nb-route-hand{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 0 0;padding:0 3px;color:#234fc7;font:400 32px/1.16 NotebookHand,TravelPen,cursive;min-height:54px}
+html.notebook-white .nb-route-hand>span{min-width:0;transform:rotate(-2deg)}
+html.notebook-white .nb-route-hand+h3{margin-top:12px}
+html.notebook-white .nb-pencil-arrow{display:block;flex:none;width:56px;height:48px;fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+html.notebook-white .nb-route-hand .nb-pencil-arrow{transform:rotate(-118deg);color:#b5472e;width:48px;height:44px}
+html.notebook-white .hero-ink:after{display:none}
+html.notebook-white .hero-ink>.nb-pencil-arrow{position:absolute;top:100%;left:62%;width:72px;height:62px;color:#234fc7;transform:rotate(15deg);filter:drop-shadow(0 1px 1px #fff)}
+html.notebook-white .nb-home .service-card>.sketch{width:108px;height:108px}
+html.notebook-white .nb-care-art{width:120px;height:120px}
+html[lang^=zh].notebook-white :is(.trip-cover .trip-ticket,.nb-route-hand){font-family:NotebookCN,TravelPenZh,cursive}
+html[lang=en].notebook-white .trip-cover .trip-ticket{font-size:31px;hyphens:auto}
+@media(min-width:801px){html.notebook-white .nb-home .trip-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:801px) and (max-width:1050px){html[lang=en].notebook-white .nb-cover-caption{flex-direction:column;justify-content:center;gap:12px;padding-block:12px}html[lang=en].notebook-white .trip-cover .trip-ticket{max-width:100%;margin:0;font-size:30px}html[lang=en].notebook-white .nb-cover-sketch{width:84px;height:84px;margin:0}}
+@media(max-width:800px){html.notebook-white .nb-cover-caption{min-height:84px;padding-inline:7px}html.notebook-white .trip-cover .trip-ticket{font-size:34px;max-width:calc(100% - 104px);padding:11px 16px}html.notebook-white .nb-cover-sketch{width:100px;height:100px}html.notebook-white .nb-route-hand{font-size:33px;margin-top:20px}html.notebook-white .nb-home .service-card>.sketch{width:104px;height:104px;margin:0 0 12px 12px}html.notebook-white .nb-home .service-card p{max-width:calc(100% - 116px)}html.notebook-white .nb-care-art{width:108px;height:108px}html[lang=en].notebook-white .trip-cover .trip-ticket{font-size:30px}}
+@media(max-width:380px){html.notebook-white .trip-cover .trip-ticket{font-size:31px;max-width:calc(100% - 88px);padding:11px 13px}html.notebook-white .nb-cover-caption{gap:7px;min-height:82px}html.notebook-white .nb-cover-sketch{width:84px;height:84px}html.notebook-white .nb-route-hand{font-size:30px}html.notebook-white .nb-route-hand .nb-pencil-arrow{width:41px;height:39px}html[lang=en].notebook-white .trip-cover .trip-ticket{font-size:28px}}
+@media(max-width:800px){html.notebook-white .nb-home .service-card{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:18px;align-items:start}html.notebook-white .nb-home .service-card>.sketch{grid-column:1;grid-row:1/4;float:none;margin:0}html.notebook-white .nb-home .service-card>:is(h3,p,.service-links){grid-column:2;max-width:none;min-width:0}}
+@media(max-width:380px){html.notebook-white .nb-home .service-card{grid-template-columns:92px minmax(0,1fr);column-gap:14px}html.notebook-white .nb-home .service-card>.sketch{width:92px;height:92px}}
+
+/* Homepage: restore the photographed, handwritten rhythm without adding long sections. */
+html.notebook-white .nb-warm .home-hero{padding-block:28px 42px}
+html.notebook-white .nb-warm .home-hero h1{font-size:clamp(44px,4.6vw,64px);line-height:1.23}
+html.notebook-white .nb-warm .hero-copy>p{font-size:17px;line-height:1.85}
+html.notebook-white .nb-warm .hero-copy>.sketch{width:138px;height:138px;margin:22px 0 0 220px}
+html.notebook-white .nb-warm .hero-paper .hero-caption{gap:12px;padding:19px 12px 17px}
+html.notebook-white .nb-warm .hero-paper .ticket{background:#f4d24c;transform:rotate(-6deg)}
+html.notebook-white .nb-warm .hero-paper:before{content:'';position:absolute;z-index:2;width:104px;height:25px;left:55%;top:-11px;background:#f4d24cbb;transform:rotate(-5deg);pointer-events:none}
+html.notebook-white .nb-warm .ribbon{background:#f3f7ef;padding-block:12px}
+html.notebook-white .nb-warm .ribbon .wrap{padding-block:8px}
+html.notebook-white .nb-warm #journeys{padding-block:50px}
+html.notebook-white .nb-warm .trip-card:nth-child(1) .trip-cover{transform:rotate(-1deg)}
+html.notebook-white .nb-warm .trip-card:nth-child(2) .trip-cover{transform:rotate(.8deg)}
+html.notebook-white .nb-warm .trip-card:nth-child(3) .trip-cover{transform:rotate(-.6deg)}
+html.notebook-white .nb-warm .compare-note{padding-block:17px;margin-top:28px}
+html.notebook-white .nb-warm .nb-care{background:#f1f5fc;padding-block:52px}
+html.notebook-white .nb-warm .nb-care-layout{grid-template-columns:1.12fr 1fr;gap:76px;align-items:center}
+html.notebook-white .nb-warm .nb-care h2{font-size:clamp(29px,2.7vw,37px);margin-bottom:26px}
+html.notebook-white .nb-warm .nb-life-pair{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:24px;padding:0 5px;max-width:480px}
+html.notebook-white .nb-warm .nb-life-photo{position:relative;background:#fff;padding:7px;box-shadow:var(--nb-shadow-paper);min-width:0;transform:rotate(-3deg)}
+html.notebook-white .nb-warm .nb-life-photo>img{width:100%;height:auto;object-fit:contain}
+html.notebook-white .nb-warm .nb-life-photo:before{content:'';position:absolute;width:70px;height:21px;top:-10px;left:34%;background:#f4d24cbb;transform:rotate(-8deg);pointer-events:none}
+html.notebook-white .nb-warm .nb-life-photo figcaption{padding:10px 7px 0}
+html.notebook-white .nb-warm .nb-life-photo .hand{display:block;font-size:29px;line-height:1.12;word-break:keep-all;overflow-wrap:break-word}
+html.notebook-white .nb-warm .nb-life-photo a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;color:#4d614e;text-decoration:underline}
+html.notebook-white .nb-warm .nb-life-pause{margin-top:42px;transform:rotate(4deg)}
+html.notebook-white .nb-warm .nb-life-pause:before{background:#c9d9f4bb;transform:rotate(7deg)}
+html.notebook-white .nb-warm .nb-life-pause .hand{color:#b5472e}
+html.notebook-white .nb-warm .nb-life-pause>.nb-pencil-arrow{position:absolute;right:16px;bottom:-66px;width:68px;height:56px;color:#b5472e;transform:rotate(-145deg)}
+html.notebook-white .nb-warm .nb-life-source{font-size:12px;color:#4d614e;line-height:1.7;margin:25px 0 0 5px}
+html.notebook-white .nb-warm .nb-care-notes{position:relative;background:#fff;padding:32px 28px 22px;box-shadow:var(--nb-shadow-paper)}
+html.notebook-white .nb-warm .nb-care-notes:before{content:'';position:absolute;top:-12px;left:30px;width:108px;height:24px;background:#f4d24cbb;transform:rotate(-4deg);pointer-events:none}
+html.notebook-white .nb-warm .nb-care-art{float:right;width:100px;height:100px;margin:-10px -12px 10px 12px}
+html.notebook-white .nb-warm .nb-care-intro{font-size:17px;line-height:1.8;min-height:90px;margin-bottom:12px;padding-top:10px}
+html.notebook-white .nb-warm .nb-care details{clear:both;border-color:#d9e2d8}
+html.notebook-white .nb-warm .nb-care summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+html.notebook-white .nb-warm .nb-care summary:after{content:'';width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);flex:none;margin-right:4px}
+html.notebook-white .nb-warm .nb-care details[open]>summary:after{transform:rotate(225deg)}
+html.notebook-white .nb-warm .nb-care .text-link{margin-top:12px}
+html.notebook-white .nb-warm .service-section{background:#fff;padding-block:48px}
+html.notebook-white .nb-warm .service-section .daystrip{background:#f3f7ef;padding:22px 26px;margin-top:24px;border:0}
+html.notebook-white .nb-warm .nb-community{background:#214b3b;color:#fff;padding-block:48px 54px}
+html.notebook-white .nb-warm .nb-community h2{color:#fff;font-size:clamp(29px,3vw,39px);margin-bottom:30px}
+html.notebook-white .nb-warm .nb-community-grid{grid-template-columns:1.15fr 1fr;gap:70px;align-items:start}
+html.notebook-white .nb-warm .nb-video-page h3{color:#fff;font-size:25px;margin-bottom:4px}
+html.notebook-white .nb-warm .nb-video-page>.text-link{color:#fff1a9}
+html.notebook-white .nb-warm .nb-videos{gap:20px;margin-top:17px}
+html.notebook-white .nb-warm .nb-videos a{background:#fff;padding:8px 8px 13px;color:#20382e;box-shadow:0 8px 20px #0a211f40;transform:rotate(-2deg)}
+html.notebook-white .nb-warm .nb-videos a:nth-child(2){transform:rotate(2deg);margin-top:20px}
+html.notebook-white .nb-warm .nb-videos img{padding:0;box-shadow:none;margin:0 0 10px;background:#eef3ea}
+html.notebook-white .nb-warm .nb-videos span{font-size:14px;line-height:1.6;padding-inline:5px}
+html.notebook-white .nb-warm .nb-video-page>.nb-price-note{color:#dce9df;font-size:12px;margin-top:20px}
+html.notebook-white .nb-warm .nb-cafe-page{position:relative;background:#fff3bd;color:#20382e;padding:30px 30px 20px;box-shadow:0 10px 24px #0a211f40;transform:rotate(1deg)}
+html.notebook-white .nb-warm .nb-cafe-page:before{content:'';position:absolute;top:-12px;left:36%;width:100px;height:25px;background:#f4d24cbb;transform:rotate(-5deg);pointer-events:none}
+html.notebook-white .nb-warm .nb-cafe-page h3{font-size:25px;margin-bottom:16px}
+html.notebook-white .nb-warm .nb-cafe-sketch{float:right;width:85px;height:85px;margin:-12px -10px 0 12px}
+html.notebook-white .nb-warm .nb-cafe-page>p:not(.hand):not(.nb-price-note){font-size:15px;line-height:1.8;clear:both}
+html.notebook-white .nb-warm .nb-cafe-page .cafe-link{border-color:#c9c6a5;padding-block:15px}
+html.notebook-white .nb-warm .nb-cafe-page .hand{font-size:31px;line-height:1.2;transform:rotate(-2deg);margin:22px 0 10px}
+html.notebook-white .nb-warm .nb-cafe-page .nb-price-note{font-size:12px;margin-top:14px}
+@media(hover:hover){html.notebook-white .nb-warm .nb-videos a:hover{box-shadow:0 14px 28px #0a211f65}html.notebook-white .nb-warm .nb-care summary:hover{color:#167247}}
+@media(min-width:801px) and (max-width:1100px){html.notebook-white .nb-warm .nb-care-layout,html.notebook-white .nb-warm .nb-community-grid{gap:36px}html.notebook-white .nb-warm .nb-life-pair{gap:16px}html.notebook-white .nb-warm .nb-life-photo .hand{font-size:26px}html.notebook-white .nb-warm .nb-care-notes{padding:24px 20px}html.notebook-white .nb-warm .nb-care-art{width:78px;height:78px}html.notebook-white .nb-warm .nb-care-intro{font-size:15px}html.notebook-white .nb-warm .nb-cafe-page{padding:24px 22px}html.notebook-white .nb-warm .hero-copy>.sketch{margin-left:45%}}
+@media(max-width:800px){html.notebook-white .nb-warm .home-hero{padding-block:18px 28px}html.notebook-white .nb-warm .home-hero h1{font-size:46px}html.notebook-white .nb-warm .hero-copy>.sketch{width:100px;height:100px;margin:0;position:absolute;right:0;bottom:0}html.notebook-white .nb-warm .hero-copy .primary{max-width:calc(100% - 95px);padding-inline:15px;gap:10px}html.notebook-white .nb-warm .hero-paper .hero-caption{gap:12px;padding:17px 8px}html.notebook-white .nb-warm .hero-paper .hero-caption>.hand{font-size:27px}html.notebook-white .nb-warm .ribbon{padding-block:6px}html.notebook-white .nb-warm #journeys{padding-block:36px}html.notebook-white .nb-warm .nb-care{padding-block:38px}html.notebook-white .nb-warm .nb-care-layout{grid-template-columns:1fr;gap:35px}html.notebook-white .nb-warm .nb-life-pair{max-width:510px;margin:auto;gap:20px;padding-inline:6px}html.notebook-white .nb-warm .nb-life-photo .hand{font-size:27px}html.notebook-white .nb-warm .nb-life-photo figcaption{padding:9px 4px 0}html.notebook-white .nb-warm .nb-life-pause{margin-top:28px}html.notebook-white .nb-warm .nb-life-source{margin-top:24px}html.notebook-white .nb-warm .nb-care-notes{padding:25px 22px 18px}html.notebook-white .nb-warm .nb-care-intro{font-size:16px}html.notebook-white .nb-warm .nb-care-art{width:88px;height:88px;margin-right:-7px}html.notebook-white .nb-warm .service-section{padding-block:38px}html.notebook-white .nb-warm .service-section .daystrip{padding:20px}html.notebook-white .nb-warm .nb-community{padding-block:38px}html.notebook-white .nb-warm .nb-community-grid{grid-template-columns:1fr;gap:38px}html.notebook-white .nb-warm .nb-videos{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}html.notebook-white .nb-warm .nb-videos span{font-size:13px;padding-inline:2px}html.notebook-white .nb-warm .nb-cafe-page{transform:rotate(.6deg);padding:25px 24px 20px}html.notebook-white .nb-warm .nb-cafe-page .hand{font-size:30px}html.notebook-white .nb-warm .nb-community h2{margin-bottom:24px}}
+@media(max-width:380px){html.notebook-white .nb-warm .home-hero h1{font-size:42px}html.notebook-white .nb-warm .hero-copy>.sketch{width:84px;height:84px}html.notebook-white .nb-warm .hero-copy .primary{max-width:calc(100% - 78px);font-size:13px;padding-inline:11px}html.notebook-white .nb-warm .nb-life-pair{gap:14px}html.notebook-white .nb-warm .nb-life-photo .hand{font-size:24px}html.notebook-white .nb-warm .nb-life-photo a{font-size:11px}html.notebook-white .nb-warm .nb-care-notes{padding-inline:18px}html.notebook-white .nb-warm .nb-care-intro{font-size:15px}html.notebook-white .nb-warm .nb-care-art{width:76px;height:76px}html.notebook-white .nb-warm .nb-videos{gap:12px}}
+@media(max-width:800px){html[lang=en].notebook-white .nb-warm .home-hero h1{font-size:clamp(32px,9.5vw,44px)}html[lang=en].notebook-white .nb-warm .home-hero .underline{white-space:normal}html.notebook-white .nb-warm .nb-care-intro{min-height:70px}html.notebook-white .nb-warm .nb-care-layout{gap:28px}html.notebook-white .nb-warm .nb-life-source{margin-top:20px}}

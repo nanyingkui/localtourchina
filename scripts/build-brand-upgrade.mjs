@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {renderHome,esc} from '../redesign/brand-upgrade/home.mjs';
 import {renderComparison} from '../redesign/brand-upgrade/comparison.mjs';
+import {placeNotebookPhotos,renderArchiveGallery} from '../redesign/brand-upgrade/gallery.mjs';
 import {renderStandards,renderBooking} from '../redesign/brand-upgrade/evidence.mjs';
 import {enhanceInquiry} from '../redesign/brand-upgrade/inquiry.mjs';
 
@@ -12,7 +13,14 @@ const source=path.join(root,'redesign/brand-upgrade');
 const dist=path.join(root,'redesign/dist/client');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const catalog=JSON.parse(read('catalog-site/catalog.json'));
+const archivePath='redesign/brand-upgrade/archive-photos.json';
+const archivePhotos=fs.existsSync(path.join(root,archivePath))?JSON.parse(read(archivePath)):{};
+const productsByPath=new Map(Object.values(catalog).flatMap(record=>Object.values(record.paths).map(url=>[url.slice(1),record.id])));
 const manifest=new Set(JSON.parse(read('public-release-manifest.json')));
+for(const {src} of Object.values(archivePhotos).flat()){
+ if(!/^\/assets\/archive-photos\/[\w-]+\.webp$/.test(src))throw new Error('Invalid public archive photo path: '+src);
+ manifest.add(src.slice(1));
+}
 const hash=crypto.createHash('sha256');
 for(const name of fs.readdirSync(source).filter(n=>/\.(mjs|js|css)$/.test(n)).sort())hash.update(name).update(fs.readFileSync(path.join(source,name)));
 hash.update(read('src/reviews.json'));
@@ -34,6 +42,15 @@ function sectionSpan(html,id){
 }
 function replaceSection(html,id,replacement){const range=sectionSpan(html,id);if(!range)throw Error('Missing section '+id);return html.slice(0,range[0])+replacement+html.slice(range[1]);}
 function sharedAssetBase(html){const match=html.match(/\/assets\/notebook\/[a-f0-9]+\//);if(!match)throw Error('Published notebook assets missing');return match[0];}
+function addArchiveGallery(html,name,lang){
+ html=removeBlock(html,'archive-gallery');
+ html=placeNotebookPhotos(html,name,lang,archivePhotos);
+ const displayedPhotos=new Set(html.match(/\/assets\/archive-photos\/[\w-]+\.webp/g)??[]);
+ const gallery=renderArchiveGallery(name,lang,archivePhotos,productsByPath.get(name),displayedPhotos);
+ if(!gallery)return html;
+ const anchor=/<section\b[^>]*\bid="(?:service-config|quote)"[^>]*>|<\/main>/;
+ return html.replace(anchor,tag=>block('archive-gallery',gallery)+tag);
+}
 function localizeContacts(html,lang){const target={ko:'https://pf.kakao.com/_hvrmn/chat',zh:'/zh/travel-safety.html?channel=wechat',en:'https://wa.me/821055722601'}[lang];return html.replace(/<a\b[^>]*>/g,tag=>{tag=tag.replace(/\bdata-contact(?:\s+data-contact)+/g,'data-contact');if(!tag.includes('href="https://pf.kakao.com/_hvrmn/chat"'))return tag;tag=tag.replace('href="https://pf.kakao.com/_hvrmn/chat"','href="'+target+'"');return /\bdata-contact(?:\s|=|>)/.test(tag)?tag:tag.replace('<a','<a data-contact');});}
 
 // The original calculators, public catalogue, contact boundary and ledgers remain
@@ -45,7 +62,7 @@ for(const lang of languages){
  // Reuse the already localized published compact directory when available.
  const old=sectionSpan(html,'all-trips');
  const compact=old?html.slice(old[0],old[1]):directory;
- html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,renderHome(lang,{assetBase,directory:compact}));
+ html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,renderHome(lang,{assetBase,directory:compact,archivePhotos}));
  const description=words(lang,'장가계의 풍경을 우리 일행의 속도로. 한국어 현지 안내, 모든 숙박여행 비교, 실제 여행 이야기와 비용 확인까지.','比较张家界多日游、费用与包含项目，并咨询用车、门票和当地导游安排。','Compare Zhangjiajie multi-day itineraries, prices and inclusions, and ask about transport, tickets and local guides.');
  html=html.replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${esc(description)}">`);
  write(homePath,html);
@@ -60,7 +77,9 @@ for(const lang of languages){
 
  const catalogPath=prefix+'products.html';html=removeBlock(read(catalogPath),'catalog-guide');
  const band=`<aside class="ed-catalog-guide"><p>${words(lang,'어떤 코스가 맞을지 고민된다면, 걷기·숙박·추가되는 경험을 나란히 비교해 보세요.','还在犹豫选哪条？可以并排比较步行、住宿，以及各条路线增加或舍去的体验。','Still deciding? Compare walking, stays, and what each itinerary adds or leaves out.')}</p><a href="${local(lang,'trips.html#all-trips')}">${words(lang,'9가지 숙박여행 비교하기','比较全部9条多日游','Compare all 9 multi-day tours')}</a></aside>`;
- html=html.replace(/(<main\b[^>]*>)/,'$1'+block('catalog-guide',band));write(catalogPath,html);
+ html=html.replace(/<aside class="notebook-product-note">[\s\S]*?<\/aside>/,'')
+  .replace('<div class="jd-catalog-layout">',block('catalog-guide',band)+'<div class="jd-catalog-layout">');
+ write(catalogPath,html);
 
  // Existing detail pages receive a succinct, product-specific decision bridge.
  for(const [file,trip] of [['zhangjiajie-4days.html','regular34'],['zhangjiajie.html','experience45'],['zhangjiajie-6days.html','regular56']]){
@@ -81,7 +100,8 @@ for(const name of [...manifest]){
  html=html.replace(/<body\b([^>]*)>/,(all,attrs)=>/class="/.test(attrs)?'<body'+attrs.replace(/class="([^"]*)"/,(_,v)=>'class="'+[...new Set((v+' ed-public').split(/\s+/))].join(' ')+'"')+'>':'<body class="ed-public"'+attrs+'>');
  html=html.replace('</head>',`<link data-editorial-style rel="stylesheet" href="${base}editorial.css"><link data-editorial-style rel="stylesheet" href="${base}comparison.css">${/consultation\.html$/.test(name)?`<link data-editorial-style rel="stylesheet" href="${base}inquiry.css">`:''}</head>`);
  html=html.replace('</body>',`<script data-editorial-runtime defer src="${base}comparison.js"></script><script data-editorial-runtime defer src="${base}client.js"></script></body>`);
- write(name,localizeContacts(html,languageFor(name)));
+ const lang=languageFor(name);
+ write(name,localizeContacts(addArchiveGallery(html,name,lang),lang));
 }
 fs.writeFileSync(path.join(root,'public-release-manifest.json'),JSON.stringify([...manifest].sort(),null,2)+'\n');
 console.log(JSON.stringify({editorialAssets:base,languages:3,publicFiles:manifest.size,pricingChanged:false,customerWrites:false}));

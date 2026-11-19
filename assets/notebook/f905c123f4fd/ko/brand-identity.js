@@ -1,0 +1,2 @@
+if(new URLSearchParams(location.search).get('view')==='full')document.body.classList.add('full-view');
+document.querySelectorAll('header .brand').forEach(a=>{a.classList.add('has-mark');const image=document.createElement('img');image.src='/assets/notebook/f905c123f4fd/brand/rotucha-orange-hat-master.png';image.className='brand-mark';image.alt='로투차 주황 모자 로고';image.width=51;image.height=51;a.prepend(image);});

@@ -1,6 +1,9 @@
 """Purpose-specific local presentation, using the unchanged canonical catalogue."""
-from html import escape
+from functools import lru_cache
+from html import escape, unescape
 from html.parser import HTMLParser
+import json
+from pathlib import Path
 import re
 from route_clarity import route_highlights
 
@@ -36,16 +39,87 @@ def scenic_for(text):
         if re.search(pattern,text,re.I):return '/assets/media/attractions/'+name
     return ''
 
-def timeline(html,multi,lang):
+SCENE_NAMES = {
+    'furong': r'부용진|芙蓉镇|Furong',
+    'fenghuang': r'봉황(?:고성)?|퉈장|凤凰|沱江|Fenghuang|Tuo River',
+    'qixing': r'칠성산|七星山|Qixing Mountain',
+    'huangshi': r'황석채|黄石寨|Huangshizhai',
+    'goldenwhip': r'금편계|金鞭溪|Golden Whip Stream',
+    'yuanjiajie': r'원가계|袁家界|Yuanjiajie',
+    'tianzi': r'천자산|天子山|Tianzi(?: Mountain)?',
+    'cave': r'황룡동|黄龙洞|Huanglong Cave|Yellow Dragon Cave',
+    'canyon': r'대협곡|유리다리|유리대교|大峡谷|玻璃桥|Grand Canyon|glass bridge',
+    'lake': r'보봉호|宝峰湖|Baofeng Lake',
+    'tianmen': r'천문산|천문동|天门山|天门洞|Tianmen',
+    'forest': r'삼림공원|森林公园|Forest Park',
+}
+NEARBY_WITH_STOPS = {'canyon','forest','tianmen','furong','fenghuang'}
+PHOTO_LABELS = {'ko':'사진 크게 보기', 'zh':'查看大图', 'en':'View full-size photo'}
+NIGHT_SCENE = r'야경|야간\s*유람선|퉈장의 밤|夜景|夜游|after dark|at night|night cruise|illuminated waterfall|waterfall lights'
+AIRPORT_ONLY = r'공항\s*직행|直接送机场|directly to the airport'
+
+
+@lru_cache(maxsize=1)
+def archive_photos():
+    source = Path(__file__).resolve().parents[1] / 'redesign/brand-upgrade/archive-photos.json'
+    return json.loads(source.read_text(encoding='utf-8')) if source.exists() else {}
+
+
+def archive_step_photo(html,lang,product_id,used):
+    # Exclude logistical notes where other routes and sights can be mentioned for comparison.
+    markup = re.sub(r'<aside\b[^>]*>.*?</aside>', '', html, flags=re.S)
+    heading = re.match(r'\s*<(?:strong|h3)\b[^>]*>(.*?)</(?:strong|h3)>',markup,flags=re.S)
+    plain = lambda value: unescape(re.sub(r'<[^>]+>', ' ', value))
+    text = plain(markup)
+    title = plain(heading[1]) if heading else ''
+    groups = [key for key,pattern in SCENE_NAMES.items() if re.search(pattern,text,re.I)]
+    if not groups and product_id=='furong' and re.search(NIGHT_SCENE,text,re.I):
+        groups = ['furong']
+    # Prefer the subject named in the heading, then a specific place over a generic park view.
+    groups.sort(key=lambda key:(key=='forest',not re.search(SCENE_NAMES[key],title,re.I)))
+    archives = archive_photos()
+    for key in groups:
+        entries = [item for item in archives.get(key,[]) if item['src'] not in used and item['alt'].get(lang)]
+        if not entries:
+            continue
+        if key in {'furong','fenghuang'}:
+            night = bool(re.search(NIGHT_SCENE,text,re.I))
+            entries.sort(key=lambda item:bool(re.search(r'\b(?:night|evening|dusk|lit up|illuminated)\b',item['alt']['en'],re.I))!=night)
+        item = entries[0]
+        used.add(item['src'])
+        url = escape(item['src'])
+        alt = escape(item['alt'][lang])
+        return (f'<a href="{url}" aria-label="{PHOTO_LABELS[lang]} · {alt}">'
+                f'<img class="jd-step-photo" src="{url}" alt="{alt}" width="{item["width"]}" height="{item["height"]}"'
+                ' style="height:auto" loading="lazy" decoding="async"></a>')
+    return ''
+
+
+def timeline(html,multi,lang,product_id):
     def ordered(m):
-        count=0
+        count=0;used=set()
         def step(li):
             nonlocal count;count+=1
-            pic=scenic_for(li[1]);photo=f'<img class="jd-step-photo" src="{pic}" alt="" loading="lazy">' if pic and multi else ''
+            photo=''
+            if not re.search(AIRPORT_ONLY,li[1].split('</strong>',1)[0],re.I):
+                photo=archive_step_photo(li[1],lang,product_id,used)
+                if not photo and multi:
+                    pic=scenic_for(li[1])
+                    if pic and pic not in used:
+                        used.add(pic)
+                        photo=f'<img class="jd-step-photo" src="{pic}" alt="" loading="lazy">'
             label=('Day '+str(count)) if multi else str(count).zfill(2)
             return '<li><span class="jd-step-number">'+label+'</span><div class="jd-step-copy">'+li[1]+photo+'</div></li>'
         return '<ol class="jd-timeline">'+re.sub(r'<li\b[^>]*>(.*?)</li>',step,m[1],flags=re.S)+'</ol>'
-    return re.sub(r'<ol\b[^>]*>(.*?)</ol>',ordered,html,flags=re.S)
+    html = re.sub(r'<ol\b[^>]*>(.*?)</ol>',ordered,html,flags=re.S)
+    if product_id in NEARBY_WITH_STOPS:
+        used=set()
+        def stop(match):
+            photo=archive_step_photo(match[1],lang,product_id,used)
+            return match[1]+photo if photo else match[0]
+        # Some localized routes use a photo, heading and description per stop instead of a list.
+        html = re.sub(r'<img\b[^>]*>\s*(<h3\b[^>]*>.*?</h3>\s*<p\b[^>]*>.*?</p>)',stop,html,flags=re.S)
+    return html
 
 def contents(record,lang):
     from storefront_view import product_content,w
@@ -60,8 +134,8 @@ def contents(record,lang):
             plans=record.get('plans',[])
             if plans and len(variants)==1+2*len(plans) and all(variants[1+2*i]==escape(plan['title'][lang]) for i,plan in enumerate(plans)):
                 tabs='<div class="jd-arrival-tabs" role="tablist" aria-label="'+t('도착별 일정','抵达方案','Arrival plans')+'">'+''.join(f'<button type="button" role="tab" id="plan-tab-{key}" aria-controls="plan-{key}" aria-selected="{str(i==0).lower()}" tabindex="{0 if i==0 else -1}" data-plan="{key}">{variants[1+i*2]}</button>' for i,key in enumerate([p['key'] for p in record.get('plans',[])] or ['early','late']))+'</div>'
-                body=variants[0]+tabs+''.join(f'<div id="plan-{key}" role="tabpanel" aria-labelledby="plan-tab-{key}" {"hidden" if i else ""}>'+timeline(variants[2+i*2],multi,lang)+'</div>' for i,key in enumerate([p['key'] for p in record.get('plans',[])] or ['early','late']))
-            else:body=timeline(body,multi,lang)
+                body=variants[0]+tabs+''.join(f'<div id="plan-{key}" role="tabpanel" aria-labelledby="plan-tab-{key}" {"hidden" if i else ""}>'+timeline(variants[2+i*2],multi,lang,record['id'])+'</div>' for i,key in enumerate([p['key'] for p in record.get('plans',[])] or ['early','late']))
+            else:body=timeline(body,multi,lang,record['id'])
             pieces.append(f'<section class="jd-itinerary" id="{anchor}"><h2>{heading}</h2>{body}</section>')
         else:
             includes=bool(re.search(r'포함|包含|included|inclusions|exclusions|별도|不包含',heading,re.I))
