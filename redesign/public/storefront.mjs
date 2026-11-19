@@ -29,7 +29,7 @@ document.addEventListener('click',e=>{
 });
 const search=document.querySelector('#catalog-search');
 if(search){
- const rows=[...document.querySelectorAll('[data-product-card]')],groups=[...document.querySelectorAll('.store-catalog-group')],status=document.querySelector('#catalog-search-status'),empty=document.querySelector('#catalog-empty'),options=document.querySelector('#catalog-options');
+ const rows=[...document.querySelectorAll('[data-product-card]')],groups=[...document.querySelectorAll('.store-catalog-group,.jd-catalog-subgroup')],status=document.querySelector('#catalog-search-status'),empty=document.querySelector('#catalog-empty'),options=document.querySelector('#catalog-options');
  const prefix=lang==='ko'?'':'/'+lang;
  const optionList=[
   {aliases:'천문산 天门山 tianmen',type:'입장권 티켓 门票 ticket tickets admission',href:prefix+'/tickets.html?attraction=tianmen',title:w('천문산 입장권','天门山门票','Tianmen Mountain tickets')},
@@ -39,7 +39,8 @@ if(search){
   {aliases:'부용진 芙蓉镇 furong',type:'차량 이동 픽업 接送 车 transfer shuttle',href:'/?view=furong'+(lang==='ko'?'':'&lang='+lang),title:w('부용진 이동 서비스','芙蓉镇接送','Furong transfer')}
  ];
  const categoryButtons=[...document.querySelectorAll('[data-category]')];
- let category=['packages','nearby','sanya','services'].includes(location.hash.slice(1))?location.hash.slice(1):'all';
+ const categoryFromHash=()=>{const hash=location.hash.slice(1);return ['package-regular','package-trekking'].includes(hash)?'packages':['packages','nearby','sanya','services'].includes(hash)?hash:'all';};
+ let category=categoryFromHash();
  function filter(){
   for(const b of categoryButtons)b.setAttribute('aria-pressed',String(b.dataset.category===category));
   const query=search.value.trim().toLowerCase(),terms=query.split(/\s+/).filter(Boolean);let count=0;
@@ -53,7 +54,7 @@ if(search){
  }
  search.value=new URLSearchParams(location.search).get('q')||'';search.addEventListener('input',filter);document.querySelector('[data-clear-search]').addEventListener('click',()=>{search.value='';filter();search.focus();});filter();
  for(const b of categoryButtons)b.addEventListener('click',()=>{category=b.dataset.category;const url=new URL(location.href);url.hash=category==='all'?'all-catalog':category;history.replaceState(history.state,'',url);filter();});
- window.addEventListener('hashchange',()=>{category=['packages','nearby','sanya','services'].includes(location.hash.slice(1))?location.hash.slice(1):'all';filter();});
+ window.addEventListener('hashchange',()=>{category=categoryFromHash();filter();});
 }
 // Existing ticket and transfer calculators own their inputs and pricing.
 const params=new URLSearchParams(location.search),attraction=params.get('attraction');

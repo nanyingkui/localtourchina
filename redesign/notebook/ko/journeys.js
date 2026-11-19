@@ -41,7 +41,7 @@
       let count=0;
       document.querySelectorAll('[data-route]').forEach(card=>{const visible=state.filter==='all'||routes[card.dataset.route].nights===Number(state.filter);card.hidden=!visible;if(visible)count++;});
       document.querySelectorAll('[data-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===state.filter)));
-      $('#filter-status').textContent=`${count}가지 여행 · 사진과 함께 조금 더 살펴보세요.`;
+      $('#filter-status').textContent=`비교 코스 ${count}개 · 전체 숙박여행은 위 목록에서 볼 수 있어요.`;
       if(state.filter!=='all')setPriceRoute(Object.values(routes).find(r=>r.nights===Number(state.filter)).id);
     }
     document.querySelectorAll('[data-start]').forEach(link=>link.addEventListener('click',()=>{state.route=link.dataset.start;put();}));

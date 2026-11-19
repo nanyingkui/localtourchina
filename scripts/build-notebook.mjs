@@ -12,7 +12,8 @@ const original={};for(const lang of ['zh','en'])for(const [k,v]of Object.entries
 const css=fs.readdirSync(path.join(source,'assets')).filter(f=>f.endsWith('.css'));
 const scripts=fs.readdirSync(path.join(source,'ko')).filter(f=>f.endsWith('.js'));
 const pages=fs.readdirSync(path.join(source,'ko')).filter(f=>f.endsWith('.html'));
-const sum=crypto.createHash('sha256');for(const f of [...scripts,...pages])sum.update(read(path.join(source,'ko',f)));for(const f of css)sum.update(read(path.join(source,'assets',f)));sum.update(JSON.stringify(dict));sum.update(JSON.stringify({catalog,fx}));for(const f of ['notebook-runtime.js','dated34.js'])sum.update(read(path.join(source,f)));
+const tripDirectory=read(path.join(source,'ko/multiday-directory.html.inc'));
+const sum=crypto.createHash('sha256');sum.update(tripDirectory);for(const f of [...scripts,...pages])sum.update(read(path.join(source,'ko',f)));for(const f of css)sum.update(read(path.join(source,'assets',f)));sum.update(JSON.stringify(dict));sum.update(JSON.stringify({catalog,fx}));for(const f of ['notebook-runtime.js','dated34.js'])sum.update(read(path.join(source,f)));
 function hashAssets(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){const p=path.join(dir,item.name);if(item.isDirectory())hashAssets(p);else sum.update(fs.readFileSync(p));}}
 hashAssets(path.join(source,'assets'));
 const base='/assets/notebook/'+sum.digest('hex').slice(0,12)+'/';const added=new Set(),missing=new Map();
@@ -43,7 +44,7 @@ for(const lang of ['ko','zh','en']){
  const lookup={};for(const k of new Set([...Object.keys(dict.zh),...Object.keys(dict.en)])){const value=lang==='ko'?k:dict[lang][k]??k;lookup[k]=value;for(const prev of ['zh','en'])if(dict[prev][k])lookup[dict[prev][k]]=value;}
  emit(base.slice(1)+lang+'/translations.js','window.NotebookTranslations='+JSON.stringify(lookup).replace(/</g,'\\u003c')+';');
  for(const file of scripts){let s=jsTranslate(read(path.join(source,'ko',file)),lang,file);if(lang==='en'&&file==='journeys.js')s=s.replace('<li><b>${i+1}</b>','<li><b>Day ${i+1}</b>');parse(s,{ecmaVersion:'latest'});emit(base.slice(1)+lang+'/'+file,s);}
- for(const file of pages){let s=htmlTranslate(read(path.join(source,'ko',file)),lang,file).replace('<html lang="ko"','<html data-notebook-release="14" lang="'+(lang==='zh'?'zh-CN':lang)+'"');
+ for(const file of pages){let s=htmlTranslate(read(path.join(source,'ko',file)).replace('<!-- MULTIDAY_DIRECTORY -->',tripDirectory),lang,file).replace('<html lang="ko"','<html data-notebook-release="14" lang="'+(lang==='zh'?'zh-CN':lang)+'"');
  s=s.replace(/href="([\w-]+\.css)(?:\?[^"<>]*)?"/g,(_,f)=>'href="'+base+f+'"').replace(/src="([\w-]+\.js)(?:\?[^"<>]*)?"/g,(_,f)=>'src="'+base+lang+'/'+f+'"');
  s=s.replace(/<script\b/,`<script src="${base}data.js"></script><script src="${base}${lang}/translations.js"></script><script src="${base}notebook-runtime.js"></script><script src="${base}dated34.js"></script><script src="${base}family-rule.js"></script><script`);
  if(file==='trips.html')s=s.replace(/(<p class="preview-foot">)[^<]*(<\/p>)/,'$1'+({ko:'로투차 · 여행 선택',zh:'罗途查 · 选择旅行',en:'LocalTourChina · Choose your trip'}[lang])+'$2');

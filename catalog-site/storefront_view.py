@@ -14,6 +14,10 @@ def public_catalog():
  return dict(sorted(catalog.items(),key=lambda item:order.index(item[0]) if item[0] in order else 999))
 def cat_path(lang):return ('/'+lang if lang!='ko' else '')+'/products.html'
 def home_path(lang):return '/' if lang=='ko' else '/'+lang+'/index.html'
+def product_path(record,lang):
+ # The notebook detail page is canonical; retain the legacy catalogue path for saved selections.
+ if record['id']=='experience45':return ('/'+lang if lang!='ko' else '')+'/zhangjiajie.html'
+ return record['paths'][lang]
 def group_labels(lang):return dict(zip(['packages','nearby','sanya','services'],w(lang,['후난 · 숙박 투어','후난 · 당일·1박 투어','하이난 · 반일·당일 투어','개별 서비스'],['湖南多日游','湖南短线','海南短线','个别服务'],['Hunan · multi-day tours','Hunan · day & overnight tours','Hainan · half-day & day tours','Individual services'])))
 def image_path(record):
  path=record.get('discovery',{}).get('image','')
@@ -56,7 +60,7 @@ def document(lang,title,main,catalog,record=None,page="home"):
  page_footer=footer(lang)
  if lang!='ko':
   page_footer=page_footer.replace('href="/company.html"','href="/'+lang+'/company.html"').replace('href="/privacy.html"','href="/'+lang+'/privacy.html"')
- return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>'+escape(title)+' | 로투차</title><link rel="stylesheet" href="'+ASSET+'style.css"><link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer data-ltc-selections src="'+ASSET+'start.js"></script><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261113-hierarchy"></script>'+home_assets+'<link rel="stylesheet" href="/journey.css?v=20261116-clarity"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script></head><body class="'+body_class+'">'+shell(lang,catalog,record,page)+data+main+page_footer+'</body></html>'
+ return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>'+escape(title)+' | 로투차</title><link rel="stylesheet" href="'+ASSET+'style.css"><link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer data-ltc-selections src="'+ASSET+'start.js"></script><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261119-discovery1"></script>'+home_assets+'<link rel="stylesheet" href="/journey.css?v=20261119-discovery1"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script></head><body class="'+body_class+'">'+shell(lang,catalog,record,page)+data+main+page_footer+'</body></html>'
 def product_content(record,lang):
  local=record['locales'][lang];html=local.get('sections','')
  if record['id'] in CATALOG:
@@ -74,7 +78,7 @@ def product_content(record,lang):
  return html
 
 def card(record,lang,detail=False):
- local=record['locales'][lang];d=record['discovery'];path=record['paths'][lang];img=image_path(record)
+ local=record['locales'][lang];d=record['discovery'];path=product_path(record,lang);img=image_path(record)
  picture=f'<a class="store-card-image" href="{path}" tabindex="-1" aria-hidden="true"><img src="{img}" alt="" loading="lazy"></a>' if img else ''
  more='<details class="card-details"><summary>'+w(lang,'일정·포함·불포함','行程、包含与不包含','Itinerary, inclusions & exclusions')+'</summary><div class="card-record">'+re.sub(r'<(/?)h([23])>',lambda m:'<'+m[1]+'h'+str(int(m[2])+1)+'>',product_content(record,lang))+'</div></details>' if detail else ''
  search=' '.join([record['id'],d.get('keywords','')]+[v['title'] for v in record['locales'].values()]+list(d['summary'].values()))
@@ -153,8 +157,8 @@ def enhance_existing(html,name,lang,catalog,record=None):
    if not n:html=html.replace('</main>',panel+'</main>',1)
  # The source selection modules are served directly by the local preview server.
  assets='<link rel="stylesheet" href="'+ASSET+'style.css"><script defer data-ltc-selections src="'+ASSET+'start.js"></script>' if ASSET+'start.js' not in html else ''
- assets+='<link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261113-hierarchy"></script>'
- assets+='<link rel="stylesheet" href="/journey.css?v=20261116-clarity"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script>'
+ assets+='<link rel="stylesheet" href="/storefront.css?v=20261113-contrast1"><script defer src="/catalog-choice.js"></script><script type="module" src="/storefront.mjs?v=20261119-discovery1"></script>'
+ assets+='<link rel="stylesheet" href="/journey.css?v=20261119-discovery1"><link rel="stylesheet" href="/hierarchy.css?v=20261113-1"><script type="module" src="/journey-view.mjs?v=20261113-b"></script>'
  return html.replace('</head>',assets+'</head>',1)
 def storefront(html,name,lang,query=None):
  catalog=public_catalog();record=next((r for r in catalog.values() if r['paths'].get(lang)=='/'+name),None)

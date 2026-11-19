@@ -2,10 +2,11 @@
 from html import escape
 
 def render_menus(lang, catalog):
+    from storefront_view import product_path
     def t(ko,zh,en):return {'ko':ko,'zh':zh,'en':en}[lang]
     browse=('' if lang=='ko' else '/'+lang)+'/products.html'
     def group(key,title,items):
-        links=''.join('<a href="'+escape(r['paths'][lang])+'" data-menu-product="'+escape(r['id'])+'">'+escape(r['locales'][lang]['title'])+'</a>' for r in items)
+        links=''.join('<a href="'+escape(product_path(r,lang))+'" data-menu-product="'+escape(r['id'])+'">'+escape(r['locales'][lang]['title'])+'</a>' for r in items)
         return f'<details class="menu-group" id="menu-group-{key}" open><summary><span>{title}</span><small>{len(items)}</small><span class="menu-toggle" aria-hidden="true">+</span></summary><div class="menu-group-links">{links}</div></details>'
     multi=[r for r in catalog.values() if r['discovery']['group']=='packages' and not r['id'].startswith('trek')]
     trek=[r for r in catalog.values() if r['id'].startswith('trek')]
