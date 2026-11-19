@@ -1,9 +1,60 @@
-(() => {const header=document.querySelector('.ltc-shell'),nav=document.querySelector('body>.nav');const measure=()=>{const shell=header?.getBoundingClientRect().height||0,total=shell+(nav&&['sticky','fixed'].includes(getComputedStyle(nav).position)?nav.getBoundingClientRect().height:0);document.documentElement.style.setProperty('--shell-height',Math.ceil(shell)+'px');document.documentElement.style.setProperty('--scenic-top',Math.ceil(total)+'px')};measure();if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(measure);if(header)observer.observe(header);if(nav)observer.observe(nav);}addEventListener('resize',measure);})();
 (() => {
- const hero=document.querySelector('.immersive-hero');const reduced=matchMedia('(prefers-reduced-motion: reduce)');let queued=false;
- function paint(){queued=false;if(reduced.matches)return;const p=Math.max(0,Math.min(1,scrollY/hero.offsetHeight));hero.style.setProperty('--hero-night',(p*p*(3-2*p)).toFixed(4));}
- addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(paint)}},{passive:true});paint();
+  const chrome = document.querySelector('[data-planner-chrome]');
+  if (!chrome) return;
+  const menu = chrome.querySelector('.planner-site-menu');
+  const compact = matchMedia('(max-width: 1000px)');
+  const syncMenu = () => { menu.open = !compact.matches; };
+  syncMenu();
+  compact.addEventListener('change', syncMenu);
+
+  const languages = {
+    zh: {
+      brand: '罗途查',
+      home: '罗途查首页',
+      nav: '主菜单',
+      menu: '菜单',
+      trips: '全部多日游',
+      products: '全部旅行与服务',
+      services: '接送·一日游',
+      resources: '自由行资料',
+      reviews: '旅行故事',
+      consult: '旅行咨询',
+      back: '← 返回自由行资料',
+      language: '行程工具使用韩文',
+    },
+    en: {
+      brand: 'LocalTourChina',
+      home: 'LocalTourChina home',
+      nav: 'Main menu',
+      menu: 'Menu',
+      trips: 'All multi-day tours',
+      products: 'All tours and services',
+      services: 'Transfers & day trips',
+      resources: 'Independent travel',
+      reviews: 'Travel stories',
+      consult: 'Plan our trip',
+      back: '← Independent travel',
+      language: 'Planner interface in Korean',
+    },
+  };
+  const locale = new URLSearchParams(location.search).get('lang');
+  if (locale !== 'zh' && locale !== 'en') return;
+
+  const copy = languages[locale];
+  const prefix = '/' + locale + '/';
+  chrome.lang = locale;
+  chrome.querySelector('[data-site-brand]').setAttribute('aria-label', copy.home);
+  chrome.querySelector('[data-site-nav]').setAttribute('aria-label', copy.nav);
+  for (const node of chrome.querySelectorAll('[data-site-text]')) {
+    node.textContent = copy[node.dataset.siteText];
+  }
+  for (const link of chrome.querySelectorAll('[data-site-route]')) {
+    link.href = prefix + link.dataset.siteRoute;
+  }
+  chrome.querySelector('[data-site-text="language"]').hidden = false;
 })();
+
+(() => {const header=document.querySelector('.planner-site-header, .ltc-shell'),nav=document.querySelector('body>.nav');const measure=()=>{const shell=header&&['sticky','fixed'].includes(getComputedStyle(header).position)?header.getBoundingClientRect().height:0,total=shell+(nav&&['sticky','fixed'].includes(getComputedStyle(nav).position)?nav.getBoundingClientRect().height:0);document.documentElement.style.setProperty('--shell-height',Math.ceil(shell)+'px');document.documentElement.style.setProperty('--scenic-top',Math.ceil(total)+'px')};measure();if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(measure);if(header)observer.observe(header);if(nav)observer.observe(nav);}addEventListener('resize',measure);})();
 (() => {
  const stage=document.querySelector('.light-stage'),view=document.querySelector('.light-sticky'),slider=document.getElementById('lightRange'),clock=document.getElementById('lightTime'),mood=document.getElementById('lightMood'),follow=document.getElementById('lightFollow'),presets=[...document.querySelectorAll('[data-light-hour]')],reduce=matchMedia('(prefers-reduced-motion: reduce)');const compact=matchMedia('(max-height: 600px)');let manual=reduce.matches||compact.matches,pending=false;
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));

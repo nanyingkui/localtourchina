@@ -36,6 +36,7 @@ await copyPublicTree(dist, root);
 python('scripts/build-reviewed-catalog.py');
 run('scripts/build-notebook.mjs', root);
 run('scripts/build-brand-upgrade.mjs', root);
+run('scripts/build-independent-travel.mjs', root);
 await finalizePublicRelease(root, dist);
 console.log('Public pages generated; quotes and protected administration use the existing runtime.');
 

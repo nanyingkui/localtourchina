@@ -92,6 +92,14 @@
     "kind": "travel"
   },
   {
+    "path": "en/independent-city.html",
+    "kind": "travel"
+  },
+  {
+    "path": "en/independent-travel.html",
+    "kind": "travel"
+  },
+  {
     "path": "en/index.html",
     "kind": "travel"
   },
@@ -282,6 +290,14 @@
   {
     "path": "food-map.html",
     "kind": "read"
+  },
+  {
+    "path": "independent-city.html",
+    "kind": "travel"
+  },
+  {
+    "path": "independent-travel.html",
+    "kind": "travel"
   },
   {
     "path": "index.html",
@@ -482,6 +498,14 @@
   {
     "path": "zh/food-map.html",
     "kind": "read"
+  },
+  {
+    "path": "zh/independent-city.html",
+    "kind": "travel"
+  },
+  {
+    "path": "zh/independent-travel.html",
+    "kind": "travel"
   },
   {
     "path": "zh/index.html",

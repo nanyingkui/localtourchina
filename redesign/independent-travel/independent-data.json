@@ -1,0 +1,231 @@
+[
+  {
+    "id": "dadui-laoyucun",
+    "area": "wulingyuan",
+    "category": "food",
+    "nameChinese": "大队老渔村1973·湘西土菜研究院",
+    "title": {
+      "ko": "다두이 라오위춘 1973",
+      "zh": "大队老渔村1973",
+      "en": "Dadui Laoyucun 1973"
+    },
+    "tip": {
+      "ko": "샹시 음식을 맛보고 싶다면 간장으로 조린 쏘가리(红烧桂鱼)를 물어보세요.",
+      "zh": "想吃湘西菜，可以问问当天有没有红烧桂鱼。",
+      "en": "For Xiangxi cooking, ask whether the braised mandarin fish is available."
+    },
+    "image": "/assets/archive-photos/food-10-ff5806c6.webp",
+    "imageAlt": {
+      "ko": "다두이 라오위춘 1973 외관 간판",
+      "zh": "大队老渔村1973的外墙招牌",
+      "en": "The sign outside Dadui Laoyucun 1973"
+    },
+    "map": "https://uri.amap.com/search?keyword=%E5%A4%A7%E9%98%9F%E8%80%81%E6%B8%94%E6%9D%911973%C2%B7%E6%B9%98%E8%A5%BF%E5%9C%9F%E8%8F%9C%E7%A0%94%E7%A9%B6%E9%99%A2&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://whhlyt.hunan.gov.cn/whhlyt/wldhtscp/202209/t20220920_29008430.html",
+    "contextual": false
+  },
+  {
+    "id": "kakasu",
+    "area": "wulingyuan",
+    "category": "coffee",
+    "nameChinese": "KaKaSu咖啡馆（协合乡山沟沟客栈）",
+    "title": {
+      "ko": "카카수 카페",
+      "zh": "KaKaSu 咖啡馆",
+      "en": "KaKaSu Café"
+    },
+    "tip": {
+      "ko": "협합향에 있는 산속 카페예요. 출발 전에 영업 여부를 확인하세요.",
+      "zh": "协合乡的山间咖啡馆，出发前确认当天营业。",
+      "en": "A hillside café in Xiehe Township. Check that it is open before setting out."
+    },
+    "image": "/assets/food/2026-10-06-premium/kakasu/kakasu-03-webp-640.webp",
+    "imageAlt": {
+      "ko": "대나무 사이로 보이는 카카수 카페",
+      "zh": "竹林间的 KaKaSu 木屋",
+      "en": "KaKaSu’s wooden café behind bamboo"
+    },
+    "map": "https://uri.amap.com/search?keyword=kakasu%E5%92%96%E5%95%A1%E9%A6%86%20%E5%B1%B1%E6%B2%9F%E6%B2%9F%E5%AE%A2%E6%A0%88&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://www.xiaohongshu.com/explore/6a72e8d000000000050287ae",
+    "contextual": false
+  },
+  {
+    "id": "pullman-wulingyuan",
+    "area": "wulingyuan",
+    "category": "hotel",
+    "nameChinese": "张家界京武雅高铂尔曼酒店",
+    "title": {
+      "ko": "장가계 풀만 호텔",
+      "zh": "张家界铂尔曼",
+      "en": "Pullman Zhangjiajie"
+    },
+    "tip": {
+      "ko": "무릉원 가오윈루에 있어요. 숙박을 고르기 전에 갈 공원 입구를 확인하세요.",
+      "zh": "位于武陵源高云路。订房前先确认要走的森林公园入口。",
+      "en": "On Gaoyun Road in Wulingyuan. Check which park gate you will use before booking."
+    },
+    "map": "https://uri.amap.com/search?keyword=%E5%BC%A0%E5%AE%B6%E7%95%8C%E4%BA%AC%E6%AD%A6%E9%9B%85%E9%AB%98%E9%93%82%E5%B0%94%E6%9B%BC%E9%85%92%E5%BA%97&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://all.accor.com/hotel/7934/index.zh.shtml"
+  },
+  {
+    "id": "hu-shifu-ziwu",
+    "area": "city",
+    "category": "food",
+    "nameChinese": "胡师傅三下锅（子午路总店）",
+    "title": {
+      "ko": "후스푸 싼샤궈 · 쯔우루 본점",
+      "zh": "胡师傅三下锅 · 子午路总店",
+      "en": "Hu Shifu Three-Pot Stew"
+    },
+    "tip": {
+      "ko": "싼샤궈를 주문할 때 들어가는 고기와 맵기를 먼저 물어보세요.",
+      "zh": "点三下锅时，先问用哪些肉、能不能少辣。",
+      "en": "Before ordering sanxiaguo, ask which meats are in the pot and whether it can be milder."
+    },
+    "image": "/assets/notebook/f905c123f4fd/photos/food-sanxiaguo.webp",
+    "imageAlt": {
+      "ko": "장가계 향토 음식 싼샤궈 참고 사진",
+      "zh": "张家界三下锅菜式参考",
+      "en": "An example of Zhangjiajie sanxiaguo"
+    },
+    "map": "https://uri.amap.com/marker?poiid=B0FFFZ2DSP&src=rotucha&callnative=0",
+    "sourceHref": "/food-map.html#215",
+    "contextual": true
+  },
+  {
+    "id": "starbucks-bofu",
+    "area": "city",
+    "category": "coffee",
+    "nameChinese": "星巴克（张家界泊富文化广场店）",
+    "title": {
+      "ko": "스타벅스 · 보푸문화광장점",
+      "zh": "星巴克 · 泊富文化广场店",
+      "en": "Starbucks · Bofu Cultural Plaza"
+    },
+    "tip": {
+      "ko": "시내 베이정제에 있어요. 보푸문화광장 지점으로 검색하세요.",
+      "zh": "在市区北正街，地图里认准泊富文化广场店。",
+      "en": "On Beizheng Street downtown. Search for the Bofu Cultural Plaza branch."
+    },
+    "image": "/assets/food/2026-10-04/zhangjiajie-starbucks-bofu-2-jpg-525.webp",
+    "imageAlt": {
+      "ko": "보푸문화광장 스타벅스 창가 좌석",
+      "zh": "泊富文化广场星巴克靠窗座位",
+      "en": "Window seating at the Bofu Cultural Plaza Starbucks"
+    },
+    "map": "https://uri.amap.com/search?keyword=%E6%98%9F%E5%B7%B4%E5%85%8B%EF%BC%88%E5%BC%A0%E5%AE%B6%E7%95%8C%E6%B3%8A%E5%AF%8C%E6%96%87%E5%8C%96%E5%B9%BF%E5%9C%BA%E5%BA%97%EF%BC%89&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://ranks.amap.com/recommend/cafe-Zhangjiajie-student",
+    "contextual": false
+  },
+  {
+    "id": "mercure-tianmen",
+    "area": "city",
+    "category": "hotel",
+    "nameChinese": "张家界天门山美居酒店",
+    "title": {
+      "ko": "장가계 천문산 머큐어 호텔",
+      "zh": "张家界天门山美居酒店",
+      "en": "Mercure Zhangjiajie Tianmen Mountain"
+    },
+    "tip": {
+      "ko": "쯔우루 18번지예요. 예약할 때 호텔 이름에 ‘천문산’이 있는지 확인하세요.",
+      "zh": "在子午路18号，预订时认准店名里的「天门山」。",
+      "en": "At 18 Ziwu Road. Check that your booking names the Tianmen Mountain branch."
+    },
+    "map": "https://uri.amap.com/search?keyword=%E5%BC%A0%E5%AE%B6%E7%95%8C%E5%A4%A9%E9%97%A8%E5%B1%B1%E7%BE%8E%E5%B1%85%E9%85%92%E5%BA%97&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://all.accor.com/hotel/C3D4/index.zh.shtml"
+  },
+  {
+    "id": "haobusi-dayongqiao",
+    "area": "city",
+    "category": "food",
+    "nameChinese": "蚝布斯龙虾港·烧烤（大庸桥社区店）",
+    "title": {
+      "ko": "호브스 롱샤강 · 대용교점",
+      "zh": "蚝布斯龙虾港 · 大庸桥社区店",
+      "en": "Haobusi Seafood BBQ · Dayongqiao"
+    },
+    "tip": {
+      "ko": "저녁에 굴구이나 꼬치를 나눠 먹기 좋은 곳이에요. 주문 전에 오늘 가능한 메뉴를 확인하세요.",
+      "zh": "晚餐可以看看蒜蓉烤生蚝和烤串，先问当天供应。",
+      "en": "For dinner, ask about garlic oysters and skewers before ordering."
+    },
+    "image": "/assets/notebook/f905c123f4fd/photos/food-oysters.webp",
+    "imageAlt": {
+      "ko": "마늘과 고추를 올린 굴구이",
+      "zh": "蒜蓉和辣椒烤生蚝",
+      "en": "Grilled oysters topped with garlic and chilli"
+    },
+    "map": "https://uri.amap.com/search?keyword=%E8%9A%9D%E5%B8%83%E6%96%AF%E9%BE%99%E8%99%BE%E6%B8%AF%C2%B7%E7%83%A7%E7%83%A4%EF%BC%88%E5%A4%A7%E5%BA%B8%E6%A1%A5%E7%A4%BE%E5%8C%BA%E5%BA%97%EF%BC%89&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "/food-map.html#87",
+    "contextual": false
+  },
+  {
+    "id": "suoxi-tianmen-cableway",
+    "area": "scenic",
+    "category": "food",
+    "nameChinese": "索溪山寨·湘西民间土菜（天门山索道店）",
+    "title": {
+      "ko": "쒀시산자이 · 천문산 케이블카점",
+      "zh": "索溪山寨 · 天门山索道店",
+      "en": "Suoxi Shanzhai · Tianmen Cableway"
+    },
+    "tip": {
+      "ko": "천문산에서 내려온 뒤 싼샤궈나 훈제 고기를 먹고 싶다면 케이블카 지점으로 검색하세요.",
+      "zh": "天门山下山后想吃三下锅或腊肉，认准索道店。",
+      "en": "For sanxiaguo or smoked pork after Tianmen Mountain, choose the cableway branch."
+    },
+    "image": "/assets/notebook/f905c123f4fd/photos/food-local-dinner.webp",
+    "imageAlt": {
+      "ko": "장가계 현지 식사 한 상 참고 사진",
+      "zh": "张家界当地菜一桌参考",
+      "en": "An example of a local meal in Zhangjiajie"
+    },
+    "map": "https://uri.amap.com/search?keyword=%E7%B4%A2%E6%BA%AA%E5%B1%B1%E5%AF%A8%C2%B7%E6%B9%98%E8%A5%BF%E6%B0%91%E9%97%B4%E5%9C%9F%E8%8F%9C%EF%BC%88%E5%A4%A9%E9%97%A8%E5%B1%B1%E7%B4%A2%E9%81%93%E5%BA%97%EF%BC%89&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "/food-map.html#66b",
+    "contextual": true
+  },
+  {
+    "id": "chunye-laiwu",
+    "area": "scenic",
+    "category": "coffee",
+    "nameChinese": "张家界椿也风物",
+    "title": {
+      "ko": "춘예라이우",
+      "zh": "椿也来物（地图显示为椿也风物）",
+      "en": "Chunye Laiwu"
+    },
+    "tip": {
+      "ko": "보봉호 쪽에서 풍경을 보며 쉬고 싶을 때 좋아요. 돌아오는 차량편도 미리 확인하세요.",
+      "zh": "去宝峰湖一带时可安排一站。出发前确认返程怎么叫车。",
+      "en": "Consider a stop near Baofeng Lake. Check how you will get a ride back."
+    },
+    "image": "/assets/archive-photos/lake-22-7a32ea01.webp",
+    "imageAlt": {
+      "ko": "보봉호 주변 산봉우리와 구름",
+      "zh": "宝峰湖一带的山峰和云层",
+      "en": "Peaks and clouds around Baofeng Lake"
+    },
+    "map": "https://surl.amap.com/c8RgB7I18972",
+    "sourceHref": "/food-map.html#207",
+    "contextual": true
+  },
+  {
+    "id": "home-inn-tianmen-station",
+    "area": "scenic",
+    "category": "hotel",
+    "nameChinese": "如家酒店·neo（张家界天门山景区索道站店）",
+    "title": {
+      "ko": "홈인 네오 · 천문산 케이블카역점",
+      "zh": "如家·neo · 天门山索道站店",
+      "en": "Home Inn neo · Tianmen Cableway Station"
+    },
+    "tip": {
+      "ko": "천문산 케이블카를 탈 예정이라면 관리루 지점과 탑승 장소를 함께 확인하세요.",
+      "zh": "计划坐天门山索道，先核对官黎路门店和索道乘车地点。",
+      "en": "Planning a Tianmen cableway trip? Check the Guanli Road branch and your boarding point."
+    },
+    "map": "https://uri.amap.com/search?keyword=%E5%A6%82%E5%AE%B6%E9%85%92%E5%BA%97%C2%B7neo%EF%BC%88%E5%BC%A0%E5%AE%B6%E7%95%8C%E5%A4%A9%E9%97%A8%E5%B1%B1%E6%99%AF%E5%8C%BA%E7%B4%A2%E9%81%93%E7%AB%99%E5%BA%97%EF%BC%89&city=%E5%BC%A0%E5%AE%B6%E7%95%8C&src=rotucha&callnative=0",
+    "sourceHref": "https://www.bthhotels.com/list/zhangjiajie"
+  }
+]
