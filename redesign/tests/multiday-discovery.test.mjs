@@ -62,7 +62,10 @@ for (const lang of ['ko', 'zh', 'en']) {
         assert.doesNotMatch(detail, /http-equiv=["']refresh/i, link.pathname + ' avoids an extra redirect');
       }
       const allCatalog = hrefs(directory, prefix + page).find(url => url.pathname === '/' + prefix + 'products.html');
-      assert.equal(allCatalog?.hash, '#packages', 'catalog action opens the complete multiday category');
+      assert.ok(allCatalog, 'the full product catalogue remains directly available');
+      // The compact homepage index opens the multiday category. The richer
+      // comparison page explicitly links to day tours, transport and guides.
+      assert.equal(allCatalog.hash, directory.includes('data-trip-comparison') ? '' : '#packages');
       if (lang !== 'ko') assert.doesNotMatch(directory.replace(/<[^>]*>/g, ''), /[가-힣]/, 'customer-facing directory is translated');
     });
   }

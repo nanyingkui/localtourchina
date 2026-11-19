@@ -8,20 +8,22 @@ const root=path.resolve(import.meta.dirname,'../..');
 const source=path.join(root,'redesign/notebook');
 const routes={regular34:'zhangjiajie-4days.html',experience45:'zhangjiajie.html',regular56:'zhangjiajie-6days.html'};
 
-test('home audience cards link to their distinct services, with photo stories for multiday trips',()=>{
+test('home features three distinct multiday trips with photo stories and a separate online guide service',()=>{
   for(const prefix of ['','zh/','en/']){
     const html=fs.readFileSync(path.join(root,prefix+'index.html'),'utf8');
-    const cards=[...html.matchAll(/<article class="trip-card">([\s\S]*?)<\/article>/g)].map(m=>m[1]);
+    const cards=[...html.matchAll(/<article class="[^"]*\btrip-card\b[^"]*">([\s\S]*?)<\/article>/g)].map(m=>m[1]);
     assert.equal(cards.length,3,prefix+' route cards');
     for(const [index,card] of cards.entries()){
-      if(index===2){assert.match(card,/online-guide\.html/);assert.match(card,/data-online-price/);assert.doesNotMatch(card,/data-route-story/);continue;}
       const photo=card.match(/<button\b[^>]*data-route-story="([^"]+)"[^>]*>/);
       assert.ok(photo,prefix+' photo is a button, not a duplicate route link');
       assert.ok(photo[0].includes('aria-haspopup="dialog"'));
       const links=[...card.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(m=>m[1]);
-      assert.equal(photo[1],index===0?'experience45':'regular56');
-      assert.ok(links.includes(routes[photo[1]]),prefix+' correct itinerary action');
+      assert.equal(photo[1],['regular34','experience45','regular56'][index]);
+      assert.ok(links.some(href=>href===routes[photo[1]]||href==='/'+prefix+routes[photo[1]]),prefix+' correct itinerary action');
     }
+    const services=html.match(/<section\b[^>]*id="services"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(services,prefix+' independent travel services stay visible');
+    assert.ok(services.includes(`href="/${prefix}online-guide.html"`),prefix+' online support keeps its own clear service entry');
     assert.match(html,/src="[^"]+route-stories\.js"/);
   }
 });
