@@ -19,8 +19,9 @@ const base='/assets/notebook/'+sum.digest('hex').slice(0,12)+'/';const added=new
 function emit(name,bytes){if(preview)write(path.join(preview,name),bytes);else{write(path.join(root,name),bytes);write(path.join(dist,name),bytes);}added.add(name);}
 function tree(from,rel){for(const e of fs.readdirSync(from,{withFileTypes:true})){const p=path.join(from,e.name),dest=rel+e.name;if(e.isDirectory())tree(p,dest+'/');else emit(dest,fs.readFileSync(p));}}
 tree(path.join(source,'assets'),base.slice(1));
-emit('favicon.ico',fs.readFileSync(path.join(source,'assets/icons/favicon.ico')));
-emit('apple-touch-icon.png',fs.readFileSync(path.join(source,'assets/icons/orange-hat-180.png')));
+emit('favicon.ico',fs.readFileSync(path.join(source,'brand-icons/favicon.ico')));
+emit('favicon.png',fs.readFileSync(path.join(source,'brand-icons/orange-hat-48.png')));
+emit('apple-touch-icon.png',fs.readFileSync(path.join(source,'brand-icons/orange-hat-180.png')));
 const shared=JSON.stringify({fx,catalog:{'34':catalog['34'],'56':catalog['56'],'online-guide':catalog['online-guide'],'local-guide':catalog['local-guide'],experience45:catalog.experience45||null}}).replace(/</g,'\\u003c');
 emit(base.slice(1)+'data.js','window.NotebookData='+shared+';');
 for(const f of ['notebook-runtime.js','dated34.js'])emit(base.slice(1)+f,read(path.join(source,f)));
@@ -91,7 +92,7 @@ for(const name of new Set([...manifest,...added])){
  html=html.replace(/<link[^>]*data-notebook-white[^>]*>/g,'').replace(/<script[^>]*data-notebook-white[^>]*><\/script>/g,'');
  html=html.replace(/<html\b([^>]*)>/i,(all,attrs)=>/class="/.test(attrs)?'<html'+attrs.replace(/class="([^"]*)"/,(_,v)=>'class="'+[...new Set((v+' notebook-white').split(/\s+/))].join(' ')+'"')+'>':'<html'+attrs+' class="notebook-white">');
  html=html.replace(/(?:^[ \t]*)?<link\b[^>]*rel=["'](?:shortcut icon|icon|apple-touch-icon)["'][^>]*>/gim,'');
- const resources=`<link data-notebook-white rel="stylesheet" href="${base}white-notebook.css"><link rel="icon" type="image/png" sizes="32x32" href="${base}icons/orange-hat-32.png"><link rel="icon" type="image/png" sizes="48x48" href="${base}icons/orange-hat-48.png"><link rel="shortcut icon" href="/favicon.ico?v=${base.split('/')[3]}"><link rel="apple-touch-icon" sizes="180x180" href="${base}icons/orange-hat-180.png">`;
+ const resources=`<link data-notebook-white rel="stylesheet" href="${base}white-notebook.css"><link rel="icon" type="image/png" sizes="48x48" href="https://localtourchina.com/favicon.png"><link rel="shortcut icon" href="https://localtourchina.com/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="https://localtourchina.com/apple-touch-icon.png">`;
  if(html.includes('</head>'))html=html.replace('</head>',resources+'</head>');
  else if(/<body\b/.test(html))html=html.replace(/<body\b/,resources+'<body');
  else{const last=[...html.matchAll(/<\/style>|<\/title>|<link\b[^>]*>/g)].at(-1);if(!last)throw Error('No head insertion point: '+name);const at=last.index+last[0].length;html=html.slice(0,at)+resources+html.slice(at);}
