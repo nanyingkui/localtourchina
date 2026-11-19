@@ -139,3 +139,8 @@ html[data-notebook-release] .ed-public :is(.hero .hero-copy,.service-hero) h1{
  color:#fff;
  text-shadow:0 2px 7px #16291e;
 }
+
+html[lang^="zh"][data-notebook-release] .ed-public :is(.hero .hero-copy,.service-hero) h1{
+ word-break:normal;
+ overflow-wrap:anywhere;
+}

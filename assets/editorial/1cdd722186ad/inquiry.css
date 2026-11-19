@@ -1,0 +1,48 @@
+/* Keep inquiry entry and manual-chat handoff legible inside the existing notebook. */
+.ed-inquiry-page{--ed-inquiry-ink:#20382e;--ed-inquiry-green:#167247;--ed-inquiry-line:#d8e3d9;--ed-inquiry-muted:#53665c}
+.ed-inquiry-page main{max-width:720px;background:#fff}
+.ed-inquiry-expect,.ed-inquiry-pending,.ed-inquiry-handoff{margin:24px 25px;padding:22px 0;color:var(--ed-inquiry-ink);border-block:1px solid var(--ed-inquiry-line);background:#fff}
+.ed-inquiry-eyebrow{margin:0 0 8px;font-size:14px;font-weight:600;line-height:1.6;color:var(--ed-inquiry-green);letter-spacing:.01em}
+.ed-inquiry-expect h2,.ed-inquiry-handoff h2{margin:0 0 14px;font:600 21px/1.45 Pretendard,Arial,sans-serif;letter-spacing:-.025em}
+.ed-inquiry-expect ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 22px;margin:0;padding:0 0 0 18px;font-size:15px;line-height:1.7}
+.ed-inquiry-expect li::marker,.ed-inquiry-handoff li::marker{color:var(--ed-inquiry-green)}
+.ed-inquiry-page .ed-inquiry-note{margin:16px 0 0;font-size:14px;line-height:1.8;color:var(--ed-inquiry-muted)}
+.ed-inquiry-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0 0;padding:17px 0 0 18px;border-top:1px solid var(--ed-inquiry-line);font-size:14px;line-height:1.7}
+.ed-inquiry-stages li{padding-left:2px}
+.ed-inquiry-page .ed-inquiry-direct{display:inline-flex;align-items:center;min-height:46px;margin-top:12px;color:var(--ed-inquiry-green);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:4px;line-height:1.7}
+.ed-inquiry-direct:focus-visible{outline:3px solid #234fc7;outline-offset:4px}
+.ed-inquiry-page .ed-inquiry-pending{padding:18px 20px;border:1px solid #dfcf86;border-left:4px solid #c5a530;background:#fffbed}
+.ed-inquiry-pending p{margin:0;font-size:15px;line-height:1.8}
+.ed-inquiry-pending p+p{margin-top:6px;color:#4b5949}
+.ed-inquiry-page .ed-inquiry-message-label{margin:0 0 10px;font-size:14px;line-height:1.7;color:var(--ed-inquiry-muted)}
+.ed-inquiry-page .review-message{padding:20px 24px!important;margin:20px 25px!important;transform:none!important}
+.ed-inquiry-page .review-message::before,.ed-inquiry-page .review-message::after{display:none!important}
+.ed-inquiry-page .review-message .message-postmark{display:none!important}
+.ed-inquiry-page .review-message h2{margin:0 0 10px;font-size:18px;line-height:1.5}
+.ed-inquiry-page #inquiry-message,.ed-inquiry-page #service-message{display:block;box-sizing:border-box;width:100%;min-height:180px!important;max-height:360px!important;overflow-y:auto!important;resize:vertical;padding:16px!important;font:400 16px/1.8 Pretendard,Arial,sans-serif!important;background:#fff!important;color:var(--ed-inquiry-ink)!important;border:1px solid #b9cbbd;border-radius:4px;transform:none!important;scrollbar-gutter:stable}
+.ed-inquiry-page #inquiry-message:focus-visible,.ed-inquiry-page #service-message:focus-visible{outline:3px solid #234fc7;outline-offset:3px}
+.ed-inquiry-page .review-actions{position:sticky;bottom:0;z-index:12;max-width:none;padding:16px 25px;background:#fff;border-top:1px solid var(--ed-inquiry-line)}
+.ed-inquiry-page #copy-open,.ed-inquiry-page #service-copy-open{width:100%;min-height:50px;padding:12px 16px;font-size:16px;font-weight:700;line-height:1.5;white-space:normal}
+.ed-inquiry-page .review-small-actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px}
+.ed-inquiry-page .review-small-actions button,.ed-inquiry-page #chat-fallback,.ed-inquiry-page #service-chat-fallback,.ed-inquiry-page #service-edit-button{min-height:46px;font-size:14px;line-height:1.6}
+.ed-inquiry-page .copy-status:not(:empty),.ed-inquiry-page #service-copy-status:not(:empty){margin:10px 0 6px;font-size:14px;line-height:1.7}
+.ed-inquiry-handoff ol{margin:0;padding-left:20px;font-size:15px;line-height:1.8}
+.ed-inquiry-handoff li+li{margin-top:6px}
+.ed-inquiry-handoff>p{margin:14px 0 0;font-size:14px;line-height:1.8;color:var(--ed-inquiry-muted)}
+.ed-inquiry-page .review-help{padding-top:5px}
+.ed-inquiry-page .review-help p,.ed-inquiry-page .copy-hint{font-size:14px;line-height:1.8}
+.ed-inquiry-page .sticky-action{max-width:720px}
+.ed-inquiry-page .service-review .ed-inquiry-pending,.ed-inquiry-page .service-review .ed-inquiry-handoff{margin-inline:0}
+.ed-inquiry-page .service-review .ed-inquiry-message-label{margin-top:20px}
+@media(max-width:600px){
+ .ed-inquiry-expect,.ed-inquiry-pending,.ed-inquiry-handoff{margin:20px 22px}
+ .ed-inquiry-expect ul{grid-template-columns:1fr;gap:7px}
+ .ed-inquiry-stages{display:none}
+ .ed-inquiry-page .ed-inquiry-pending{padding:16px}
+ .ed-inquiry-page .review-message{margin:18px 22px!important;padding:18px!important}
+ .ed-inquiry-page #inquiry-message,.ed-inquiry-page #service-message{max-height:280px!important;min-height:170px!important;padding:12px!important}
+ .ed-inquiry-page .review-actions{padding:12px 22px}
+ .ed-inquiry-page .review-actions .copy-status:empty{display:none}
+ .ed-inquiry-page .review-small-actions{margin-top:4px}
+}
+@media(prefers-reduced-motion:reduce){.ed-inquiry-page,.ed-inquiry-page *{scroll-behavior:auto!important}}
