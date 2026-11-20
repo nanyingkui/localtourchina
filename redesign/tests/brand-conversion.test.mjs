@@ -28,8 +28,14 @@ for(const lang of ['ko','zh','en']){
   assert.match(html,/<main class="ed-home">/);
   assert.match(html,/<h1>[\s\S]*?(?:장가계|张家界|Zhangjiajie)[\s\S]*?<\/h1>/);
   const primary=html.match(/<a\b[^>]*class="primary ed-primary"[^>]*>/)?.[0];
-  assert.ok(primary?.includes(`href="/${prefix}consultation.html?trip=custom"`));
-  assert.ok(html.includes(`href="/${prefix}trips.html#all-trips"`));
+  if (prefix === '') {
+   assert.match(primary, /href="\/travel-safety\.html\?channel=kakao#next=/);
+   assert.match(primary, /data-contact-placement="home_hero"/);
+   assert.match(html, /href="\/consultation\.html\?trip=custom" data-ed-action="start_inquiry">일정·견적 요청서 작성하기/);
+  } else {
+   assert.ok(primary?.includes(`href="/${prefix}consultation.html?trip=custom"`));
+  }
+  assert.match(html, /href="(?:\/(?:zh\/|en\/)?)?trips\.html#all-trips"/);
   assert.ok(html.includes('id="all-trips"'));
   for(const id of ['service-standards','people','real-stories','before-booking'])assert.equal([...html.matchAll(new RegExp(`id="${id}"`,'g'))].length,1,id+' appears once');
   const main=html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];

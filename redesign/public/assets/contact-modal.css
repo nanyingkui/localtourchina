@@ -1,4 +1,4 @@
-.ltc-contact-modal{box-sizing:border-box;width:min(720px,calc(100vw - 24px));height:min(800px,calc(100dvh - 28px));max-height:none;max-width:none;padding:0;border:1px solid #d6dce2;border-radius:14px;background:#faf9f6;color:#202d39;overflow:hidden}
+.ltc-contact-modal{box-sizing:border-box;width:min(720px,calc(100vw - 24px));height:min(600px,calc(100dvh - 28px));max-height:none;max-width:none;padding:0;border:1px solid #d6dce2;border-radius:14px;background:#faf9f6;color:#202d39;overflow:hidden}
 .ltc-contact-modal[open]{display:grid;grid-template-rows:auto minmax(0,1fr)}
 .ltc-contact-modal::backdrop{background:#14232bb0}
 .ltc-contact-modal-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px;border-bottom:1px solid #d6dce2;font:650 15px/1.4 system-ui,sans-serif}
@@ -6,3 +6,118 @@
 .ltc-contact-modal iframe{display:block;width:100%;height:100%;border:0}
 .ltc-booking-notes{width:min(calc(100% - 32px),1080px);margin:20px auto}
 .ltc-booking-notes summary{cursor:pointer;font-weight:650;padding:8px 0}
+
+.ltc-safety-document body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(16px, 5vw, 28px);
+  color: #202d39;
+  background: #faf9f6;
+  font: 16px/1.65 system-ui, sans-serif;
+}
+
+.safety-page h1 {
+  margin: .8em 0 .55em;
+  font-size: clamp(1.6rem, 5vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+/* The enclosing dialog already displays this heading. */
+.safety-page:has(> a[hidden]) h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.safety-page .safety-overview p {
+  margin: 0 0 .8em;
+}
+
+.safety-page .safety-full {
+  border: 1px solid #d6dce2;
+  border-radius: 8px;
+}
+
+.safety-page .safety-full summary {
+  padding: 10px 12px;
+  min-height: 44px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.safety-page .safety-notices {
+  padding: 0 12px;
+}
+
+.safety-page .safety-notices section {
+  padding: 12px 0;
+  border-top: 1px solid #d6dce2;
+}
+
+.safety-page .safety-notices h2 {
+  margin: 0 0 .4em;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.safety-page .safety-notices p {
+  margin: 0;
+}
+
+.safety-page .confirm {
+  margin-top: 16px;
+  padding: 12px;
+  background: #edf3ee;
+  border-radius: 8px;
+}
+
+.safety-page .safety-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.safety-page .safety-agreement input {
+  flex: none;
+  width: 19px;
+  height: 19px;
+  margin: .25em 0 0;
+  accent-color: #315d50;
+}
+
+.safety-page .confirm button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px solid #315d50;
+  border-radius: 8px;
+  color: #fff;
+  background: #315d50;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.safety-page .confirm button:disabled {
+  border-color: #cbd5e1;
+  color: #334155;
+  background: #e2e8f0;
+  cursor: default;
+}
+
+.safety-page :is(summary, input, button):focus-visible {
+  outline: 2px solid #315d50;
+  outline-offset: 3px;
+}
+
+.safety-page [hidden] {
+  display: none !important;
+}

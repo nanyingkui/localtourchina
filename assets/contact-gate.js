@@ -3,9 +3,22 @@
     kakao: 'https://pf.kakao.com/_hvrmn/chat',
     whatsapp: 'https://wa.me/821055722601',
   };
+  const placements = ['home_hero', 'home_sticky', 'consult_intro', 'quote_review', 'footer', 'other'];
   function language() {
     const code = document.documentElement.lang.toLowerCase();
     return code.startsWith('zh') ? 'zh' : code.startsWith('en') ? 'en' : 'ko';
+  }
+  function placement(trigger) {
+    const explicit = trigger?.getAttribute('data-contact-placement');
+    if (placements.includes(explicit)) return explicit;
+    if (trigger?.closest('#copy-open, #service-copy-open, #chat-fallback')) return 'quote_review';
+    if (trigger?.closest('footer')) return 'footer';
+    return 'other';
+  }
+  function track(name, dimensions) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, {page_language:language(), ...dimensions});
+    } catch {}
   }
   function safetyUrl(channel, target) {
     const lang = language();
@@ -37,9 +50,12 @@
   }
 
   let dialog, frame, trigger;
-  function openSafety(path) {
+  function openSafety(path, opener = document.activeElement) {
     const url = new URL(path, location.href);
+    const channel = url.searchParams.get('channel');
+    const ctaPlacement = placement(opener);
     url.searchParams.set('dialog','1');
+    url.searchParams.set('placement', ctaPlacement);
     if (!dialog) {
       const stylesheet = document.createElement('link');
       stylesheet.rel = 'stylesheet';
@@ -68,9 +84,14 @@
         if (trigger instanceof HTMLElement) trigger.focus();
       });
     }
-    trigger = document.activeElement;
+    trigger = opener;
     frame.src = url.href;
-    if (!dialog.open) dialog.showModal();
+    if (!dialog.open) {
+      dialog.showModal();
+      if (['kakao', 'wechat', 'whatsapp'].includes(channel)) {
+        track('ltc_contact_safety_open', {channel, cta_placement:ctaPlacement});
+      }
+    }
   }
   function isSafetyLink(anchor) {
     const url = new URL(anchor.href, location.href);
@@ -94,7 +115,8 @@
       event.stopImmediatePropagation();
       const channel = contact.hasAttribute('data-contact')
         ? {ko:'kakao',zh:'wechat',en:'whatsapp'}[language()] : 'wechat';
-      openSafety(safetyUrl(channel, channels[channel]));
+      track('ltc_direct_contact_intent', {channel, cta_placement:placement(contact)});
+      openSafety(safetyUrl(channel, channels[channel]), contact);
       return;
     }
     const anchor = event.target.closest('a[href]');
@@ -102,7 +124,11 @@
       rewrite(anchor);
       if (isSafetyLink(anchor) && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
         event.preventDefault();
-        openSafety(anchor.href);
+        openSafety(anchor.href, anchor);
+      } else if (/^\/(?:(?:zh|en)\/)?independent-(?:travel|city)\.html$/.test(location.pathname)
+        && anchor.origin === location.origin
+        && /^\/(?:(?:zh|en)\/)?(?:service-)?consultation\.html$/.test(anchor.pathname)) {
+        track('ltc_inquiry_entry', {entrypoint:'independent_guide', product_id:'unspecified'});
       }
     }
   }, true);

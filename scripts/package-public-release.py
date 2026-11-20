@@ -7,7 +7,7 @@ measurement_id = 'G-232N1VVFP5'
 head = re.compile(rb'</head\s*>', re.IGNORECASE)
 title = re.compile(rb'<title(?:\s[^>]*)?>', re.IGNORECASE)
 redirect = re.compile(rb'<meta\s+http-equiv=["\']refresh["\']', re.IGNORECASE)
-analytics = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={measurement_id}"></script>
+analytics = rf"""<script async src="https://www.googletagmanager.com/gtag/js?id={measurement_id}"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag() {{ window.dataLayer.push(arguments); }}
@@ -18,7 +18,9 @@ for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_id',
   if (campaign.has(key)) analyticsPage.searchParams.set(key, campaign.get(key));
 }}
 gtag('js', new Date());
-gtag('config', '{measurement_id}', {{ page_location: analyticsPage.href }});
+const embeddedSafety = /^(?:\/(?:zh|en))?\/travel-safety\.html$/.test(location.pathname)
+  && window.parent !== window && campaign.get('dialog') === '1';
+gtag('config', '{measurement_id}', {{ page_location: analyticsPage.href, send_page_view: !embeddedSafety }});
 </script>
 """.encode()
 

@@ -25,6 +25,10 @@ export function renderHome(lang,{assetBase,directory,archivePhotos={}}){
    note:t('황석채 뒤 호텔 휴식 · 부용진 야경 후 장가계 복귀','黄石寨游览后回酒店休息，游览芙蓉镇夜景后返回张家界','Hotel break after Huangshizhai. Return to Zhangjiajie after Furong’s night views.'),
   },
  ];
+ const quoteUrl=u('consultation.html?trip=custom');
+ const kakaoSafety='/travel-safety.html?channel=kakao#next='+encodeURIComponent('https://pf.kakao.com/_hvrmn/chat');
+ const quickKakao=placement=>`<a class="primary ed-primary" href="${kakaoSafety}" data-contact data-contact-placement="${placement}">카카오톡으로 먼저 물어보기</a>`;
+ const quotePrimary=`<a class="primary ed-primary" href="${quoteUrl}" data-ed-action="start_inquiry">${t('여행 상담하기','咨询行程','Discuss your trip')}</a>`;
  const viewPhotos=t('사진 보기','看照片','View photos');
  const cards=featured.map(r=>{
   const cover=archivePhotos[r.scene]?.[0];
@@ -57,10 +61,12 @@ export function renderHome(lang,{assetBase,directory,archivePhotos={}}){
   <section class="ed-shell ed-hero">
    <div class="ed-hero-copy">
     <h1>${t('장가계,<br>우리만의 속도로.','张家界，<br>按我们的节奏。','Zhangjiajie.<br>At your own pace.')}</h1>
-    <p class="ed-hero-intro">${t('우리 일행만의 장가계 여행. 일정과 숙소, 차량을 함께 맞추고 한국어로 안내해요.','安排适合你们的张家界私人行程，协助预订住宿、用车和当地导游。','Private trips in Zhangjiajie, with help arranging hotels, transport and local guides.')}</p>
+    <p class="ed-hero-intro">${t('차량·현지 가이드부터 우리 일행만의 일정까지, 한국어로 상담해요.','安排适合你们的张家界私人行程，协助预订住宿、用车和当地导游。','Private trips in Zhangjiajie, with help arranging hotels, transport and local guides.')}</p>
     <div class="ed-actions">
-     <a class="primary ed-primary" href="${u('consultation.html?trip=custom')}" data-ed-action="start_inquiry">${t('여행 상담하기','咨询行程','Discuss your trip')}</a>
-     <a class="ed-text-link" href="${u('trips.html#all-trips')}">${t('숙박여행 9개 비교','比较9条多日游','Compare 9 multi-day tours')}</a>
+     ${lang==='ko'?quickKakao('home_hero'):quotePrimary}
+     ${lang==='ko'
+       ? `<a class="ed-text-link" href="${quoteUrl}" data-ed-action="start_inquiry">일정·견적 요청서 작성하기</a>`
+       : `<a class="ed-text-link" href="${u('trips.html#all-trips')}">${t('숙박여행 9개 비교','比较9条多日游','Compare 9 multi-day tours')}</a>`}
     </div>
     <p class="ed-hero-foot">${t('항공권 별도','机票另购','Flights are separate')}</p>
    </div>
@@ -86,7 +92,7 @@ export function renderHome(lang,{assetBase,directory,archivePhotos={}}){
    </div>
   </section>
   ${renderTeam(lang,{assetBase})}${renderStandards(lang)}${renderEvidence(lang,{assetBase})}${renderBooking(lang)}
-  <div class="ed-shell ed-closing">
+  <div class="ed-shell ed-closing" id="community">
    <div class="ed-actions" role="navigation" aria-label="${t('영상과 여행 커뮤니티','视频与旅行社区','Videos and travel community')}">
     <a class="ed-text-link" href="https://www.youtube.com/@Lctch/videos" target="_blank" rel="noopener">${t('여행 영상 · YouTube','旅行视频 · YouTube','Travel videos · YouTube')}</a>
     <a class="ed-text-link" href="https://cafe.naver.com/lotocha" target="_blank" rel="noopener">${t('여행 커뮤니티 · Naver Cafe','旅行社区 · Naver Cafe','Travel community · Naver Cafe')}</a>
@@ -94,7 +100,7 @@ export function renderHome(lang,{assetBase,directory,archivePhotos={}}){
   </div>
   <aside class="ed-mobile-action" data-home-handoff hidden>
    <p>${t('날짜가 미정이어도 괜찮아요','日期未定也可咨询','Dates still undecided?')}</p>
-   <a class="primary ed-primary" href="${u('consultation.html?trip=custom')}">${t('여행 상담하기','咨询行程','Discuss your trip')}</a>
+   ${lang==='ko'?quickKakao('home_sticky'):quotePrimary}
   </aside>
  </main>`;
 }

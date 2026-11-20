@@ -7,7 +7,7 @@ const WORDS = {
     service: ['만날 날짜·장소와 서비스 범위', '인원·짐에 맞는 차량 또는 가이드', '전체 금액과 추가 비용이 생기는 조건', '예약 가능 여부와 변경·취소 조건'],
     note: '정해진 내용만 알려주세요. 상담으로 조건을 확인한 뒤, 예약 여부를 결정합니다.',
     stages: ['여행 조건 정리', '대화로 일정·비용 확인', '서면 조건 확인 후 예약 결정'],
-    direct: '먼저 질문하고 싶다면, 카카오톡으로',
+    direct: '카카오톡으로 먼저 물어보기',
     pending: '아직 보내지 않은 문의입니다',
     pendingText: '내용을 복사한 뒤 카카오톡 채팅창에 붙여넣고 보내주세요. 이 화면만으로 문의가 전달되거나 예약이 확정되지는 않습니다.',
     fullText: '문의 내용 전체 · 아래에서 스크롤해 확인할 수 있어요',
@@ -55,7 +55,8 @@ const block = (name, markup) => `<!-- ed-inquiry:${name}:start -->${markup}<!-- 
 function intro(lang, service) {
   const words = WORDS[lang];
   const items = service ? words.service : words.trip;
-  return block('intro', `<aside class="ed-inquiry-expect" aria-labelledby="ed-inquiry-expect-title"><p class="ed-inquiry-eyebrow">${escape(words.eyebrow)}</p><h2 id="ed-inquiry-expect-title">${escape(words.title)}</h2><ul>${items.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><p class="ed-inquiry-note">${escape(words.note)}</p><ol class="ed-inquiry-stages" aria-label="${escape(words.eyebrow)}">${words.stages.map(stage=>`<li>${escape(stage)}</li>`).join('')}</ol><a class="ed-inquiry-direct" data-contact href="${contact[lang]}">${escape(words.direct)}</a></aside>`);
+  const direct = lang==='ko'?'':`<a class="ed-inquiry-direct" data-contact href="${contact[lang]}">${escape(words.direct)}</a>`;
+  return block('intro', `<aside class="ed-inquiry-expect" aria-labelledby="ed-inquiry-expect-title"><p class="ed-inquiry-eyebrow">${escape(words.eyebrow)}</p><h2 id="ed-inquiry-expect-title">${escape(words.title)}</h2><ul>${items.map(item=>`<li>${escape(item)}</li>`).join('')}</ul><p class="ed-inquiry-note">${escape(words.note)}</p><ol class="ed-inquiry-stages" aria-label="${escape(words.eyebrow)}">${words.stages.map(stage=>`<li>${escape(stage)}</li>`).join('')}</ol>${direct}</aside>`);
 }
 
 function pending(lang) {
@@ -86,6 +87,14 @@ export function enhanceInquiry(html, lang = 'ko') {
   const formId = service ? 'service-inquiry-form' : 'consult-form';
   const form = new RegExp('<form\\b(?=[^>]*\\bid="' + formId + '")[^>]*>');
   document = document.replace(form, match => intro(locale, service) + match);
+  if (locale === 'ko') {
+    const safety = '/travel-safety.html?channel=kakao#next=' + encodeURIComponent(contact.ko);
+    const direct = block('quick-contact', `<a class="ed-inquiry-direct" data-contact data-contact-placement="consult_intro" href="${safety}">${escape(WORDS.ko.direct)}</a>`);
+    const introEnd = /(<section\b[^>]*\bclass="(?:consult-intro|service-intro)\b[^"]*"[^>]*>[\s\S]*?)(<\/section>)/;
+    document = introEnd.test(document)
+      ? document.replace(introEnd, '$1' + direct + '$2')
+      : document.replace(form, direct + '$&');
+  }
 
   if (service) {
     document = document.replace(/(<section\b[^>]*\bid="service-review"[^>]*>)/, '$1' + pending(locale));
